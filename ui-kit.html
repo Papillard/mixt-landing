@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mixt — UI Kit gelé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  @import url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css');
+
+  :root {
+    --deep: #361822;
+    --deep-hover: #2B1018;
+    --rich: #6B3D32;
+    --warm: #B07460;
+    --accent: #C85A4A;
+    --violet: #6A4C7A;
+    --violet-dark: #4E3660;
+    --blush: #D4A08A;
+    --cream: #F5E6DA;
+    --base: #FFF8F2;
+    --text: #1A1210;
+    --text-2: #6B5B52;
+    --text-3: #9A8A80;
+    --border: rgba(0,0,0,0.06);
+    --r: 6px;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Geist Sans','Geist',-apple-system,sans-serif; background:var(--base); color:var(--text); -webkit-font-smoothing:antialiased; }
+
+  /* Layout */
+  .kit-header { max-width:960px; margin:0 auto; padding:48px 24px 0; }
+  .kit-header h1 { font-family:'Fraunces',serif; font-size:28px; font-weight:500; font-variation-settings:'opsz' 144; margin-bottom:4px; }
+  .kit-header .sub { font-size:13px; color:var(--text-3); margin-bottom:6px; }
+  .kit-header .badge { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; background:var(--deep); color:#fff; padding:3px 8px; border-radius:3px; }
+
+  .kit-section { max-width:960px; margin:0 auto; padding:56px 24px 44px; border-bottom:1px solid var(--border); }
+  .kit-section:last-child { border-bottom:none; }
+  .kit-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.15em; color:var(--text-3); margin-bottom:28px; }
+  .comp-label { font-size:11px; color:var(--text-3); margin-bottom:10px; font-weight:500; }
+  .spacer { margin-top:32px; }
+
+  /* Full-width dark sections */
+  .kit-section.full { max-width:100%; padding-left:calc((100% - 960px)/2 + 24px); padding-right:calc((100% - 960px)/2 + 24px); }
+  .surface-deep { background:var(--deep); }
+  .surface-rich { background:linear-gradient(180deg,var(--rich),#522A20); }
+  .surface-violet { background:linear-gradient(180deg,var(--violet),var(--violet-dark)); }
+  .surface-warm { background:var(--warm); }
+  .surface-cream { background:var(--cream); }
+
+  /* ============================================
+     BUTTONS
+     ============================================ */
+  .btns-row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .btn { display:inline-flex; align-items:center; gap:6px; font-family:inherit; font-weight:600; font-size:14px; text-decoration:none; cursor:pointer; border:none; border-radius:var(--r); transition:all 0.2s; padding:12px 24px; }
+  .btn-sm { padding:8px 16px; font-size:12px; }
+  .btn-lg { padding:14px 30px; font-size:15px; }
+  .btn-primary { background:var(--deep); color:#fff; }
+  .btn-primary:hover { background:var(--deep-hover); }
+  .btn-secondary { background:transparent; color:var(--text); border:1px solid rgba(0,0,0,0.12); }
+  .btn-secondary:hover { border-color:var(--warm); }
+  .btn-white { background:#fff; color:var(--text); }
+  .btn-white:hover { background:#f5f5f5; }
+  .btn-ghost-light { background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.2); }
+  .btn-ghost-light:hover { border-color:rgba(255,255,255,0.5); }
+
+  /* ============================================
+     TRUST BAR — Accent left border
+     ============================================ */
+  .trust { display:flex; gap:0; }
+  .trust-item { flex:1; padding:16px 20px; border-left:2px solid var(--accent); font-size:13px; font-weight:500; color:var(--text); }
+
+  /* ============================================
+     SECTION LABEL — Line
+     ============================================ */
+  .section-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; display:flex; align-items:center; gap:12px; }
+  .section-label::before { content:''; width:24px; height:1px; }
+
+  /* ============================================
+     SECTION TITLE — Geist + Newsreader
+     ============================================ */
+  .section-title { font-size:44px; font-weight:400; line-height:1.15; letter-spacing:-0.03em; max-width:620px; }
+  .section-title em { font-family:'Newsreader',serif; font-style:italic; font-weight:400; font-size:1.1em; }
+
+  /* ============================================
+     TABS — Pill solid
+     ============================================ */
+  .tabs { display:flex; gap:8px; }
+  .tab-btn { font-family:inherit; font-size:13px; font-weight:500; color:var(--text-2); background:none; border:1px solid var(--border); padding:8px 20px; border-radius:100px; cursor:pointer; transition:all 0.2s; }
+  .tab-btn:hover { border-color:var(--deep); color:var(--text); }
+  .tab-btn.active { color:#fff; background:var(--deep); border-color:var(--deep); font-weight:600; }
+
+  /* ============================================
+     CARDS — Lift hover
+     ============================================ */
+  .cards-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .card { padding:28px 24px; background:#fff; border:1px solid var(--border); transition:all 0.25s; cursor:pointer; }
+  .card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.06); border-color:rgba(0,0,0,0.12); }
+  .card.active { border-color:var(--deep); background:rgba(54,24,34,0.03); }
+  .card-title { font-size:16px; font-weight:600; margin-bottom:6px; }
+  .card-desc { font-size:14px; color:var(--text-2); line-height:1.5; }
+
+  /* Dark card */
+  .card-dark { background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.06); }
+  .card-dark:hover { border-color:rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.2); transform:translateY(-2px); }
+  .card-dark.active { border-color:var(--blush); background:rgba(212,160,138,0.06); }
+  .card-dark .card-title { color:#fff; }
+  .card-dark .card-desc { color:rgba(255,255,255,0.4); }
+
+  /* ============================================
+     TAGS — Square
+     ============================================ */
+  .tags-row { display:flex; gap:6px; flex-wrap:wrap; }
+  .tag { font-family:inherit; font-size:11px; font-weight:600; padding:4px 10px; border-radius:3px; border:none; color:var(--deep); background:var(--cream); cursor:pointer; transition:all 0.2s; text-transform:uppercase; letter-spacing:0.06em; }
+  .tag:hover { background:#EAD9CC; }
+  .tag.active { background:var(--deep); color:#fff; }
+
+  /* ============================================
+     PHOTO CARD
+     ============================================ */
+  .photo-cards-row { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  .photo-card { position:relative; aspect-ratio:4/5; border-radius:var(--r); overflow:hidden; cursor:pointer; }
+  .photo-card-bg { position:absolute; inset:0; background:linear-gradient(160deg,var(--blush),var(--warm)); }
+  .photo-card-overlay { position:absolute; inset:0; background:linear-gradient(180deg,transparent 40%,rgba(54,24,34,0.6) 100%); }
+  .photo-card-content { position:absolute; bottom:0; left:0; right:0; padding:24px; color:#fff; }
+  .photo-card-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.7); margin-bottom:8px; }
+  .photo-card-title { font-size:22px; font-weight:500; line-height:1.25; letter-spacing:-0.02em; }
+  .photo-card-arrow { position:absolute; top:20px; right:20px; font-size:18px; color:rgba(255,255,255,0.5); transition:all 0.2s; }
+  .photo-card:hover .photo-card-arrow { color:#fff; transform:translate(2px,-2px); }
+
+  /* ============================================
+     BRAND STATEMENT — Geist + Newsreader
+     ============================================ */
+  .statement { text-align:center; padding:48px 0; }
+  .statement h2 { font-family:'Geist Sans',sans-serif; font-weight:400; font-size:42px; line-height:1.2; letter-spacing:-0.035em; max-width:650px; margin:0 auto; }
+  .statement h2 em { font-family:'Newsreader',serif; font-style:italic; font-weight:400; font-size:1.1em; }
+
+  /* ============================================
+     REASSURANCE BAR
+     ============================================ */
+  .reassurance { display:flex; align-items:center; justify-content:center; gap:12px; padding:18px 24px; background:var(--cream); border-radius:var(--r); }
+  .reassurance-icon { width:20px; height:20px; color:var(--accent); flex-shrink:0; }
+  .reassurance-icon svg { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:1.5; stroke-linecap:round; }
+  .reassurance-text { font-size:13px; font-weight:500; color:var(--text-2); }
+  .reassurance-sep { width:1px; height:16px; background:rgba(0,0,0,0.1); margin:0 8px; }
+  .reassurance-link { font-size:13px; font-weight:600; color:var(--accent); text-decoration:none; }
+
+  /* ============================================
+     FORM
+     ============================================ */
+  .form-row { display:flex; gap:8px; max-width:420px; }
+  .form-input { flex:1; padding:12px 16px; font-size:14px; font-family:inherit; border:1px solid var(--border); border-radius:var(--r); background:#fff; color:var(--text); outline:none; }
+  .form-input:focus { border-color:var(--warm); }
+  .form-input::placeholder { color:var(--text-3); }
+  .form-input-dark { flex:1; padding:12px 16px; font-size:14px; font-family:inherit; border:1px solid rgba(255,255,255,0.12); border-radius:var(--r); background:rgba(255,255,255,0.06); color:#fff; outline:none; }
+  .form-input-dark:focus { border-color:var(--blush); }
+  .form-input-dark::placeholder { color:rgba(255,255,255,0.3); }
+
+  /* ============================================
+     LOGOS
+     ============================================ */
+  .logos-row { display:flex; align-items:center; gap:48px; }
+  .logos-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-3); white-space:nowrap; }
+  .logo-placeholder { font-family:'Fraunces',serif; font-weight:700; font-size:18px; color:var(--blush); font-variation-settings:'opsz' 144; }
+  .logos-divider { width:1px; height:20px; background:var(--border); }
+
+  /* ============================================
+     SURFACE DEMO BLOCKS
+     ============================================ */
+  .surface-block { border-radius:var(--r); padding:32px; margin-bottom:16px; }
+  .surface-block:last-child { margin-bottom:0; }
+  .surface-name { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:16px; }
+  .surface-typo-row { display:flex; flex-direction:column; gap:8px; }
+  .surface-h2 { font-size:32px; font-weight:400; line-height:1.2; letter-spacing:-0.03em; }
+  .surface-h2 em { font-family:'Newsreader',serif; font-style:italic; font-weight:400; font-size:1.1em; }
+  .surface-body { font-size:15px; line-height:1.6; }
+  .surface-small { font-size:13px; }
+  .surface-label-demo { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; display:flex; align-items:center; gap:12px; }
+  .surface-label-demo::before { content:''; width:24px; height:1px; }
+  .surface-ctas { display:flex; gap:10px; margin-top:16px; }
+
+  @media (max-width:768px) {
+    .cards-row { grid-template-columns:1fr; }
+    .photo-cards-row { grid-template-columns:1fr; }
+    .trust { flex-direction:column; gap:0; }
+    .logos-row { flex-wrap:wrap; gap:24px; }
+    .btns-row { gap:8px; }
+    .form-row { flex-direction:column; max-width:100%; }
+    .statement h2 { font-size:28px; }
+    .section-title { font-size:30px; }
+    .kit-section.full { padding-left:24px; padding-right:24px; }
+    .surface-block { padding:24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="kit-header">
+  <h1>mixt — UI Kit</h1>
+  <p class="sub">Composants gelés · Un choix par pattern</p>
+  <div class="badge">🔒 Palette gelée · Fév. 2026</div>
+</div>
+
+<!-- ============================================
+     1. BUTTONS
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">1 — Buttons</div>
+
+  <div class="comp-label">Tailles</div>
+  <div class="btns-row" style="margin-bottom:24px;">
+    <button class="btn btn-primary btn-sm">Small →</button>
+    <button class="btn btn-primary">Default →</button>
+    <button class="btn btn-primary btn-lg">Large →</button>
+  </div>
+
+  <div class="comp-label">Sur fond clair (base / cream)</div>
+  <div class="btns-row" style="margin-bottom:24px;">
+    <button class="btn btn-primary">Rejoindre la liste →</button>
+    <button class="btn btn-secondary">Découvrir</button>
+  </div>
+
+  <div class="comp-label">Sur fond dark (deep / rich / violet)</div>
+  <div style="background:var(--deep); padding:20px 24px; border-radius:var(--r);">
+    <div class="btns-row">
+      <button class="btn btn-white">Démarrer →</button>
+      <button class="btn btn-ghost-light">En savoir plus</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     2. TRUST BAR
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">2 — Trust bar</div>
+  <div class="trust">
+    <div class="trust-item">Prescrit par des médecins formés à la dermatologie</div>
+    <div class="trust-item">Formulations magistrales préparées en pharmacie</div>
+    <div class="trust-item">Suivi continu et ajustement mensuel</div>
+  </div>
+</div>
+
+<!-- ============================================
+     3. SECTION LABEL + TITLE
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">3 — Label + titre de section</div>
+
+  <div class="comp-label">Sur fond clair</div>
+  <div style="margin-bottom:32px;">
+    <div class="section-label" style="color:var(--text-2); margin-bottom:18px;"><span style="width:24px;height:1px;background:var(--accent);display:inline-block;"></span>Comment ça marche</div>
+    <div class="section-title">Un parcours médical <em>simple et personnalisé</em></div>
+  </div>
+
+  <div class="comp-label">Sur fond deep</div>
+  <div style="background:var(--deep); padding:32px; border-radius:var(--r); margin-bottom:16px;">
+    <div class="section-label" style="color:var(--blush); margin-bottom:18px;"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;"></span>Le problème</div>
+    <div class="section-title" style="color:#fff;">15 millions de Français souffrent de maladies de peau. <em>La plupart abandonnent.</em></div>
+  </div>
+
+  <div class="comp-label">Sur fond violet</div>
+  <div style="background:linear-gradient(180deg,var(--violet),var(--violet-dark)); padding:32px; border-radius:var(--r);">
+    <div class="section-label" style="color:var(--blush); margin-bottom:18px;"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;"></span>Notre approche médicale</div>
+    <div class="section-title" style="color:#fff;">De la dermatologie de qualité, <em>accessible à tous</em></div>
+  </div>
+</div>
+
+<!-- ============================================
+     4. TABS
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">4 — Tabs (pill solid)</div>
+  <div class="tabs" style="margin-bottom:20px;">
+    <button class="tab-btn active">Acné</button>
+    <button class="tab-btn">Rosacée</button>
+    <button class="tab-btn">Eczéma</button>
+    <button class="tab-btn">Hyperpigmentation</button>
+  </div>
+  <div style="padding:24px; background:#fff; border:1px solid var(--border); border-radius:var(--r); font-size:15px; color:var(--text-2); line-height:1.6;">
+    L'acné n'est pas qu'un problème d'adolescent. Hormonale, inflammatoire ou kystique, chaque acné nécessite une approche différente.
+  </div>
+</div>
+
+<!-- ============================================
+     5. CARDS
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">5 — Cards (lift hover)</div>
+
+  <div class="comp-label">Sur fond clair</div>
+  <div class="cards-row" style="margin-bottom:24px;">
+    <div class="card active" onclick="this.classList.toggle('active')">
+      <div class="card-title">Protocoles dermatologiques</div>
+      <div class="card-desc">Conçus avec des dermatologues, validés médicalement.</div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('active')">
+      <div class="card-title">Formulations magistrales</div>
+      <div class="card-desc">Préparées sur-mesure en pharmacie.</div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('active')">
+      <div class="card-title">Suivi par IA</div>
+      <div class="card-desc">Analyse l'évolution mois après mois.</div>
+    </div>
+  </div>
+
+  <div class="comp-label">Sur fond dark</div>
+  <div style="background:var(--deep); padding:24px; border-radius:var(--r);">
+    <div class="cards-row">
+      <div class="card card-dark active" onclick="this.classList.toggle('active')">
+        <div class="card-title">Protocoles</div>
+        <div class="card-desc">Validés par des dermatologues.</div>
+      </div>
+      <div class="card card-dark" onclick="this.classList.toggle('active')">
+        <div class="card-title">Formulations</div>
+        <div class="card-desc">Sur-mesure en pharmacie.</div>
+      </div>
+      <div class="card card-dark" onclick="this.classList.toggle('active')">
+        <div class="card-title">Suivi IA</div>
+        <div class="card-desc">Ajustement continu.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     6. TAGS
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">6 — Tags pathologies</div>
+  <div class="tags-row">
+    <button class="tag active">Hormonale</button>
+    <button class="tag">Inflammatoire</button>
+    <button class="tag">Kystique</button>
+    <button class="tag">Tardive</button>
+  </div>
+</div>
+
+<!-- ============================================
+     7. PHOTO CARDS
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">7 — Photo cards</div>
+  <div class="photo-cards-row">
+    <div class="photo-card">
+      <div class="photo-card-bg"></div>
+      <div class="photo-card-overlay"></div>
+      <div class="photo-card-arrow">↗</div>
+      <div class="photo-card-content">
+        <div class="photo-card-label">Pathologie</div>
+        <div class="photo-card-title">Acné hormonale</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-card-bg" style="background:linear-gradient(160deg,var(--cream),var(--warm));"></div>
+      <div class="photo-card-overlay"></div>
+      <div class="photo-card-arrow">↗</div>
+      <div class="photo-card-content">
+        <div class="photo-card-label">Pathologie</div>
+        <div class="photo-card-title">Rosacée & rougeurs</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     8. BRAND STATEMENT
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">8 — Brand statement</div>
+
+  <div class="comp-label">Sur fond warm (aplat)</div>
+  <div style="background:var(--warm); padding:48px 32px; border-radius:var(--r); text-align:center; position:relative; overflow:hidden; margin-bottom:16px;">
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-size:180px;font-weight:500;color:rgba(255,255,255,0.06);pointer-events:none;white-space:nowrap;font-variation-settings:'opsz' 144;">mixt</div>
+    <h2 style="font-family:'Geist Sans',sans-serif;font-weight:400;font-size:36px;line-height:1.2;letter-spacing:-0.035em;color:#fff;max-width:550px;margin:0 auto;position:relative;z-index:1;">Le traitement le plus efficace est celui qui est <em style="font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:1.1em;">fait pour vous.</em></h2>
+  </div>
+
+  <div class="comp-label">Sur fond deep</div>
+  <div style="background:var(--deep); padding:48px 32px; border-radius:var(--r); text-align:center;">
+    <h2 style="font-family:'Geist Sans',sans-serif;font-weight:400;font-size:36px;line-height:1.2;letter-spacing:-0.035em;color:#fff;max-width:550px;margin:0 auto;">Prêt à prendre soin de <em style="font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:1.1em;">votre peau</em> ?</h2>
+  </div>
+</div>
+
+<!-- ============================================
+     9. REASSURANCE + FORM
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">9 — Réassurance & formulaire</div>
+
+  <div class="reassurance" style="margin-bottom:28px;">
+    <div class="reassurance-icon"><svg viewBox="0 0 24 24"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <span class="reassurance-text">Vos données de santé sont protégées et soumises au secret médical</span>
+    <span class="reassurance-sep"></span>
+    <a href="#" class="reassurance-link">En savoir plus →</a>
+  </div>
+
+  <div class="comp-label">Formulaire — fond clair</div>
+  <div class="form-row" style="margin-bottom:24px;">
+    <input class="form-input" type="email" placeholder="votre@email.com">
+    <button class="btn btn-primary">S'inscrire →</button>
+  </div>
+
+  <div class="comp-label">Formulaire — fond dark</div>
+  <div style="background:var(--deep); padding:24px; border-radius:var(--r);">
+    <div class="form-row" style="max-width:420px;">
+      <input class="form-input-dark" type="email" placeholder="votre@email.com">
+      <button class="btn btn-white">S'inscrire →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     10. LOGOS
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">10 — Logos presse</div>
+  <div class="logos-row">
+    <div class="logos-label">Ils parlent de nous</div>
+    <div class="logos-divider"></div>
+    <div class="logo-placeholder">Le Monde</div>
+    <div class="logo-placeholder">Forbes</div>
+    <div class="logo-placeholder">Vogue</div>
+    <div class="logo-placeholder">TechCrunch</div>
+  </div>
+</div>
+
+<!-- ============================================
+     11. SURFACES — Règles typographiques par aplat
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">11 — Surfaces & règles typographiques</div>
+
+  <!-- BASE -->
+  <div class="surface-block" style="background:var(--base); border:1px solid var(--border);">
+    <div class="surface-name" style="color:var(--text-3);">Base · #FFF8F2</div>
+    <div class="surface-typo-row">
+      <div class="surface-label-demo" style="color:var(--text-2);"><span style="width:24px;height:1px;background:var(--accent);display:inline-block;"></span>Label → text-2 + accent line</div>
+      <div class="surface-h2" style="color:var(--text);">Titre h2 en <em>text primary</em></div>
+      <div class="surface-body" style="color:var(--text-2);">Body text en text-2. Descriptions et paragraphes.</div>
+      <div class="surface-small" style="color:var(--text-3);">Métadonnées en text-3.</div>
+    </div>
+    <div class="surface-ctas">
+      <button class="btn btn-primary btn-sm">Primary →</button>
+      <button class="btn btn-secondary btn-sm">Secondary</button>
+    </div>
+  </div>
+
+  <!-- CREAM -->
+  <div class="surface-block" style="background:var(--cream);">
+    <div class="surface-name" style="color:var(--text-3);">Cream · #F5E6DA</div>
+    <div class="surface-typo-row">
+      <div class="surface-label-demo" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--violet);display:inline-block;"></span>Label → text + violet line</div>
+      <div class="surface-h2" style="color:var(--text);">Titre h2 en <em>text primary</em></div>
+      <div class="surface-body" style="color:var(--text-2);">Body text en text-2.</div>
+    </div>
+    <div class="surface-ctas">
+      <button class="btn btn-primary btn-sm">Primary →</button>
+    </div>
+  </div>
+
+  <!-- WARM -->
+  <div class="surface-block" style="background:var(--warm);">
+    <div class="surface-name" style="color:rgba(255,255,255,0.5);">Warm · #B07460</div>
+    <div class="surface-typo-row">
+      <div class="surface-h2" style="color:#fff;">Titre h2 en <em>blanc 100%</em></div>
+      <div class="surface-body" style="color:rgba(255,255,255,0.7);">Body text en blanc 70%.</div>
+    </div>
+  </div>
+
+  <!-- DEEP -->
+  <div class="surface-block" style="background:var(--deep);">
+    <div class="surface-name" style="color:rgba(255,255,255,0.2);">Deep · #361822</div>
+    <div class="surface-typo-row">
+      <div class="surface-label-demo" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;"></span>Label → blush + blush line</div>
+      <div class="surface-h2" style="color:#fff;">Titre h2 en <em>blanc 100%</em></div>
+      <div class="surface-body" style="color:rgba(255,255,255,0.45);">Body text en blanc 45%. Descriptions pillars et contenus secondaires.</div>
+      <div class="surface-small" style="color:rgba(255,255,255,0.35);">Stat descriptions en blanc 35%.</div>
+      <div class="surface-small" style="color:rgba(255,255,255,0.2);">Footer copyright en blanc 20%.</div>
+    </div>
+    <div class="surface-ctas">
+      <button class="btn btn-white btn-sm">White →</button>
+      <button class="btn btn-ghost-light btn-sm">Ghost light</button>
+    </div>
+  </div>
+
+  <!-- RICH -->
+  <div class="surface-block" style="background:linear-gradient(180deg,var(--rich),#522A20);">
+    <div class="surface-name" style="color:rgba(255,255,255,0.3);">Rich gradient · #6B3D32 → #522A20</div>
+    <div class="surface-typo-row">
+      <div class="surface-label-demo" style="color:rgba(255,255,255,0.5);"><span style="width:24px;height:1px;background:rgba(255,255,255,0.3);display:inline-block;"></span>Label → blanc 50% + blanc 30% line</div>
+      <div class="surface-h2" style="color:#fff;">Titre h2 en <em>blanc 100%</em></div>
+      <div class="surface-body" style="color:rgba(255,255,255,0.4);">Sous-titre en blanc 40%.</div>
+    </div>
+    <div class="surface-ctas">
+      <button class="btn btn-white btn-sm">White →</button>
+    </div>
+  </div>
+
+  <!-- VIOLET -->
+  <div class="surface-block" style="background:linear-gradient(180deg,var(--violet),var(--violet-dark));">
+    <div class="surface-name" style="color:rgba(255,255,255,0.3);">Violet gradient · #6A4C7A → #4E3660</div>
+    <div class="surface-typo-row">
+      <div class="surface-label-demo" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;"></span>Label → blush + blush line</div>
+      <div class="surface-h2" style="color:#fff;">Titre h2 en <em>blanc 100%</em></div>
+      <div class="surface-body" style="color:rgba(255,255,255,0.45);">Pillar descriptions en blanc 45%.</div>
+    </div>
+    <div class="surface-ctas">
+      <button class="btn btn-white btn-sm">White →</button>
+      <button class="btn btn-ghost-light btn-sm">Ghost light</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mixt — Votre peau, vraiment personnalisée</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" rel="stylesheet">
+<style>
+  :root {
+    --deep: #361822; --rich: #6B3D32; --violet: #6A4C7A; --violet-dark: #4E3660;
+    --warm: #B07460; --blush: #D4A08A; --cream: #F5E6DA; --base: #FFF8F2;
+    --violet-light: #C0A8CC; --violet-bg: #F0EAF4;
+    --accent: #C85A4A;
+    --text: #1A1210; --text-2: #6B5B52; --text-3: #9A8A80; --border: rgba(0,0,0,0.06); --r: 6px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Geist Sans','Geist',-apple-system,sans-serif; background:var(--base); color:var(--text); -webkit-font-smoothing:antialiased; }
+
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(255,248,242,0.92); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo { font-family:'Fraunces',serif; font-size:22px; font-weight:500; font-variation-settings:'opsz' 144,'WONK' 0,'SOFT' 0; }
+  .nav-right { display:flex; align-items:center; gap:24px; }
+  .nav-right a { font-size:13px; font-weight:450; color:var(--text-2); text-decoration:none; }
+  .nav-right a:hover { color:var(--text); }
+
+  .btn { display:inline-flex; align-items:center; font-family:inherit; font-weight:600; text-decoration:none; cursor:pointer; border:none; border-radius:var(--r); transition:all 0.2s; }
+  .btn-sm { padding:8px 16px; font-size:12px; }
+  .btn-lg { padding:14px 30px; font-size:15px; }
+  .btn-dark { background:var(--deep); color:#fff !important; }
+  .btn-dark:hover { background:#2B1018; }
+  .btn-white { background:#fff; color:var(--text) !important; }
+  .btn-white:hover { background:#f5f5f5; }
+  .btn-ghost { background:transparent; color:var(--text) !important; border:1px solid rgba(0,0,0,0.12); }
+  .btn-ghost:hover { border-color:var(--warm); }
+  .btn-ghost-light { background:transparent; color:#fff !important; border:1px solid rgba(255,255,255,0.2); }
+  .btn-ghost-light:hover { border-color:rgba(255,255,255,0.5); }
+  .inner { max-width:1100px; margin:0 auto; }
+
+  /* HERO */
+  .hero-scroll { position:relative; }
+  .hero-scroll-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:70px; }
+  .hero-left { padding:100px 0 0 0; }
+  .hero-text { padding-bottom:40px; }
+  .hero-text h1 { font-size:48px; font-weight:400; line-height:1.08; letter-spacing:-0.035em; margin-bottom:20px; }
+  .hero-text h1 em { font-family:'Newsreader',serif; font-style:italic; font-weight:400; font-size:1.05em; }
+  .hero-sub { font-size:18px; line-height:1.6; color:var(--text-2); max-width:420px; margin-bottom:28px; }
+  .hero-ctas { display:flex; gap:10px; }
+  .trust-block { padding:40px 0; border-top:1px solid var(--border); }
+  .trust-items { display:flex; flex-direction:column; gap:14px; }
+  .trust-item { padding:0 0 0 14px; border-left:2px solid var(--accent); font-size:15px; font-weight:500; line-height:1.4; }
+
+  .problem-block { padding:100px 0 80px; color:#fff; }
+  .problem-block h2 { margin-bottom:14px; color:#fff; }
+  .problem-block .sub { font-size:18px; line-height:1.6; color:rgba(255,255,255,0.55); margin-bottom:40px; }
+  .problem-stats { display:flex; flex-direction:column; gap:28px; }
+  .problem-stat .num { font-size:48px; font-weight:500; letter-spacing:-0.04em; line-height:1; margin-bottom:4px; color:#fff; }
+  .problem-stat .desc { font-size:15px; color:rgba(255,255,255,0.5); }
+
+  .hero-dark-bg { position:absolute; left:0; right:0; background:linear-gradient(180deg,var(--deep) 0%,#260E16 100%); z-index:-2; }
+  .hero-dark-bg::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:120px 120px; mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.5) 15%,rgba(0,0,0,0.5) 85%,transparent 100%); pointer-events:none; }
+  .hero-right { padding:100px 0 0 0; position:relative; margin-bottom:80px; }
+  .hero-visual-wrap { position:sticky; top:80px; }
+  .hero-visual { width:82%; margin:0 auto; aspect-ratio:3/4; max-height:80vh; border-radius:10px; overflow:hidden; position:relative; background:linear-gradient(160deg,var(--cream),var(--blush)); background-size:cover; background-position:center top; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--text-3); }
+  .hero-visual .layer-after { position:absolute; inset:0; background-size:cover; background-position:center top; clip-path:inset(0 calc(100% - var(--reveal,0%)) 0 0); }
+  .hero-visual .slider-line { display:none; }
+
+  .label { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; margin-bottom:18px; display:flex; align-items:center; gap:10px; }
+  .label::before { content:''; width:24px; height:1px; }
+  h2 { font-size:44px; font-weight:400; line-height:1.15; letter-spacing:-0.03em; max-width:620px; }
+  h2 em { font-family:'Newsreader',serif; font-style:italic; font-weight:400; font-size:1.05em; }
+
+  /* STEPS (cream) */
+  .s-cream { background:var(--cream); padding:100px 40px; }
+  .s-cream h2 { margin-bottom:56px; }
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--border); }
+  .step { padding:36px 28px; border-right:1px solid var(--border); opacity:0; transform:translateY(20px); transition:opacity 0.6s,transform 0.6s; }
+  .step.visible { opacity:1; transform:translateY(0); }
+  .step:nth-child(2) { transition-delay:0.12s; }
+  .step:nth-child(3) { transition-delay:0.24s; }
+  .step:last-child { border-right:none; }
+  .step-num { font-size:12px; font-weight:700; color:var(--accent); margin-bottom:12px; letter-spacing:0.04em; text-transform:uppercase; }
+  .step h3 { font-size:19px; font-weight:600; margin-bottom:8px; }
+  .step p { font-size:15px; line-height:1.6; color:var(--text-2); }
+
+  /* STATEMENT (warm) */
+  .s-warm { padding:80px 40px; text-align:center; background:var(--warm); color:#fff; position:relative; overflow:hidden; }
+  .s-warm::before { content:'mixt'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:'Fraunces',serif; font-size:22vw; font-weight:500; color:rgba(255,255,255,0.06); pointer-events:none; white-space:nowrap; font-variation-settings:'opsz' 144; }
+  .s-warm h2 { max-width:600px; margin:0 auto; text-align:center; color:#fff; position:relative; z-index:2; }
+
+  /* APPROACH (violet) */
+  .s-violet { padding:100px 40px; color:#fff; background:linear-gradient(180deg,var(--violet) 0%,var(--violet-dark) 100%); position:relative; overflow:hidden; }
+  .s-violet::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:120px 120px; mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 80%,transparent 100%); pointer-events:none; }
+  .s-violet .inner { position:relative; z-index:2; }
+  .s-violet h2 { margin-bottom:56px; }
+  .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .pillar { padding:32px 24px; border-radius:var(--r); background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); transition:all 0.25s; }
+  .pillar:hover { background:rgba(255,255,255,0.1); transform:translateY(-2px); }
+  .pillar h3 { font-size:18px; font-weight:600; margin-bottom:8px; color:#fff; }
+  .pillar p { font-size:15px; line-height:1.6; color:rgba(255,255,255,0.55); }
+
+  /* CONDITIONS (base) */
+  .s-conditions { padding:100px 40px; background:var(--base); }
+  .s-conditions h2 { margin-bottom:40px; }
+  .condition-tabs { display:flex; gap:8px; margin-bottom:28px; }
+  .condition-tab { font-family:inherit; font-size:14px; font-weight:500; color:var(--text-2); background:none; border:1px solid var(--border); padding:9px 22px; border-radius:100px; cursor:pointer; transition:all 0.2s; }
+  .condition-tab:hover { border-color:var(--deep); color:var(--text); }
+  /* FIX 1: Tabs actifs marron foncé + texte blanc (comme CTA primary) */
+  .condition-tab.active { color:#fff; background:var(--deep); border-color:var(--deep); font-weight:600; }
+
+  .condition-content { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+  .condition-text h3 { font-size:30px; font-weight:400; letter-spacing:-0.02em; margin-bottom:14px; line-height:1.25; }
+  .condition-text h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.2em; }
+  .condition-text p { font-size:15px; line-height:1.7; color:var(--text-2); margin-bottom:18px; }
+  .condition-tags { display:flex; gap:6px; flex-wrap:wrap; }
+  .condition-tag { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; padding:5px 12px; background:var(--cream); color:var(--deep); border-radius:3px; }
+  .condition-visual { aspect-ratio:4/3; border-radius:var(--r); background:linear-gradient(160deg,var(--cream),var(--blush)); }
+  .condition-panel { display:none; }
+  .condition-panel.active { display:grid; }
+
+  /* FIX 3: Séparateur données de santé — bandeau de réassurance centré */
+  .s-protection { padding:28px 40px; background:var(--base); }
+  .s-protection .inner { display:flex; align-items:center; justify-content:center; gap:12px; padding:18px 24px; background:var(--cream); border-radius:var(--r); }
+  .prot-icon { width:20px; height:20px; color:var(--accent); flex-shrink:0; }
+  .prot-icon svg { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:1.5; stroke-linecap:round; }
+  .prot-text { font-size:14px; font-weight:500; color:var(--text-2); }
+  .prot-sep { width:1px; height:16px; background:rgba(0,0,0,0.1); margin:0 8px; }
+  .prot-link { font-size:14px; font-weight:600; color:var(--accent); text-decoration:none; }
+  .prot-link:hover { text-decoration:underline; }
+
+  /* COMITE (cream) */
+  .s-comite { padding:100px 40px; background:var(--cream); }
+  .s-comite h2 { margin-bottom:14px; }
+  .comite-sub { font-size:16px; line-height:1.6; color:var(--text-2); max-width:500px; margin-bottom:56px; }
+  .comite-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .comite-photo { width:100%; aspect-ratio:1; border-radius:var(--r); overflow:hidden; margin-bottom:16px; background:linear-gradient(135deg,var(--blush),var(--warm)); }
+  .comite-name { font-size:17px; font-weight:600; margin-bottom:2px; }
+  .comite-role { font-size:14px; color:var(--text-2); line-height:1.4; }
+
+  /* TEAM */
+  .s-team { padding:0 40px 60px; background:var(--cream); }
+  .s-team .inner { display:flex; align-items:center; gap:48px; padding:36px; background:var(--base); border-radius:var(--r); }
+  .team-intro { flex:1; }
+  .team-intro h3 { font-size:20px; font-weight:500; margin-bottom:4px; letter-spacing:-0.02em; }
+  .team-intro h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.2em; }
+  .team-intro p { font-size:14px; color:var(--text-2); line-height:1.5; }
+  .team-members { display:flex; gap:24px; }
+  .team-member { text-align:center; }
+  .team-avatar { width:68px; height:68px; border-radius:50%; overflow:hidden; margin:0 auto 6px; background:linear-gradient(135deg,var(--blush),var(--warm)); }
+  .team-avatar img { width:100%; height:100%; object-fit:cover; }
+  .team-name { font-size:14px; font-weight:600; }
+  .team-role2 { font-size:12px; color:var(--text-3); }
+
+  /* DOCTOR (rich) */
+  .s-rich { padding:100px 40px; color:#fff; background:linear-gradient(180deg,var(--rich),#522A20); position:relative; overflow:hidden; }
+  .s-rich::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:120px 120px; mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 80%,transparent 100%); pointer-events:none; }
+  .s-rich .inner { position:relative; z-index:2; }
+  .s-rich h2 { margin-bottom:14px; }
+  .s-rich .sub { font-size:17px; line-height:1.6; color:rgba(255,255,255,0.55); margin-bottom:28px; }
+
+  /* CTA FINAL (deep) */
+  .s-cta { padding:120px 40px; text-align:center; color:#fff; background:linear-gradient(180deg,var(--deep),#1A0B10); position:relative; overflow:hidden; }
+  .s-cta::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:120px 120px; mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 80%,transparent 100%); pointer-events:none; }
+  .s-cta .inner { position:relative; z-index:2; }
+  .s-cta h2 { max-width:550px; margin:0 auto 14px; }
+  .s-cta .sub { font-size:17px; color:rgba(255,255,255,0.55); max-width:420px; margin:0 auto 32px; text-align:center; }
+  .email-form { display:flex; gap:8px; max-width:420px; margin:0 auto; }
+  .email-form input { flex:1; padding:14px 18px; font-size:15px; font-family:inherit; border:1px solid rgba(255,255,255,0.12); border-radius:var(--r); background:rgba(255,255,255,0.06); color:#fff; outline:none; }
+  .email-form input::placeholder { color:rgba(255,255,255,0.3); }
+  .email-form input:focus { border-color:var(--blush); }
+
+  /* FIX 2: FOOTER — border-top supprimé de footer-bottom pour ne pas couper le watermark */
+  .footer-brand { background:var(--deep); padding:80px 40px 40px; position:relative; overflow:hidden; }
+  .footer-brand-logo { font-family:'Fraunces',serif; font-size:22vw; font-weight:500; color:rgba(255,255,255,0.04); position:absolute; bottom:-5vw; left:50%; transform:translateX(-50%); white-space:nowrap; pointer-events:none; font-variation-settings:'opsz' 144; line-height:0.85; }
+  .footer-inner { position:relative; z-index:2; max-width:1100px; margin:0 auto; }
+  .footer-top { display:flex; justify-content:space-between; margin-bottom:48px; }
+  .footer-left .fl-logo { font-family:'Fraunces',serif; font-size:26px; font-weight:500; color:#fff; margin-bottom:6px; font-variation-settings:'opsz' 144; }
+  .footer-left .fl-tagline { font-size:14px; color:rgba(255,255,255,0.4); }
+  .footer-cols { display:flex; gap:56px; }
+  .footer-col h4 { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--blush); margin-bottom:14px; }
+  .footer-col a { display:block; font-size:14px; color:rgba(255,255,255,0.55); text-decoration:none; margin-bottom:8px; }
+  .footer-col a:hover { color:#fff; }
+  .footer-bottom { display:flex; justify-content:space-between; padding-top:20px; }
+  .footer-bottom span { font-size:12px; color:rgba(255,255,255,0.3); }
+
+  /* IDENTIFICATION (cream, 3 images sticky scroll) */
+  .s-identify { padding:100px 40px; background:var(--cream); }
+  .identify-top { margin-bottom:48px; }
+  .identify-layout { display:grid; grid-template-columns:1fr 1fr; gap:64px; position:relative; }
+  .identify-steps { display:flex; flex-direction:column; }
+  .identify-step { padding:48px 0; border-bottom:1px solid var(--border); min-height:60vh; display:flex; flex-direction:column; justify-content:center; transition:opacity 0.4s ease; }
+  .identify-step.dimmed { opacity:0.3; }
+  .identify-step-content { padding-left:20px; border-left:2px solid transparent; transition:border-color 0.5s ease; }
+  .identify-step.active .identify-step-content { border-left-color:var(--warm); }
+  .identify-step:first-child { padding-top:0; }
+  .identify-step:last-child { border-bottom:none; }
+  .identify-step h3 { font-size:28px; font-weight:500; margin-bottom:14px; letter-spacing:-0.02em; line-height:1.3; }
+  .identify-step h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.2em; }
+  .identify-step p { font-size:18px; line-height:1.65; color:var(--text-2); }
+  .identify-images { position:sticky; top:100px; height:58vh; width:80%; margin-left:auto; }
+  .identify-img { position:absolute; inset:0; border-radius:var(--r); overflow:hidden; opacity:0; transition:opacity 0.5s ease; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--text-3); }
+  .identify-img.active { opacity:1; }
+  .identify-img:nth-child(1) { background:linear-gradient(160deg,#F0DED2,#D4A08A); }
+  .identify-img:nth-child(2) { background:linear-gradient(160deg,#E8D8CC,#C8A898); }
+  .identify-img:nth-child(3) { background:linear-gradient(160deg,#F5E0D4,#DEB8A4); }
+
+  /* PROMISE (dark, cards) */
+  .s-promise { padding:100px 40px; background:linear-gradient(180deg,var(--deep),#260E16); color:#fff; position:relative; overflow:hidden; }
+  .s-promise::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:120px 120px; mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 80%,transparent 100%); pointer-events:none; }
+  .s-promise .inner { position:relative; z-index:2; }
+  .s-promise h2 { margin-bottom:48px; color:#fff; }
+  .promise-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .promise-card { padding:36px 28px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); border-radius:var(--r); transition:all 0.25s; }
+  .promise-card:hover { background:rgba(255,255,255,0.1); transform:translateY(-2px); }
+  .promise-card h3 { font-size:19px; font-weight:600; margin-bottom:8px; color:#fff; }
+  .promise-card p { font-size:15px; line-height:1.6; color:rgba(255,255,255,0.55); }
+
+  /* HOW inside dark section */
+  .how-layout-dark { display:grid; grid-template-columns:1fr 1fr; gap:64px; margin-top:32px; }
+  .how-steps-dark { display:flex; flex-direction:column; }
+  .how-step-dark { padding:48px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .how-step-dark:first-child { padding-top:0; }
+  .how-step-dark:last-child { border-bottom:none; }
+  .how-step-num-dark { font-size:12px; font-weight:700; color:var(--blush); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:12px; }
+  .how-step-dark h3 { font-size:22px; font-weight:600; margin-bottom:10px; letter-spacing:-0.02em; color:#fff; }
+  .how-step-dark p { font-size:16px; line-height:1.7; color:rgba(255,255,255,0.55); }
+  .how-sticky-dark { position:sticky; top:100px; }
+  .how-visual-dark { width:100%; aspect-ratio:4/5; border-radius:var(--r); overflow:hidden; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:13px; color:rgba(255,255,255,0.3); }
+
+  /* HOW — Scroll vertical sticky */
+  .s-how { padding:100px 40px; background:var(--cream); }
+  .s-how h2 { margin-bottom:48px; }
+  .how-layout { display:grid; grid-template-columns:1fr 1fr; gap:64px; }
+  .how-steps { display:flex; flex-direction:column; }
+  .how-step { padding:48px 0; border-bottom:1px solid var(--border); }
+  .how-step:first-child { padding-top:0; }
+  .how-step:last-child { border-bottom:none; }
+  .how-step-num { font-size:12px; font-weight:700; color:var(--accent); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:12px; }
+  .how-step h3 { font-size:22px; font-weight:600; margin-bottom:10px; letter-spacing:-0.02em; }
+  .how-step p { font-size:15px; line-height:1.7; color:var(--text-2); }
+  .how-sticky { position:sticky; top:100px; }
+  .how-visual { width:100%; aspect-ratio:4/5; border-radius:var(--r); overflow:hidden; background:linear-gradient(160deg,var(--base),var(--blush)); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--text-3); }
+
+  /* "JE NE SAIS PAS" tab */
+  .condition-tab.special { border-style:dashed; }
+  .condition-tab.special.active { border-style:solid; }
+  .condition-help { padding:32px; background:var(--cream); border-radius:var(--r); min-height:300px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+  .condition-help h3 { font-size:22px; font-weight:400; letter-spacing:-0.02em; margin-bottom:12px; }
+  .condition-help h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.2em; }
+  .condition-help p { font-size:15px; line-height:1.7; color:var(--text-2); margin-bottom:20px; }
+
+  /* PROOF + COMMUNITY */
+  .s-proof { padding:100px 40px; background:var(--cream); }
+  .proof-top { text-align:center; margin-bottom:56px; }
+  .proof-top h2 { max-width:550px; margin:0 auto; }
+  .proof-stories { display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-bottom:64px; }
+  .proof-photos { position:relative; height:340px; margin-bottom:24px; }
+  .proof-photo { position:absolute; width:240px; aspect-ratio:3/4; border-radius:var(--r); overflow:hidden; box-shadow:0 8px 32px rgba(54,24,34,0.12); }
+  .proof-photo-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--text-3); text-align:center; padding:12px; }
+  .proof-photo.before { background:linear-gradient(160deg,#E8D8CC,#C8A898); left:0; top:20px; transform:rotate(-2deg); z-index:1; }
+  .proof-photo.after { background:linear-gradient(160deg,var(--cream),var(--blush)); right:0; top:0; transform:rotate(1.5deg); z-index:2; }
+  .proof-condition { font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin-bottom:10px; }
+  .proof-meta { font-size:22px; font-weight:600; margin-bottom:10px; }
+  .proof-meta span { color:var(--text-3); font-weight:400; font-size:18px; }
+  .proof-quote { font-size:18px; line-height:1.7; color:var(--text-2); font-style:italic; }
+  .community-block { text-align:center; padding:48px; background:var(--base); border-radius:var(--r); }
+  .community-block h3 { font-size:26px; font-weight:400; letter-spacing:-0.02em; margin-bottom:10px; }
+  .community-block h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.2em; }
+  .community-block p { font-size:16px; line-height:1.6; color:var(--text-2); max-width:460px; margin:0 auto 24px; }
+  .community-faces { display:flex; justify-content:center; margin-bottom:20px; }
+  .community-face { width:44px; height:44px; border-radius:50%; border:2px solid var(--base); margin-left:-10px; }
+  .community-face:first-child { margin-left:0; }
+
+  /* DOCTOR SPOTLIGHT (inside violet) */
+  .doctor-spotlight { margin-top:48px; display:flex; gap:32px; align-items:center; padding:36px; background:rgba(255,255,255,0.06); border-radius:var(--r); border:1px solid rgba(255,255,255,0.08); }
+  .doctor-photo { width:100px; height:100px; border-radius:50%; flex-shrink:0; overflow:hidden; background:linear-gradient(135deg,var(--blush),var(--warm)); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--text-3); }
+  .doctor-quote { font-size:18px; line-height:1.5; color:rgba(255,255,255,0.8); font-style:italic; margin-bottom:12px; font-family:'Newsreader',serif; }
+  .doctor-name { font-size:17px; font-weight:600; color:#fff; margin-bottom:3px; }
+  .doctor-title { font-size:14px; color:rgba(255,255,255,0.55); }
+
+  /* FOUNDER STORY */
+  .s-founder { padding:100px 40px; }
+  .founder-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .founder-photo { width:100%; aspect-ratio:1; border-radius:var(--r); overflow:hidden; background:linear-gradient(160deg,var(--cream),var(--blush)); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--text-3); }
+  .founder-text h3 { font-size:30px; font-weight:400; line-height:1.25; letter-spacing:-0.02em; margin-bottom:20px; }
+  .founder-text h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.2em; }
+  .founder-text p { font-size:16px; line-height:1.7; color:var(--text-2); margin-bottom:16px; }
+  .founder-sig { margin-top:28px; }
+  .founder-name { font-size:18px; font-weight:600; margin-bottom:4px; }
+  .founder-role { font-size:14px; color:var(--text-3); }
+
+  /* CTA TESTIMONIAL */
+  .cta-testimonial { font-size:15px; font-style:italic; color:rgba(255,255,255,0.5); max-width:400px; margin:24px auto 0; }
+  .cta-testimonial strong { color:rgba(255,255,255,0.7); font-style:normal; font-weight:600; }
+
+  @media (max-width:768px) {
+    nav { padding:0 20px; } .nav-right a:not(.btn) { display:none; }
+    .hero-scroll-inner { grid-template-columns:1fr; gap:0; }
+    .hero-left { padding:80px 20px 0; } .hero-text h1 { font-size:34px; }
+    .hero-sub { max-width:100%; } .hero-ctas { flex-direction:column; }
+    .hero-ctas .btn { width:100%; justify-content:center; }
+    .hero-right { padding:32px 20px; }
+    .hero-visual-wrap { position:relative; top:auto; }
+    .hero-visual { aspect-ratio:1; max-height:none; }
+    .problem-block { padding:60px 0 40px; } .problem-stat .num { font-size:36px; }
+    .s-cream,.s-violet,.s-conditions,.s-warm,.s-comite,.s-rich,.s-identify,.s-promise,.s-how,.s-proof,.s-founder { padding:80px 20px; }
+    h2 { font-size:30px; } .steps,.pillars,.promise-cards { grid-template-columns:1fr; }
+    .step { border-right:none; border-bottom:1px solid var(--border); opacity:1; transform:none; }
+    .step:last-child { border-bottom:none; }
+    .identify-grid,.identify-layout,.how-layout,.how-layout-dark,.founder-grid,.proof-stories { grid-template-columns:1fr; gap:32px; }
+    .how-sticky,.how-sticky-dark { position:relative; top:auto; }
+    .identify-images { position:relative; top:auto; height:300px; }
+    .identify-step { min-height:auto; }
+    .proof-photos { height:260px; } .proof-photo { width:190px; }
+    .doctor-spotlight { flex-direction:column; text-align:center; }
+    .condition-tabs { flex-wrap:wrap; gap:6px; }
+    .condition-content { grid-template-columns:1fr; gap:24px; }
+    .s-protection { padding:16px 20px; }
+    .s-protection .inner { flex-direction:column; gap:10px; }
+    .prot-sep { display:none; }
+    .comite-grid { grid-template-columns:1fr; gap:32px; }
+    .s-team { padding:0 20px 40px; }
+    .s-team .inner { flex-direction:column; gap:20px; text-align:center; }
+    .s-cta { padding:80px 20px; } .email-form { flex-direction:column; }
+    .email-form .btn { width:100%; justify-content:center; }
+    .footer-brand { padding:60px 20px 30px; }
+    .footer-top { flex-direction:column; gap:32px; }
+    .footer-cols { flex-direction:column; gap:24px; }
+    .footer-bottom { flex-direction:column; gap:6px; align-items:flex-start; }
+  }
+  @media (max-width:480px) { .hero-text h1 { font-size:28px; } h2 { font-size:26px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">mixt</div>
+  <div class="nav-right">
+    <a href="#how">Comment ça marche</a>
+    <a href="#approach">Notre approche</a>
+    <a href="#conditions">Pathologies</a>
+    <a href="#cta" class="btn btn-dark btn-sm">Pré-inscription →</a>
+  </div>
+</nav>
+
+<section class="hero-scroll" id="heroScroll">
+  <div class="hero-dark-bg" id="heroDarkBg"></div>
+  <div class="hero-scroll-inner">
+    <div class="hero-left">
+      <div class="hero-text">
+        <h1>Vous ne devriez pas avoir honte de <em>votre peau.</em></h1>
+        <p class="hero-sub">Rougeurs, taches, irritations. Vous avez tout essayé. Avec Mixt, un médecin vous prescrit une formulation unique, préparée en pharmacie et ajustée chaque mois.</p>
+        <div class="hero-ctas">
+          <a href="#cta" class="btn btn-dark btn-lg">Rejoindre la liste d'attente →</a>
+          <a href="#how" class="btn btn-ghost btn-lg">Découvrir</a>
+        </div>
+      </div>
+      <div class="trust-block">
+        <div class="trust-items">
+          <div class="trust-item">Prescrit par des médecins formés à la dermatologie</div>
+          <div class="trust-item">Formulations magistrales préparées en pharmacie</div>
+          <div class="trust-item">Suivi continu et ajustement mensuel</div>
+        </div>
+      </div>
+      <div class="problem-block" id="problemBlock">
+        <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Pourquoi rien n'a marché</div>
+        <h2>Le parcours que vous connaissez <em>par cœur.</em></h2>
+        <p class="sub">Les crèmes à 80€. L'attente de 9 mois pour un dermatologue. L'ordonnance générique. Et le sentiment d'être seule avec ça.</p>
+        <div class="problem-stats">
+          <div class="problem-stat"><div class="num">9 mois</div><div class="desc">Délai moyen pour un RDV dermatologue en France</div></div>
+          <div class="problem-stat"><div class="num">87%</div><div class="desc">Des patients abandonnent leur traitement dermatologique</div></div>
+          <div class="problem-stat"><div class="num">15M</div><div class="desc">De Français touchés par un problème de peau chronique</div></div>
+        </div>
+        <a href="#cta" class="btn btn-white btn-lg" style="margin-top:36px;">Démarrer mon parcours →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-visual-wrap">
+        <div class="hero-visual" id="heroVisual" style="background-image:url('images/hero-before.jpg');">
+          <div class="layer-after" style="background-image:url('images/hero-after.jpg');"></div>
+          <div class="slider-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. IDENTIFICATION — Split layout -->
+<section class="s-identify">
+  <div class="inner">
+    <div class="identify-top">
+      <div class="label" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--accent);display:inline-block;margin-right:10px;"></span>Vous vous reconnaissez ?</div>
+      <h2>Ce que vous vivez <em>au quotidien</em></h2>
+    </div>
+    <div class="identify-layout" id="identifyLayout">
+      <div class="identify-steps">
+        <div class="identify-step" data-img="0">
+          <div class="identify-step-content">
+            <h3>Des rougeurs qui montent sans prévenir</h3>
+            <p>En réunion, au restaurant, sans raison apparente. Le flush qui s'installe, la gêne, le réflexe de baisser les yeux. Vous ne savez jamais quand ça va arriver.</p>
+          </div>
+        </div>
+        <div class="identify-step" data-img="1">
+          <div class="identify-step-content">
+            <h3>Des taches que rien n'efface</h3>
+            <p>Ni les sérums, ni les peelings, ni les crèmes à 80€. Le teint reste inégal, mois après mois. Vous avez tout essayé, rien ne cible vraiment le problème.</p>
+          </div>
+        </div>
+        <div class="identify-step" data-img="2">
+          <div class="identify-step-content">
+            <h3>Le sentiment d'être seule avec ça</h3>
+            <p>Gêne, honte parfois. L'impression d'être un peu nulle de ne pas y arriver. Personne autour de vous ne comprend vraiment ce que vous vivez au quotidien.</p>
+          </div>
+        </div>
+      </div>
+      <div class="identify-images">
+        <div class="identify-img active"><img src="images/1-embarrassed.jpg" alt="Femme embarrassée par sa peau" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="identify-img"><img src="images/2-lost.jpg" alt="Femme perdue face à ses problèmes de peau" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="identify-img"><img src="images/3-alone.jpg" alt="Femme seule avec ses problèmes de peau" style="width:100%;height:100%;object-fit:cover;"></div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:64px; max-width:620px; margin-left:auto; margin-right:auto;">
+      <h2 style="margin-bottom:20px;">Vous n'êtes pas nulle. Votre peau a besoin d'un traitement <em>médical adapté.</em></h2>
+      <p style="font-size:18px; line-height:1.6; color:var(--text-2); margin-bottom:32px;">Pas d'un énième cosmétique. Pas d'une crème miracle. Un vrai protocole médical, personnalisé pour vous.</p>
+      <a href="#conditions" class="btn btn-dark btn-lg">Identifier ma condition →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PROMISE + HOW — Merged dark section -->
+<section class="s-promise" id="how">
+  <div class="inner">
+    <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Notre approche</div>
+    <h2>Ce que votre peau <em>n'a jamais eu</em></h2>
+    <div class="promise-cards">
+      <div class="promise-card"><h3>Un médecin qui vous écoute</h3><p>Formé à nos protocoles dermatologiques, il prend le temps de comprendre votre peau et votre quotidien.</p></div>
+      <div class="promise-card"><h3>Une formulation unique</h3><p>Préparée sur-mesure en pharmacie, avec des principes actifs dosés spécifiquement pour votre peau.</p></div>
+      <div class="promise-card"><h3>Un suivi qui ne s'arrête jamais</h3><p>Chaque mois, votre traitement évolue avec votre peau. Votre médecin ajuste, votre peau s'améliore.</p></div>
+    </div>
+
+    <div style="margin-top:80px;">
+      <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Comment ça marche</div>
+      <h2 style="color:#fff;">Un parcours médical simple et <em>personnalisé</em></h2>
+    </div>
+    <div class="how-layout-dark">
+      <div class="how-steps-dark">
+        <div class="how-step-dark"><div class="how-step-num-dark">Étape 01</div><h3>Racontez-nous votre peau</h3><p>Décrivez vos symptômes, vos antécédents et ce que vous avez déjà essayé. Envoyez des photos pour une analyse précise.</p></div>
+        <div class="how-step-dark"><div class="how-step-num-dark">Étape 02</div><h3>Votre médecin prescrit votre formulation</h3><p>Un médecin formé à nos protocoles analyse votre profil et prescrit une formulation magistrale unique — préparée sur-mesure en pharmacie.</p></div>
+        <div class="how-step-dark"><div class="how-step-num-dark">Étape 03</div><h3>Suivez vos progrès, mois après mois</h3><p>Notre technologie analyse l'évolution de votre peau et aide votre médecin à ajuster le traitement en continu.</p></div>
+      </div>
+      <div class="how-sticky-dark">
+        <div class="how-visual-dark"><img src="images/acne-curve.png" alt="Courbe d'évolution acné" style="width:100%;height:100%;object-fit:cover;"></div>
+      </div>
+    </div>
+    <a href="#cta" class="btn btn-white btn-lg" style="margin-top:48px;">Démarrer mon parcours →</a>
+  </div>
+</section>
+
+<!-- 4. STATEMENT — Transition warm → cream -->
+<section class="s-warm">
+  <h2>Le traitement le plus efficace est celui qui est <em>fait pour vous.</em></h2>
+</section>
+
+<!-- 6. CONDITIONS — Tabs + "je ne sais pas" -->
+<section class="s-conditions" id="conditions">
+  <div class="inner">
+    <div class="label" style="color:var(--violet);"><span style="width:24px;height:1px;background:var(--violet);display:inline-block;margin-right:10px;"></span>Pathologies traitées</div>
+    <h2>Nous traitons les problèmes de peau <em>chroniques</em></h2>
+    <div class="condition-tabs">
+      <button class="condition-tab active" onclick="switchCondition(0)">Rosacée</button>
+      <button class="condition-tab" onclick="switchCondition(1)">Hyperpigmentation</button>
+      <button class="condition-tab" onclick="switchCondition(2)">Acné</button>
+      <button class="condition-tab" onclick="switchCondition(3)">Eczéma</button>
+      <button class="condition-tab special" onclick="switchCondition(4)">Je ne sais pas →</button>
+    </div>
+    <div class="condition-panel active"><div class="condition-content"><div class="condition-text"><h3>Rougeurs, flush, sensations de brûlure ? C'est peut-être de la rosacée.</h3><p>Rougeurs soudaines, peau qui chauffe en réunion ou au restaurant. La rosacée est une maladie chronique — pas une simple sensibilité. Nos formulations renforcent votre barrière cutanée et réduisent l'inflammation en profondeur.</p><div class="condition-tags"><span class="condition-tag">Érythème</span><span class="condition-tag">Couperose</span><span class="condition-tag">Papulo-pustuleuse</span><span class="condition-tag">Flush</span></div><a href="#cta" class="btn btn-dark btn-lg" style="margin-top:24px;">Démarrer mon diagnostic →</a></div><div class="condition-visual"><img src="images/rosacea.jpg" alt="Rosacée" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r);"></div></div></div>
+    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Taches brunes, teint inégal qui ne s'uniformise pas ? C'est de l'hyperpigmentation.</h3><p>Taches qui s'installent après le soleil, teint qui reste marqué malgré les soins. Nos formulations agissent sur la mélanine avec des actifs dosés avec précision, sans agresser.</p><div class="condition-tags"><span class="condition-tag">Mélasma</span><span class="condition-tag">Taches solaires</span><span class="condition-tag">Post-inflammatoire</span></div><a href="#cta" class="btn btn-dark btn-lg" style="margin-top:24px;">Démarrer mon diagnostic →</a></div><div class="condition-visual"><img src="images/hyperpigmentation.jpg" alt="Hyperpigmentation" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r);"></div></div></div>
+    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Boutons, inflammations, peau qui ne se calme jamais ? C'est de l'acné.</h3><p>L'acné n'est pas qu'un problème d'adolescent. Hormonale, inflammatoire ou kystique — nos formulations ciblent la cause, pas juste les symptômes.</p><div class="condition-tags"><span class="condition-tag">Hormonale</span><span class="condition-tag">Inflammatoire</span><span class="condition-tag">Kystique</span><span class="condition-tag">Tardive</span></div><a href="#cta" class="btn btn-dark btn-lg" style="margin-top:24px;">Démarrer mon diagnostic →</a></div><div class="condition-visual"><img src="images/acne.jpg" alt="Acné" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r);"></div></div></div>
+    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Démangeaisons, plaques sèches, crises qui reviennent ? C'est de l'eczéma.</h3><p>Peau qui tiraille, plaques qui ne disparaissent jamais complètement. Nos formulations restaurent la barrière cutanée et réduisent l'inflammation chronique — durablement.</p><div class="condition-tags"><span class="condition-tag">Atopique</span><span class="condition-tag">De contact</span><span class="condition-tag">Séborrhéique</span></div><a href="#cta" class="btn btn-dark btn-lg" style="margin-top:24px;">Démarrer mon diagnostic →</a></div><div class="condition-visual"><img src="images/eczema.jpg" alt="Eczéma" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r);"></div></div></div>
+    <div class="condition-panel"><div class="condition-content"><div class="condition-help"><h3>Pas sûre de ce que vous avez ? On est là pour ça.</h3><p>Beaucoup de femmes vivent avec des rougeurs ou des taches sans savoir qu'il s'agit d'une maladie traitable. Notre questionnaire vous aide à y voir clair.</p><a href="#cta" class="btn btn-dark btn-lg">Démarrer mon diagnostic →</a></div><div class="condition-visual" style="background:none;"></div></div></div>
+    <div style="margin-top:56px; display:flex; align-items:center; justify-content:center; gap:12px; padding:18px 24px; background:var(--cream); border-radius:6px;">
+      <div class="prot-icon"><svg viewBox="0 0 24 24"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <span class="prot-text">Vos données de santé sont protégées et soumises au secret médical</span>
+      <span class="prot-sep"></span>
+      <a href="#" class="prot-link">En savoir plus →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. PREUVES + COMMUNAUTÉ -->
+<section class="s-proof">
+  <div class="inner">
+    <div class="proof-top">
+      <div class="label" style="color:var(--text);justify-content:center;"><span style="width:24px;height:1px;background:var(--accent);display:inline-block;margin-right:10px;"></span>Résultats réels</div>
+      <h2>Elles ont retrouvé confiance <em>en leur peau</em></h2>
+    </div>
+    <div class="proof-stories">
+      <div class="proof-story">
+        <div class="proof-photos">
+          <div class="proof-photo before"><img src="images/laetitia-before.png" alt="Laetitia avant traitement" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="proof-photo after"><img src="images/laetitia-after.png" alt="Laetitia après traitement" style="width:100%;height:100%;object-fit:cover;"></div>
+        </div>
+        <div class="proof-condition">Hyperpigmentation · 4 mois</div>
+        <div class="proof-meta">Laetitia <span>· 36 ans</span></div>
+        <div class="proof-quote">« Pendant 10 ans je me suis sentie nulle de ne pas avoir priorisé ma peau. Aujourd'hui quand je vois les photos d'avant, je n'en reviens pas. »</div>
+      </div>
+      <div class="proof-story">
+        <div class="proof-photos">
+          <div class="proof-photo before"><img src="images/melanie-before.png" alt="Mélanie avant traitement" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="proof-photo after"><img src="images/melanie-after.png" alt="Mélanie après traitement" style="width:100%;height:100%;object-fit:cover;"></div>
+        </div>
+        <div class="proof-condition">Rosacée · 3 mois</div>
+        <div class="proof-meta">Mélanie <span>· 34 ans</span></div>
+        <div class="proof-quote">« Je ne sortais plus sans fond de teint. Maintenant j'ose le visage nu — ça ne m'était pas arrivé depuis des années. »</div>
+      </div>
+    </div>
+    <div class="community-block">
+      <div class="community-faces">
+        <div class="community-face" style="background:var(--blush);"></div>
+        <div class="community-face" style="background:var(--warm);"></div>
+        <div class="community-face" style="background:var(--cream);"></div>
+        <div class="community-face" style="background:var(--blush);"></div>
+        <div class="community-face" style="background:var(--warm);"></div>
+      </div>
+      <h3>Vous n'êtes <em>pas seule</em></h3>
+      <p>Rejoignez des femmes qui vivent la même chose. Partagez, échangez, avancez ensemble.</p>
+      <a href="#cta" class="btn btn-dark btn-lg">Rejoindre la communauté →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. APPROCHE MÉDICALE (violet) -->
+<section class="s-violet" id="approach">
+  <div class="inner">
+    <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Notre approche médicale</div>
+    <h2>De la dermatologie de qualité, <em>accessible à tous</em></h2>
+    <div class="pillars">
+      <div class="pillar"><h3>Protocoles dermatologiques</h3><p>Conçus avec des dermatologues, appliqués par des médecins formés. Chaque prescription est validée médicalement.</p></div>
+      <div class="pillar"><h3>Formulations magistrales</h3><p>Préparées sur-mesure en pharmacie, avec des principes actifs dosés spécifiquement pour votre peau.</p></div>
+      <div class="pillar"><h3>Suivi augmenté par l'IA</h3><p>Notre technologie analyse l'évolution de votre peau et aide le médecin à ajuster votre traitement en continu.</p></div>
+    </div>
+    <div class="doctor-spotlight">
+      <div class="doctor-photo"><img src="images/boris.jpg" alt="Dr. Boris" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="doctor-info">
+        <div class="doctor-quote">« Chaque peau raconte une histoire différente — notre rôle c'est de l'écouter. »</div>
+        <div class="doctor-name">Dr. [Nom]</div>
+        <div class="doctor-title">Dermatologue — Directeur·rice scientifique Mixt</div>
+      </div>
+    </div>
+    <a href="#cta" class="btn btn-white btn-lg" style="margin-top:36px;">Rejoindre la liste d'attente →</a>
+  </div>
+</section>
+
+<!-- 9. STORY FOUNDER -->
+
+<!-- Comité scientifique -->
+<section class="s-comite">
+  <div class="inner">
+    <div class="label" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;margin-right:10px;"></span>Comité scientifique</div>
+    <h2>Une équipe médicale <em>à vos côtés</em></h2>
+    <p class="comite-sub">Nos protocoles sont conçus et supervisés par des experts en dermatologie, pharmacie et data médicale.</p>
+    <div class="comite-grid">
+      <div><div class="comite-photo"><img src="images/boris.jpg" alt="Dr. Boris" style="width:100%;height:100%;object-fit:cover;"></div><div class="comite-name">Dr. [Nom]</div><div class="comite-role">Dermatologue — Directeur scientifique. Spécialiste des pathologies inflammatoires cutanées.</div></div>
+      <div><div class="comite-photo"><img src="images/boris.jpg" alt="Dr. Boris" style="width:100%;height:100%;object-fit:cover;"></div><div class="comite-name">Dr. [Nom]</div><div class="comite-role">Pharmacien préparateur — Expert en formulations magistrales et principes actifs dermatologiques.</div></div>
+      <div><div class="comite-photo"><img src="images/boris.jpg" alt="Dr. Boris" style="width:100%;height:100%;object-fit:cover;"></div><div class="comite-name">[Nom]</div><div class="comite-role">Data & IA médicale — Responsable des algorithmes de suivi et d'ajustement des traitements.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. STORY FOUNDER -->
+<section class="s-founder">
+  <div class="inner">
+    <div class="founder-grid">
+      <div class="founder-photo"><img src="images/laetitia-founder.png" alt="Laetitia Payan, fondatrice de Mixt" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="founder-text">
+        <div class="label" style="color:var(--text-2);"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;margin-right:10px;"></span>Pourquoi Mixt existe</div>
+        <h3>« Pendant 10 ans, j'ai eu honte de <em>mon hyperpigmentation.</em> »</h3>
+        <p>Des dizaines de crèmes, des RDV dermato espacés de mois, des ordonnances génériques. Je me sentais seule et nulle de ne pas réussir à régler ça.</p>
+        <p>J'ai créé Mixt parce que personne ne m'a jamais proposé un traitement adapté à ma peau, avec un suivi qui ne s'arrête pas après l'ordonnance.</p>
+        <div class="founder-sig">
+          <div class="founder-name">Laetitia Payan</div>
+          <div class="founder-role">CEO & Co-fondatrice · Patiente zéro Mixt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Praticiens -->
+<section class="s-rich">
+  <div class="inner">
+    <div class="label" style="color:rgba(255,255,255,0.5);"><span style="width:24px;height:1px;background:rgba(255,255,255,0.3);display:inline-block;margin-right:10px;"></span>Praticiens</div>
+    <h2>Vous êtes dermatologue ou <em>médecin</em> ?</h2>
+    <p class="sub">Rejoignez notre réseau de praticiens et participez à l'avenir de la dermatologie personnalisée.</p>
+    <a href="mailto:contact@mixt.care" class="btn btn-white btn-lg">Nous contacter →</a>
+  </div>
+</section>
+
+<!-- 11. CTA FINAL -->
+<section class="s-cta" id="cta">
+  <div class="inner">
+    <h2 style="text-align:center;">Faites le premier pas pour <em>votre peau</em></h2>
+    <p class="sub">Rejoignez la liste d'attente et soyez parmi les premières à bénéficier d'un traitement vraiment personnalisé.</p>
+    <div class="email-form">
+      <input type="email" placeholder="votre@email.com">
+      <a class="btn btn-white btn-lg">S'inscrire →</a>
+    </div>
+    <div class="cta-testimonial">« J'ai hâte que ça commence, je veux ma préparation ! » — <strong>Aude, 34 ans</strong></div>
+  </div>
+</section>
+
+<footer class="footer-brand">
+  <div class="footer-brand-logo">mixt</div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-left"><div class="fl-logo">mixt</div><div class="fl-tagline">Votre peau mérite mieux.</div></div>
+      <div class="footer-cols">
+        <div class="footer-col"><h4>Produit</h4><a href="#how">Comment ça marche</a><a href="#approach">Notre approche</a><a href="#conditions">Pathologies</a></div>
+        <div class="footer-col"><h4>Entreprise</h4><a href="#">Comité scientifique</a><a href="mailto:contact@mixt.care">Contact</a><a href="#">Presse</a></div>
+        <div class="footer-col"><h4>Légal</h4><a href="#">Mentions légales</a><a href="#">Données personnelles</a><a href="#">CGU</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2025 Mixt. Tous droits réservés.</span><span>Fait avec soin à Paris.</span></div>
+  </div>
+</footer>
+
+<script>
+  var heroScroll=document.getElementById('heroScroll'),problemBlock=document.getElementById('problemBlock'),darkBg=document.getElementById('heroDarkBg'),heroVis=document.getElementById('heroVisual');
+  function updateHero(){if(!heroScroll||!problemBlock||!darkBg||!heroVis)return;var sr=heroScroll.getBoundingClientRect(),pr=problemBlock.getBoundingClientRect();darkBg.style.top=(pr.top-sr.top)+'px';darkBg.style.bottom='0';var vh=window.innerHeight,scrolled=Math.max(0,-sr.top),total=sr.height-vh,progress=Math.min(1,scrolled/total);var delay=0.25,reveal=progress<=delay?0:Math.min(1,(progress-delay)/(1-delay))*100;heroVis.style.setProperty('--reveal',reveal+'%');}
+  window.addEventListener('scroll',updateHero,{passive:true});window.addEventListener('resize',updateHero);updateHero();
+  // Identify section — image swap + step highlight on scroll
+  var idSteps=document.querySelectorAll('.identify-step[data-img]');
+  var idImgs=document.querySelectorAll('.identify-img');
+  if(idSteps.length&&idImgs.length){
+    var idObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var idx=parseInt(e.target.getAttribute('data-img'));
+          idImgs.forEach(function(img,i){img.classList.toggle('active',i===idx);});
+          idSteps.forEach(function(s,i){s.classList.toggle('dimmed',i!==idx);s.classList.toggle('active',i===idx);});
+        }
+      });
+    },{rootMargin:'-40% 0px -40% 0px'});
+    idSteps.forEach(function(s){idObs.observe(s);});
+  }
+  function switchCondition(idx){document.querySelectorAll('.condition-tab').forEach(function(t,i){t.classList.toggle('active',i===idx)});document.querySelectorAll('.condition-panel').forEach(function(p,i){p.classList.toggle('active',i===idx)});}
+  var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.querySelectorAll('.step').forEach(function(s){s.classList.add('visible')});obs.unobserve(en.target);}});},{threshold:0.2});var sg=document.getElementById('stepsGrid');if(sg)obs.observe(sg);
+</script>
+</body>
+</html>

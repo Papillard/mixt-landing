@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mixt — Charte couleurs finale</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Geist Sans',sans-serif; background:#FFF8F2; color:#1A1210; padding:48px; }
+  h1 { font-family:'Fraunces',serif; font-size:32px; font-weight:500; margin-bottom:4px; }
+  .subtitle { font-size:14px; color:#6B5B52; margin-bottom:8px; }
+  .frozen { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; background:#361822; color:#fff; padding:4px 10px; border-radius:4px; margin-bottom:48px; }
+  .section { margin-bottom:52px; }
+  .section-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:#9A8A80; margin-bottom:20px; padding-bottom:8px; border-bottom:1px solid rgba(0,0,0,0.06); }
+  .row { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:16px; }
+  .swatch { border-radius:8px; overflow:hidden; }
+  .swatch-color { height:72px; position:relative; }
+  .swatch-color.light { border:1px solid rgba(0,0,0,0.08); }
+  .swatch-gradient { height:72px; border-radius:8px 8px 0 0; }
+  .swatch-info { padding:12px 14px; background:#fff; border:1px solid rgba(0,0,0,0.06); border-top:none; border-radius:0 0 8px 8px; }
+  .swatch-name { font-size:14px; font-weight:600; margin-bottom:2px; }
+  .swatch-var { font-size:11px; color:#9A8A80; font-family:'Geist Mono',monospace; }
+  .swatch-hex { font-size:11px; color:#6B5B52; font-family:'Geist Mono',monospace; margin-top:2px; }
+  .swatch-rgb { font-size:10px; color:#9A8A80; font-family:'Geist Mono',monospace; }
+  .swatch-usage { font-size:11px; color:#9A8A80; margin-top:6px; line-height:1.4; }
+  .divider { height:1px; background:rgba(0,0,0,0.06); margin:52px 0; }
+
+  .summary { display:grid; grid-template-columns:repeat(7,1fr); gap:0; border-radius:12px; overflow:hidden; margin-bottom:48px; height:56px; }
+  .summary-swatch { height:100%; }
+
+  .opacity-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .opacity-swatch { border-radius:8px; overflow:hidden; }
+  .opacity-color { height:48px; display:flex; align-items:center; justify-content:center; }
+  .opacity-color span { font-size:12px; font-weight:600; }
+</style>
+</head>
+<body>
+
+<h1>mixt — charte couleurs</h1>
+<p class="subtitle">Landing page · Février 2026</p>
+<div class="frozen">🔒 Gelée</div>
+
+<!-- ============ BANDE RÉSUMÉ ============ -->
+<div class="summary">
+  <div class="summary-swatch" style="background:#361822;"></div>
+  <div class="summary-swatch" style="background:#6B3D32;"></div>
+  <div class="summary-swatch" style="background:#B07460;"></div>
+  <div class="summary-swatch" style="background:#C85A4A;"></div>
+  <div class="summary-swatch" style="background:#D4A08A;"></div>
+  <div class="summary-swatch" style="background:#F5E6DA;"></div>
+  <div class="summary-swatch" style="background:#FFF8F2; border:1px solid rgba(0,0,0,0.06);"></div>
+</div>
+
+<!-- ============ COULEURS PRINCIPALES ============ -->
+<div class="section">
+  <div class="section-title">Couleurs principales</div>
+  <div class="row">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#361822;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Deep (Bordeaux)</div>
+        <div class="swatch-var">--deep</div>
+        <div class="swatch-hex">#361822</div>
+        <div class="swatch-rgb">rgb(54, 24, 34)</div>
+        <div class="swatch-usage">CTA primary, nav CTA, tabs actifs, stats bg, section CTA, footer bg</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#6B3D32;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Rich</div>
+        <div class="swatch-var">--rich</div>
+        <div class="swatch-hex">#6B3D32</div>
+        <div class="swatch-rgb">rgb(107, 61, 50)</div>
+        <div class="swatch-usage">Section praticiens (gradient start)</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#B07460;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Warm</div>
+        <div class="swatch-var">--warm</div>
+        <div class="swatch-hex">#B07460</div>
+        <div class="swatch-rgb">rgb(176, 116, 96)</div>
+        <div class="swatch-usage">Section statement bg, labels section fond dark, footer catégories</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#6A4C7A;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Violet</div>
+        <div class="swatch-var">--violet</div>
+        <div class="swatch-hex">#6A4C7A</div>
+        <div class="swatch-rgb">rgb(106, 76, 122)</div>
+        <div class="swatch-usage">Section approche (gradient start), labels pathologies</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#4E3660;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Violet Dark</div>
+        <div class="swatch-var">--violet-dark</div>
+        <div class="swatch-hex">#4E3660</div>
+        <div class="swatch-rgb">rgb(78, 54, 96)</div>
+        <div class="swatch-usage">Section approche (gradient end)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ACCENT ============ -->
+<div class="section">
+  <div class="section-title">Accent (pointes vives)</div>
+  <div class="row">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#C85A4A;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Terracotta</div>
+        <div class="swatch-var">--accent</div>
+        <div class="swatch-hex">#C85A4A</div>
+        <div class="swatch-rgb">rgb(200, 90, 74)</div>
+        <div class="swatch-usage">Labels étapes, barres trust items, icône bouclier, lien données de santé</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FONDS CLAIRS ============ -->
+<div class="section">
+  <div class="section-title">Fonds & neutres clairs</div>
+  <div class="row">
+    <div class="swatch">
+      <div class="swatch-color light" style="background:#FFF8F2;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Base</div>
+        <div class="swatch-var">--base</div>
+        <div class="swatch-hex">#FFF8F2</div>
+        <div class="swatch-rgb">rgb(255, 248, 242)</div>
+        <div class="swatch-usage">Body bg, sections claires, nav bg (92% opacity)</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color light" style="background:#F5E6DA;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Cream</div>
+        <div class="swatch-var">--cream</div>
+        <div class="swatch-hex">#F5E6DA</div>
+        <div class="swatch-rgb">rgb(245, 230, 218)</div>
+        <div class="swatch-usage">Section étapes, comité, condition tags bg, bandeau protection</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color light" style="background:#D4A08A;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Blush</div>
+        <div class="swatch-var">--blush</div>
+        <div class="swatch-hex">#D4A08A</div>
+        <div class="swatch-rgb">rgb(212, 160, 138)</div>
+        <div class="swatch-usage">Gradients visuels, labels sur fond dark, footer h4, input focus border</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TEXTES ============ -->
+<div class="section">
+  <div class="section-title">Textes</div>
+  <div class="row">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1A1210;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Text Primary</div>
+        <div class="swatch-var">--text</div>
+        <div class="swatch-hex">#1A1210</div>
+        <div class="swatch-rgb">rgb(26, 18, 16)</div>
+        <div class="swatch-usage">Titres, body text, nav links hover</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#6B5B52;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Text Secondary</div>
+        <div class="swatch-var">--text-2</div>
+        <div class="swatch-hex">#6B5B52</div>
+        <div class="swatch-rgb">rgb(107, 91, 82)</div>
+        <div class="swatch-usage">Sous-titres, descriptions, paragraphes, nav links</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#9A8A80;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Text Light</div>
+        <div class="swatch-var">--text-3</div>
+        <div class="swatch-hex">#9A8A80</div>
+        <div class="swatch-rgb">rgb(154, 138, 128)</div>
+        <div class="swatch-usage">Rôles équipe, métadonnées discrètes</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GRADIENTS ============ -->
+<div class="section">
+  <div class="section-title">Gradients (sections dark)</div>
+  <div class="row">
+    <div class="swatch">
+      <div class="swatch-gradient" style="background:linear-gradient(180deg,#361822,#260E16);"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Hero Dark / Stats</div>
+        <div class="swatch-hex">#361822 → #260E16</div>
+        <div class="swatch-usage">Problem block background</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-gradient" style="background:linear-gradient(180deg,#6A4C7A,#4E3660);"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Approche médicale</div>
+        <div class="swatch-hex">#6A4C7A → #4E3660</div>
+        <div class="swatch-usage">Section "Notre approche"</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-gradient" style="background:linear-gradient(180deg,#6B3D32,#522A20);"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Praticiens</div>
+        <div class="swatch-hex">#6B3D32 → #522A20</div>
+        <div class="swatch-usage">Section "Vous êtes médecin ?"</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-gradient" style="background:linear-gradient(180deg,#361822,#1A0B10);"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">CTA Final + Footer</div>
+        <div class="swatch-hex">#361822 → #1A0B10</div>
+        <div class="swatch-usage">Section pré-inscription, footer bg</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-gradient" style="background:#B07460;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Statement</div>
+        <div class="swatch-hex">#B07460 (aplat)</div>
+        <div class="swatch-usage">Section citation "fait pour vous"</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ OPACITÉS SUR DARK ============ -->
+<div class="section">
+  <div class="section-title">Opacités texte sur fond dark</div>
+  <div class="opacity-row">
+    <div class="opacity-swatch">
+      <div class="opacity-color" style="background:#361822;"><span style="color:#fff;">100%</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White 100%</div>
+        <div class="swatch-hex">rgba(255,255,255,1)</div>
+        <div class="swatch-usage">Titres h2, stats chiffres, CTA texte</div>
+      </div>
+    </div>
+    <div class="opacity-swatch">
+      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.45);">45%</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White 45%</div>
+        <div class="swatch-hex">rgba(255,255,255,0.45)</div>
+        <div class="swatch-usage">Descriptions pillars, footer links</div>
+      </div>
+    </div>
+    <div class="opacity-swatch">
+      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.35);">35%</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White 35%</div>
+        <div class="swatch-hex">rgba(255,255,255,0.35)</div>
+        <div class="swatch-usage">Stat descriptions, sous-textes</div>
+      </div>
+    </div>
+    <div class="opacity-swatch">
+      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.06);">6%</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White 6%</div>
+        <div class="swatch-hex">rgba(255,255,255,0.06)</div>
+        <div class="swatch-usage">Cards pillars bg, input bg, watermark</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ UTILITAIRES ============ -->
+<div class="section">
+  <div class="section-title">Utilitaires</div>
+  <div class="row">
+    <div class="swatch">
+      <div class="swatch-color light" style="background:#FFF8F2; border:1px solid rgba(0,0,0,0.06); display:flex; align-items:center; justify-content:center;"><span style="font-size:11px; color:#9A8A80; font-family:monospace;">rgba(0,0,0,0.06)</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Border</div>
+        <div class="swatch-var">--border</div>
+        <div class="swatch-usage">Séparateurs, bordures steps, nav bottom</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#361822; display:flex; align-items:center; justify-content:center;"><span style="font-size:11px; color:rgba(255,255,255,0.06); font-family:monospace; border:1px solid rgba(255,255,255,0.12); padding:2px 6px; border-radius:3px;">0.08 / 0.12</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Border (dark)</div>
+        <div class="swatch-usage">Bordures cards dark, input borders, grid overlay</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color light" style="background:#fff;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+        <div class="swatch-usage">CTA sur dark, hover btn-white</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HOVER STATES ============ -->
+<div class="section">
+  <div class="section-title">Hover states (dérivés)</div>
+  <div class="row">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#2B1018;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Deep hover</div>
+        <div class="swatch-hex">#2B1018</div>
+        <div class="swatch-usage">btn-dark:hover</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color light" style="background:#f5f5f5;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White hover</div>
+        <div class="swatch-hex">#F5F5F5</div>
+        <div class="swatch-usage">btn-white:hover</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
