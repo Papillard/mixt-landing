@@ -202,25 +202,69 @@
   .promise-card p { font-size:15px; line-height:1.6; color:var(--text-2); }
 
   /* HOW (violet section) */
-  .s-how-violet { padding:100px 40px; color:#fff; background:linear-gradient(180deg,var(--violet),var(--violet-dark)); position:relative; overflow:hidden; }
-  .s-how-violet::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:120px 120px; mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 80%,transparent 100%); pointer-events:none; }
+  .s-how-violet { padding:100px 40px; color:#fff; background:linear-gradient(180deg,var(--violet),var(--violet-dark)); position:relative; }
+  .s-how-violet::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:120px 120px; mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 80%,transparent 100%); pointer-events:none; overflow:hidden; }
   .s-how-violet .inner { position:relative; z-index:2; }
   .s-how-violet h2 { margin-bottom:56px; }
   .how-layout-dark { display:grid; grid-template-columns:1fr 1fr; gap:64px; margin-top:32px; }
   .how-steps-dark { display:flex; flex-direction:column; }
-  .how-step-dark { padding:64px 0; border-bottom:1px solid rgba(255,255,255,0.08); transition:opacity 0.4s ease; }
+  .how-step-dark { padding:200px 0; border-bottom:1px solid rgba(255,255,255,0.08); transition:opacity 0.4s ease; }
   .how-step-dark.dimmed { opacity:0.3; }
-  .how-step-dark:first-child { padding-top:0; }
+  .how-step-dark:first-child { padding-top:80px; }
   .how-step-dark:last-child { border-bottom:none; }
   .how-step-dark-content { padding-left:20px; border-left:2px solid transparent; transition:border-color 0.5s ease; }
   .how-step-dark.active .how-step-dark-content { border-left-color:var(--blush); }
   .how-step-num-dark { font-size:12px; font-weight:700; color:var(--blush); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:12px; }
-  .how-step-dark h3 { font-size:22px; font-weight:600; margin-bottom:10px; letter-spacing:-0.02em; color:#fff; }
-  .how-step-dark p { font-size:16px; line-height:1.7; color:rgba(255,255,255,0.55); }
-  .how-sticky-dark { position:sticky; top:100px; }
-  .how-visual-dark { width:100%; aspect-ratio:4/5; border-radius:var(--r); overflow:hidden; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); position:relative; }
-  .how-visual-dark img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 0.3s ease; }
-  .how-visual-dark img.active { opacity:1; }
+  .how-step-dark h3 { font-size:28px; font-weight:600; margin-bottom:14px; letter-spacing:-0.02em; color:#fff; }
+  .how-step-dark p { font-size:18px; line-height:1.7; color:rgba(255,255,255,0.55); }
+  .how-sticky-dark { position:sticky; top:10vh; align-self:start; }
+  .how-visual-dark { width:100%; position:relative; }
+  .how-visual-dark .how-slide { position:absolute; inset:0; padding:0 10%; opacity:0; transition:opacity 0.3s ease; display:flex; align-items:start; }
+  .how-visual-dark .how-slide:first-child { position:relative; }
+  .how-visual-dark .how-slide.active { opacity:1; }
+  .how-visual-dark .how-slide .phone { aspect-ratio:9/17; max-height:75vh; width:auto; }
+
+  /* PHONE MOCKUP */
+  .phone { width:100%; aspect-ratio:9/19; max-height:80vh; background:#fff; border-radius:32px; box-shadow:0 12px 48px rgba(0,0,0,0.18); padding:28px; font-family:inherit; color:var(--text); display:flex; flex-direction:column; overflow:hidden; }
+  .phone-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid rgba(0,0,0,0.06); }
+  .phone-brand { font-family:'Fraunces',serif; font-size:22px; font-weight:500; font-variation-settings:'opsz' 144; }
+  .phone-progress { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-3); }
+  .phone-progress-bar { width:80px; height:5px; background:rgba(0,0,0,0.06); border-radius:3px; overflow:hidden; }
+  .phone-progress-fill { width:33%; height:100%; background:var(--warm); border-radius:3px; }
+  .phone-title { font-size:20px; font-weight:600; margin-bottom:18px; }
+  .phone-q { font-size:14px; font-weight:600; color:var(--text-2); margin-bottom:10px; margin-top:18px; }
+  .phone-radios { display:flex; flex-wrap:wrap; gap:8px; }
+  .phone-radio { font-size:13px; padding:7px 14px; border-radius:100px; border:1px solid var(--border); color:var(--text-2); }
+  .phone-radio.checked { background:var(--deep); color:#fff; border-color:var(--deep); font-weight:600; }
+  .phone-checks { display:flex; flex-wrap:wrap; gap:8px; }
+  .phone-check { font-size:13px; padding:7px 14px; border-radius:100px; border:1px solid var(--border); color:var(--text-2); }
+  .phone-check.checked { background:var(--violet); color:#fff; border-color:var(--violet); font-weight:600; }
+  .phone-photos { display:flex; gap:10px; margin-top:18px; }
+  .phone-photo { flex:1; aspect-ratio:1; background:rgba(0,0,0,0.03); border-radius:10px; border:1px dashed rgba(0,0,0,0.1); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; font-size:12px; color:var(--text-3); }
+  .phone-photo svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.5; }
+  .phone-btn { margin-top:auto; width:100%; padding:14px; background:var(--deep); color:#fff; border:none; border-radius:var(--r); font-family:inherit; font-size:15px; font-weight:600; cursor:default; text-align:center; }
+
+  /* PHONE TRACKING SCREEN */
+  .phone-badge { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; padding:4px 12px; border-radius:100px; background:#E8F5E9; color:#2E7D32; }
+  .phone-user { font-size:15px; color:var(--text-2); margin-bottom:20px; }
+  .phone-user strong { color:var(--text); font-weight:600; font-size:16px; }
+  .phone-section { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-3); margin-top:20px; margin-bottom:10px; }
+  .phone-compare { display:flex; gap:10px; }
+  .phone-thumb { flex:1; background:rgba(0,0,0,0.03); border-radius:10px; overflow:hidden; aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .phone-thumb-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-3); margin-bottom:2px; }
+  .phone-thumb-date { font-size:12px; color:var(--text-3); }
+  .phone-metric { padding:14px 16px; background:rgba(0,0,0,0.02); border-radius:10px; margin-bottom:8px; }
+  .phone-metric-label { font-size:12px; color:var(--text-3); margin-bottom:3px; }
+  .phone-metric-value { font-size:16px; font-weight:600; }
+  .phone-metric-value .down { color:#2E7D32; font-size:13px; }
+  .phone-goal { margin-top:14px; padding:14px 16px; background:#E8F5E9; border-radius:10px; font-size:14px; color:#2E7D32; font-weight:600; }
+  .phone-next { margin-top:10px; font-size:13px; color:var(--text-3); }
+  .phone-metrics { display:flex; gap:8px; }
+  .phone-metrics .phone-metric { flex:1; }
+  .phone-footer-dark { margin:auto -28px -28px; padding:16px 24px; background:var(--deep); border-radius:0 0 28px 28px; }
+  .phone-footer-dark .phone-goal { margin:0 0 6px; background:rgba(255,255,255,0.1); color:#fff; }
+  .phone-footer-dark .phone-goal .check { color:#66BB6A; }
+  .phone-footer-dark .phone-next { margin:0; color:rgba(255,255,255,0.45); }
 
   /* HOW — Scroll vertical sticky */
   .s-how { padding:100px 40px; background:var(--cream); }
@@ -478,16 +522,86 @@
         <div class="how-step-dark" data-how-img="0"><div class="how-step-dark-content"><div class="how-step-num-dark">Étape 01</div><h3>Décrivez votre peau</h3><p>Remplissez votre questionnaire médical en 5 minutes. Symptômes, antécédents, traitements déjà essayés, photos de votre peau. Votre équipe médicale a tout ce qu'il faut pour vous comprendre.</p></div></div>
         <div class="how-step-dark" data-how-img="1"><div class="how-step-dark-content"><div class="how-step-num-dark">Étape 02</div><h3>Recevez votre traitement</h3><p>Un médecin formé à nos protocoles analyse votre profil et prescrit votre formulation personnalisée. Elle est préparée en pharmacie et livrée chez vous.</p></div></div>
         <div class="how-step-dark" data-how-img="2"><div class="how-step-dark-content"><div class="how-step-num-dark">Étape 03</div><h3>Suivez vos progrès</h3><p>Prenez une photo chaque mois. L'app mesure l'évolution de votre peau et votre équipe médicale ajuste votre formulation si besoin.</p></div></div>
+        <div style="padding:80px 0 0;"><a href="#cta" class="btn btn-white btn-lg">Démarrer mon parcours →</a></div>
       </div>
       <div class="how-sticky-dark">
         <div class="how-visual-dark" id="howVisualDark">
-          <img src="images/acne-curve.png" alt="Étape 1" class="active">
-          <img src="images/acne-curve.png" alt="Étape 2">
-          <img src="images/acne-curve.png" alt="Étape 3">
+          <div class="how-slide active">
+            <div class="phone">
+              <div class="phone-header">
+                <div class="phone-brand">mixt</div>
+                <div class="phone-progress"><div class="phone-progress-bar"><div class="phone-progress-fill"></div></div>1/3</div>
+              </div>
+              <div class="phone-title">Votre profil peau</div>
+              <div class="phone-q">Quel est votre principal problème de peau ?</div>
+              <div class="phone-radios">
+                <span class="phone-radio">Rougeurs</span>
+                <span class="phone-radio">Taches</span>
+                <span class="phone-radio checked">Acné</span>
+                <span class="phone-radio">Eczéma</span>
+              </div>
+              <div class="phone-q">Depuis combien de temps ?</div>
+              <div class="phone-radios">
+                <span class="phone-radio">Moins d'un an</span>
+                <span class="phone-radio">1–2 ans</span>
+                <span class="phone-radio checked">Plus de 2 ans</span>
+              </div>
+              <div class="phone-q">Zone(s) concernée(s) ?</div>
+              <div class="phone-checks">
+                <span class="phone-check checked">Joues</span>
+                <span class="phone-check checked">Front</span>
+                <span class="phone-check">Menton</span>
+                <span class="phone-check">Nez</span>
+              </div>
+              <div class="phone-photos">
+                <div class="phone-photo"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Joue gauche</div>
+                <div class="phone-photo"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Joue droite</div>
+              </div>
+              <div class="phone-btn">Continuer →</div>
+            </div>
+          </div>
+          <div class="how-slide">
+            <div class="phone" style="padding:0;">
+              <img src="images/prep.png" alt="Préparation en laboratoire" style="width:100%; flex:1; object-fit:cover; display:block; border-radius:32px;">
+            </div>
+          </div>
+          <div class="how-slide">
+            <div class="phone">
+              <div class="phone-header">
+                <div class="phone-brand">mixt</div>
+                <span class="phone-badge">ON TRACK</span>
+              </div>
+              <div class="phone-user"><strong>Jessica</strong> — 29 ans — Membre depuis juin 2025</div>
+              <div class="phone-section">Progrès</div>
+              <div class="phone-compare">
+                <div class="phone-thumb">
+                  <div class="phone-thumb-label">Avant</div>
+                  <div class="phone-thumb-date">16 juin</div>
+                </div>
+                <div class="phone-thumb">
+                  <div class="phone-thumb-label">Actuel</div>
+                  <div class="phone-thumb-date">14 juil</div>
+                </div>
+              </div>
+              <div class="phone-section">Skin Metrics</div>
+              <div class="phone-metrics">
+                <div class="phone-metric">
+                  <div class="phone-metric-label">Sévérité</div>
+                  <div class="phone-metric-value">Modérée <span class="down">↓ Sévère</span></div>
+                </div>
+                <div class="phone-metric">
+                  <div class="phone-metric-label">Zone touchée</div>
+                  <div class="phone-metric-value">32% <span class="down">↓ 12%</span></div>
+                </div>
+              </div>
+              <div class="phone-footer-dark">
+                <div class="phone-goal">Objectif réduction : 40% <span class="check">✓</span> Atteint en 4 semaines</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <a href="#cta" class="btn btn-white btn-lg" style="margin-top:48px;">Démarrer mon parcours →</a>
   </div>
 </section>
 
@@ -735,7 +849,7 @@
   function switchCondition(idx){document.querySelectorAll('.condition-tab').forEach(function(t,i){t.classList.toggle('active',i===idx)});document.querySelectorAll('.condition-panel').forEach(function(p,i){p.classList.toggle('active',i===idx)});}
   var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.querySelectorAll('.step').forEach(function(s){s.classList.add('visible')});obs.unobserve(en.target);}});},{threshold:0.2});var sg=document.getElementById('stepsGrid');if(sg)obs.observe(sg);
   var ordoObs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');ordoObs.unobserve(en.target);}});},{threshold:0.3});var ordo=document.querySelector('.ordo');if(ordo)ordoObs.observe(ordo);
-  var howSteps=document.querySelectorAll('.how-step-dark[data-how-img]');var howImgs=document.querySelectorAll('#howVisualDark img');if(howSteps.length&&howImgs.length){var howObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var idx=parseInt(e.target.getAttribute('data-how-img'));howImgs.forEach(function(img,i){img.classList.toggle('active',i===idx);});howSteps.forEach(function(s,i){s.classList.toggle('dimmed',i!==idx);s.classList.toggle('active',i===idx);});}});},{rootMargin:'-40% 0px -40% 0px'});howSteps.forEach(function(s){howObs.observe(s);});}
+  var howSteps=document.querySelectorAll('.how-step-dark[data-how-img]');var howSlides=document.querySelectorAll('#howVisualDark .how-slide');if(howSteps.length&&howSlides.length){var howObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var idx=parseInt(e.target.getAttribute('data-how-img'));howSlides.forEach(function(s,i){s.classList.toggle('active',i===idx);});howSteps.forEach(function(s,i){s.classList.toggle('dimmed',i!==idx);s.classList.toggle('active',i===idx);});}});},{rootMargin:'-40% 0px -40% 0px'});howSteps.forEach(function(s){howObs.observe(s);});}
 </script>
 </body>
 </html>
