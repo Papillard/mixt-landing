@@ -292,13 +292,16 @@
   .s-proof { padding:100px 40px; background:var(--cream); }
   .proof-top { text-align:center; margin-bottom:56px; }
   .proof-top h2 { max-width:550px; margin:0 auto; }
-  .proof-stories { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-bottom:64px; }
-  .proof-story { background:#fff; border-radius:16px; padding:32px; padding-top:40px; overflow:visible; }
-  .proof-photos { position:relative; height:340px; margin-bottom:24px; margin-top:-80px; }
+  .proof-stories { display:grid; grid-template-columns:1fr 1fr; gap:150px; margin-bottom:64px; }
+  .proof-story { background:#fff; border-radius:16px; padding:40px 36px; overflow:visible; }
+  .proof-photos { position:relative; height:340px; margin-bottom:32px; margin-top:-80px; margin-left:-60px; margin-right:-60px; }
   .proof-photo { position:absolute; width:240px; aspect-ratio:3/4; border-radius:var(--r); overflow:hidden; box-shadow:0 8px 32px rgba(54,24,34,0.25); }
   .proof-photo-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--text-3); text-align:center; padding:12px; }
-  .proof-photo.before { background:linear-gradient(160deg,#E8D8CC,#C8A898); left:0; top:20px; transform:rotate(-2deg); z-index:1; }
-  .proof-photo.after { background:linear-gradient(160deg,var(--cream),var(--blush)); right:0; top:0; transform:rotate(1.5deg); z-index:2; }
+  .proof-photo.before { background:linear-gradient(160deg,#E8D8CC,#C8A898); left:0; top:20px; transform:rotate(-8deg) translateY(20px); opacity:0; z-index:1; transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.6s ease; }
+  .proof-photo.after { background:linear-gradient(160deg,var(--cream),var(--blush)); right:0; top:0; transform:rotate(8deg) translateY(20px); opacity:0; z-index:2; transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s, opacity 0.6s ease 0.15s; }
+  .proof-story.in-view .proof-photo.before { transform:rotate(-2deg) translateY(0); opacity:1; }
+  .proof-story.in-view .proof-photo.after { transform:rotate(1.5deg) translateY(0); opacity:1; }
+  .proof-condition { margin-top:8px; }
   .proof-condition { font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin-bottom:10px; }
   .proof-meta { font-size:22px; font-weight:600; margin-bottom:10px; }
   .proof-meta span { color:var(--text-3); font-weight:400; font-size:18px; }
@@ -630,11 +633,8 @@
     <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Boutons, inflammations, peau qui ne se calme jamais ? C'est de l'acné.</h3><p>L'acné n'est pas qu'un problème d'adolescent. Hormonale, inflammatoire ou kystique — nos formulations ciblent la cause, pas juste les symptômes.</p><div class="condition-tags"><span class="condition-tag">Hormonale</span><span class="condition-tag">Inflammatoire</span><span class="condition-tag">Kystique</span><span class="condition-tag">Tardive</span></div><a href="#cta" class="btn btn-dark btn-lg" style="margin-top:24px;">Démarrer mon diagnostic →</a></div><div class="condition-visual"><img src="images/acne.jpg" alt="Acné" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r);"></div></div></div>
     <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Démangeaisons, plaques sèches, crises qui reviennent ? C'est de l'eczéma.</h3><p>Peau qui tiraille, plaques qui ne disparaissent jamais complètement. Nos formulations restaurent la barrière cutanée et réduisent l'inflammation chronique — durablement.</p><div class="condition-tags"><span class="condition-tag">Atopique</span><span class="condition-tag">De contact</span><span class="condition-tag">Séborrhéique</span></div><a href="#cta" class="btn btn-dark btn-lg" style="margin-top:24px;">Démarrer mon diagnostic →</a></div><div class="condition-visual"><img src="images/eczema.jpg" alt="Eczéma" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r);"></div></div></div>
     <div class="condition-panel"><div class="condition-content"><div class="condition-help"><h3>Pas sûre de ce que vous avez ? On est là pour ça.</h3><p>Beaucoup de femmes vivent avec des rougeurs ou des taches sans savoir qu'il s'agit d'une maladie traitable. Notre questionnaire vous aide à y voir clair.</p><a href="#cta" class="btn btn-dark btn-lg">Démarrer mon diagnostic →</a></div><div class="condition-visual" style="background:none;"></div></div></div>
-    <div style="margin-top:56px; display:flex; align-items:center; justify-content:center; gap:12px; padding:18px 24px; background:var(--cream); border-radius:6px;">
-      <div class="prot-icon"><svg viewBox="0 0 24 24"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <div style="margin-top:56px; padding-top:24px; border-top:1px solid var(--cream); text-align:center;">
       <span class="prot-text">Vos données de santé sont protégées et soumises au secret médical</span>
-      <span class="prot-sep"></span>
-      <a href="#" class="prot-link">En savoir plus →</a>
     </div>
   </div>
 </section>
@@ -848,8 +848,8 @@
   window.addEventListener('scroll',updateHero,{passive:true});window.addEventListener('resize',updateHero);updateHero();
   function switchCondition(idx){document.querySelectorAll('.condition-tab').forEach(function(t,i){t.classList.toggle('active',i===idx)});document.querySelectorAll('.condition-panel').forEach(function(p,i){p.classList.toggle('active',i===idx)});}
   var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.querySelectorAll('.step').forEach(function(s){s.classList.add('visible')});obs.unobserve(en.target);}});},{threshold:0.2});var sg=document.getElementById('stepsGrid');if(sg)obs.observe(sg);
-  var ordoObs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');ordoObs.unobserve(en.target);}});},{threshold:0.3});var ordo=document.querySelector('.ordo');if(ordo)ordoObs.observe(ordo);
-  var howSteps=document.querySelectorAll('.how-step-dark[data-how-img]');var howSlides=document.querySelectorAll('#howVisualDark .how-slide');if(howSteps.length&&howSlides.length){var howObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var idx=parseInt(e.target.getAttribute('data-how-img'));howSlides.forEach(function(s,i){s.classList.toggle('active',i===idx);});howSteps.forEach(function(s,i){s.classList.toggle('dimmed',i!==idx);s.classList.toggle('active',i===idx);});}});},{rootMargin:'-40% 0px -40% 0px'});howSteps.forEach(function(s){howObs.observe(s);});}
+  var viewObs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');viewObs.unobserve(en.target);}});},{threshold:0.3});document.querySelectorAll('.ordo, .proof-story').forEach(function(el){viewObs.observe(el);});
+  var howSteps=document.querySelectorAll('.how-step-dark[data-how-img]');var howSlides=document.querySelectorAll('#howVisualDark .how-slide');if(howSteps.length&&howSlides.length){var howObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var idx=parseInt(e.target.getAttribute('data-how-img'));howSlides.forEach(function(s,i){s.classList.toggle('active',i===idx);});howSteps.forEach(function(s,i){s.classList.toggle('dimmed',i!==idx);s.classList.toggle('active',i===idx);});}});},{rootMargin:'-50% 0px -50% 0px'});howSteps.forEach(function(s){howObs.observe(s);});}
 </script>
 </body>
 </html>
