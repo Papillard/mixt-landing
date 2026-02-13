@@ -110,7 +110,7 @@
   .condition-tab.active { color:#fff; background:var(--deep); border-color:var(--deep); font-weight:600; }
 
   .condition-content { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
-  .condition-text h3 { font-size:30px; font-weight:400; letter-spacing:-0.02em; margin-bottom:14px; line-height:1.25; }
+  .condition-text h3 { font-size:24px; font-weight:400; letter-spacing:-0.02em; margin-bottom:14px; line-height:1.3; }
   .condition-text h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.2em; }
   .condition-text p { font-size:15px; line-height:1.7; color:var(--text-2); margin-bottom:18px; }
   .condition-tags { display:flex; gap:6px; flex-wrap:wrap; }
@@ -282,6 +282,21 @@
   .doctor-name { font-size:17px; font-weight:600; color:#fff; margin-bottom:3px; }
   .doctor-title { font-size:14px; color:rgba(255,255,255,0.55); }
 
+  /* PRICING */
+  .s-pricing { padding:100px 40px; background:var(--base); }
+  .pricing-layout { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+  .pricing-text h2 { margin-bottom:20px; }
+  .pricing-text p { font-size:16px; line-height:1.7; color:var(--text-2); }
+  .pricing-card { background:var(--cream); border-radius:16px; box-shadow:0 4px 24px rgba(54,24,34,0.06); overflow:hidden; }
+  .pricing-card-top { padding:32px 32px 28px; }
+  .pricing-card-brand { font-family:'Fraunces',serif; font-size:32px; font-weight:500; font-variation-settings:'opsz' 144; margin-bottom:4px; }
+  .pricing-card-label { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-3); margin-bottom:28px; }
+  .pricing-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px; }
+  .pricing-list li { font-size:15px; line-height:1.5; color:var(--text); display:flex; align-items:baseline; gap:10px; }
+  .pricing-list li::before { content:'✓'; color:var(--warm); font-weight:700; flex-shrink:0; }
+  .pricing-card-bottom { padding:24px 32px; background:var(--deep); border-radius:0 0 16px 16px; }
+  .pricing-card-launch { font-size:15px; color:var(--cream); font-weight:600; text-align:center; }
+
   /* FOUNDER STORY */
   .s-founder { padding:100px 40px; background:var(--cream); }
   .founder-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
@@ -311,7 +326,7 @@
     h2 { font-size:30px; } .steps,.pillars,.promise-cards { grid-template-columns:1fr; }
     .step { border-right:none; border-bottom:1px solid var(--border); opacity:1; transform:none; }
     .step:last-child { border-bottom:none; }
-    .identify-grid,.identify-layout,.how-layout,.how-layout-dark,.founder-grid,.proof-stories { grid-template-columns:1fr; gap:32px; }
+    .identify-grid,.identify-layout,.how-layout,.how-layout-dark,.founder-grid,.proof-stories,.pricing-layout { grid-template-columns:1fr; gap:32px; }
     .how-sticky,.how-sticky-dark { position:relative; top:auto; }
     .identify-images { position:relative; top:auto; height:300px; }
     .identify-step { min-height:auto; }
@@ -472,7 +487,10 @@
 <section class="s-conditions" id="conditions">
   <div class="inner">
     <div class="label" style="color:var(--violet);"><span style="width:24px;height:1px;background:var(--violet);display:inline-block;margin-right:10px;"></span>Pathologies traitées</div>
-    <h2>Nous traitons les problèmes de peau <em>chroniques</em></h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; margin-bottom:40px;">
+      <h2 style="margin-bottom:0;">Nous traitons les problèmes de peau <em>chroniques</em></h2>
+      <p style="font-size:16px; line-height:1.7; color:var(--text-2); margin:0;">Ce sont des maladies chroniques. Elles ne guérissent pas, mais avec le bon traitement, elles se contrôlent durablement. C'est pour ça que votre formulation évolue chaque mois avec votre peau.</p>
+    </div>
     <div class="condition-tabs">
       <button class="condition-tab active" onclick="switchCondition(0)">Rosacée</button>
       <button class="condition-tab" onclick="switchCondition(1)">Hyperpigmentation</button>
@@ -532,6 +550,37 @@
       <h3>Vous n'êtes <em>pas seule</em></h3>
       <p>Rejoignez des femmes qui vivent la même chose. Partagez, échangez, avancez ensemble.</p>
       <a href="#cta" class="btn btn-dark btn-lg">Rejoindre la communauté →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="s-pricing">
+  <div class="inner">
+    <div class="pricing-layout">
+      <div class="pricing-text">
+        <div class="label" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;margin-right:10px;"></span>Votre abonnement</div>
+        <h2>Votre abonnement <em>Mixt</em></h2>
+        <p>Une consultation médicale, un traitement sur-mesure livré chez vous tous les 2 mois, une app de suivi et des ajustements réguliers. Un seul abonnement.</p>
+        <a href="#cta" class="btn btn-dark btn-lg" style="margin-top:28px;">Rejoindre la liste d'attente →</a>
+        <p style="font-size:13px; color:var(--text-3); margin-top:12px;">Sans engagement — inscrivez-vous pour être informé·e en avant-première</p>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-card-top">
+          <div class="pricing-card-brand">mixt</div>
+          <div class="pricing-card-label">Abonnement</div>
+          <ul class="pricing-list">
+            <li>Téléconsultation médicale initiale</li>
+            <li>Formulation personnalisée livrée tous les 2 mois</li>
+            <li>Application de suivi photo</li>
+            <li>Ajustements du protocole selon l'évolution</li>
+            <li>Support continu avec l'équipe médicale</li>
+          </ul>
+        </div>
+        <div class="pricing-card-bottom">
+          <div class="pricing-card-launch">Lancement printemps 2026</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
