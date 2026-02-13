@@ -187,23 +187,10 @@
   /* IDENTIFICATION (cream, 3 images sticky scroll) */
   .s-identify { padding:100px 40px; background:var(--cream); }
   .identify-top { margin-bottom:48px; }
-  .identify-layout { display:grid; grid-template-columns:1fr 1fr; gap:64px; position:relative; }
-  .identify-steps { display:flex; flex-direction:column; }
-  .identify-step { padding:48px 0; border-bottom:1px solid var(--border); min-height:60vh; display:flex; flex-direction:column; justify-content:center; transition:opacity 0.4s ease; }
-  .identify-step.dimmed { opacity:0.3; }
-  .identify-step-content { padding-left:20px; border-left:2px solid transparent; transition:border-color 0.5s ease; }
-  .identify-step.active .identify-step-content { border-left-color:var(--warm); }
-  .identify-step:first-child { padding-top:0; }
-  .identify-step:last-child { border-bottom:none; }
-  .identify-step h3 { font-size:28px; font-weight:500; margin-bottom:14px; letter-spacing:-0.02em; line-height:1.3; }
-  .identify-step h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.2em; }
-  .identify-step p { font-size:18px; line-height:1.65; color:var(--text-2); }
-  .identify-images { position:sticky; top:100px; height:58vh; width:80%; margin-left:auto; }
-  .identify-img { position:absolute; inset:0; border-radius:var(--r); overflow:hidden; opacity:0; transition:opacity 0.5s ease; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--text-3); }
-  .identify-img.active { opacity:1; }
-  .identify-img:nth-child(1) { background:linear-gradient(160deg,#F0DED2,#D4A08A); }
-  .identify-img:nth-child(2) { background:linear-gradient(160deg,#E8D8CC,#C8A898); }
-  .identify-img:nth-child(3) { background:linear-gradient(160deg,#F5E0D4,#DEB8A4); }
+  .identify-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .identify-card img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--r); margin-bottom:16px; }
+  .identify-card h3 { font-size:18px; font-weight:600; margin-bottom:8px; letter-spacing:-0.02em; line-height:1.3; }
+  .identify-card p { font-size:15px; line-height:1.6; color:var(--text-2); }
 
   /* PROMISE (base/cream) */
   .s-promise { padding:100px 40px; background:var(--base); }
@@ -221,14 +208,19 @@
   .s-how-violet h2 { margin-bottom:56px; }
   .how-layout-dark { display:grid; grid-template-columns:1fr 1fr; gap:64px; margin-top:32px; }
   .how-steps-dark { display:flex; flex-direction:column; }
-  .how-step-dark { padding:48px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .how-step-dark { padding:64px 0; border-bottom:1px solid rgba(255,255,255,0.08); transition:opacity 0.4s ease; }
+  .how-step-dark.dimmed { opacity:0.3; }
   .how-step-dark:first-child { padding-top:0; }
   .how-step-dark:last-child { border-bottom:none; }
+  .how-step-dark-content { padding-left:20px; border-left:2px solid transparent; transition:border-color 0.5s ease; }
+  .how-step-dark.active .how-step-dark-content { border-left-color:var(--blush); }
   .how-step-num-dark { font-size:12px; font-weight:700; color:var(--blush); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:12px; }
   .how-step-dark h3 { font-size:22px; font-weight:600; margin-bottom:10px; letter-spacing:-0.02em; color:#fff; }
   .how-step-dark p { font-size:16px; line-height:1.7; color:rgba(255,255,255,0.55); }
   .how-sticky-dark { position:sticky; top:100px; }
-  .how-visual-dark { width:100%; aspect-ratio:4/5; border-radius:var(--r); overflow:hidden; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:13px; color:rgba(255,255,255,0.3); }
+  .how-visual-dark { width:100%; aspect-ratio:4/5; border-radius:var(--r); overflow:hidden; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); position:relative; }
+  .how-visual-dark img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 0.3s ease; }
+  .how-visual-dark img.active { opacity:1; }
 
   /* HOW — Scroll vertical sticky */
   .s-how { padding:100px 40px; background:var(--cream); }
@@ -353,10 +345,8 @@
     h2 { font-size:30px; } .steps,.pillars,.promise-cards { grid-template-columns:1fr; }
     .step { border-right:none; border-bottom:1px solid var(--border); opacity:1; transform:none; }
     .step:last-child { border-bottom:none; }
-    .identify-grid,.identify-layout,.how-layout,.how-layout-dark,.founder-grid,.proof-stories,.pricing-layout { grid-template-columns:1fr; gap:32px; }
+    .identify-cards,.identify-grid,.identify-layout,.how-layout,.how-layout-dark,.founder-grid,.proof-stories,.pricing-layout { grid-template-columns:1fr; gap:32px; }
     .how-sticky,.how-sticky-dark { position:relative; top:auto; }
-    .identify-images { position:relative; top:auto; height:300px; }
-    .identify-step { min-height:auto; }
     .proof-photos { height:260px; } .proof-photo { width:190px; }
     .doctor-spotlight { flex-direction:column; text-align:center; }
     .pharma-layout { grid-template-columns:1fr; gap:40px; }
@@ -440,31 +430,21 @@
       <div class="label" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--accent);display:inline-block;margin-right:10px;"></span>Vous vous reconnaissez ?</div>
       <h2>Ce que vous vivez <em>au quotidien</em></h2>
     </div>
-    <div class="identify-layout" id="identifyLayout">
-      <div class="identify-steps">
-        <div class="identify-step" data-img="0">
-          <div class="identify-step-content">
-            <h3>Des rougeurs qui montent sans prévenir</h3>
-            <p>En réunion, au restaurant, sans raison apparente. Le flush qui s'installe, la gêne, le réflexe de baisser les yeux. Vous ne savez jamais quand ça va arriver.</p>
-          </div>
-        </div>
-        <div class="identify-step" data-img="1">
-          <div class="identify-step-content">
-            <h3>Des taches que rien n'efface</h3>
-            <p>Ni les sérums, ni les peelings, ni les crèmes à 80€. Le teint reste inégal, mois après mois. Vous avez tout essayé, rien ne cible vraiment le problème.</p>
-          </div>
-        </div>
-        <div class="identify-step" data-img="2">
-          <div class="identify-step-content">
-            <h3>Le sentiment d'être seule avec ça</h3>
-            <p>Gêne, frustration parfois. L'impression que rien ne fonctionne malgré tous vos efforts. Personne autour de vous ne comprend vraiment ce que vous vivez au quotidien.</p>
-          </div>
-        </div>
+    <div class="identify-cards">
+      <div class="identify-card">
+        <img src="images/1-embarrassed.jpg" alt="Femme embarrassée par sa peau">
+        <h3>Des rougeurs qui montent sans prévenir</h3>
+        <p>En réunion, au restaurant, sans raison apparente. Le flush qui s'installe, la gêne, le réflexe de baisser les yeux.</p>
       </div>
-      <div class="identify-images">
-        <div class="identify-img active"><img src="images/1-embarrassed.jpg" alt="Femme embarrassée par sa peau" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="identify-img"><img src="images/2-lost.jpg" alt="Femme perdue face à ses problèmes de peau" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="identify-img"><img src="images/3-alone.jpg" alt="Femme seule avec ses problèmes de peau" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="identify-card">
+        <img src="images/2-lost.jpg" alt="Femme perdue face à ses problèmes de peau">
+        <h3>Des taches que rien n'efface</h3>
+        <p>Ni les sérums, ni les peelings, ni les crèmes à 80€. Le teint reste inégal, mois après mois.</p>
+      </div>
+      <div class="identify-card">
+        <img src="images/3-alone.jpg" alt="Femme seule avec ses problèmes de peau">
+        <h3>Un impact sur votre confiance</h3>
+        <p>La gêne quand on vous regarde. L'envie d'annuler une sortie. Le fond de teint comme réflexe, pas comme choix.</p>
       </div>
     </div>
     <div style="text-align:center; margin-top:64px; max-width:620px; margin-left:auto; margin-right:auto;">
@@ -495,12 +475,16 @@
     <h2 style="color:#fff;">Un parcours médical simple et <em>personnalisé</em></h2>
     <div class="how-layout-dark">
       <div class="how-steps-dark">
-        <div class="how-step-dark"><div class="how-step-num-dark">Étape 01</div><h3>Racontez-nous votre peau</h3><p>Décrivez vos symptômes, vos antécédents et ce que vous avez déjà essayé. Envoyez des photos pour une analyse précise.</p></div>
-        <div class="how-step-dark"><div class="how-step-num-dark">Étape 02</div><h3>Votre médecin prescrit votre formulation</h3><p>Un médecin formé à nos protocoles analyse votre profil et prescrit une formulation magistrale unique — préparée sur-mesure en pharmacie.</p></div>
-        <div class="how-step-dark"><div class="how-step-num-dark">Étape 03</div><h3>Suivez vos progrès, mois après mois</h3><p>Notre technologie analyse l'évolution de votre peau et aide votre médecin à ajuster le traitement en continu.</p></div>
+        <div class="how-step-dark" data-how-img="0"><div class="how-step-dark-content"><div class="how-step-num-dark">Étape 01</div><h3>Décrivez votre peau</h3><p>Remplissez votre questionnaire médical en 5 minutes. Symptômes, antécédents, traitements déjà essayés, photos de votre peau. Votre équipe médicale a tout ce qu'il faut pour vous comprendre.</p></div></div>
+        <div class="how-step-dark" data-how-img="1"><div class="how-step-dark-content"><div class="how-step-num-dark">Étape 02</div><h3>Recevez votre traitement</h3><p>Un médecin formé à nos protocoles analyse votre profil et prescrit votre formulation personnalisée. Elle est préparée en pharmacie et livrée chez vous.</p></div></div>
+        <div class="how-step-dark" data-how-img="2"><div class="how-step-dark-content"><div class="how-step-num-dark">Étape 03</div><h3>Suivez vos progrès</h3><p>Prenez une photo chaque mois. L'app mesure l'évolution de votre peau et votre équipe médicale ajuste votre formulation si besoin.</p></div></div>
       </div>
       <div class="how-sticky-dark">
-        <div class="how-visual-dark"><img src="images/acne-curve.png" alt="Courbe d'évolution acné" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="how-visual-dark" id="howVisualDark">
+          <img src="images/acne-curve.png" alt="Étape 1" class="active">
+          <img src="images/acne-curve.png" alt="Étape 2">
+          <img src="images/acne-curve.png" alt="Étape 3">
+        </div>
       </div>
     </div>
     <a href="#cta" class="btn btn-white btn-lg" style="margin-top:48px;">Démarrer mon parcours →</a>
@@ -748,24 +732,10 @@
   var heroScroll=document.getElementById('heroScroll'),problemBlock=document.getElementById('problemBlock'),darkBg=document.getElementById('heroDarkBg'),heroVis=document.getElementById('heroVisual');
   function updateHero(){if(!heroScroll||!problemBlock||!darkBg||!heroVis)return;var sr=heroScroll.getBoundingClientRect(),pr=problemBlock.getBoundingClientRect();darkBg.style.top=(pr.top-sr.top)+'px';darkBg.style.bottom='0';var vh=window.innerHeight,scrolled=Math.max(0,-sr.top),total=sr.height-vh,progress=Math.min(1,scrolled/total);var delay=0.25,reveal=progress<=delay?0:Math.min(1,(progress-delay)/(1-delay))*100;heroVis.style.setProperty('--reveal',reveal+'%');}
   window.addEventListener('scroll',updateHero,{passive:true});window.addEventListener('resize',updateHero);updateHero();
-  // Identify section — image swap + step highlight on scroll
-  var idSteps=document.querySelectorAll('.identify-step[data-img]');
-  var idImgs=document.querySelectorAll('.identify-img');
-  if(idSteps.length&&idImgs.length){
-    var idObs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          var idx=parseInt(e.target.getAttribute('data-img'));
-          idImgs.forEach(function(img,i){img.classList.toggle('active',i===idx);});
-          idSteps.forEach(function(s,i){s.classList.toggle('dimmed',i!==idx);s.classList.toggle('active',i===idx);});
-        }
-      });
-    },{rootMargin:'-40% 0px -40% 0px'});
-    idSteps.forEach(function(s){idObs.observe(s);});
-  }
   function switchCondition(idx){document.querySelectorAll('.condition-tab').forEach(function(t,i){t.classList.toggle('active',i===idx)});document.querySelectorAll('.condition-panel').forEach(function(p,i){p.classList.toggle('active',i===idx)});}
   var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.querySelectorAll('.step').forEach(function(s){s.classList.add('visible')});obs.unobserve(en.target);}});},{threshold:0.2});var sg=document.getElementById('stepsGrid');if(sg)obs.observe(sg);
   var ordoObs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');ordoObs.unobserve(en.target);}});},{threshold:0.3});var ordo=document.querySelector('.ordo');if(ordo)ordoObs.observe(ordo);
+  var howSteps=document.querySelectorAll('.how-step-dark[data-how-img]');var howImgs=document.querySelectorAll('#howVisualDark img');if(howSteps.length&&howImgs.length){var howObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var idx=parseInt(e.target.getAttribute('data-how-img'));howImgs.forEach(function(img,i){img.classList.toggle('active',i===idx);});howSteps.forEach(function(s,i){s.classList.toggle('dimmed',i!==idx);s.classList.toggle('active',i===idx);});}});},{rootMargin:'-40% 0px -40% 0px'});howSteps.forEach(function(s){howObs.observe(s);});}
 </script>
 </body>
 </html>
