@@ -20,7 +20,9 @@
   html { scroll-behavior:smooth; }
   body { font-family:'Geist Sans','Geist',-apple-system,sans-serif; background:var(--base); color:var(--text); -webkit-font-smoothing:antialiased; }
 
-  nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(255,248,242,0.92); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; }
+  .site-banner { position:fixed; top:0; left:0; right:0; z-index:101; background:var(--violet-bg); text-align:center; height:28px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; letter-spacing:0.02em; color:var(--violet); }
+  .site-banner span { color:var(--violet-light); margin:0 6px; }
+  nav { position:fixed; top:28px; left:0; right:0; z-index:100; background:var(--base); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; }
   .nav-logo { font-family:'Fraunces',serif; font-size:28px; font-weight:500; font-variation-settings:'opsz' 144,'WONK' 0,'SOFT' 0; }
   .nav-right { display:flex; align-items:center; gap:24px; }
   .nav-right a { font-size:13px; font-weight:450; color:var(--text-2); text-decoration:none; }
@@ -40,7 +42,7 @@
   .inner { max-width:1100px; margin:0 auto; }
 
   /* HERO */
-  .hero-scroll { position:relative; padding:136px 40px 100px; }
+  .hero-scroll { position:relative; padding:166px 40px 100px; }
   .hero-scroll-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:70px; }
   .hero-left { padding:0; }
   .hero-text { padding-bottom:40px; }
@@ -62,7 +64,7 @@
   .hero-dark-bg { position:absolute; left:0; right:0; background:linear-gradient(180deg,var(--deep) 0%,#260E16 100%); z-index:-2; }
   .hero-dark-bg::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:120px 120px; mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.5) 15%,rgba(0,0,0,0.5) 85%,transparent 100%); pointer-events:none; }
   .hero-right { padding:0; position:relative; }
-  .hero-visual-wrap { position:sticky; top:100px; }
+  .hero-visual-wrap { position:sticky; top:130px; }
   .hero-visual { width:92%; margin:0 auto; aspect-ratio:3/4; max-height:90vh; border-radius:10px; overflow:hidden; position:relative; background:linear-gradient(160deg,var(--cream),var(--blush)); background-size:cover; background-position:center top; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--text-3); }
   .hero-visual .layer-after { position:absolute; inset:0; background-size:cover; background-position:center top; clip-path:inset(0 calc(100% - var(--reveal,0%)) 0 0); }
   .hero-visual .slider-line { position:absolute; top:0; bottom:0; left:var(--reveal,0%); width:2px; background:#fff; z-index:5; }
@@ -277,7 +279,7 @@
   .how-step-num { font-size:12px; font-weight:700; color:var(--accent); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:12px; }
   .how-step h3 { font-size:22px; font-weight:600; margin-bottom:10px; letter-spacing:-0.02em; }
   .how-step p { font-size:15px; line-height:1.7; color:var(--text-2); }
-  .how-sticky { position:sticky; top:100px; }
+  .how-sticky { position:sticky; top:130px; }
   .how-visual { width:100%; aspect-ratio:4/5; border-radius:var(--r); overflow:hidden; background:linear-gradient(160deg,var(--base),var(--blush)); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--text-3); }
 
   /* "JE NE SAIS PAS" tab */
@@ -381,7 +383,7 @@
   @media (max-width:768px) {
     nav { padding:0 20px; } .nav-right a:not(.btn) { display:none; }
     .hero-scroll-inner { grid-template-columns:1fr; gap:0; }
-    .hero-scroll { padding:80px 20px 0; } .hero-left { padding:0; } .hero-text h1 { font-size:42px; line-height:1.15; }
+    .hero-scroll { padding:110px 20px 0; } .hero-left { padding:0; } .hero-text h1 { font-size:42px; line-height:1.15; }
     .hero-sub { max-width:100%; } .hero-ctas { flex-direction:column; }
     .hero-ctas .btn { width:100%; justify-content:center; }
     .hero-right { padding:32px 0 0; margin:0 -20px; }
@@ -422,6 +424,8 @@
 </style>
 </head>
 <body>
+
+<div class="site-banner"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Site en cours de développement <span>·</span> Les contenus, photos et données présentés sont fictifs et utilisés à titre illustratif uniquement</div>
 
 <nav>
   <div class="nav-logo">mixt</div>
