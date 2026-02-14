@@ -20,9 +20,11 @@
   html { scroll-behavior:smooth; }
   body { font-family:'Geist Sans','Geist',-apple-system,sans-serif; background:var(--base); color:var(--text); -webkit-font-smoothing:antialiased; }
 
-  .site-banner { position:fixed; top:0; left:0; right:0; z-index:101; background:var(--violet-bg); text-align:center; height:28px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; letter-spacing:0.02em; color:var(--violet); }
-  .site-banner span { color:var(--violet-light); margin:0 6px; }
-  nav { position:fixed; top:28px; left:0; right:0; z-index:100; background:var(--base); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; }
+  .site-banner { position:fixed; top:0; left:0; right:0; z-index:101; background:var(--violet-bg); text-align:center; min-height:28px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; font-size:12px; font-weight:600; letter-spacing:0.02em; color:var(--violet); padding:4px 16px; line-height:1.4; }
+  .banner-line1 { display:inline-flex; align-items:center; }
+  .banner-sep { color:var(--violet-light); margin:0 6px; }
+  .banner-line2 { color:var(--violet); }
+  nav { position:fixed; top:var(--banner-h,28px); left:0; right:0; z-index:100; background:var(--base); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; }
   .nav-logo { font-family:'Fraunces',serif; font-size:28px; font-weight:500; font-variation-settings:'opsz' 144,'WONK' 0,'SOFT' 0; }
   .nav-right { display:flex; align-items:center; gap:24px; }
   .nav-right a { font-size:13px; font-weight:450; color:var(--text-2); text-decoration:none; }
@@ -42,7 +44,7 @@
   .inner { max-width:1100px; margin:0 auto; }
 
   /* HERO */
-  .hero-scroll { position:relative; padding:166px 40px 100px; }
+  .hero-scroll { position:relative; padding:calc(var(--banner-h,28px) + 56px + 82px) 40px 100px; }
   .hero-scroll-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:70px; }
   .hero-left { padding:0; }
   .hero-text { padding-bottom:40px; }
@@ -381,9 +383,12 @@
   .cta-testimonial strong { color:rgba(255,255,255,0.7); font-style:normal; font-weight:600; }
 
   @media (max-width:768px) {
+    .site-banner { font-size:10px; padding:6px 16px; flex-direction:column; gap:1px; }
+    .banner-sep { display:none; }
+    .banner-line2 { font-weight:500; opacity:0.8; }
     nav { padding:0 20px; } .nav-right a:not(.btn) { display:none; }
     .hero-scroll-inner { grid-template-columns:1fr; gap:0; }
-    .hero-scroll { padding:110px 20px 0; } .hero-left { padding:0; } .hero-text h1 { font-size:42px; line-height:1.15; }
+    .hero-scroll { padding:calc(var(--banner-h,28px) + 56px + 26px) 20px 0; } .hero-left { padding:0; } .hero-text h1 { font-size:42px; line-height:1.15; }
     .hero-sub { max-width:100%; } .hero-ctas { flex-direction:column; }
     .hero-ctas .btn { width:100%; justify-content:center; }
     .hero-right { padding:32px 0 0; margin:0 -20px; }
@@ -425,7 +430,7 @@
 </head>
 <body>
 
-<div class="site-banner"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Site en cours de développement <span>·</span> Les contenus, photos et données présentés sont fictifs et utilisés à titre illustratif uniquement</div>
+<div class="site-banner"><span class="banner-line1"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;flex-shrink:0;vertical-align:-1px"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Site en cours de développement</span> <span class="banner-sep">·</span> <span class="banner-line2">Les contenus et données présentés sont fictifs</span></div>
 
 <nav>
   <a href="index.html" class="nav-logo" style="text-decoration:none;color:inherit;">mixt</a>
@@ -853,6 +858,7 @@
 </footer>
 
 <script>
+  (function(){var b=document.querySelector('.site-banner'),n=document.querySelector('nav');function sync(){if(!b||!n)return;var h=b.offsetHeight;n.style.top=h+'px';document.documentElement.style.setProperty('--banner-h',h+'px');}sync();window.addEventListener('resize',sync);})();
   var heroScroll=document.getElementById('heroScroll'),problemBlock=document.getElementById('problemBlock'),darkBg=document.getElementById('heroDarkBg'),heroVis=document.getElementById('heroVisual');
   function updateHero(){if(!heroScroll||!problemBlock||!darkBg||!heroVis)return;var sr=heroScroll.getBoundingClientRect(),pr=problemBlock.getBoundingClientRect();darkBg.style.top=(pr.top-sr.top)+'px';darkBg.style.bottom='0';var vh=window.innerHeight;var isMobile=window.innerWidth<=768;var reveal;if(isMobile){var vr=heroVis.getBoundingClientRect();var mid=vh*0.5;var progress=Math.min(1,Math.max(0,(mid-vr.top)/(vr.bottom-vr.top)));reveal=progress*100;}else{var scrolled=Math.max(0,-sr.top),total=sr.height-vh,progress=Math.min(1,scrolled/total);var delay=0.25;reveal=progress<=delay?0:Math.min(1,(progress-delay)/(1-delay))*100;}heroVis.style.setProperty('--reveal',reveal+'%');}
   window.addEventListener('scroll',updateHero,{passive:true});window.addEventListener('resize',updateHero);updateHero();
