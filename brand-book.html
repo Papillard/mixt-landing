@@ -3,53 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mixt — Charte couleurs finale</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
+<title>Mixt — Charte couleurs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" rel="stylesheet">
 <style>
+  :root {
+    --deep: #361822; --rich: #6B3D32; --violet: #5E3A6E; --violet-dark: #462858;
+    --warm: #B07460; --blush: #D4A08A; --cream: #F5E6DA; --base: #FFF8F2;
+    --violet-light: #C0A8CC; --violet-bg: #F0EAF4;
+    --accent: #C85A4A;
+    --text: #1A1210; --text-2: #6B5B52; --text-3: #9A8A80; --border: rgba(0,0,0,0.06); --r: 6px;
+  }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Geist Sans',sans-serif; background:#FFF8F2; color:#1A1210; padding:48px; }
-  h1 { font-family:'Fraunces',serif; font-size:32px; font-weight:500; margin-bottom:4px; }
-  .subtitle { font-size:14px; color:#6B5B52; margin-bottom:8px; }
-  .frozen { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; background:#361822; color:#fff; padding:4px 10px; border-radius:4px; margin-bottom:48px; }
+  body { font-family:'Geist Sans','Geist',-apple-system,sans-serif; background:var(--base); color:var(--text); -webkit-font-smoothing:antialiased; }
+
+  /* Banner + Nav */
+  .site-banner { position:fixed; top:0; left:0; right:0; z-index:101; background:var(--violet-bg); text-align:center; height:28px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; letter-spacing:0.02em; color:var(--violet); }
+  .site-banner span { color:var(--violet-light); margin:0 6px; }
+  nav { position:fixed; top:28px; left:0; right:0; z-index:100; background:var(--base); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo { font-family:'Fraunces',serif; font-size:28px; font-weight:500; font-variation-settings:'opsz' 144,'WONK' 0,'SOFT' 0; color:var(--text); text-decoration:none; }
+  .nav-right { display:flex; align-items:center; gap:24px; }
+  .nav-right a { font-size:13px; font-weight:450; color:var(--text-2); text-decoration:none; }
+  .nav-right a:hover { color:var(--text); }
+
+  /* Page content */
+  .page-content { max-width:960px; margin:0 auto; padding:108px 24px 60px; }
+  .page-title { font-family:'Geist Sans','Geist',sans-serif; font-size:36px; font-weight:400; line-height:1.15; letter-spacing:-0.03em; margin-bottom:6px; }
+  .page-title em { font-family:'Newsreader',serif; font-style:italic; font-weight:400; font-size:1.05em; }
+  .page-sub { font-size:14px; color:var(--text-2); margin-bottom:48px; }
+
+  /* Sections */
   .section { margin-bottom:52px; }
-  .section-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:#9A8A80; margin-bottom:20px; padding-bottom:8px; border-bottom:1px solid rgba(0,0,0,0.06); }
+  .section-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--text-3); margin-bottom:20px; padding-bottom:8px; border-bottom:1px solid var(--border); }
   .row { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:16px; }
   .swatch { border-radius:8px; overflow:hidden; }
   .swatch-color { height:72px; position:relative; }
   .swatch-color.light { border:1px solid rgba(0,0,0,0.08); }
   .swatch-gradient { height:72px; border-radius:8px 8px 0 0; }
-  .swatch-info { padding:12px 14px; background:#fff; border:1px solid rgba(0,0,0,0.06); border-top:none; border-radius:0 0 8px 8px; }
+  .swatch-info { padding:12px 14px; background:#fff; border:1px solid var(--border); border-top:none; border-radius:0 0 8px 8px; }
   .swatch-name { font-size:14px; font-weight:600; margin-bottom:2px; }
-  .swatch-var { font-size:11px; color:#9A8A80; font-family:'Geist Mono',monospace; }
-  .swatch-hex { font-size:11px; color:#6B5B52; font-family:'Geist Mono',monospace; margin-top:2px; }
-  .swatch-rgb { font-size:10px; color:#9A8A80; font-family:'Geist Mono',monospace; }
-  .swatch-usage { font-size:11px; color:#9A8A80; margin-top:6px; line-height:1.4; }
-  .divider { height:1px; background:rgba(0,0,0,0.06); margin:52px 0; }
+  .swatch-var { font-size:11px; color:var(--text-3); font-family:'Geist Mono',monospace; }
+  .swatch-hex { font-size:11px; color:var(--text-2); font-family:'Geist Mono',monospace; margin-top:2px; }
+  .swatch-rgb { font-size:10px; color:var(--text-3); font-family:'Geist Mono',monospace; }
+  .swatch-usage { font-size:11px; color:var(--text-3); margin-top:6px; line-height:1.4; }
+  .swatch-usage strong { color:var(--text-2); font-weight:600; text-transform:uppercase; font-size:10px; letter-spacing:0.04em; }
 
-  .summary { display:grid; grid-template-columns:repeat(7,1fr); gap:0; border-radius:12px; overflow:hidden; margin-bottom:48px; height:56px; }
+  .summary { display:grid; grid-template-columns:repeat(9,1fr); gap:0; border-radius:12px; overflow:hidden; margin-bottom:48px; height:56px; }
   .summary-swatch { height:100%; }
 
   .opacity-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
   .opacity-swatch { border-radius:8px; overflow:hidden; }
   .opacity-color { height:48px; display:flex; align-items:center; justify-content:center; }
   .opacity-color span { font-size:12px; font-weight:600; }
+
+  /* Footer */
+  .footer-brand { background:var(--deep); padding:80px 40px 40px; position:relative; overflow:hidden; }
+  .footer-brand-logo { font-family:'Fraunces',serif; font-size:22vw; font-weight:500; color:rgba(255,255,255,0.04); position:absolute; bottom:-5vw; left:50%; transform:translateX(-50%); white-space:nowrap; pointer-events:none; font-variation-settings:'opsz' 144; line-height:0.85; }
+  .footer-inner { position:relative; z-index:2; max-width:1100px; margin:0 auto; }
+  .footer-top { display:flex; justify-content:space-between; margin-bottom:48px; }
+  .footer-left .fl-logo { font-family:'Fraunces',serif; font-size:26px; font-weight:500; color:#fff; margin-bottom:6px; font-variation-settings:'opsz' 144; }
+  .footer-left .fl-tagline { font-size:14px; color:rgba(255,255,255,0.4); }
+  .footer-cols { display:flex; gap:56px; }
+  .footer-col h4 { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--blush); margin-bottom:14px; }
+  .footer-col a { display:block; font-size:14px; color:rgba(255,255,255,0.55); text-decoration:none; margin-bottom:8px; }
+  .footer-col a:hover { color:#fff; }
+  .footer-bottom { display:flex; justify-content:space-between; padding-top:20px; }
+  .footer-bottom span { font-size:12px; color:rgba(255,255,255,0.3); }
+
+  @media (max-width:768px) {
+    nav { padding:0 20px; }
+    .nav-right a:not(:last-child) { display:none; }
+    .page-content { padding:100px 20px 40px; }
+    .footer-brand { padding:60px 20px 30px; }
+    .footer-top { flex-direction:column; gap:32px; }
+    .footer-cols { flex-direction:column; gap:24px; }
+    .footer-bottom { flex-direction:column; gap:6px; align-items:flex-start; }
+  }
 </style>
 </head>
 <body>
 
-<h1>mixt — charte couleurs</h1>
-<p class="subtitle">Landing page · Février 2026</p>
-<div class="frozen">🔒 Gelée</div>
+<div class="site-banner"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Site en cours de développement <span>·</span> Les contenus, photos et données présentés sont fictifs et utilisés à titre illustratif uniquement</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">mixt</a>
+  <div class="nav-right">
+    <a href="ui-kit.html">UI Kit</a>
+    <a href="index.html">Retour au site</a>
+  </div>
+</nav>
+
+<div class="page-content">
+
+<h1 class="page-title">Charte <em>couleurs</em></h1>
+<p class="page-sub">Palette, surfaces et opacités</p>
 
 <!-- ============ BANDE RÉSUMÉ ============ -->
 <div class="summary">
   <div class="summary-swatch" style="background:#361822;"></div>
   <div class="summary-swatch" style="background:#6B3D32;"></div>
   <div class="summary-swatch" style="background:#B07460;"></div>
+  <div class="summary-swatch" style="background:#5E3A6E;"></div>
   <div class="summary-swatch" style="background:#C85A4A;"></div>
   <div class="summary-swatch" style="background:#D4A08A;"></div>
   <div class="summary-swatch" style="background:#F5E6DA;"></div>
+  <div class="summary-swatch" style="background:#F0EAF4; border:1px solid rgba(0,0,0,0.06);"></div>
   <div class="summary-swatch" style="background:#FFF8F2; border:1px solid rgba(0,0,0,0.06);"></div>
 </div>
 
@@ -64,7 +124,7 @@
         <div class="swatch-var">--deep</div>
         <div class="swatch-hex">#361822</div>
         <div class="swatch-rgb">rgb(54, 24, 34)</div>
-        <div class="swatch-usage">CTA primary, nav CTA, tabs actifs, stats bg, section CTA, footer bg</div>
+        <div class="swatch-usage"><strong>Problem space</strong> — Hero dark, bandeau stats, CTA primary, nav CTA, tabs actifs, section CTA final, footer bg</div>
       </div>
     </div>
     <div class="swatch">
@@ -74,7 +134,7 @@
         <div class="swatch-var">--rich</div>
         <div class="swatch-hex">#6B3D32</div>
         <div class="swatch-rgb">rgb(107, 61, 50)</div>
-        <div class="swatch-usage">Section praticiens (gradient start)</div>
+        <div class="swatch-usage"><strong>Praticiens</strong> — Section praticiens (gradient start)</div>
       </div>
     </div>
     <div class="swatch">
@@ -84,7 +144,7 @@
         <div class="swatch-var">--warm</div>
         <div class="swatch-hex">#B07460</div>
         <div class="swatch-rgb">rgb(176, 116, 96)</div>
-        <div class="swatch-usage">Section statement bg, labels section fond dark, footer catégories</div>
+        <div class="swatch-usage"><strong>Respiration / statement</strong> — Section citation (aplat), label line pricing/founder/comité</div>
       </div>
     </div>
     <div class="swatch">
@@ -93,8 +153,8 @@
         <div class="swatch-name">Violet</div>
         <div class="swatch-var">--violet</div>
         <div class="swatch-hex">#5E3A6E</div>
-        <div class="swatch-rgb">rgb(106, 76, 122)</div>
-        <div class="swatch-usage">Section approche (gradient start), labels pathologies</div>
+        <div class="swatch-rgb">rgb(94, 58, 110)</div>
+        <div class="swatch-usage"><strong>Solution / approche</strong> — Section approche (gradient start), parcours (how), labels pathologies, bandeau info (violet-bg)</div>
       </div>
     </div>
     <div class="swatch">
@@ -103,8 +163,8 @@
         <div class="swatch-name">Violet Dark</div>
         <div class="swatch-var">--violet-dark</div>
         <div class="swatch-hex">#462858</div>
-        <div class="swatch-rgb">rgb(78, 54, 96)</div>
-        <div class="swatch-usage">Section approche (gradient end)</div>
+        <div class="swatch-rgb">rgb(70, 40, 88)</div>
+        <div class="swatch-usage">Section approche & parcours (gradient end)</div>
       </div>
     </div>
   </div>
@@ -138,7 +198,7 @@
         <div class="swatch-var">--base</div>
         <div class="swatch-hex">#FFF8F2</div>
         <div class="swatch-rgb">rgb(255, 248, 242)</div>
-        <div class="swatch-usage">Body bg, sections claires, nav bg (92% opacity)</div>
+        <div class="swatch-usage"><strong>Sections standards</strong> — Nav bg (opaque), conditions, pricing, comité, body bg</div>
       </div>
     </div>
     <div class="swatch">
@@ -148,7 +208,7 @@
         <div class="swatch-var">--cream</div>
         <div class="swatch-hex">#F5E6DA</div>
         <div class="swatch-rgb">rgb(245, 230, 218)</div>
-        <div class="swatch-usage">Section étapes, comité, condition tags bg, bandeau protection</div>
+        <div class="swatch-usage"><strong>Empathie / identification</strong> — Steps, identification, proof, founder, bandeau réassurance, condition tags bg</div>
       </div>
     </div>
     <div class="swatch">
@@ -158,7 +218,27 @@
         <div class="swatch-var">--blush</div>
         <div class="swatch-hex">#D4A08A</div>
         <div class="swatch-rgb">rgb(212, 160, 138)</div>
-        <div class="swatch-usage">Gradients visuels, labels sur fond dark, footer h4, input focus border</div>
+        <div class="swatch-usage">Labels sur dark (deep + violet), active step border, footer h4, input focus border dark</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color light" style="background:#C0A8CC;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Violet Light</div>
+        <div class="swatch-var">--violet-light</div>
+        <div class="swatch-hex">#C0A8CC</div>
+        <div class="swatch-rgb">rgb(192, 168, 204)</div>
+        <div class="swatch-usage">Séparateur bandeau construction</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color light" style="background:#F0EAF4;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Violet Bg</div>
+        <div class="swatch-var">--violet-bg</div>
+        <div class="swatch-hex">#F0EAF4</div>
+        <div class="swatch-rgb">rgb(240, 234, 244)</div>
+        <div class="swatch-usage"><strong>Alerte / info</strong> — Bandeau construction, alertes système</div>
       </div>
     </div>
   </div>
@@ -210,15 +290,15 @@
       <div class="swatch-info">
         <div class="swatch-name">Hero Dark / Stats</div>
         <div class="swatch-hex">#361822 → #260E16</div>
-        <div class="swatch-usage">Problem block background</div>
+        <div class="swatch-usage">Hero problem space, bandeau stats</div>
       </div>
     </div>
     <div class="swatch">
       <div class="swatch-gradient" style="background:linear-gradient(180deg,#5E3A6E,#462858);"></div>
       <div class="swatch-info">
-        <div class="swatch-name">Approche médicale</div>
+        <div class="swatch-name">Approche + Parcours</div>
         <div class="swatch-hex">#5E3A6E → #462858</div>
-        <div class="swatch-usage">Section "Notre approche"</div>
+        <div class="swatch-usage">Section approche médicale, parcours (how)</div>
       </div>
     </div>
     <div class="swatch">
@@ -261,19 +341,53 @@
       </div>
     </div>
     <div class="opacity-swatch">
-      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.45);">45%</span></div>
+      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.85);">85%</span></div>
       <div class="swatch-info">
-        <div class="swatch-name">White 45%</div>
-        <div class="swatch-hex">rgba(255,255,255,0.45)</div>
-        <div class="swatch-usage">Descriptions pillars, footer links</div>
+        <div class="swatch-name">White 85%</div>
+        <div class="swatch-hex">rgba(255,255,255,0.85)</div>
+        <div class="swatch-usage">Doctor quote (Newsreader italic)</div>
       </div>
     </div>
     <div class="opacity-swatch">
-      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.35);">35%</span></div>
+      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.55);">55%</span></div>
       <div class="swatch-info">
-        <div class="swatch-name">White 35%</div>
-        <div class="swatch-hex">rgba(255,255,255,0.35)</div>
-        <div class="swatch-usage">Stat descriptions, sous-textes</div>
+        <div class="swatch-name">White 55%</div>
+        <div class="swatch-hex">rgba(255,255,255,0.55)</div>
+        <div class="swatch-usage">Body text dark (sub, pillar desc, how step desc, footer links, doctor title)</div>
+      </div>
+    </div>
+    <div class="opacity-swatch">
+      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.5);">50%</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White 50%</div>
+        <div class="swatch-hex">rgba(255,255,255,0.5)</div>
+        <div class="swatch-usage">Stat descriptions, labels rich surface</div>
+      </div>
+    </div>
+  </div>
+  <div class="opacity-row" style="margin-top:16px;">
+    <div class="opacity-swatch">
+      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.3);">30%</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White 30%</div>
+        <div class="swatch-hex">rgba(255,255,255,0.3)</div>
+        <div class="swatch-usage">Footer copyright, label lines rich</div>
+      </div>
+    </div>
+    <div class="opacity-swatch">
+      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.2);">20%</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White 20%</div>
+        <div class="swatch-hex">rgba(255,255,255,0.2)</div>
+        <div class="swatch-usage">Footer mention tiny</div>
+      </div>
+    </div>
+    <div class="opacity-swatch">
+      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.08); padding:1px 4px; border-radius:2px;">8%</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White 8%</div>
+        <div class="swatch-hex">rgba(255,255,255,0.08)</div>
+        <div class="swatch-usage">Card borders dark</div>
       </div>
     </div>
     <div class="opacity-swatch">
@@ -281,7 +395,17 @@
       <div class="swatch-info">
         <div class="swatch-name">White 6%</div>
         <div class="swatch-hex">rgba(255,255,255,0.06)</div>
-        <div class="swatch-usage">Cards pillars bg, input bg, watermark</div>
+        <div class="swatch-usage">Cards/pillars bg, input bg, watermark</div>
+      </div>
+    </div>
+  </div>
+  <div class="opacity-row" style="margin-top:16px;">
+    <div class="opacity-swatch">
+      <div class="opacity-color" style="background:#361822;"><span style="color:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.12); padding:1px 4px; border-radius:2px;">12%</span></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White 12%</div>
+        <div class="swatch-hex">rgba(255,255,255,0.12)</div>
+        <div class="swatch-usage">Input borders dark</div>
       </div>
     </div>
   </div>
@@ -339,6 +463,23 @@
     </div>
   </div>
 </div>
+
+</div><!-- /.page-content -->
+
+<footer class="footer-brand">
+  <div class="footer-brand-logo">mixt</div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-left"><div class="fl-logo">mixt</div><div class="fl-tagline">Votre peau mérite mieux.</div></div>
+      <div class="footer-cols">
+        <div class="footer-col"><h4>Produit</h4><a href="index.html#how">Comment ça marche</a><a href="index.html#approach">Notre approche</a><a href="index.html#conditions">Pathologies</a></div>
+        <div class="footer-col"><h4>Entreprise</h4><a href="index.html">Comité scientifique</a><a href="mailto:contact@mixt.care">Contact</a><a href="index.html">Presse</a></div>
+        <div class="footer-col"><h4>Design</h4><a href="brand-book.html">Charte couleurs</a><a href="ui-kit.html">UI Kit</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2025 Mixt. Tous droits réservés.</span><span>Fait avec soin à Paris.</span></div>
+  </div>
+</footer>
 
 </body>
 </html>

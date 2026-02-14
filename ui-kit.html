@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mixt — UI Kit gelé</title>
+<title>Mixt — UI Kit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
@@ -18,6 +18,8 @@
     --accent: #C85A4A;
     --violet: #5E3A6E;
     --violet-dark: #462858;
+    --violet-light: #C0A8CC;
+    --violet-bg: #F0EAF4;
     --blush: #D4A08A;
     --cream: #F5E6DA;
     --base: #FFF8F2;
@@ -31,17 +33,31 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Geist Sans','Geist',-apple-system,sans-serif; background:var(--base); color:var(--text); -webkit-font-smoothing:antialiased; }
 
+  /* Banner + Nav */
+  .site-banner { position:fixed; top:0; left:0; right:0; z-index:101; background:var(--violet-bg); text-align:center; height:28px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; letter-spacing:0.02em; color:var(--violet); }
+  .site-banner span { color:var(--violet-light); margin:0 6px; }
+  .site-nav { position:fixed; top:28px; left:0; right:0; z-index:100; background:var(--base); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo { font-family:'Fraunces',serif; font-size:28px; font-weight:500; font-variation-settings:'opsz' 144,'WONK' 0,'SOFT' 0; color:var(--text); text-decoration:none; }
+  .nav-right { display:flex; align-items:center; gap:24px; }
+  .nav-right a { font-size:13px; font-weight:450; color:var(--text-2); text-decoration:none; }
+  .nav-right a:hover { color:var(--text); }
+
   /* Layout */
-  .kit-header { max-width:960px; margin:0 auto; padding:48px 24px 0; }
-  .kit-header h1 { font-family:'Fraunces',serif; font-size:28px; font-weight:500; font-variation-settings:'opsz' 144; margin-bottom:4px; }
-  .kit-header .sub { font-size:13px; color:var(--text-3); margin-bottom:6px; }
-  .kit-header .badge { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; background:var(--deep); color:#fff; padding:3px 8px; border-radius:3px; }
+  .kit-header { max-width:960px; margin:0 auto; padding:108px 24px 0; }
+  .kit-header h1 { font-family:'Geist Sans','Geist',sans-serif; font-size:36px; font-weight:400; line-height:1.15; letter-spacing:-0.03em; margin-bottom:6px; }
+  .kit-header h1 em { font-family:'Newsreader',serif; font-style:italic; font-weight:400; font-size:1.05em; }
+  .kit-header .sub { font-size:14px; color:var(--text-2); margin-bottom:48px; }
 
   .kit-section { max-width:960px; margin:0 auto; padding:56px 24px 44px; border-bottom:1px solid var(--border); }
   .kit-section:last-child { border-bottom:none; }
   .kit-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.15em; color:var(--text-3); margin-bottom:28px; }
   .comp-label { font-size:11px; color:var(--text-3); margin-bottom:10px; font-weight:500; }
   .spacer { margin-top:32px; }
+
+  /* Alert Banner */
+  .alert-banner { background:var(--violet-bg); text-align:center; height:28px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; letter-spacing:0.02em; color:var(--violet); border-radius:var(--r); }
+  .alert-banner span { color:var(--violet-light); margin:0 6px; }
+  .alert-banner svg { margin-right:6px; flex-shrink:0; }
 
   /* Full-width dark sections */
   .kit-section.full { max-width:100%; padding-left:calc((100% - 960px)/2 + 24px); padding-right:calc((100% - 960px)/2 + 24px); }
@@ -108,7 +124,7 @@
   .card-dark:hover { border-color:rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.2); transform:translateY(-2px); }
   .card-dark.active { border-color:var(--blush); background:rgba(212,160,138,0.06); }
   .card-dark .card-title { color:#fff; }
-  .card-dark .card-desc { color:rgba(255,255,255,0.4); }
+  .card-dark .card-desc { color:rgba(255,255,255,0.55); }
 
   /* ============================================
      TAGS — Square
@@ -182,7 +198,24 @@
   .surface-label-demo::before { content:''; width:24px; height:1px; }
   .surface-ctas { display:flex; gap:10px; margin-top:16px; }
 
+  /* Footer */
+  .footer-brand { background:var(--deep); padding:80px 40px 40px; position:relative; overflow:hidden; }
+  .footer-brand-logo { font-family:'Fraunces',serif; font-size:22vw; font-weight:500; color:rgba(255,255,255,0.04); position:absolute; bottom:-5vw; left:50%; transform:translateX(-50%); white-space:nowrap; pointer-events:none; font-variation-settings:'opsz' 144; line-height:0.85; }
+  .footer-inner { position:relative; z-index:2; max-width:1100px; margin:0 auto; }
+  .footer-top { display:flex; justify-content:space-between; margin-bottom:48px; }
+  .footer-left .fl-logo { font-family:'Fraunces',serif; font-size:26px; font-weight:500; color:#fff; margin-bottom:6px; font-variation-settings:'opsz' 144; }
+  .footer-left .fl-tagline { font-size:14px; color:rgba(255,255,255,0.4); }
+  .footer-cols { display:flex; gap:56px; }
+  .footer-col h4 { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--blush); margin-bottom:14px; }
+  .footer-col a { display:block; font-size:14px; color:rgba(255,255,255,0.55); text-decoration:none; margin-bottom:8px; }
+  .footer-col a:hover { color:#fff; }
+  .footer-bottom { display:flex; justify-content:space-between; padding-top:20px; }
+  .footer-bottom span { font-size:12px; color:rgba(255,255,255,0.3); }
+
   @media (max-width:768px) {
+    .site-nav { padding:0 20px; }
+    .nav-right a:not(:last-child) { display:none; }
+    .kit-header { padding-top:100px; }
     .cards-row { grid-template-columns:1fr; }
     .photo-cards-row { grid-template-columns:1fr; }
     .trust { flex-direction:column; gap:0; }
@@ -193,15 +226,28 @@
     .section-title { font-size:30px; }
     .kit-section.full { padding-left:24px; padding-right:24px; }
     .surface-block { padding:24px; }
+    .footer-brand { padding:60px 20px 30px; }
+    .footer-top { flex-direction:column; gap:32px; }
+    .footer-cols { flex-direction:column; gap:24px; }
+    .footer-bottom { flex-direction:column; gap:6px; align-items:flex-start; }
   }
 </style>
 </head>
 <body>
 
+<div class="site-banner"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Site en cours de développement <span>·</span> Les contenus, photos et données présentés sont fictifs et utilisés à titre illustratif uniquement</div>
+
+<div class="site-nav">
+  <a href="index.html" class="nav-logo">mixt</a>
+  <div class="nav-right">
+    <a href="brand-book.html">Charte couleurs</a>
+    <a href="index.html">Retour au site</a>
+  </div>
+</div>
+
 <div class="kit-header">
-  <h1>mixt — UI Kit</h1>
-  <p class="sub">Composants gelés · Un choix par pattern</p>
-  <div class="badge">🔒 Palette gelée · Fév. 2026</div>
+  <h1>UI <em>Kit</em></h1>
+  <p class="sub">Composants et règles typographiques</p>
 </div>
 
 <!-- ============================================
@@ -307,8 +353,8 @@
     </div>
   </div>
 
-  <div class="comp-label">Sur fond dark</div>
-  <div style="background:var(--deep); padding:24px; border-radius:var(--r);">
+  <div class="comp-label">Sur fond deep</div>
+  <div style="background:var(--deep); padding:24px; border-radius:var(--r); margin-bottom:24px;">
     <div class="cards-row">
       <div class="card card-dark active" onclick="this.classList.toggle('active')">
         <div class="card-title">Protocoles</div>
@@ -321,6 +367,24 @@
       <div class="card card-dark" onclick="this.classList.toggle('active')">
         <div class="card-title">Suivi IA</div>
         <div class="card-desc">Ajustement continu.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-label">Sur fond violet</div>
+  <div style="background:linear-gradient(180deg,var(--violet),var(--violet-dark)); padding:24px; border-radius:var(--r);">
+    <div class="cards-row">
+      <div class="card card-dark" onclick="this.classList.toggle('active')">
+        <div class="card-title">Protocoles dermatologiques</div>
+        <div class="card-desc">Conçus avec des dermatologues, appliqués par des médecins formés.</div>
+      </div>
+      <div class="card card-dark" onclick="this.classList.toggle('active')">
+        <div class="card-title">Formulations magistrales</div>
+        <div class="card-desc">Préparées sur-mesure en pharmacie, avec des principes actifs dosés.</div>
+      </div>
+      <div class="card card-dark" onclick="this.classList.toggle('active')">
+        <div class="card-title">Suivi augmenté par l'IA</div>
+        <div class="card-desc">Analyse l'évolution de votre peau et aide le médecin à ajuster.</div>
       </div>
     </div>
   </div>
@@ -437,14 +501,16 @@
   <div class="surface-block" style="background:var(--base); border:1px solid var(--border);">
     <div class="surface-name" style="color:var(--text-3);">Base · #FFF8F2</div>
     <div class="surface-typo-row">
-      <div class="surface-label-demo" style="color:var(--text-2);"><span style="width:24px;height:1px;background:var(--accent);display:inline-block;"></span>Label → text-2 + accent line</div>
+      <div class="surface-label-demo" style="color:var(--text-2);"><span style="width:24px;height:1px;background:var(--accent);display:inline-block;"></span>Label → text-2 + accent line (default)</div>
+      <div class="surface-label-demo" style="color:var(--text); margin-top:4px;"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;"></span>Label → text + warm line (pricing, comité)</div>
+      <div class="surface-label-demo" style="color:var(--violet); margin-top:4px;"><span style="width:24px;height:1px;background:var(--violet);display:inline-block;"></span>Label → violet + violet line (pathologies)</div>
       <div class="surface-h2" style="color:var(--text);">Titre h2 en <em>text primary</em></div>
       <div class="surface-body" style="color:var(--text-2);">Body text en text-2. Descriptions et paragraphes.</div>
       <div class="surface-small" style="color:var(--text-3);">Métadonnées en text-3.</div>
     </div>
     <div class="surface-ctas">
-      <button class="btn btn-primary btn-sm">Primary →</button>
-      <button class="btn btn-secondary btn-sm">Secondary</button>
+      <button class="btn btn-primary btn-sm">btn-dark →</button>
+      <button class="btn btn-secondary btn-sm">btn-ghost</button>
     </div>
   </div>
 
@@ -452,7 +518,8 @@
   <div class="surface-block" style="background:var(--cream);">
     <div class="surface-name" style="color:var(--text-3);">Cream · #F5E6DA</div>
     <div class="surface-typo-row">
-      <div class="surface-label-demo" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--violet);display:inline-block;"></span>Label → text + violet line</div>
+      <div class="surface-label-demo" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--accent);display:inline-block;"></span>Label → text + accent line (steps, identify, proof)</div>
+      <div class="surface-label-demo" style="color:var(--text-2); margin-top:4px;"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;"></span>Label → text-2 + warm line (founder)</div>
       <div class="surface-h2" style="color:var(--text);">Titre h2 en <em>text primary</em></div>
       <div class="surface-body" style="color:var(--text-2);">Body text en text-2.</div>
     </div>
@@ -463,10 +530,10 @@
 
   <!-- WARM -->
   <div class="surface-block" style="background:var(--warm);">
-    <div class="surface-name" style="color:rgba(255,255,255,0.5);">Warm · #B07460</div>
+    <div class="surface-name" style="color:rgba(255,255,255,0.5);">Warm · #B07460 — Aplat statement uniquement</div>
     <div class="surface-typo-row">
       <div class="surface-h2" style="color:#fff;">Titre h2 en <em>blanc 100%</em></div>
-      <div class="surface-body" style="color:rgba(255,255,255,0.7);">Body text en blanc 70%.</div>
+      <div class="surface-small" style="color:rgba(255,255,255,0.5);">Surface réservée au statement (h2 blanc, pas de body text).</div>
     </div>
   </div>
 
@@ -476,9 +543,10 @@
     <div class="surface-typo-row">
       <div class="surface-label-demo" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;"></span>Label → blush + blush line</div>
       <div class="surface-h2" style="color:#fff;">Titre h2 en <em>blanc 100%</em></div>
-      <div class="surface-body" style="color:rgba(255,255,255,0.45);">Body text en blanc 45%. Descriptions pillars et contenus secondaires.</div>
-      <div class="surface-small" style="color:rgba(255,255,255,0.35);">Stat descriptions en blanc 35%.</div>
-      <div class="surface-small" style="color:rgba(255,255,255,0.2);">Footer copyright en blanc 20%.</div>
+      <div class="surface-body" style="color:rgba(255,255,255,0.55);">Body text en blanc 55%. Sub, pillar desc, how step desc, footer links.</div>
+      <div class="surface-small" style="color:rgba(255,255,255,0.5);">Stat descriptions en blanc 50%.</div>
+      <div class="surface-small" style="color:rgba(255,255,255,0.3);">Footer copyright en blanc 30%.</div>
+      <div class="surface-small" style="color:rgba(255,255,255,0.2);">Footer mention tiny en blanc 20%.</div>
     </div>
     <div class="surface-ctas">
       <button class="btn btn-white btn-sm">White →</button>
@@ -492,7 +560,7 @@
     <div class="surface-typo-row">
       <div class="surface-label-demo" style="color:rgba(255,255,255,0.5);"><span style="width:24px;height:1px;background:rgba(255,255,255,0.3);display:inline-block;"></span>Label → blanc 50% + blanc 30% line</div>
       <div class="surface-h2" style="color:#fff;">Titre h2 en <em>blanc 100%</em></div>
-      <div class="surface-body" style="color:rgba(255,255,255,0.4);">Sous-titre en blanc 40%.</div>
+      <div class="surface-body" style="color:rgba(255,255,255,0.55);">Sous-titre en blanc 55%.</div>
     </div>
     <div class="surface-ctas">
       <button class="btn btn-white btn-sm">White →</button>
@@ -505,7 +573,7 @@
     <div class="surface-typo-row">
       <div class="surface-label-demo" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;"></span>Label → blush + blush line</div>
       <div class="surface-h2" style="color:#fff;">Titre h2 en <em>blanc 100%</em></div>
-      <div class="surface-body" style="color:rgba(255,255,255,0.45);">Pillar descriptions en blanc 45%.</div>
+      <div class="surface-body" style="color:rgba(255,255,255,0.55);">Pillar descriptions en blanc 55%.</div>
     </div>
     <div class="surface-ctas">
       <button class="btn btn-white btn-sm">White →</button>
@@ -513,7 +581,55 @@
     </div>
   </div>
 
+  <!-- VIOLET-BG -->
+  <div class="surface-block" style="background:var(--violet-bg); border:1px solid rgba(94,58,110,0.08);">
+    <div class="surface-name" style="color:var(--violet);">Violet-bg · #F0EAF4 — Alerte / info</div>
+    <div class="surface-typo-row">
+      <div class="surface-body" style="color:var(--violet); font-weight:600; font-size:12px; letter-spacing:0.02em;">Texte bandeau en violet 100%. Séparateur en violet-light.</div>
+    </div>
+  </div>
+
 </div>
+
+<!-- ============================================
+     12. ALERT BANNER
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">12 — Alert banner (bandeau construction)</div>
+
+  <div class="comp-label">Bandeau d'information</div>
+  <div class="alert-banner">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    Site en cours de développement <span>·</span> Les contenus sont fictifs et utilisés à titre illustratif
+  </div>
+</div>
+
+<!-- ============================================
+     13. BUTTON NAMING
+     ============================================ -->
+<div class="kit-section">
+  <div class="kit-label">13 — Correspondance noms de boutons</div>
+
+  <div style="font-size:13px; color:var(--text-2); line-height:1.8;">
+    <code style="background:rgba(0,0,0,0.04); padding:2px 6px; border-radius:3px; font-size:12px;">.btn-primary</code> = <code style="background:rgba(0,0,0,0.04); padding:2px 6px; border-radius:3px; font-size:12px;">.btn-dark</code> (homepage)<br>
+    <code style="background:rgba(0,0,0,0.04); padding:2px 6px; border-radius:3px; font-size:12px;">.btn-secondary</code> = <code style="background:rgba(0,0,0,0.04); padding:2px 6px; border-radius:3px; font-size:12px;">.btn-ghost</code> (homepage)
+  </div>
+</div>
+
+<footer class="footer-brand">
+  <div class="footer-brand-logo">mixt</div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-left"><div class="fl-logo">mixt</div><div class="fl-tagline">Votre peau mérite mieux.</div></div>
+      <div class="footer-cols">
+        <div class="footer-col"><h4>Produit</h4><a href="index.html#how">Comment ça marche</a><a href="index.html#approach">Notre approche</a><a href="index.html#conditions">Pathologies</a></div>
+        <div class="footer-col"><h4>Entreprise</h4><a href="index.html">Comité scientifique</a><a href="mailto:contact@mixt.care">Contact</a><a href="index.html">Presse</a></div>
+        <div class="footer-col"><h4>Design</h4><a href="brand-book.html">Charte couleurs</a><a href="ui-kit.html">UI Kit</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2025 Mixt. Tous droits réservés.</span><span>Fait avec soin à Paris.</span></div>
+  </div>
+</footer>
 
 </body>
 </html>
