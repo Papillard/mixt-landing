@@ -31,10 +31,10 @@
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Geist Sans','Geist',-apple-system,sans-serif; background:var(--base); color:var(--text); -webkit-font-smoothing:antialiased; }
+  body { font-family:'Geist Sans','Geist',-apple-system,sans-serif; background:var(--base); color:var(--text); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
 
   /* Banner + Nav */
-  .site-nav { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--base); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; }
+  .site-nav { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--base); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; overflow:hidden; }
   .nav-logo { font-family:'Fraunces',serif; font-size:28px; font-weight:500; font-variation-settings:'opsz' 144,'WONK' 0,'SOFT' 0; color:var(--text); text-decoration:none; }
   .nav-right { display:flex; align-items:center; gap:24px; }
   .nav-right a { font-size:13px; font-weight:450; color:var(--text-2); text-decoration:none; }
@@ -44,9 +44,9 @@
   .kit-header { max-width:960px; margin:0 auto; padding:80px 24px 0; }
   .kit-header h1 { font-family:'Geist Sans','Geist',sans-serif; font-size:36px; font-weight:400; line-height:1.15; letter-spacing:-0.03em; margin-bottom:6px; }
   .kit-header h1 em { font-family:'Newsreader',serif; font-style:italic; font-weight:400; font-size:1.05em; }
-  .kit-header .sub { font-size:14px; color:var(--text-2); margin-bottom:48px; }
+  .kit-header .sub { font-size:14px; color:var(--text-2); margin-bottom:0; }
 
-  .kit-section { max-width:960px; margin:0 auto; padding:56px 24px 44px; border-bottom:1px solid var(--border); }
+  .kit-section { max-width:960px; margin:0 auto; padding:40px 24px 44px; border-bottom:1px solid var(--border); }
   .kit-section:last-child { border-bottom:none; }
   .kit-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.15em; color:var(--text-3); margin-bottom:28px; }
   .comp-label { font-size:11px; color:var(--text-3); margin-bottom:10px; font-weight:500; }
@@ -102,8 +102,8 @@
   /* ============================================
      TABS — Pill solid
      ============================================ */
-  .tabs { display:flex; gap:8px; }
-  .tab-btn { font-family:inherit; font-size:13px; font-weight:500; color:var(--text-2); background:none; border:1px solid var(--border); padding:8px 20px; border-radius:100px; cursor:pointer; transition:all 0.2s; }
+  .tabs { display:flex; flex-wrap:wrap; gap:8px; }
+  .tab-btn { font-family:inherit; font-size:13px; font-weight:500; color:var(--text-2); background:none; border:1px solid var(--border); padding:8px 20px; border-radius:100px; cursor:pointer; transition:all 0.2s; white-space:nowrap; }
   .tab-btn:hover { border-color:var(--deep); color:var(--text); }
   .tab-btn.active { color:#fff; background:var(--deep); border-color:var(--deep); font-weight:600; }
 
@@ -211,8 +211,8 @@
   .footer-bottom span { font-size:12px; color:rgba(255,255,255,0.3); }
 
   @media (max-width:768px) {
-    .site-nav { padding:0 20px; }
-    .nav-right a:not(:last-child) { display:none; }
+    .site-nav { padding:0 16px; }
+    .nav-right a:not(:last-child) { display:none; } .nav-right { gap:0; }
     .kit-header { padding-top:72px; }
     .cards-row { grid-template-columns:1fr; }
     .photo-cards-row { grid-template-columns:1fr; }
