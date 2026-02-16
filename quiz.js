@@ -2,10 +2,10 @@
   // ── CSS ──
   var style = document.createElement('style');
   style.textContent = `
-    .quiz-overlay{position:fixed;inset:0;z-index:1000;background:#fff;display:flex;flex-direction:column;opacity:0;transition:opacity .3s ease;font-family:'Geist Sans','Geist',-apple-system,sans-serif;color:var(--text)}
+    .quiz-overlay{position:fixed;inset:0;z-index:1000;background:var(--base);display:flex;flex-direction:column;opacity:0;transition:opacity .3s ease;font-family:'Geist Sans','Geist',-apple-system,sans-serif;color:var(--text)}
     .quiz-overlay.visible{opacity:1}
     /* Header */
-    .quiz-header{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid rgba(0,0,0,.06);flex-shrink:0;background:#fff;z-index:10}
+    .quiz-header{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 40px;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--base);z-index:10}
     .quiz-logo{font-family:'Fraunces',serif;font-size:28px;font-weight:500;font-variation-settings:'opsz' 144,'WONK' 0,'SOFT' 0;color:var(--deep);text-decoration:none}
     .quiz-progress-wrap{flex:1;max-width:280px;margin:0 24px;display:flex;flex-direction:column;align-items:center;gap:4px}
     .quiz-progress-bar{width:100%;height:3px;background:var(--cream);border-radius:2px;overflow:hidden}
@@ -79,7 +79,7 @@
     .quiz-intro-desc{font-size:16px;line-height:1.65;color:var(--text-2);margin-bottom:28px}
     /* Responsive */
     @media(max-width:768px){
-      .quiz-header{padding:12px 16px}
+      .quiz-header{padding:0 16px}
       .quiz-logo{font-size:24px}
       .quiz-progress-wrap{max-width:140px;margin:0 12px}
       .quiz-body{padding:0 20px 100px}
@@ -128,7 +128,7 @@
       if(currentScreen==='intro'||currentScreen==='thankyou')txt.textContent='';
       else if(currentScreen==='prediag')txt.textContent='Pré-diagnostic';
       else if(currentScreen==='contact')txt.textContent='Dernière étape';
-      else txt.textContent='Question '+n+' sur ~'+TOTAL_ESTIMATE;
+      else txt.textContent='Question '+n+' sur '+TOTAL_ESTIMATE;
     }
   }
 
