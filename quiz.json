@@ -1,0 +1,312 @@
+{
+  "intro": {
+    "title": "Parlons de votre peau.",
+    "description": "5 minutes. Vos réponses nous permettent d'orienter un pré-diagnostic et de préparer votre prise en charge."
+  },
+  "questions": {
+    "q1": {
+      "text": "Qu'est-ce qui vous préoccupe le plus aujourd'hui ?",
+      "type": "single",
+      "options": [
+        {"label": "Rougeurs", "next": "q1b"},
+        {"label": "Boutons / imperfections", "next": "q1b"},
+        {"label": "Peau sèche / irritée", "next": "q1b"},
+        {"label": "Taches brunes", "next": "q1b"},
+        {"label": "Autre", "next": "q1b", "freeText": true}
+      ]
+    },
+    "q1b": {
+      "text": "Avez-vous déjà consulté pour ce problème ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui, j'ai un diagnostic", "next": "q1c"},
+        {"label": "Oui, mais pas de diagnostic clair", "next": "diag_router"},
+        {"label": "Non, jamais", "next": "diag_router"}
+      ]
+    },
+    "q1c": {
+      "text": "Quel diagnostic vous a-t-on donné ?",
+      "type": "multiple",
+      "options": [
+        {"label": "Acné"},
+        {"label": "Rosacée"},
+        {"label": "Eczéma"},
+        {"label": "Mélasma"},
+        {"label": "Hyperpigmentation"},
+        {"label": "Autre", "freeText": true}
+      ],
+      "next": "diag_router"
+    },
+
+    "diag_router": {
+      "_comment": "Route vers le bon arbre selon Q1. Le JS lit la réponse de q1 pour router.",
+      "type": "router",
+      "routes": {
+        "Rougeurs": "q2Aa",
+        "Boutons / imperfections": "q2Ba",
+        "Peau sèche / irritée": "q2Ca",
+        "Taches brunes": "q2Da",
+        "Autre": "q4"
+      }
+    },
+
+    "q2Aa": {
+      "text": "Vos rougeurs sont-elles surtout situées au centre du visage (joues, nez, menton, front) ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui", "next": "q2Ab"},
+        {"label": "Non", "next": "q2Ca"}
+      ]
+    },
+    "q2Ab": {
+      "text": "Vos rougeurs s'aggravent-elles avec la chaleur, l'alcool, le stress, les émotions ou les plats épicés ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui", "next": "q2Ad", "diagnosis": "rosacee"},
+        {"label": "Non", "next": "q2Ac"}
+      ]
+    },
+    "q2Ac": {
+      "text": "Vos rougeurs s'accompagnent-elles de sensations de brûlure ou de picotements ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui", "next": "q2Ad", "diagnosis": "rosacee"},
+        {"label": "Non", "next": "q2Ca"}
+      ]
+    },
+    "q2Ad": {
+      "text": "Avez-vous également des petits boutons ou pustules sur les zones rouges ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui", "next": "q4", "diagnosis": "rosacee_papulopustuleuse"},
+        {"label": "Non", "next": "q4", "diagnosis": "rosacee"}
+      ]
+    },
+
+    "q2Ba": {
+      "text": "Vos boutons s'accompagnent-ils de points noirs ou de points blancs ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui", "next": "q2Bd", "diagnosis": "acne"},
+        {"label": "Non", "next": "q2Bb"}
+      ]
+    },
+    "q2Bb": {
+      "text": "Les boutons apparaissent-ils sur un fond de rougeur persistante ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui", "next": "q2Ab"},
+        {"label": "Non", "next": "q2Bc"}
+      ]
+    },
+    "q2Bc": {
+      "text": "Les démangeaisons ou la sécheresse sont-elles dominantes ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui", "next": "q4", "diagnosis": "eczema"},
+        {"label": "Non", "next": "q4", "diagnosis": "acne_ou_rosacee"}
+      ]
+    },
+    "q2Bd": {
+      "text": "Où se situent principalement vos boutons ?",
+      "type": "multiple",
+      "options": [
+        {"label": "Mâchoire / menton"},
+        {"label": "Joues"},
+        {"label": "Front"},
+        {"label": "Dos / épaules"},
+        {"label": "Tout le visage"}
+      ],
+      "next": "q4",
+      "_note": "Mâchoire/menton = signal acné hormonale, utile pour le médecin"
+    },
+
+    "q2Ca": {
+      "text": "Votre peau vous démange-t-elle ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui, souvent", "next": "q2Cc", "diagnosis": "eczema"},
+        {"label": "Parfois", "next": "q2Cb"},
+        {"label": "Non", "next": "q2Cb"}
+      ]
+    },
+    "q2Cb": {
+      "text": "Ressentez-vous des sensations de brûlure ou de picotements, notamment avec la chaleur, le stress ou les plats épicés ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui", "next": "q4", "diagnosis": "rosacee"},
+        {"label": "Non", "next": "q2Cc"}
+      ]
+    },
+    "q2Cc": {
+      "text": "Votre peau pèle-t-elle ou présente-t-elle des plaques sèches mal délimitées ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui", "next": "q2Cd", "diagnosis": "eczema"},
+        {"label": "Non", "next": "q4", "diagnosis": "none"}
+      ]
+    },
+    "q2Cd": {
+      "text": "Où se situent principalement les zones sèches ou irritées ?",
+      "type": "multiple",
+      "options": [
+        {"label": "Visage"},
+        {"label": "Plis des coudes / genoux"},
+        {"label": "Mains"},
+        {"label": "Cuir chevelu"},
+        {"label": "Autre"}
+      ],
+      "next": "q4",
+      "_note": "Plis = eczéma atopique, cuir chevelu = dermatite séborrhéique, signal utile pour le médecin"
+    },
+
+    "q2Da": {
+      "text": "Quand vos taches sont-elles apparues ?",
+      "type": "single",
+      "options": [
+        {"label": "Après une exposition au soleil", "next": "q2Db", "diagnosis": "melasma"},
+        {"label": "Après des boutons ou irritations", "next": "q2Db", "diagnosis": "hyperpigmentation_post_inflammatoire"},
+        {"label": "Après une grossesse ou changements hormonaux", "next": "q2Db", "diagnosis": "melasma"},
+        {"label": "Je ne sais pas", "next": "q2Db", "diagnosis": "hyperpigmentation"}
+      ]
+    },
+    "q2Db": {
+      "text": "Vos taches sont-elles réparties de façon symétrique sur le visage (mêmes zones des deux côtés) ?",
+      "type": "single",
+      "options": [
+        {"label": "Oui", "next": "q4", "diagnosis": "melasma"},
+        {"label": "Non", "next": "q4"},
+        {"label": "Je ne sais pas", "next": "q4"}
+      ],
+      "_note": "Symétrie = signal fort mélasma, aide à différencier de l'hyperpigmentation post-inflammatoire"
+    },
+
+    "q4": {
+      "text": "Au quotidien, quel impact cela a-t-il sur vous ?",
+      "type": "single",
+      "options": [
+        {"label": "Pas vraiment gênant"},
+        {"label": "Gênant parfois"},
+        {"label": "Impact sur ma confiance"},
+        {"label": "Stressant"},
+        {"label": "Difficile à vivre au quotidien"}
+      ],
+      "next": "q5"
+    },
+    "q5": {
+      "text": "Depuis combien de temps cela vous préoccupe-t-il ?",
+      "type": "single",
+      "options": [
+        {"label": "Moins de 6 mois"},
+        {"label": "6 mois – 2 ans"},
+        {"label": "2 – 5 ans"},
+        {"label": "Plus de 5 ans"}
+      ],
+      "next": "q6"
+    },
+    "q6": {
+      "text": "Qu'avez-vous déjà essayé pour votre peau ?",
+      "type": "multiple",
+      "options": [
+        {"label": "Dermatologue"},
+        {"label": "Médecin généraliste"},
+        {"label": "Pharmacie"},
+        {"label": "Soins esthétiques"},
+        {"label": "Produits cosmétiques"},
+        {"label": "Rien de spécifique"}
+      ],
+      "next": "q7"
+    },
+    "q7": {
+      "text": "Approximativement, combien dépensez-vous par mois pour votre peau ?",
+      "type": "single",
+      "options": [
+        {"label": "Moins de 20€"},
+        {"label": "20–50€"},
+        {"label": "50–100€"},
+        {"label": "100–200€"},
+        {"label": "Plus de 200€"}
+      ],
+      "next": "q8"
+    },
+    "q8": {
+      "text": "Quel âge avez-vous ?",
+      "type": "single",
+      "options": [
+        {"label": "Moins de 25 ans"},
+        {"label": "25–34 ans"},
+        {"label": "35–44 ans"},
+        {"label": "45–54 ans"},
+        {"label": "55 ans et plus"}
+      ],
+      "next": "q9"
+    },
+    "q9": {
+      "text": "Ces situations vous concernent-elles ?",
+      "type": "multiple",
+      "options": [
+        {"label": "Contraception hormonale"},
+        {"label": "Grossesse / post-partum"},
+        {"label": "Ménopause / périménopause"},
+        {"label": "Traitement médical régulier"},
+        {"label": "Aucune"}
+      ],
+      "next": "prediag"
+    }
+  },
+  "diagnoses": {
+    "rosacee": {
+      "label": "Rosacée",
+      "description": "Maladie inflammatoire chronique du visage provoquant rougeurs et sensibilité. Reconnue et accompagnée par des approches adaptées.",
+      "severity_note": "érythémateuse"
+    },
+    "rosacee_papulopustuleuse": {
+      "label": "Rosacée papulo-pustuleuse",
+      "description": "Forme de rosacée associant rougeurs persistantes et petits boutons inflammatoires. Un traitement adapté permet de contrôler les poussées.",
+      "severity_note": "papulo-pustuleuse"
+    },
+    "acne": {
+      "label": "Acné",
+      "description": "Affection cutanée inflammatoire liée aux pores. Fréquente à tout âge et pour laquelle il existe des solutions efficaces."
+    },
+    "eczema": {
+      "label": "Eczéma",
+      "description": "Trouble inflammatoire de la peau causant sécheresse et démangeaisons, qui peut être soulagé durablement avec un suivi approprié."
+    },
+    "melasma": {
+      "label": "Mélasma",
+      "description": "Taches pigmentaires liées aux hormones et au soleil, souvent symétriques. Leur évolution peut être accompagnée et améliorée avec un protocole adapté."
+    },
+    "hyperpigmentation_post_inflammatoire": {
+      "label": "Hyperpigmentation post-inflammatoire",
+      "description": "Marques foncées apparues après une irritation, un bouton ou une lésion cutanée. Des solutions existent pour atténuer leur apparence."
+    },
+    "hyperpigmentation": {
+      "label": "Hyperpigmentation",
+      "description": "Apparition de taches plus foncées sur la peau, pouvant être améliorée avec un accompagnement adapté."
+    },
+    "acne_ou_rosacee": {
+      "label": "Acné ou rosacée",
+      "description": "Rougeurs et inflammation du visage dont l'origine sera clarifiée lors de la téléconsultation. Ces deux conditions se ressemblent parfois mais se traitent différemment."
+    },
+    "none": {
+      "label": "Pré-diagnostic à confirmer",
+      "description": "Vos réponses ne permettent pas d'orienter un pré-diagnostic à ce stade. Ce n'est pas un problème — votre médecin analysera votre situation en détail lors de la téléconsultation."
+    }
+  },
+  "disclaimer": "Ceci n'est pas un diagnostic médical. Il sera confirmé lors de l'analyse de vos photos et de la téléconsultation avec votre médecin.",
+  "contact": {
+    "title": "Recevez votre pré-diagnostic complet",
+    "description": "Notre équipe médicale analysera vos réponses et vous contactera pour la suite de votre parcours.",
+    "fields": [
+      {"name": "prenom", "label": "Votre prénom", "type": "text", "required": true},
+      {"name": "nom", "label": "Votre nom", "type": "text", "required": true},
+      {"name": "email", "label": "Votre email", "type": "email", "required": true},
+      {"name": "telephone", "label": "Votre téléphone (optionnel)", "type": "tel", "required": false}
+    ]
+  },
+  "thankyou": {
+    "title": "Merci ! Nous revenons vers vous très vite.",
+    "description": "Vous recevrez un email de notre équipe médicale dans les 48h pour la suite de votre parcours."
+  }
+}
