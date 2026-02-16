@@ -80,7 +80,6 @@
     /* Responsive */
     @media(max-width:768px){
       .quiz-header{padding:0 16px}
-      .quiz-logo{font-size:24px}
       .quiz-progress-wrap{max-width:140px;margin:0 12px}
       .quiz-body{padding:0 20px 100px}
       .quiz-content{padding-top:8px}
