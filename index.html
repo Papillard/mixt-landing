@@ -20,15 +20,11 @@
   html { scroll-behavior:smooth; }
   body { font-family:'Geist Sans','Geist',-apple-system,sans-serif; background:var(--base); color:var(--text); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
 
-  .site-banner { position:fixed; top:0; left:0; right:0; z-index:101; background:var(--violet-bg); text-align:center; min-height:28px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; font-size:12px; font-weight:600; letter-spacing:0.02em; color:var(--violet); padding:4px 16px; line-height:1.4; overflow:hidden; }
-  .banner-line1 { display:inline-flex; align-items:center; }
-  .banner-sep { color:var(--violet-light); margin:0 6px; }
-  .banner-line2 { color:var(--violet); }
-  nav { position:fixed; top:var(--banner-h,28px); left:0; right:0; z-index:100; background:var(--base); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; overflow:hidden; }
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--base); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; overflow:hidden; }
   .nav-logo { font-family:'Fraunces',serif; font-size:28px; font-weight:500; font-variation-settings:'opsz' 144,'WONK' 0,'SOFT' 0; }
   .nav-right { display:flex; align-items:center; gap:24px; }
-  .nav-right a { font-size:13px; font-weight:450; color:var(--text-2); text-decoration:none; }
-  .nav-right a:hover { color:var(--text); }
+  .nav-right a { font-size:14px; font-weight:450; color:var(--text-2); text-decoration:none; transition:color 0.2s; }
+  .nav-right a:hover { color:#000; }
 
   .btn { display:inline-flex; align-items:center; font-family:inherit; font-weight:600; text-decoration:none; cursor:pointer; border:none; border-radius:var(--r); transition:all 0.2s; }
   .btn-sm { padding:8px 16px; font-size:12px; }
@@ -44,7 +40,7 @@
   .inner { max-width:1100px; margin:0 auto; }
 
   /* HERO */
-  .hero-scroll { position:relative; padding:calc(var(--banner-h,28px) + 56px + 82px) 40px 100px; }
+  .hero-scroll { position:relative; padding:calc(56px + 82px) 40px 100px; }
   .hero-scroll-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:70px; }
   .hero-left { padding:0; }
   .hero-text { padding-bottom:40px; }
@@ -218,7 +214,7 @@
   .how-step-dark:last-child { border-bottom:none; }
   .how-step-dark-content { padding-left:20px; border-left:2px solid transparent; transition:border-color 0.5s ease; }
   .how-step-dark.active .how-step-dark-content { border-left-color:var(--blush); }
-  .how-step-num-dark { font-size:12px; font-weight:700; color:var(--blush); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:12px; }
+  .how-step-num-dark { font-size:16px; font-weight:700; color:var(--blush); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:10px; }
   .how-step-dark h3 { font-size:28px; font-weight:600; margin-bottom:14px; letter-spacing:-0.02em; color:#fff; }
   .how-step-dark p { font-size:18px; line-height:1.7; color:rgba(255,255,255,0.55); }
   .how-sticky-dark { position:sticky; top:10vh; align-self:start; }
@@ -230,7 +226,7 @@
 
   /* PHONE MOCKUP */
   .phone { width:100%; aspect-ratio:9/19; max-height:80vh; background:#fff; border-radius:32px; box-shadow:0 12px 48px rgba(0,0,0,0.18); padding:28px; font-family:inherit; color:var(--text); display:flex; flex-direction:column; overflow:hidden; }
-  .phone-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid rgba(0,0,0,0.06); }
+  .phone-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid rgba(0,0,0,0.06); }
   .phone-brand { font-family:'Fraunces',serif; font-size:22px; font-weight:500; font-variation-settings:'opsz' 144; }
   .phone-progress { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-3); }
   .phone-progress-bar { width:80px; height:5px; background:rgba(0,0,0,0.06); border-radius:3px; overflow:hidden; }
@@ -250,18 +246,18 @@
 
   /* PHONE TRACKING SCREEN */
   .phone-badge { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; padding:4px 12px; border-radius:100px; background:#E8F5E9; color:#2E7D32; }
-  .phone-user { font-size:15px; color:var(--text-2); margin-bottom:20px; }
+  .phone-user { font-size:15px; color:var(--text-2); margin-bottom:10px; }
   .phone-user strong { color:var(--text); font-weight:600; font-size:16px; }
-  .phone-section { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-3); margin-top:20px; margin-bottom:10px; }
+  .phone-section { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-3); margin-top:12px; margin-bottom:8px; }
   .phone-compare { display:flex; gap:10px; }
-  .phone-thumb { flex:1; background:rgba(0,0,0,0.03); border-radius:10px; overflow:hidden; aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .phone-thumb { flex:1; background:rgba(0,0,0,0.03); border-radius:10px; overflow:hidden; aspect-ratio:3/4; display:flex; flex-direction:column; align-items:center; justify-content:center; }
   .phone-thumb-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-3); margin-bottom:2px; }
   .phone-thumb-date { font-size:12px; color:var(--text-3); }
   .phone-metric { padding:14px 16px; background:rgba(0,0,0,0.02); border-radius:10px; margin-bottom:8px; }
   .phone-metric-label { font-size:12px; color:var(--text-3); margin-bottom:3px; }
   .phone-metric-value { font-size:16px; font-weight:600; }
   .phone-metric-value .down { color:#2E7D32; font-size:13px; }
-  .phone-goal { margin-top:14px; padding:14px 16px; background:#E8F5E9; border-radius:10px; font-size:14px; color:#2E7D32; font-weight:600; }
+  .phone-goal { margin-top:14px; padding:14px 16px; background:#E8F5E9; border-radius:10px; font-size:14px; color:#2E7D32; font-weight:600; line-height:1.6; }
   .phone-next { margin-top:10px; font-size:13px; color:var(--text-3); }
   .phone-metrics { display:flex; gap:8px; }
   .phone-metrics .phone-metric { flex:1; }
@@ -383,12 +379,9 @@
   .cta-testimonial strong { color:rgba(255,255,255,0.7); font-style:normal; font-weight:600; }
 
   @media (max-width:768px) {
-    .site-banner { font-size:10px; padding:6px 16px; flex-direction:column; gap:1px; }
-    .banner-sep { display:none; }
-    .banner-line2 { font-weight:500; opacity:0.8; }
     nav { padding:0 16px; } .nav-right a:not(.btn) { display:none; } .nav-right { gap:0; }
     .hero-scroll-inner { grid-template-columns:1fr; gap:0; }
-    .hero-scroll { padding:calc(var(--banner-h,28px) + 56px + 26px) 20px 0; } .hero-left { padding:0; } .hero-text h1 { font-size:42px; line-height:1.15; }
+    .hero-scroll { padding:calc(56px + 26px) 20px 0; } .hero-left { padding:0; } .hero-text h1 { font-size:42px; line-height:1.15; }
     .hero-sub { max-width:100%; } .hero-ctas { flex-direction:column; }
     .hero-ctas .btn { width:100%; justify-content:center; }
     .hero-right { padding:32px 0 0; margin:0 -20px; }
@@ -430,15 +423,13 @@
 </head>
 <body>
 
-<div class="site-banner"><span class="banner-line1"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;flex-shrink:0;vertical-align:-1px"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Site en cours de développement</span> <span class="banner-sep">·</span> <span class="banner-line2">Les contenus et données présentés sont fictifs</span></div>
-
 <nav>
   <a href="index.html" class="nav-logo" style="text-decoration:none;color:inherit;">mixt</a>
   <div class="nav-right">
-    <a href="#how">Comment ça marche</a>
-    <a href="#approach">Notre approche</a>
-    <a href="#conditions">Pathologies</a>
-    <a href="#cta" class="btn btn-dark btn-sm">Pré-inscription →</a>
+    <a href="#parcours">Comment ça marche</a>
+    <a href="#resultats">Résultats</a>
+    <a href="#tarifs">Abonnement</a>
+    <a href="#cta" class="btn btn-dark btn-sm">Diagnostic peau →</a>
   </div>
 </nav>
 
@@ -448,11 +439,12 @@
     <div class="hero-left">
       <div class="hero-text">
         <h1>Vous avez tout essayé. <br><em>Votre peau n'a pas changé.</em></h1>
-        <p class="hero-sub">Rougeurs, taches, irritations. Avec Mixt, une équipe médicale vous prescrit une formulation juste pour vous, préparée en pharmacie et ajustée chaque mois.</p>
+        <p class="hero-sub">Rougeurs, taches, irritations. Avec Mixt, un médecin vous reçoit en téléconsultation, prescrit une formulation juste pour vous, préparée en pharmacie et ajustée chaque mois.</p>
         <div class="hero-ctas">
-          <a href="#cta" class="btn btn-dark btn-lg">Rejoindre la liste d'attente →</a>
+          <a href="#cta" class="btn btn-dark btn-lg">Démarrer mon diagnostic peau →</a>
           <a href="#how" class="btn btn-ghost btn-lg">Découvrir</a>
         </div>
+        <p style="font-size:16px; color:var(--text-3); margin-top:20px;"><strong style="color:var(--text);">49€/mois</strong> au lieu de 75€ · Offre de lancement, places limitées</p>
       </div>
       <div class="trust-block">
         <div class="trust-items">
@@ -530,19 +522,21 @@
 </section>
 
 <!-- PARCOURS (violet) -->
-<section class="s-how-violet">
+<section class="s-how-violet" id="parcours">
   <div class="inner">
     <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Comment ça marche</div>
     <h2 style="color:#fff;">Un parcours médical simple et <em>personnalisé</em></h2>
     <div class="how-layout-dark">
       <div class="how-steps-dark">
-        <div class="how-step-dark" data-how-img="0"><div class="how-step-dark-content"><div class="how-step-num-dark">Étape 01</div><h3>Décrivez votre peau</h3><p>Remplissez votre questionnaire médical en 5 minutes. Symptômes, antécédents, traitements déjà essayés, photos de votre peau. Votre équipe médicale a tout ce qu'il faut pour vous comprendre.</p></div></div>
-        <div class="how-step-dark" data-how-img="1"><div class="how-step-dark-content"><div class="how-step-num-dark">Étape 02</div><h3>Recevez votre traitement</h3><p>Un médecin formé à nos protocoles analyse votre profil et prescrit votre formulation personnalisée. Elle est préparée en pharmacie et livrée chez vous.</p></div></div>
-        <div class="how-step-dark" data-how-img="2"><div class="how-step-dark-content"><div class="how-step-num-dark">Étape 03</div><h3>Suivez vos progrès</h3><p>Prenez une photo chaque mois. L'app mesure l'évolution de votre peau et votre équipe médicale ajuste votre formulation si besoin.</p></div></div>
+        <div class="how-step-dark" data-how-img="0"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="15" y2="14"/><line x1="9" y1="18" x2="13" y2="18"/></svg> Étape 01</div><h3>Décrivez votre peau</h3><p>Remplissez votre questionnaire en 5 minutes. Symptômes, antécédents, traitements déjà essayés. Votre médecin a tout ce qu'il faut pour préparer votre consultation.</p></div></div>
+        <div class="how-step-dark" data-how-img="1"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg> Étape 02</div><h3>Votre téléconsultation</h3><p>Un médecin Mixt vous reçoit en vidéo. Elle analyse votre peau, pose un diagnostic et définit votre protocole personnalisé.</p></div></div>
+        <div class="how-step-dark" data-how-img="2"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> Étape 03</div><h3>Recevez votre traitement</h3><p>Votre formulation magistrale est préparée en pharmacie sur ordonnance et livrée chez vous. Des principes actifs dosés spécifiquement pour votre peau.</p></div></div>
+        <div class="how-step-dark" data-how-img="3"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Étape 04</div><h3>Suivez vos progrès</h3><p>Prenez une photo chaque mois. L'app mesure l'évolution de votre peau et votre médecin ajuste votre formulation si besoin.</p></div></div>
         <div style="padding:80px 0 0;"><a href="#cta" class="btn btn-white btn-lg">Démarrer mon parcours →</a></div>
       </div>
       <div class="how-sticky-dark">
         <div class="how-visual-dark" id="howVisualDark">
+          <!-- Slide 0: Questionnaire -->
           <div class="how-slide active">
             <div class="phone">
               <div class="phone-header">
@@ -577,27 +571,58 @@
               <div class="phone-btn">Continuer →</div>
             </div>
           </div>
+          <!-- Slide 1: Téléconsultation visio -->
+          <div class="how-slide">
+            <div class="phone" style="padding:0; position:relative; overflow:hidden;">
+              <img src="images/derm-teleconsult.jpg" alt="Téléconsultation dermatologue" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:32px;">
+              <!-- Overlay top -->
+              <div style="position:absolute; top:0; left:0; right:0; padding:20px 24px; display:flex; justify-content:space-between; align-items:center; background:linear-gradient(180deg,rgba(0,0,0,0.5),transparent); border-radius:32px 32px 0 0;">
+                <div style="color:#fff; font-size:14px; font-weight:600;">Dre. Camille Martin</div>
+                <div style="color:#fff; font-size:13px; font-weight:500; opacity:0.8;">12:34</div>
+              </div>
+              <!-- Self view (PiP) -->
+              <div style="position:absolute; bottom:80px; right:16px; width:80px; aspect-ratio:3/4; background:linear-gradient(135deg,var(--blush),var(--warm)); border-radius:12px; border:2px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center;">
+                <span style="color:#fff; font-size:11px; font-weight:600;">Vous</span>
+              </div>
+              <!-- Controls bar -->
+              <div style="position:absolute; bottom:0; left:0; right:0; padding:16px 24px; display:flex; justify-content:center; gap:20px; align-items:center; background:linear-gradient(0deg,rgba(0,0,0,0.5),transparent); border-radius:0 0 32px 32px;">
+                <div style="width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                </div>
+                <div style="width:56px; height:56px; border-radius:50%; background:#E53935; display:flex; align-items:center; justify-content:center;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </div>
+                <div style="width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2: Préparation pharmacie -->
           <div class="how-slide">
             <div class="phone" style="padding:0;">
               <img src="images/prep.png" alt="Préparation en laboratoire" style="width:100%; flex:1; object-fit:cover; display:block; border-radius:32px;">
             </div>
           </div>
+          <!-- Slide 3: Tracking -->
           <div class="how-slide">
             <div class="phone">
               <div class="phone-header">
                 <div class="phone-brand">mixt</div>
                 <span class="phone-badge">ON TRACK</span>
               </div>
-              <div class="phone-user"><strong>Jessica</strong> — 29 ans — Membre depuis juin 2025</div>
+              <div class="phone-user"><strong>Laetitia</strong><br><span style="font-weight:400;font-size:12px;opacity:0.7;">40 ans — Membre depuis juin 2025</span></div>
               <div class="phone-section">Progrès</div>
               <div class="phone-compare">
-                <div class="phone-thumb">
-                  <div class="phone-thumb-label">Avant</div>
-                  <div class="phone-thumb-date">16 juin</div>
+                <div class="phone-thumb" style="position:relative;">
+                  <img src="images/laetitia-before.png" alt="Avant" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;position:absolute;top:0;left:0;">
+                  <div class="phone-thumb-label" style="position:relative;z-index:1;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5);margin-top:auto;padding-bottom:4px;">Avant</div>
+                  <div class="phone-thumb-date" style="position:relative;z-index:1;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5);padding-bottom:8px;">16 juin</div>
                 </div>
-                <div class="phone-thumb">
-                  <div class="phone-thumb-label">Actuel</div>
-                  <div class="phone-thumb-date">14 juil</div>
+                <div class="phone-thumb" style="position:relative;">
+                  <img src="images/laetitia-after.png" alt="Actuel" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;position:absolute;top:0;left:0;">
+                  <div class="phone-thumb-label" style="position:relative;z-index:1;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5);margin-top:auto;padding-bottom:4px;">Actuel</div>
+                  <div class="phone-thumb-date" style="position:relative;z-index:1;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5);padding-bottom:8px;">14 oct</div>
                 </div>
               </div>
               <div class="phone-section">Skin Metrics</div>
@@ -612,7 +637,7 @@
                 </div>
               </div>
               <div class="phone-footer-dark">
-                <div class="phone-goal">Objectif réduction : 40% <span class="check">✓</span> Atteint en 4 semaines</div>
+                <div class="phone-goal">Objectif réduction : 40%<br><span class="check">✓</span> Atteint en 4 semaines</div>
               </div>
             </div>
           </div>
@@ -654,7 +679,7 @@
 </section>
 
 <!-- 7. PREUVES + COMMUNAUTÉ -->
-<section class="s-proof">
+<section class="s-proof" id="resultats">
   <div class="inner">
     <div class="proof-top">
       <div class="label" style="color:var(--text);justify-content:center;"><span style="width:24px;height:1px;background:var(--accent);display:inline-block;margin-right:10px;"></span>Résultats réels</div>
@@ -666,7 +691,7 @@
           <div class="proof-photo before"><img src="images/laetitia-before.png" alt="Laetitia avant traitement" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="proof-photo after"><img src="images/laetitia-after.png" alt="Laetitia après traitement" style="width:100%;height:100%;object-fit:cover;"></div>
         </div>
-        <div class="proof-condition">Hyperpigmentation · 4 mois</div>
+        <div class="proof-condition">Hyperpigmentation · 4 mois avec Mixt</div>
         <div class="proof-meta">Laetitia <span>· 36 ans</span></div>
         <div class="proof-quote">« Pendant 10 ans j'ai cherché une solution pour ma peau. Aujourd'hui quand je vois les photos d'avant, je n'en reviens pas. »</div>
       </div>
@@ -675,18 +700,18 @@
           <div class="proof-photo before"><img src="images/melanie-before.png" alt="Mélanie avant traitement" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="proof-photo after"><img src="images/melanie-after.png" alt="Mélanie après traitement" style="width:100%;height:100%;object-fit:cover;"></div>
         </div>
-        <div class="proof-condition">Rosacée · 3 mois</div>
+        <div class="proof-condition">Rosacée · 3 mois avec Mixt</div>
         <div class="proof-meta">Mélanie <span>· 34 ans</span></div>
         <div class="proof-quote">« Je ne sortais plus sans fond de teint. Maintenant j'ose le visage nu — ça ne m'était pas arrivé depuis des années. »</div>
       </div>
     </div>
     <div class="community-block">
       <div class="community-faces">
-        <div class="community-face"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop&crop=face" alt=""></div>
-        <div class="community-face"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=96&h=96&fit=crop&crop=face" alt=""></div>
-        <div class="community-face"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=face" alt=""></div>
-        <div class="community-face"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=96&h=96&fit=crop&crop=face" alt=""></div>
-        <div class="community-face"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=96&h=96&fit=crop&crop=face" alt=""></div>
+        <div class="community-face"><img src="images/community-gaelle.jpeg" alt="Gaëlle"></div>
+        <div class="community-face"><img src="images/community-emilie.jpeg" alt="Emilie"></div>
+        <div class="community-face"><img src="images/community-victoire.jpeg" alt="Victoire"></div>
+        <div class="community-face"><img src="images/community-laurence.jpeg" alt="Laurence"></div>
+        <div class="community-face"><img src="images/community-valerie.jpeg" alt="Valérie"></div>
       </div>
       <h3>Vous n'êtes <em>pas seule</em></h3>
       <p>Rejoignez des femmes qui vivent la même chose. Partagez, échangez, avancez ensemble.</p>
@@ -696,15 +721,15 @@
 </section>
 
 <!-- PRICING -->
-<section class="s-pricing">
+<section class="s-pricing" id="tarifs">
   <div class="inner">
     <div class="pricing-layout">
       <div class="pricing-text">
         <div class="label" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;margin-right:10px;"></span>Votre abonnement</div>
         <h2>Votre abonnement <em>Mixt</em></h2>
         <p>Une consultation médicale, un traitement sur-mesure livré chez vous tous les 2 mois, une app de suivi et des ajustements réguliers. Un seul abonnement.</p>
-        <a href="#cta" class="btn btn-dark btn-lg" style="margin-top:28px;">Rejoindre la liste d'attente →</a>
-        <p style="font-size:13px; color:var(--text-3); margin-top:12px;">Sans engagement — inscrivez-vous pour être informé·e en avant-première</p>
+        <a href="#cta" class="btn btn-dark btn-lg" style="margin-top:28px;">Démarrer mon diagnostic peau →</a>
+        <p style="font-size:13px; color:var(--text-3); margin-top:12px;">Sans engagement — inscrivez-vous pour être informée en avant-première</p>
       </div>
       <div class="pricing-card">
         <div class="pricing-card-top">
@@ -719,7 +744,12 @@
           </ul>
         </div>
         <div class="pricing-card-bottom">
-          <div class="pricing-card-launch">Lancement printemps 2026</div>
+          <div class="pricing-card-launch" style="font-size:28px; margin-bottom:4px;">
+            <span style="text-decoration:line-through; opacity:0.5; font-size:18px;">75€/mois</span> 49€/mois
+          </div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.5); text-align:center;">
+            Offre de lancement · places limitées
+          </div>
         </div>
       </div>
     </div>
@@ -749,7 +779,7 @@
             <div class="ordo-line"></div>
             <div class="ordo-line"></div>
           </div>
-          <div class="ordo-doctor">Dr. Laurent Dupont — Médecin prescripteur Mixt</div>
+          <div class="ordo-doctor">Dre. Sophie Laurent — Médecin prescriptrice Mixt</div>
           <img src="images/delpech.png" alt="Pharmacie Delpech" style="height:32px; width:auto; object-fit:contain; margin-top:16px;">
         </div>
       </div>
@@ -765,45 +795,46 @@
 <section class="s-violet" id="approach">
   <div class="inner">
     <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Notre approche médicale</div>
-    <h2>De la dermatologie de qualité, <em>accessible à tous</em></h2>
+    <h2>De la dermatologie de qualité, <em>accessible à toutes</em></h2>
     <div class="pillars">
       <div class="pillar"><h3>Protocoles dermatologiques</h3><p>Conçus avec des dermatologues, appliqués par des médecins formés. Chaque prescription est validée médicalement.</p></div>
       <div class="pillar"><h3>Formulations magistrales</h3><p>Préparées sur-mesure en pharmacie, avec des principes actifs dosés spécifiquement pour votre peau.</p></div>
       <div class="pillar"><h3>Suivi augmenté par l'IA</h3><p>Notre technologie analyse l'évolution de votre peau et aide le médecin à ajuster votre traitement en continu.</p></div>
     </div>
-    <div class="doctor-spotlight">
-      <div class="doctor-photo"><img src="images/boris.jpg" alt="Dr. Boris" style="width:100%;height:100%;object-fit:cover;"></div>
+    <!-- doctor-spotlight masqué en attendant recrutement -->
+    <!--<div class="doctor-spotlight">
+      <div class="doctor-photo"></div>
       <div class="doctor-info">
-        <div class="doctor-quote">« Chaque peau raconte une histoire différente — notre rôle c'est de l'écouter. »</div>
-        <div class="doctor-name">Dr. [Nom]</div>
-        <div class="doctor-title">Dermatologue — Directeur·rice scientifique Mixt</div>
+        <div class="doctor-quote">Chaque protocole Mixt est conçu par un médecin, personnalisé selon votre peau et ajusté dans le temps grâce au suivi continu.</div>
+        <div class="doctor-name">Recrutement en cours</div>
+        <div class="doctor-title">Dermatologue — Directrice scientifique Mixt</div>
       </div>
-    </div>
-    <a href="#cta" class="btn btn-white btn-lg" style="margin-top:36px;">Rejoindre la liste d'attente →</a>
+    </div>-->
+    <a href="#cta" class="btn btn-white btn-lg" style="margin-top:36px;">Démarrer mon diagnostic peau →</a>
   </div>
 </section>
 
 <!-- 9. STORY FOUNDER -->
 
-<!-- Comité scientifique -->
-<section class="s-comite">
+<!-- Comité scientifique — masqué en attendant recrutement -->
+<!--<section class="s-comite">
   <div class="inner">
     <div class="label" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;margin-right:10px;"></span>Comité scientifique</div>
     <h2>Une équipe médicale <em>à vos côtés</em></h2>
     <p class="comite-sub">Nos protocoles sont conçus et supervisés par des experts en dermatologie, pharmacie et data médicale.</p>
     <div class="comite-grid">
-      <div><div class="comite-photo"><img src="images/boris.jpg" alt="Dr. Boris" style="width:100%;height:100%;object-fit:cover;"></div><div class="comite-name">Dr. [Nom]</div><div class="comite-role">Dermatologue — Directeur scientifique. Spécialiste des pathologies inflammatoires cutanées.</div></div>
-      <div><div class="comite-photo"><img src="images/boris.jpg" alt="Dr. Boris" style="width:100%;height:100%;object-fit:cover;"></div><div class="comite-name">Dr. [Nom]</div><div class="comite-role">Pharmacien préparateur — Expert en formulations magistrales et principes actifs dermatologiques.</div></div>
-      <div><div class="comite-photo"><img src="images/boris.jpg" alt="Dr. Boris" style="width:100%;height:100%;object-fit:cover;"></div><div class="comite-name">[Nom]</div><div class="comite-role">Data & IA médicale — Responsable des algorithmes de suivi et d'ajustement des traitements.</div></div>
+      <div><div class="comite-photo"></div><div class="comite-name">Recrutement en cours</div><div class="comite-role">Dermatologue — Directrice scientifique. Spécialiste des pathologies inflammatoires cutanées.</div></div>
+      <div><div class="comite-photo"></div><div class="comite-name">Recrutement en cours</div><div class="comite-role">Pharmacien préparateur — Expert en formulations magistrales et principes actifs dermatologiques.</div></div>
+      <div><div class="comite-photo"></div><div class="comite-name">Recrutement en cours</div><div class="comite-role">Data & IA médicale — Responsable des algorithmes de suivi et d'ajustement des traitements.</div></div>
     </div>
   </div>
-</section>
+</section>-->
 
 <!-- 10. STORY FOUNDER -->
 <section class="s-founder">
   <div class="inner">
     <div class="founder-grid">
-      <div class="founder-photo"><img src="images/laetitia-founder.png" alt="Laetitia Payan, fondatrice de Mixt" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="founder-photo"><img src="images/laetitia-after.png" alt="Laetitia Payan, fondatrice de Mixt" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
       <div class="founder-text">
         <div class="label" style="color:var(--text-2);"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;margin-right:10px;"></span>Pourquoi Mixt existe</div>
         <h3>« Pendant 10 ans, j'ai eu honte de <em>mon hyperpigmentation.</em> »</h3>
@@ -824,7 +855,7 @@
     <div class="label" style="color:rgba(255,255,255,0.5);"><span style="width:24px;height:1px;background:rgba(255,255,255,0.3);display:inline-block;margin-right:10px;"></span>Praticiens</div>
     <h2>Vous êtes dermatologue ou <em>médecin</em> ?</h2>
     <p class="sub">Rejoignez notre réseau de praticiens et participez à l'avenir de la dermatologie personnalisée.</p>
-    <a href="mailto:contact@mixt.care" class="btn btn-white btn-lg">Nous contacter →</a>
+    <a href="mailto:laetitia@mixt.care" class="btn btn-white btn-lg">Nous contacter →</a>
   </div>
 </section>
 
@@ -833,10 +864,8 @@
   <div class="inner">
     <h2 style="text-align:center;">Faites le premier pas pour <em>votre peau</em></h2>
     <p class="sub">Rejoignez la liste d'attente et soyez parmi les premières à bénéficier d'un traitement vraiment personnalisé.</p>
-    <div class="email-form">
-      <input type="email" placeholder="votre@email.com">
-      <a class="btn btn-white btn-lg">S'inscrire →</a>
-    </div>
+    <a href="#cta" class="btn btn-white btn-lg">Démarrer mon diagnostic peau →</a>
+    <p style="font-size:14px; color:rgba(255,255,255,0.4); margin-top:12px;">Offre de lancement · places limitées · <span style="text-decoration:line-through;">75€</span> 49€/mois</p>
     <div class="cta-testimonial">« J'ai hâte que ça commence, je veux ma préparation ! » — <strong>Aude, 34 ans</strong></div>
   </div>
 </section>
@@ -853,12 +882,11 @@
         <div class="footer-col"><h4>Design</h4><a href="brand-book.html">Charte couleurs</a><a href="ui-kit.html">UI Kit</a></div>
       </div>
     </div>
-    <div class="footer-bottom"><span>&copy; 2025 Mixt. Tous droits réservés.</span><span>Fait avec soin à Paris.</span></div>
+    <div class="footer-bottom"><span>&copy; 2026 Mixt. Tous droits réservés.</span><span>Fait avec soin à Paris.</span></div>
   </div>
 </footer>
 
 <script>
-  (function(){var b=document.querySelector('.site-banner'),n=document.querySelector('nav');function sync(){if(!b||!n)return;var h=b.offsetHeight;n.style.top=h+'px';document.documentElement.style.setProperty('--banner-h',h+'px');}sync();window.addEventListener('resize',sync);})();
   var heroScroll=document.getElementById('heroScroll'),problemBlock=document.getElementById('problemBlock'),darkBg=document.getElementById('heroDarkBg'),heroVis=document.getElementById('heroVisual');
   function updateHero(){if(!heroScroll||!problemBlock||!darkBg||!heroVis)return;var sr=heroScroll.getBoundingClientRect(),pr=problemBlock.getBoundingClientRect();darkBg.style.top=(pr.top-sr.top)+'px';darkBg.style.bottom='0';var vh=window.innerHeight;var isMobile=window.innerWidth<=768;var reveal;if(isMobile){var vr=heroVis.getBoundingClientRect();var mid=vh*0.5;var progress=Math.min(1,Math.max(0,(mid-vr.top)/(vr.bottom-vr.top)));reveal=progress*100;}else{var scrolled=Math.max(0,-sr.top),total=sr.height-vh,progress=Math.min(1,scrolled/total);var delay=0.25;reveal=progress<=delay?0:Math.min(1,(progress-delay)/(1-delay))*100;}heroVis.style.setProperty('--reveal',reveal+'%');}
   window.addEventListener('scroll',updateHero,{passive:true});window.addEventListener('resize',updateHero);updateHero();
