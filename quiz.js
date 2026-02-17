@@ -223,6 +223,30 @@
     if(popstateHandler){window.removeEventListener('popstate',popstateHandler);popstateHandler=null}
   }
 
+  // ── Page unload (tab/browser close, mobile app switch) ──
+  var abandonBound=false;
+  var abandonSent=false;
+  function sendAbandon(){
+    if(abandonSent||!overlay||!answers.q1||currentScreen==='thankyou'||!SCRIPT_URL)return;
+    abandonSent=true;
+    var payload={status:'abandon',lastScreen:currentScreen,answers:answers,diagnoses:getUniqueDiagnoses(),secondaryConcerns:getSecondaryConcerns(),contact:{prenom:'',nom:'',email:'',telephone:''}};
+    var blob=new Blob([JSON.stringify(payload)],{type:'application/json'});
+    navigator.sendBeacon(SCRIPT_URL,blob);
+  }
+  function onPageHide(){sendAbandon()}
+  function bindPageUnload(){
+    if(abandonBound)return;
+    abandonBound=true;abandonSent=false;
+    window.addEventListener('beforeunload',onPageHide);
+    window.addEventListener('pagehide',onPageHide);
+  }
+  function unbindPageUnload(){
+    if(!abandonBound)return;
+    abandonBound=false;
+    window.removeEventListener('beforeunload',onPageHide);
+    window.removeEventListener('pagehide',onPageHide);
+  }
+
   // ── Screen transitions ──
   function showScreen(html,screenId){
     var content=cnt();
@@ -545,13 +569,8 @@
   // ── Close / Open ──
   function closeQuiz(){
     if(!overlay)return;
-    if(answers.q1&&currentScreen!=='thankyou'){
-      var payload={status:'abandon',lastScreen:currentScreen,answers:answers,diagnoses:getUniqueDiagnoses(),secondaryConcerns:getSecondaryConcerns(),contact:{prenom:'',nom:'',email:'',telephone:''}};
-      console.log('Quiz abandon:',payload);
-      if(SCRIPT_URL){
-        fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-      }
-    }
+    sendAbandon();
+    unbindPageUnload();
     unbindBrowserBack();
     overlay.classList.remove('visible');
     setTimeout(function(){if(overlay&&overlay.parentNode)overlay.parentNode.removeChild(overlay);overlay=null},300);
@@ -564,6 +583,7 @@
     buildOverlay();
     document.body.style.overflow='hidden';
     bindBrowserBack();
+    bindPageUnload();
     requestAnimationFrame(function(){requestAnimationFrame(function(){overlay.classList.add('visible')})});
     showIntro();
   };
