@@ -1,20 +1,25 @@
 {
   "intro": {
     "title": "Parlons de votre peau.",
-    "description": "5 minutes. Vos réponses nous permettent d'orienter un pré-diagnostic et de préparer votre prise en charge."
+    "description": "Quelques questions pour que notre équipe médicale comprenne votre situation et prépare votre accompagnement personnalisé.",
+    "trust_line": "Vos réponses sont confidentielles et soumises au secret médical.",
+    "cta": "Commencer →"
   },
+
   "questions": {
+
     "q1": {
       "text": "Qu'est-ce qui vous préoccupe le plus aujourd'hui ?",
       "type": "single",
       "options": [
         {"label": "Rougeurs", "next": "q1b"},
         {"label": "Boutons / imperfections", "next": "q1b"},
-        {"label": "Peau sèche / irritée", "next": "q1b"},
+        {"label": "Sécheresse, tiraillements ou inconfort", "next": "q1b"},
         {"label": "Taches brunes", "next": "q1b"},
         {"label": "Autre", "next": "q1b", "freeText": true}
       ]
     },
+
     "q1b": {
       "text": "Avez-vous déjà consulté pour ce problème ?",
       "type": "single",
@@ -24,6 +29,7 @@
         {"label": "Non, jamais", "next": "diag_router"}
       ]
     },
+
     "q1c": {
       "text": "Quel diagnostic vous a-t-on donné ?",
       "type": "multiple",
@@ -32,19 +38,18 @@
         {"label": "Rosacée"},
         {"label": "Eczéma"},
         {"label": "Mélasma"},
-        {"label": "Hyperpigmentation"},
+        {"label": "Hyperpigmentation post-inflammatoire"},
         {"label": "Autre", "freeText": true}
       ],
       "next": "diag_router"
     },
 
     "diag_router": {
-      "_comment": "Route vers le bon arbre selon Q1. Le JS lit la réponse de q1 pour router.",
       "type": "router",
       "routes": {
         "Rougeurs": "q2Aa",
         "Boutons / imperfections": "q2Ba",
-        "Peau sèche / irritée": "q2Ca",
+        "Sécheresse, tiraillements ou inconfort": "q2Ca",
         "Taches brunes": "q2Da",
         "Autre": "q4"
       }
@@ -117,8 +122,7 @@
         {"label": "Dos / épaules"},
         {"label": "Tout le visage"}
       ],
-      "next": "q4",
-      "_note": "Mâchoire/menton = signal acné hormonale, utile pour le médecin"
+      "next": "q4"
     },
 
     "q2Ca": {
@@ -143,7 +147,7 @@
       "type": "single",
       "options": [
         {"label": "Oui", "next": "q2Cd", "diagnosis": "eczema"},
-        {"label": "Non", "next": "q4", "diagnosis": "none"}
+        {"label": "Non", "next": "q4", "diagnosis": "inconfort_cutane"}
       ]
     },
     "q2Cd": {
@@ -156,19 +160,20 @@
         {"label": "Cuir chevelu"},
         {"label": "Autre"}
       ],
-      "next": "q4",
-      "_note": "Plis = eczéma atopique, cuir chevelu = dermatite séborrhéique, signal utile pour le médecin"
+      "next": "q4"
     },
 
     "q2Da": {
       "text": "Quand vos taches sont-elles apparues ?",
-      "type": "single",
+      "type": "multiple",
+      "helper": "Plusieurs réponses possibles.",
       "options": [
-        {"label": "Après une exposition au soleil", "next": "q2Db", "diagnosis": "melasma"},
-        {"label": "Après des boutons ou irritations", "next": "q2Db", "diagnosis": "hyperpigmentation_post_inflammatoire"},
-        {"label": "Après une grossesse ou changements hormonaux", "next": "q2Db", "diagnosis": "melasma"},
-        {"label": "Je ne sais pas", "next": "q2Db", "diagnosis": "hyperpigmentation"}
-      ]
+        {"label": "Après une exposition au soleil", "diagnosis": "melasma"},
+        {"label": "Après des boutons ou irritations", "diagnosis": "hyperpigmentation_post_inflammatoire"},
+        {"label": "Après une grossesse ou changements hormonaux", "diagnosis": "melasma"},
+        {"label": "Je ne sais pas", "diagnosis": "hyperpigmentation"}
+      ],
+      "next": "q2Db"
     },
     "q2Db": {
       "text": "Vos taches sont-elles réparties de façon symétrique sur le visage (mêmes zones des deux côtés) ?",
@@ -177,19 +182,18 @@
         {"label": "Oui", "next": "q4", "diagnosis": "melasma"},
         {"label": "Non", "next": "q4"},
         {"label": "Je ne sais pas", "next": "q4"}
-      ],
-      "_note": "Symétrie = signal fort mélasma, aide à différencier de l'hyperpigmentation post-inflammatoire"
+      ]
     },
 
     "q4": {
       "text": "Au quotidien, quel impact cela a-t-il sur vous ?",
       "type": "single",
       "options": [
-        {"label": "Pas vraiment gênant"},
-        {"label": "Gênant parfois"},
-        {"label": "Impact sur ma confiance"},
-        {"label": "Stressant"},
-        {"label": "Difficile à vivre au quotidien"}
+        {"label": "Ça va, je gère"},
+        {"label": "C'est gênant par moments"},
+        {"label": "J'y pense souvent"},
+        {"label": "Ça affecte mon quotidien"},
+        {"label": "C'est vraiment difficile à vivre"}
       ],
       "next": "q5"
     },
@@ -208,12 +212,32 @@
       "text": "Qu'avez-vous déjà essayé pour votre peau ?",
       "type": "multiple",
       "options": [
-        {"label": "Dermatologue"},
-        {"label": "Médecin généraliste"},
+        {"label": "Consultation dermato"},
+        {"label": "Consultation médecin (généraliste)"},
         {"label": "Pharmacie"},
         {"label": "Soins esthétiques"},
         {"label": "Produits cosmétiques"},
         {"label": "Rien de spécifique"}
+      ],
+      "next": "q3"
+    },
+    "q3": {
+      "text": "Avez-vous d'autres préoccupations ?",
+      "helper": "Ces informations aident votre médecin à avoir une vision globale.",
+      "type": "multiple",
+      "_dynamic_filter": "Retirer l'option correspondant au choix Q1.",
+      "options": [
+        {"label": "Rougeurs"},
+        {"label": "Boutons / imperfections"},
+        {"label": "Sécheresse, tiraillements ou inconfort"},
+        {"label": "Taches brunes"},
+        {"label": "Rides et relâchement cutané"},
+        {"label": "Texture de peau", "freeText": true, "freeTextPlaceholder": "Pores dilatés, grain de peau irrégulier…"},
+        {"label": "Cernes et poches sous les yeux"},
+        {"label": "Corps", "freeText": true, "freeTextPlaceholder": "Vergetures, kératose, sécheresse…"},
+        {"label": "Cheveux et cuir chevelu", "freeText": true, "freeTextPlaceholder": "Chute, pellicules, cuir chevelu irrité…"},
+        {"label": "Autre", "freeText": true},
+        {"label": "Aucune", "exclusive": true}
       ],
       "next": "q7"
     },
@@ -237,7 +261,9 @@
         {"label": "25–34 ans"},
         {"label": "35–44 ans"},
         {"label": "45–54 ans"},
-        {"label": "55 ans et plus"}
+        {"label": "55–64 ans"},
+        {"label": "65–74 ans"},
+        {"label": "75 ans et plus"}
       ],
       "next": "q9"
     },
@@ -249,64 +275,140 @@
         {"label": "Grossesse / post-partum"},
         {"label": "Ménopause / périménopause"},
         {"label": "Traitement médical régulier"},
-        {"label": "Aucune"}
+        {"label": "Aucune", "exclusive": true}
       ],
-      "next": "prediag"
+      "next": "analysis"
     }
   },
-  "diagnoses": {
-    "rosacee": {
-      "label": "Rosacée",
-      "description": "Maladie inflammatoire chronique du visage provoquant rougeurs et sensibilité. Reconnue et accompagnée par des approches adaptées.",
-      "severity_note": "érythémateuse"
-    },
-    "rosacee_papulopustuleuse": {
-      "label": "Rosacée papulo-pustuleuse",
-      "description": "Forme de rosacée associant rougeurs persistantes et petits boutons inflammatoires. Un traitement adapté permet de contrôler les poussées.",
-      "severity_note": "papulo-pustuleuse"
-    },
-    "acne": {
-      "label": "Acné",
-      "description": "Affection cutanée inflammatoire liée aux pores. Fréquente à tout âge et pour laquelle il existe des solutions efficaces."
-    },
-    "eczema": {
-      "label": "Eczéma",
-      "description": "Trouble inflammatoire de la peau causant sécheresse et démangeaisons, qui peut être soulagé durablement avec un suivi approprié."
-    },
-    "melasma": {
-      "label": "Mélasma",
-      "description": "Taches pigmentaires liées aux hormones et au soleil, souvent symétriques. Leur évolution peut être accompagnée et améliorée avec un protocole adapté."
-    },
-    "hyperpigmentation_post_inflammatoire": {
-      "label": "Hyperpigmentation post-inflammatoire",
-      "description": "Marques foncées apparues après une irritation, un bouton ou une lésion cutanée. Des solutions existent pour atténuer leur apparence."
-    },
-    "hyperpigmentation": {
-      "label": "Hyperpigmentation",
-      "description": "Apparition de taches plus foncées sur la peau, pouvant être améliorée avec un accompagnement adapté."
-    },
-    "acne_ou_rosacee": {
-      "label": "Acné ou rosacée",
-      "description": "Rougeurs et inflammation du visage dont l'origine sera clarifiée lors de la téléconsultation. Ces deux conditions se ressemblent parfois mais se traitent différemment."
-    },
-    "none": {
-      "label": "Pré-diagnostic à confirmer",
-      "description": "Vos réponses ne permettent pas d'orienter un pré-diagnostic à ce stade. Ce n'est pas un problème — votre médecin analysera votre situation en détail lors de la téléconsultation."
-    }
+
+
+  "analysis_screen": {
+    "photo": "images/laetitia-after.png",
+    "photo_label": "Laetitia, fondatrice de Mixt",
+    "stat_number": "15 millions",
+    "stat_text": "de Français vivent avec un problème de peau chronique. Vous n'êtes pas seule — et des solutions adaptées existent.",
+    "loader_text": "Préparation de votre bilan…",
+    "duration_ms": 4000,
+    "next": "bilan"
   },
-  "disclaimer": "Ceci n'est pas un diagnostic médical. Il sera confirmé lors de l'analyse de vos photos et de la téléconsultation avec votre médecin.",
+
+
+  "bilan": {
+    "title": "Votre bilan de peau",
+
+    "absorption_rules": {
+      "rosacee_papulopustuleuse": ["rosacee"],
+      "eczema": ["inconfort_cutane"],
+      "melasma": ["hyperpigmentation"],
+      "acne": ["acne_ou_rosacee"]
+    },
+
+    "conditions": {
+      "rosacee": {
+        "emoji": "🌹",
+        "label": "Rosacée",
+        "summary": "Vous décrivez des rougeurs persistantes au centre du visage, sensibles à la chaleur et au stress.",
+        "education": "C'est ce que les dermatologues appellent la rosacée — une condition inflammatoire chronique qui touche environ 4 millions de personnes en France. Elle ne disparaît pas, mais avec un protocole adapté, elle se contrôle très bien."
+      },
+      "rosacee_papulopustuleuse": {
+        "emoji": "🔴",
+        "label": "Rosacée papulo-pustuleuse",
+        "summary": "Vous décrivez des rougeurs persistantes accompagnées de petits boutons inflammatoires.",
+        "education": "C'est une forme de rosacée qui associe rougeurs et poussées de boutons. Un traitement ciblé permet de contrôler efficacement les poussées et de retrouver du confort."
+      },
+      "acne": {
+        "emoji": "🫧",
+        "label": "Acné",
+        "summary": "Vous décrivez des imperfections avec points noirs ou points blancs.",
+        "education": "L'acné adulte est plus fréquente qu'on ne le pense — et souvent sous-traitée. Hormonale, inflammatoire ou tardive, elle répond bien à un protocole médical adapté."
+      },
+      "eczema": {
+        "emoji": "🏜️",
+        "label": "Eczéma",
+        "summary": "Vous décrivez une peau sèche, qui démange et qui pèle par endroits.",
+        "education": "L'eczéma est un trouble de la barrière cutanée qui touche des millions de personnes. Les crises reviennent par cycles, mais un suivi continu permet de les espacer et de les atténuer."
+      },
+      "melasma": {
+        "emoji": "🌗",
+        "label": "Mélasma",
+        "summary": "Vous décrivez des taches pigmentaires apparues dans un contexte hormonal ou d'exposition solaire.",
+        "education": "Le mélasma est lié à l'interaction entre hormones et soleil. C'est frustrant parce que les taches résistent aux cosmétiques, mais un protocole médical adapté peut significativement atténuer leur apparence."
+      },
+      "hyperpigmentation_post_inflammatoire": {
+        "emoji": "✨",
+        "label": "Hyperpigmentation post-inflammatoire",
+        "summary": "Vous décrivez des marques foncées apparues après des boutons ou irritations.",
+        "education": "La bonne nouvelle : en traitant la cause de l'inflammation, on prévient aussi les marques futures. Un protocole adapté accélère l'atténuation des taches existantes."
+      },
+      "hyperpigmentation": {
+        "emoji": "✨",
+        "label": "Hyperpigmentation",
+        "summary": "Vous décrivez l'apparition de taches plus foncées sur la peau.",
+        "education": "L'hyperpigmentation a plusieurs causes possibles. Un médecin peut identifier la vôtre et proposer un protocole qui s'attaque à l'origine, pas seulement aux symptômes."
+      },
+      "inconfort_cutane": {
+        "emoji": "🤲",
+        "label": "Inconfort cutané",
+        "summary": "Vous décrivez une peau inconfortable au quotidien, sans signes inflammatoires marqués.",
+        "education": "Ce type de ressenti peut refléter une barrière cutanée fragilisée. Parfois la solution est plus simple qu'on ne le pense — un médecin peut identifier la cause et adapter le protocole."
+      },
+      "acne_ou_rosacee": {
+        "emoji": "🔎",
+        "label": "Acné ou rosacée",
+        "summary": "Vous décrivez des boutons et de l'inflammation, sans tableau clairement orienté.",
+        "education": "L'acné et la rosacée se ressemblent parfois mais se traitent très différemment. C'est justement là qu'un avis médical fait toute la différence."
+      },
+      "none": {
+        "emoji": "🔎",
+        "label": "À explorer avec votre médecin",
+        "summary": "Vos réponses ne permettent pas d'orienter vers un tableau spécifique à ce stade.",
+        "education": "Ce n'est pas un problème — votre médecin Mixt analysera votre situation en détail lors de votre échange, avec photos et historique complet."
+      }
+    },
+
+    "secondary_concerns_intro": "Vous avez aussi mentionné :",
+    "secondary_concerns_outro": "Votre médecin Mixt pourra en discuter lors de votre consultation.",
+
+    "disclaimer": "Ce bilan reflète vos réponses. Votre médecin Mixt analysera votre situation en détail — photos, échange, historique — pour construire votre protocole personnalisé.",
+
+    "cta": "Continuer →"
+  },
+
+
   "contact": {
-    "title": "Recevez votre pré-diagnostic complet",
-    "description": "Notre équipe médicale analysera vos réponses et vous contactera pour la suite de votre parcours.",
+    "title": "Rejoignez la bêta Mixt",
+    "value_prop": "Un médecin Mixt va analyser votre situation et construire votre protocole personnalisé.",
+    "pricing": "49€/mois — Offre de lancement, places limitées",
+    "description": "",
     "fields": [
       {"name": "prenom", "label": "Votre prénom", "type": "text", "required": true},
       {"name": "nom", "label": "Votre nom", "type": "text", "required": true},
       {"name": "email", "label": "Votre email", "type": "email", "required": true},
-      {"name": "telephone", "label": "Votre téléphone (optionnel)", "type": "tel", "required": false}
-    ]
+      {"name": "telephone", "label": "Votre téléphone", "type": "tel", "required": false, "helper": "Pour être contacté(e) en priorité"}
+    ],
+    "submit": "Envoyer mes réponses →",
+    "rgpd_html": "En envoyant ce formulaire, vous acceptez nos <a href=\"conditions-generales.html\" target=\"_blank\">conditions générales</a> et notre <a href=\"politique-de-confidentialite.html\" target=\"_blank\">politique de confidentialité</a>. Vos données sont soumises au secret médical."
   },
+
+
   "thankyou": {
-    "title": "Merci ! Nous revenons vers vous très vite.",
-    "description": "Vous recevrez un email de notre équipe médicale dans les 48h pour la suite de votre parcours."
+    "title": "Vous êtes sur la liste ! 🎉",
+    "description": "Nous vous contacterons très vite pour accéder à votre parcours personnalisé.",
+    "cta_label": "Revenir au site"
+  },
+
+
+  "_implementation_notes": {
+    "question_flow": "Arbre → Q4 impact → Q5 durée → Q6 essayé → Q3 secondaires → Q7 budget → Q8 âge → Q9 hormones → analysis → bilan → contact → thankyou",
+    "single_select_q1": "Q1 single select. diag_router route vers un seul arbre. 'Autre' skip vers Q4.",
+    "q2Da_multiple": "Q2Da multiple. Collecter TOUS les diagnosis.",
+    "dynamic_filter_q3": "Retirer de Q3 l'option correspondant au choix Q1.",
+    "exclusive_options": "Options 'exclusive: true' désélectionnent les autres.",
+    "freetext_placeholders": "Utiliser freeTextPlaceholder si défini, sinon 'Précisez…'.",
+    "absorption": "Avant le bilan, appliquer absorption_rules. Afficher 1 carte.",
+    "analysis_screen": "UN seul écran. Photo Laetitia ronde (~80px) + stat '15 millions' + loader discret. Reste ~4s puis transition auto vers bilan. PAS de bouton.",
+    "bilan_display": "1 carte condition + mentions secondaires + disclaimer + CTA 'Continuer →' direct vers contact.",
+    "abandon_payload": "{ status: 'abandon', lastScreen, answers, diagnoses, secondaryConcerns: [], contact: { prenom: '', email: '', telephone: '' } }",
+    "complete_payload": "{ status: 'complete', lastScreen: 'thankyou', answers, diagnoses, secondaryConcerns, contact }"
   }
 }

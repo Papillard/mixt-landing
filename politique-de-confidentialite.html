@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de Confidentialité — Mixt</title>
+
+<meta name="description" content="Politique de Confidentialité de la Solution Mixt.">
+<meta name="theme-color" content="#361822">
+
+<link rel="icon" type="image/x-icon" href="./favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+<link rel="manifest" href="./favicons/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" rel="stylesheet">
+<style>
+  :root {
+    --deep: #361822; --rich: #6B3D32; --violet: #5E3A6E; --violet-dark: #462858;
+    --warm: #B07460; --blush: #D4A08A; --cream: #F5E6DA; --base: #FFF8F2;
+    --violet-light: #C0A8CC; --violet-bg: #F0EAF4;
+    --accent: #C85A4A;
+    --text: #1A1210; --text-2: #6B5B52; --text-3: #9A8A80; --border: rgba(0,0,0,0.06); --r: 6px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Geist Sans','Geist',-apple-system,sans-serif; background:var(--base); color:var(--text); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--base); border-bottom:1px solid var(--border); height:56px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; overflow:hidden; }
+  .nav-logo { font-family:'Fraunces',serif; font-size:28px; font-weight:500; font-variation-settings:'opsz' 144,'WONK' 0,'SOFT' 0; }
+  .nav-right { display:flex; align-items:center; gap:24px; }
+  .nav-right a { font-size:14px; font-weight:450; color:var(--text-2); text-decoration:none; transition:color 0.2s; }
+  .nav-right a:hover { color:#000; }
+
+  .btn { display:inline-flex; align-items:center; font-family:inherit; font-weight:600; text-decoration:none; cursor:pointer; border:none; border-radius:var(--r); transition:all 0.2s; }
+  .btn-sm { padding:8px 16px; font-size:12px; }
+  .btn-dark { background:var(--deep); color:#fff !important; }
+  .btn-dark:hover { background:#2B1018; }
+  .inner { max-width:1100px; margin:0 auto; }
+
+  /* LEGAL CONTENT */
+  .s-legal { padding:calc(56px + 60px) 40px 100px; }
+  .s-legal .inner { max-width:780px; }
+  .s-legal h1 { font-size:36px; font-weight:400; line-height:1.2; letter-spacing:-0.03em; margin-bottom:8px; }
+  .s-legal h1 em { font-family:'Newsreader',serif; font-style:italic; font-weight:400; font-size:1.05em; }
+  .s-legal .legal-date { font-size:14px; color:var(--text-3); margin-bottom:48px; }
+  .s-legal h2 { font-size:24px; font-weight:600; line-height:1.3; letter-spacing:-0.02em; margin:48px 0 16px; max-width:none; }
+  .s-legal h3 { font-size:18px; font-weight:600; line-height:1.4; margin:32px 0 12px; }
+  .s-legal p { font-size:15px; line-height:1.7; color:var(--text-2); margin-bottom:14px; }
+  .s-legal strong { color:var(--text); font-weight:600; }
+  .s-legal ul { list-style:none; padding:0; margin:0 0 14px; }
+  .s-legal ul li { font-size:15px; line-height:1.7; color:var(--text-2); padding-left:20px; position:relative; margin-bottom:8px; }
+  .s-legal ul li::before { content:'—'; position:absolute; left:0; color:var(--accent); font-weight:600; }
+  .s-legal .alert-box { background:var(--cream); border-left:3px solid var(--accent); padding:20px 24px; border-radius:0 var(--r) var(--r) 0; margin:20px 0; }
+  .s-legal .alert-box p { margin-bottom:0; font-weight:500; color:var(--text); }
+  .s-legal hr { border:none; border-top:1px solid var(--border); margin:48px 0; }
+  .s-legal .legal-block { background:var(--cream); border-radius:var(--r); padding:24px 28px; margin:20px 0; }
+  .s-legal .legal-block p { margin-bottom:8px; }
+  .s-legal .legal-block p:last-child { margin-bottom:0; }
+
+  /* FOOTER */
+  .footer-brand { background:var(--deep); padding:80px 40px 40px; position:relative; overflow:hidden; }
+  .footer-brand-logo { font-family:'Fraunces',serif; font-size:22vw; font-weight:500; color:rgba(255,255,255,0.04); position:absolute; bottom:-5vw; left:50%; transform:translateX(-50%); white-space:nowrap; pointer-events:none; font-variation-settings:'opsz' 144; line-height:0.85; }
+  .footer-inner { position:relative; z-index:2; max-width:1100px; margin:0 auto; }
+  .footer-top { display:flex; justify-content:space-between; margin-bottom:48px; }
+  .footer-left .fl-logo { font-family:'Fraunces',serif; font-size:26px; font-weight:500; color:#fff; margin-bottom:6px; font-variation-settings:'opsz' 144; }
+  .footer-left .fl-tagline { font-size:14px; color:rgba(255,255,255,0.4); }
+  .footer-cols { display:flex; gap:56px; }
+  .footer-col h4 { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--blush); margin-bottom:14px; }
+  .footer-col a { display:block; font-size:14px; color:rgba(255,255,255,0.55); text-decoration:none; margin-bottom:8px; }
+  .footer-col a:hover { color:#fff; }
+  .footer-bottom { display:flex; justify-content:space-between; padding-top:20px; }
+  .footer-bottom span { font-size:12px; color:rgba(255,255,255,0.3); }
+
+  @media (max-width:768px) {
+    nav { padding:0 16px; } .nav-right a:not(.btn) { display:none; } .nav-right { gap:0; }
+    .s-legal { padding:calc(56px + 32px) 20px 60px; }
+    .s-legal h1 { font-size:28px; }
+    .s-legal h2 { font-size:20px; margin-top:36px; }
+    .footer-brand { padding:60px 20px 30px; }
+    .footer-top { flex-direction:column; gap:32px; }
+    .footer-cols { flex-direction:column; gap:24px; }
+    .footer-bottom { flex-direction:column; gap:6px; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" style="text-decoration:none;color:inherit;">mixt</a>
+  <div class="nav-right">
+    <a href="index.html#parcours">Comment ça marche</a>
+    <a href="index.html#resultats">Résultats</a>
+    <a href="index.html#tarifs">Abonnement</a>
+    <a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-sm">Diagnostic peau →</a>
+  </div>
+</nav>
+
+<section class="s-legal">
+  <div class="inner">
+    <h1>Politique de <em>Confidentialité</em></h1>
+    <p class="legal-date">Dernière mise à jour : 17 février 2026</p>
+
+    <h2>Introduction</h2>
+    <p>La présente Politique de confidentialité a pour objet d'informer les Utilisateurs de la Solution Mixt (accessible à l'adresse www.mixt.care) de la manière dont leurs données à caractère personnel sont collectées et traitées.</p>
+    <p>Mixt s'engage à traiter l'ensemble des données collectées de manière conforme à la Loi n°78-17 du 6 janvier 1978 modifiée (Loi Informatique et Libertés) et au Règlement UE 2016/679 du 27 avril 2016 (RGPD).</p>
+    <div class="alert-box"><p>En utilisant la Solution, l'Utilisateur reconnaît avoir pris connaissance de la présente Politique de confidentialité.</p></div>
+    <p>Le site internet www.mixt.care est édité par Mixt, société en cours d'immatriculation, dont le siège social est situé 10 boulevard Raspail, 75007 Paris.</p>
+
+    <hr>
+
+    <h2>1. Responsable de traitement</h2>
+    <div class="legal-block">
+      <p><strong>Pour la gestion de la Solution, du Compte personnel et des Services (hors téléconsultation) :</strong><br>Mixt est Responsable de traitement.</p>
+      <p><strong>Pour la délivrance du Service de téléconsultation et la prescription médicale :</strong><br>Le Professionnel de santé est Responsable de traitement. Mixt intervient en qualité de sous-traitant au sens de l'article 28 du RGPD.</p>
+      <p><strong>Contact pour les questions relatives aux données personnelles :</strong><br>contact@mixt.care</p>
+    </div>
+
+    <hr>
+
+    <h2>2. Données collectées</h2>
+
+    <h3>2.1 Données collectées par Mixt</h3>
+    <p><strong>Données d'identification et de contact :</strong><br>Nom, prénom, date de naissance, genre, adresse email, numéro de téléphone, adresse postale.</p>
+    <p><strong>Données de connexion :</strong><br>Mot de passe (chiffré), adresse IP, données de navigation (pages visitées, durée, type de navigateur).</p>
+    <p><strong>Données de santé (avec votre consentement explicite) :</strong><br>Réponses au questionnaire dermatologique (type de peau, préoccupations cutanées, habitudes de soin), photos de peau le cas échéant, historique des consultations, données de suivi.</p>
+
+    <h3>2.2 Données collectées par le Professionnel de santé</h3>
+    <p>Dans le cadre de la téléconsultation, le Professionnel de santé peut collecter : informations médicales détaillées (antécédents, traitements, allergies), diagnostics et prescriptions, comptes-rendus de consultation, documents médicaux transmis par l'Utilisateur.</p>
+
+    <hr>
+
+    <h2>3. Finalités, bases légales et durées de conservation</h2>
+
+    <h3>Traitements réalisés par Mixt</h3>
+
+    <p><strong>Création et gestion du Compte personnel</strong><br>Base légale : exécution du contrat (art. 6.1.b RGPD).<br>Durée : jusqu'à suppression du compte ou 3 ans après la dernière activité.</p>
+
+    <p><strong>Questionnaire dermatologique et données de santé</strong><br>Base légale : consentement explicite (art. 9.2.a RGPD — données de santé).<br>Durée : jusqu'au retrait du consentement ou suppression du compte.</p>
+
+    <p><strong>Envoi d'emails relatifs aux Services (rappels, suivi)</strong><br>Base légale : exécution du contrat (art. 6.1.b RGPD).<br>Durée : durée de la relation contractuelle.</p>
+
+    <p><strong>Envoi de communications commerciales</strong><br>Base légale : consentement (art. 6.1.a RGPD).<br>Durée : jusqu'au retrait du consentement ou 3 ans après la dernière activité.</p>
+
+    <p><strong>Gestion de la facturation</strong><br>Base légale : obligation légale (art. 6.1.c RGPD).<br>Durée : 10 ans (obligations comptables).</p>
+
+    <p><strong>Amélioration de la Solution</strong><br>Base légale : intérêt légitime (art. 6.1.f RGPD) — données anonymisées uniquement.</p>
+
+    <p><strong>Recherche et amélioration des algorithmes</strong><br>Les données de santé et les photos, une fois anonymisées et/ou pseudonymisées, peuvent être utilisées à des fins de recherche interne, d'amélioration des outils d'aide au suivi dermatologique et d'entraînement d'algorithmes d'intelligence artificielle. Ce traitement repose sur votre consentement explicite (art. 9.2.a RGPD), recueilli de manière distincte. Vous pouvez retirer ce consentement à tout moment sans impact sur l'accès aux Services.<br>Base légale : consentement explicite (art. 9.2.a RGPD).<br>Durée : jusqu'au retrait du consentement. Les données anonymisées de manière irréversible ne sont plus considérées comme des données personnelles et peuvent être conservées sans limitation de durée.</p>
+
+    <p><strong>Gestion des réclamations et demandes d'exercice des droits</strong><br>Base légale : obligation légale (art. 12 RGPD).<br>Durée : 5 ans à compter de la demande.</p>
+
+    <h3>Traitements réalisés par le Professionnel de santé</h3>
+
+    <p><strong>Délivrance de la téléconsultation, diagnostic et prescription</strong><br>Base légale : exécution du contrat + consentement à l'acte de télémédecine.<br>Exception art. 9 RGPD : art. 9.2.h — diagnostics médicaux et prise en charge sanitaire.<br>Durée de conservation du dossier médical : régie par le Code de la santé publique (20 ans à compter de la dernière consultation).</p>
+
+    <hr>
+
+    <h2>4. Consentement au traitement des données de santé</h2>
+    <p>Le traitement de vos données de santé par Mixt requiert votre <strong>consentement explicite</strong>, recueilli via une case à cocher dédiée lors de votre première utilisation des Services impliquant des données de santé.</p>
+    <p>Ce consentement est libre, spécifique, éclairé et univoque. Vous pouvez le retirer à tout moment en nous contactant à l'adresse contact@mixt.care. Le retrait de votre consentement ne portera pas atteinte à la licéité des traitements réalisés antérieurement, mais rendra impossible la fourniture de certains Services.</p>
+
+    <hr>
+
+    <h2>5. Destinataires des données</h2>
+    <p><strong>En interne :</strong> les membres du personnel de Mixt spécifiquement habilités, dans le strict respect de leurs missions.</p>
+    <p><strong>Sous-traitants :</strong> Mixt fait appel à des sous-traitants pour l'exécution de certains traitements, dans le respect de l'article 28 du RGPD :</p>
+    <ul>
+      <li><strong>Google Workspace</strong> (Google Cloud SARL) — Hébergement des données, certifié HDS — Union européenne</li>
+      <li>D'autres prestataires techniques (paiement, emailing, analytics) pourront être ajoutés au fur et à mesure du développement des Services. Cette section sera mise à jour en conséquence.</li>
+    </ul>
+    <p><strong>Professionnels de santé :</strong> les données de santé nécessaires à la téléconsultation sont transmises au Professionnel de santé choisi par l'Utilisateur, dans le respect du secret médical.</p>
+    <p><strong>Pharmacie partenaire :</strong> les données nécessaires à la préparation et à la livraison de la formulation personnalisée sont transmises à la pharmacie partenaire habilitée.</p>
+    <p><strong>Tiers autorisés :</strong> les données peuvent être communiquées aux autorités compétentes en application d'obligations légales.</p>
+    <div class="alert-box"><p>En aucun cas, vos données de santé ne seront vendues, cédées ou louées à des tiers à des fins commerciales.</p></div>
+
+    <hr>
+
+    <h2>6. Transferts hors Union européenne</h2>
+    <p>Mixt privilégie des sous-traitants localisés en France ou au sein de l'Union européenne.</p>
+    <p>Si un transfert de données vers un pays tiers s'avère nécessaire, Mixt s'assure que des garanties appropriées sont en place conformément au RGPD, notamment les clauses contractuelles types de la Commission européenne (article 46.2.c du RGPD) et des mesures techniques complémentaires.</p>
+    <p>L'Utilisateur peut obtenir des informations supplémentaires en contactant contact@mixt.care.</p>
+
+    <hr>
+
+    <h2>7. Hébergement des données de santé</h2>
+    <p>Conformément à l'article L.1111-8 du Code de la santé publique, les données de santé sont hébergées auprès d'un hébergeur certifié HDS (Hébergeur de Données de Santé).</p>
+    <div class="legal-block">
+      <p><strong>Hébergeur :</strong> Google Cloud, certifié HDS v2.0 par Bureau Veritas.</p>
+    </div>
+    <p>Cet hébergement garantit la conservation, l'archivage et la sécurité des données de santé dans le respect des exigences de confidentialité, de sécurité et de pérennité.</p>
+    <p>Conformément à la réglementation, vous disposez d'un droit d'opposition à l'hébergement de vos données de santé auprès de cet hébergeur tiers, pour un motif légitime, en vous adressant à contact@mixt.care. Veuillez noter que l'exercice de ce droit d'opposition rendra impossible la fourniture des Services nécessitant le traitement de vos données de santé.</p>
+
+    <hr>
+
+    <h2>8. Vos droits</h2>
+    <p>Conformément au RGPD et à la Loi Informatique et Libertés, vous disposez des droits suivants :</p>
+    <ul>
+      <li><strong>Droit d'accès</strong> (art. 15 RGPD) : obtenir confirmation que vos données sont traitées et en recevoir une copie.</li>
+      <li><strong>Droit de rectification</strong> (art. 16 RGPD) : faire corriger des données inexactes ou incomplètes.</li>
+      <li><strong>Droit à l'effacement</strong> (art. 17 RGPD) : demander la suppression de vos données, sous réserve des obligations légales de conservation.</li>
+      <li><strong>Droit à la limitation du traitement</strong> (art. 18 RGPD) : obtenir le gel temporaire du traitement de vos données.</li>
+      <li><strong>Droit à la portabilité</strong> (art. 20 RGPD) : recevoir vos données dans un format structuré et lisible par machine.</li>
+      <li><strong>Droit d'opposition</strong> (art. 21 RGPD) : vous opposer au traitement de vos données, notamment à la prospection commerciale.</li>
+      <li><strong>Retrait du consentement</strong> : retirer votre consentement au traitement de vos données de santé à tout moment.</li>
+      <li><strong>Directives post-mortem</strong> : définir des directives relatives au sort de vos données après votre décès (article 85 de la Loi Informatique et Libertés).</li>
+    </ul>
+
+    <h3>Comment exercer vos droits ?</h3>
+    <p>Par email à : <strong>contact@mixt.care</strong><br>Par courrier à : Mixt — 10 boulevard Raspail, 75007 Paris</p>
+    <p>Mixt s'engage à répondre dans un délai d'un (1) mois. Ce délai peut être prolongé de deux (2) mois en cas de complexité. Une pièce d'identité pourra être demandée en cas de doute raisonnable sur votre identité.</p>
+
+    <h3>Droit de réclamation</h3>
+    <p>Vous pouvez introduire une réclamation auprès de la CNIL :</p>
+    <ul>
+      <li>En ligne : www.cnil.fr</li>
+      <li>Par courrier : CNIL — 3 Place de Fontenoy — TSA 80715 — 75334 Paris Cedex 07</li>
+    </ul>
+
+    <hr>
+
+    <h2>9. Cookies</h2>
+
+    <h3>Cookies strictement nécessaires</h3>
+    <p>Cookies de session et d'authentification indispensables au fonctionnement du site. Ils ne requièrent pas votre consentement.</p>
+
+    <h3>Cookies de mesure d'audience</h3>
+    <p>Non utilisés à ce jour. Cette section sera mise à jour si des outils d'analyse de fréquentation sont déployés.</p>
+
+    <h3>Cookies publicitaires</h3>
+    <p>Mixt n'utilise aucun cookie publicitaire.</p>
+
+    <hr>
+
+    <h2>10. Sécurité des données</h2>
+    <p>Mixt met en œuvre des mesures techniques et organisationnelles appropriées pour garantir la sécurité de vos données :</p>
+    <ul>
+      <li>Chiffrement des données en transit (TLS/SSL) et au repos</li>
+      <li>Authentification sécurisée et mots de passe chiffrés</li>
+      <li>Contrôle strict des accès</li>
+      <li>Hébergement certifié HDS pour les données de santé</li>
+      <li>Sauvegardes régulières</li>
+    </ul>
+
+    <hr>
+
+    <h2>11. Mineurs</h2>
+    <p>La Solution est réservée aux personnes majeures (18 ans et plus). Mixt ne collecte pas sciemment de données de personnes mineures. Si Mixt est informée qu'un mineur a créé un Compte, celui-ci sera supprimé.</p>
+
+    <hr>
+
+    <h2>12. Modifications</h2>
+    <p>Mixt se réserve le droit de modifier la présente Politique de confidentialité. En cas de modification significative, l'Utilisateur sera informé par email au moins quinze (15) jours avant l'entrée en vigueur. En cas de désaccord, l'Utilisateur pourra supprimer son Compte.</p>
+
+    <hr>
+
+    <h2>13. Contact</h2>
+    <p>Pour toute question relative à la protection de vos données personnelles :</p>
+    <ul>
+      <li><strong>Email</strong> : contact@mixt.care</li>
+      <li><strong>Adresse</strong> : Mixt — 10 boulevard Raspail, 75007 Paris</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="footer-brand">
+  <div class="footer-brand-logo">mixt</div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-left"><div class="fl-logo">mixt</div><div class="fl-tagline">Votre peau, suivie en continu.</div></div>
+      <div class="footer-cols">
+        <div class="footer-col"><h4>Produit</h4><a href="index.html#how">Comment ça marche</a><a href="index.html#approach">Notre approche</a><a href="index.html#conditions">Pathologies</a></div>
+        <div class="footer-col"><h4>Entreprise</h4><a href="#">Comité scientifique</a><a href="mailto:contact@mixt.care">Contact</a><a href="#">Presse</a></div>
+        <div class="footer-col"><h4>Légal</h4><a href="#">Mentions légales</a><a href="politique-de-confidentialite.html">Données personnelles</a><a href="conditions-generales.html">CGU</a></div>
+        <div class="footer-col"><h4>Design</h4><a href="brand-book.html">Charte couleurs</a><a href="ui-kit.html">UI Kit</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Mixt. Tous droits réservés.</span><span>Fait avec soin à Paris.</span></div>
+  </div>
+</footer>
+
+<script src="quiz.js"></script>
+</body>
+</html>
