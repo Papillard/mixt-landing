@@ -107,6 +107,7 @@
       .quiz-bilan-card-label{font-size:24px}
       .quiz-analysis{padding:60px 20px}
       .quiz-intro-title,.quiz-thankyou-title{font-size:24px}
+      .quiz-bilan-secondary,.quiz-bilan-disclaimer{display:none}
     }
   `;
   document.head.appendChild(style);
