@@ -376,9 +376,9 @@
 
 
   "contact": {
-    "title": "Rejoignez la bêta Mixt",
-    "value_prop": "Un médecin Mixt va analyser votre situation et construire votre protocole personnalisé.",
-    "pricing": "49€/mois — Offre de lancement, places limitées",
+    "title": "Rejoignez la liste d'attente",
+    "value_prop": "",
+    "pricing": "Accédez en avant-première à votre parcours dermato personnalisé.",
     "description": "",
     "fields": [
       {"name": "prenom", "label": "Votre prénom", "type": "text", "required": true},
