@@ -60,7 +60,7 @@
       "type": "single",
       "options": [
         {"label": "Oui", "next": "q2Ab"},
-        {"label": "Non", "next": "q2Ca"}
+        {"label": "Non", "next": "q4", "diagnosis": "none"}
       ]
     },
     "q2Ab": {
@@ -76,7 +76,7 @@
       "type": "single",
       "options": [
         {"label": "Oui", "next": "q2Ad", "diagnosis": "rosacee"},
-        {"label": "Non", "next": "q2Ca"}
+        {"label": "Non", "next": "q4", "diagnosis": "none"}
       ]
     },
     "q2Ad": {
@@ -231,12 +231,9 @@
         {"label": "Boutons / imperfections"},
         {"label": "Sécheresse, tiraillements ou inconfort"},
         {"label": "Taches brunes"},
-        {"label": "Rides et relâchement cutané"},
-        {"label": "Texture de peau", "freeText": true, "freeTextPlaceholder": "Pores dilatés, grain de peau irrégulier…"},
-        {"label": "Cernes et poches sous les yeux"},
-        {"label": "Corps", "freeText": true, "freeTextPlaceholder": "Vergetures, kératose, sécheresse…"},
-        {"label": "Cheveux et cuir chevelu", "freeText": true, "freeTextPlaceholder": "Chute, pellicules, cuir chevelu irrité…"},
-        {"label": "Autre", "freeText": true},
+        {"label": "Rides, texture et signes de l'âge"},
+        {"label": "Corps, cheveux ou cuir chevelu", "freeText": true, "freeTextPlaceholder": "Vergetures, chute de cheveux, cuir chevelu irrité…"},
+        {"label": "Autre", "freeText": true, "freeTextPlaceholder": "Précisez…"},
         {"label": "Aucune", "exclusive": true}
       ],
       "next": "q7"
