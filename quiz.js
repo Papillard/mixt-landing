@@ -2,7 +2,7 @@
   // ── CSS ──
   var style = document.createElement('style');
   style.textContent = `
-    .quiz-overlay{position:fixed;inset:0;z-index:1000;background:var(--base);display:flex;flex-direction:column;opacity:0;transition:opacity .3s ease;font-family:'Geist Sans','Geist',-apple-system,sans-serif;color:var(--text)}
+    .quiz-overlay{position:fixed;inset:0;z-index:1000;background:var(--base);display:flex;flex-direction:column;opacity:0;transition:opacity .3s ease;font-family:'Geist',-apple-system,sans-serif;color:var(--text)}
     .quiz-overlay.visible{opacity:1}
     /* Header */
     .quiz-header{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 40px;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--base);z-index:10}
