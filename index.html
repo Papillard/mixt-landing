@@ -139,13 +139,14 @@
   .condition-tab:hover { border-color:var(--deep); color:var(--text); }
   .condition-tab.active { color:#fff; background:var(--deep); border-color:var(--deep); font-weight:600; }
 
-  .condition-content { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+  .condition-content { display:grid; grid-template-columns:1fr 1fr; gap:0; align-items:stretch; background:#fff; border-radius:10px; border:1px solid var(--border); overflow:hidden; min-height:400px; }
+  .condition-text { padding:40px; }
   .condition-text h3 { font-size:24px; font-weight:400; letter-spacing:-0.02em; margin-bottom:14px; line-height:1.3; }
   .condition-text h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.1em; }
   .condition-text p { font-size:15px; line-height:1.7; color:var(--text-2); margin-bottom:18px; }
   .condition-tags { display:flex; gap:6px; flex-wrap:wrap; }
   .condition-tag { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; padding:5px 12px; background:var(--cream); color:var(--deep); border-radius:3px; }
-  .condition-visual { aspect-ratio:4/3; border-radius:var(--r); background:linear-gradient(160deg,var(--cream),var(--blush)); }
+  .condition-visual { aspect-ratio:auto; min-height:360px; border-radius:0; background:linear-gradient(160deg,var(--cream),var(--blush)); }
   .condition-panel { display:none; }
   .condition-panel.active { display:grid; }
 
@@ -228,6 +229,7 @@
   .promise-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
   .promise-card { padding:36px 28px; background:var(--cream); border:1px solid var(--border); border-radius:var(--r); transition:all 0.25s; }
   .promise-card:hover { background:var(--cream); transform:translateY(-2px); }
+  .promise-icon { display:block; margin-bottom:16px; }
   .promise-card h3 { font-size:19px; font-weight:600; margin-bottom:8px; }
   .promise-card p { font-size:15px; line-height:1.6; color:var(--text-2); }
 
@@ -244,9 +246,9 @@
   .how-step-dark:last-child { border-bottom:none; }
   .how-step-dark-content { padding-left:20px; border-left:2px solid transparent; transition:border-color 0.5s ease; }
   .how-step-dark.active .how-step-dark-content { border-left-color:var(--blush); }
-  .how-step-num-dark { font-size:16px; font-weight:700; color:var(--blush); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:10px; }
-  .how-step-dark h3 { font-size:28px; font-weight:600; margin-bottom:14px; letter-spacing:-0.02em; color:#fff; }
-  .how-step-dark p { font-size:18px; line-height:1.7; color:rgba(255,255,255,0.55); }
+  .how-step-num-dark { font-size:13px; font-weight:700; color:var(--blush); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+  .how-step-dark h3 { font-size:24px; font-weight:600; margin-bottom:12px; letter-spacing:-0.02em; color:#fff; }
+  .how-step-dark p { font-size:16px; line-height:1.7; color:rgba(255,255,255,0.55); }
   .how-sticky-dark { position:sticky; top:10vh; align-self:start; }
   .how-visual-dark { width:100%; position:relative; }
   .how-visual-dark .how-slide { position:absolute; inset:0; padding:0 10%; opacity:0; transition:opacity 0.3s ease; display:flex; align-items:start; }
@@ -313,7 +315,7 @@
   /* "JE NE SAIS PAS" tab */
   .condition-tab.special { border-style:dashed; }
   .condition-tab.special.active { border-style:solid; }
-  .condition-help { padding:32px; background:var(--cream); border-radius:var(--r); min-height:300px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+  .condition-help { padding:40px; background:transparent; border-radius:0; min-height:300px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
   .condition-help h3 { font-size:22px; font-weight:400; letter-spacing:-0.02em; margin-bottom:12px; }
   .condition-help h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.1em; }
   .condition-help p { font-size:15px; line-height:1.7; color:var(--text-2); margin-bottom:20px; }
@@ -434,7 +436,8 @@
     .pharma-layout { grid-template-columns:1fr; gap:40px; }
     .ordo { width:280px; }
     .condition-tabs { flex-wrap:wrap; gap:6px; }
-    .condition-content { grid-template-columns:1fr; gap:24px; }
+    .condition-content { grid-template-columns:1fr; }
+    .condition-visual { min-height:240px; }
     .s-protection { padding:16px 20px; }
     .s-protection .inner { flex-direction:column; gap:10px; }
     .prot-sep { display:none; }
@@ -468,8 +471,8 @@
   <div class="hero-scroll-inner">
     <div class="hero-left">
       <div class="hero-text">
-        <h1>Votre peau mérite un <br>vrai <em>traitement.</em></h1>
-        <p class="hero-sub">Rougeurs, taches, irritations chroniques. Un médecin analyse votre peau en vidéo et prescrit une formulation magistrale, préparée en pharmacie.</p>
+        <h1>Votre peau mérite<br>un vrai <em>traitement.</em></h1>
+        <p class="hero-sub">Rougeurs, taches, acné, eczéma : un médecin analyse votre peau en vidéo et prescrit une formulation magistrale préparée en pharmacie. Votre traitement est ajusté chaque mois.</p>
         <div class="hero-ctas">
           <a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg">Commencer mon diagnostic →</a>
         </div>
@@ -483,9 +486,9 @@
         </div>
       </div>
       <div class="problem-block" id="problemBlock">
-        <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Pourquoi rien n'a marché</div>
-        <h2>Un parcours de soin <em>qui ne fonctionne pas.</em></h2>
-        <p class="sub">Les crèmes à 80€. L'attente de 6 mois pour un dermatologue. L'ordonnance générique. Et aucun suivi entre les rendez-vous.</p>
+        <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Le problème</div>
+        <h2>Un parcours de soin<br><em>sans le bon suivi.</em></h2>
+        <p class="sub">6 mois d'attente. Des ordonnances standard. Et zéro suivi entre les rendez-vous. Votre condition de peau mérite mieux.</p>
         <div class="problem-stats">
           <div class="problem-stat"><div class="num">6 mois</div><div class="desc">Délai moyen pour un RDV dermatologue en France</div></div>
           <div class="problem-stat"><div class="num">53%</div><div class="desc">des patients abandonnent leur traitement dermatologique</div></div>
@@ -505,47 +508,18 @@
   </div>
 </section>
 
-<!-- 2. IDENTIFICATION — Split layout -->
-<section class="s-identify">
-  <div class="inner">
-    <div class="identify-top">
-      <div class="label" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--accent);display:inline-block;margin-right:10px;"></span>Vous vous reconnaissez ?</div>
-      <h2>Ce que vous vivez <em>au quotidien</em></h2>
-    </div>
-    <div class="identify-cards">
-      <div class="identify-card">
-        <img src="images/1-embarrassed.jpg" alt="Femme embarrassée par sa peau">
-        <h3>Des rougeurs imprévisibles</h3>
-        <p>En réunion, au restaurant, sans déclencheur identifié. La rosacée ne prévient pas — et le parcours de soin classique ne la suit pas non plus.</p>
-      </div>
-      <div class="identify-card">
-        <img src="images/2-lost.jpg" alt="Femme perdue face à ses problèmes de peau">
-        <h3>Un teint irrégulier qui persiste</h3>
-        <p>Les cosmétiques atténuent, mais ne traitent pas la cause. Les taches reviennent, le teint reste irrégulier.</p>
-      </div>
-      <div class="identify-card">
-        <img src="images/3-alone.jpg" alt="Femme seule avec ses problèmes de peau">
-        <h3>Une charge mentale quotidienne</h3>
-        <p>Adapter son maquillage, anticiper les crises, éviter certaines situations. Votre peau ne devrait pas dicter votre quotidien.</p>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top:64px; max-width:620px; margin-left:auto; margin-right:auto;">
-      <h2 style="margin-bottom:20px;">Votre peau a besoin d'un protocole <em>médical adapté.</em></h2>
-      <p style="font-size:18px; line-height:1.6; color:var(--text-2); margin-bottom:32px;">Les cosmétiques ne suffisent pas pour les conditions chroniques. Ce qu'il faut, c'est un protocole médical, adapté à votre peau et ajusté dans le temps.</p>
-      <a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg">Identifier ma condition de peau →</a>
-    </div>
-  </div>
-</section>
-
 <!-- 3. PROMISE + HOW — Merged dark section -->
 <section class="s-promise" id="how">
   <div class="inner">
-    <div class="label" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;margin-right:10px;"></span>Notre approche</div>
-    <h2>Un soin continu, <em>pas une ordonnance isolée</em></h2>
+    <div class="label" style="color:var(--text); justify-content:center;"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;"></span>Notre approche</div>
+    <h2 style="text-align:center; max-width:none; margin-left:auto; margin-right:auto;">Accédez à un vrai<br><em>protocole médical.</em></h2>
     <div class="promise-cards">
-      <div class="promise-card"><h3>Un médecin qui connaît votre peau</h3><p>Formé à nos protocoles dermatologiques, il prend le temps de comprendre votre historique et votre quotidien.</p></div>
-      <div class="promise-card"><h3>Une formulation préparée pour vous</h3><p>Préparée en pharmacie sur ordonnance, avec des principes actifs dosés spécifiquement pour votre condition.</p></div>
-      <div class="promise-card"><h3>Un suivi qui dure</h3><p>Votre traitement évolue avec votre peau. Votre médecin analyse vos progrès et ajuste votre formulation.</p></div>
+      <div class="promise-card"><svg class="promise-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--warm)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A2 2 0 0 0 3 4.3v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2z"/><path d="M8 4.3h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-12"/><path d="M10 12h4"/><path d="M12 10v4"/></svg><h3>Un médecin qui connaît votre peau</h3><p>Formé à nos protocoles dermatologiques, il prend le temps de comprendre votre historique et votre quotidien.</p></div>
+      <div class="promise-card"><svg class="promise-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--warm)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg><h3>Une formulation préparée pour vous</h3><p>Préparée en pharmacie sur ordonnance, avec des principes actifs dosés spécifiquement pour votre condition.</p></div>
+      <div class="promise-card"><svg class="promise-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--warm)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><h3>Un suivi qui dure</h3><p>Votre traitement évolue avec votre peau. Votre médecin analyse vos progrès et ajuste votre formulation.</p></div>
+    </div>
+    <div style="text-align:center; margin-top:64px;">
+      <a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg">Commencer mon diagnostic →</a>
     </div>
   </div>
 </section>
@@ -554,7 +528,7 @@
 <section class="s-how-violet" id="parcours">
   <div class="inner">
     <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Comment ça marche</div>
-    <h2 style="color:#fff;">Votre parcours de soin, <em>étape par étape</em></h2>
+    <h2 style="color:#fff;">Votre parcours de soin,<br><em>étape par étape</em></h2>
     <div class="how-layout-dark">
       <div class="how-steps-dark">
         <div class="how-step-dark" data-how-img="0"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="15" y2="14"/><line x1="9" y1="18" x2="13" y2="18"/></svg> Étape 01</div><h3>Décrivez votre peau</h3><p>Répondez à quelques questions sur vos symptômes, vos antécédents et les traitements déjà essayés. Votre médecin prépare la consultation en amont.</p></div></div>
@@ -687,7 +661,7 @@
     <div class="label" style="color:var(--violet);"><span style="width:24px;height:1px;background:var(--violet);display:inline-block;margin-right:10px;"></span>Pathologies traitées</div>
     <div class="conditions-intro" style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; margin-bottom:40px;">
       <h2 style="margin-bottom:0;">Nous traitons les problèmes de peau <em>chroniques</em></h2>
-      <p style="font-size:16px; line-height:1.7; color:var(--text-2); margin:0;">Ce sont des conditions chroniques. Elles ne disparaissent pas, mais avec un protocole adapté, elles se contrôlent durablement. C'est pour ça que votre formulation évolue avec votre peau.</p>
+      <p style="font-size:16px; line-height:1.7; color:var(--text-2); margin:0;">Ces conditions ne disparaissent pas, mais avec le bon protocole, elles se contrôlent. C'est pour ça que votre traitement évolue avec votre peau.</p>
     </div>
     <div class="condition-tabs">
       <button class="condition-tab active" onclick="switchCondition(0)">Rosacée</button>
@@ -696,10 +670,10 @@
       <button class="condition-tab" onclick="switchCondition(3)">Eczéma</button>
       <button class="condition-tab special" onclick="switchCondition(4)">Je ne sais pas →</button>
     </div>
-    <div class="condition-panel active"><div class="condition-content"><div class="condition-text"><h3>Rougeurs, flush, sensations de brûlure. Ce sont les signes d'une rosacée.</h3><p>Rougeurs soudaines, peau qui chauffe sans raison apparente. La rosacée est une condition chronique, pas une simple sensibilité. Nos formulations renforcent la barrière cutanée et réduisent l'inflammation en profondeur.</p><div class="condition-tags"><span class="condition-tag">Érythème</span><span class="condition-tag">Couperose</span><span class="condition-tag">Papulo-pustuleuse</span><span class="condition-tag">Flush</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Commencer mon diagnostic →</a></div><div class="condition-visual"><img src="images/rosacea.jpg" alt="Rosacée" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r);"></div></div></div>
-    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Taches brunes, teint inégal malgré les soins. C'est de l'hyperpigmentation.</h3><p>La mélanine surproduit, les taches s'installent et résistent aux cosmétiques. Nos formulations agissent sur la cause avec des actifs dosés avec précision.</p><div class="condition-tags"><span class="condition-tag">Mélasma</span><span class="condition-tag">Taches solaires</span><span class="condition-tag">Post-inflammatoire</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Commencer mon diagnostic →</a></div><div class="condition-visual"><img src="images/hyperpigmentation.jpg" alt="Hyperpigmentation" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r);"></div></div></div>
-    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Boutons, inflammations, peau qui ne se calme pas. C'est de l'acné.</h3><p>L'acné adulte est fréquente et sous-traitée. Hormonale, inflammatoire ou kystique — nos formulations ciblent le mécanisme, pas seulement les symptômes.</p><div class="condition-tags"><span class="condition-tag">Hormonale</span><span class="condition-tag">Inflammatoire</span><span class="condition-tag">Kystique</span><span class="condition-tag">Tardive</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Commencer mon diagnostic →</a></div><div class="condition-visual"><img src="images/acne.jpg" alt="Acné" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r);"></div></div></div>
-    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Démangeaisons, plaques sèches, crises récurrentes. C'est de l'eczéma.</h3><p>La barrière cutanée est fragilisée, l'inflammation revient par cycles. Nos formulations restaurent cette barrière et réduisent l'inflammation chronique durablement.</p><div class="condition-tags"><span class="condition-tag">Atopique</span><span class="condition-tag">De contact</span><span class="condition-tag">Séborrhéique</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Commencer mon diagnostic →</a></div><div class="condition-visual"><img src="images/eczema.jpg" alt="Eczéma" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r);"></div></div></div>
+    <div class="condition-panel active"><div class="condition-content"><div class="condition-text"><h3>Rougeurs, flush, sensations de brûlure. Ce sont les signes d'une rosacée.</h3><p>Rougeurs soudaines, peau qui chauffe sans raison apparente. La rosacée est une condition chronique, pas une simple sensibilité. Nos formulations renforcent la barrière cutanée et réduisent l'inflammation en profondeur.</p><div class="condition-tags"><span class="condition-tag">Érythème</span><span class="condition-tag">Couperose</span><span class="condition-tag">Papulo-pustuleuse</span><span class="condition-tag">Flush</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Commencer mon diagnostic →</a></div><div class="condition-visual"><img src="images/rosacea.jpg" alt="Rosacée" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
+    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Taches brunes, teint inégal malgré les soins. C'est de l'hyperpigmentation.</h3><p>La mélanine surproduit, les taches s'installent et résistent aux cosmétiques. Nos formulations agissent sur la cause avec des actifs dosés avec précision.</p><div class="condition-tags"><span class="condition-tag">Mélasma</span><span class="condition-tag">Taches solaires</span><span class="condition-tag">Post-inflammatoire</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Commencer mon diagnostic →</a></div><div class="condition-visual"><img src="images/hyperpigmentation.jpg" alt="Hyperpigmentation" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
+    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Boutons, inflammations, peau qui ne se calme pas. C'est de l'acné.</h3><p>L'acné adulte est fréquente et sous-traitée. Hormonale, inflammatoire ou kystique — nos formulations ciblent le mécanisme, pas seulement les symptômes.</p><div class="condition-tags"><span class="condition-tag">Hormonale</span><span class="condition-tag">Inflammatoire</span><span class="condition-tag">Kystique</span><span class="condition-tag">Tardive</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Commencer mon diagnostic →</a></div><div class="condition-visual"><img src="images/acne.jpg" alt="Acné" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
+    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Démangeaisons, plaques sèches, crises récurrentes. C'est de l'eczéma.</h3><p>La barrière cutanée est fragilisée, l'inflammation revient par cycles. Nos formulations restaurent cette barrière et réduisent l'inflammation chronique durablement.</p><div class="condition-tags"><span class="condition-tag">Atopique</span><span class="condition-tag">De contact</span><span class="condition-tag">Séborrhéique</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Commencer mon diagnostic →</a></div><div class="condition-visual"><img src="images/eczema.jpg" alt="Eczéma" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
     <div class="condition-panel"><div class="condition-content"><div class="condition-help"><h3>Vous ne savez pas exactement ce que vous avez ?</h3><p>Beaucoup de conditions de peau chroniques ne sont jamais diagnostiquées. Notre questionnaire médical vous aide à y voir plus clair, et votre médecin posera le diagnostic.</p><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg">Commencer mon diagnostic →</a></div><div class="condition-visual" style="background:none;"></div></div></div>
     <div style="margin-top:56px; padding-top:24px; border-top:1px solid var(--cream); text-align:center;">
       <span class="prot-text">Vos données de santé sont protégées et soumises au secret médical</span>
