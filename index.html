@@ -99,7 +99,7 @@
   .hero-visual .slider-line { position:absolute; top:0; bottom:0; left:var(--reveal,0%); width:2px; background:#fff; z-index:5; }
 
   .label { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; margin-bottom:18px; display:flex; align-items:center; gap:10px; }
-  .label::before { content:''; width:24px; height:1px; }
+  .label::before { content:''; width:0; height:1px; }
   h2 { font-size:44px; font-weight:400; line-height:1.15; letter-spacing:-0.03em; max-width:620px; }
   h2 em { font-family:'Newsreader',serif; font-style:italic; font-weight:400; font-size:1.1em; }
 
@@ -171,18 +171,20 @@
   .comite-role { font-size:14px; color:var(--text-2); line-height:1.4; }
 
   /* TEAM */
-  .s-team { padding:0 40px 60px; background:var(--base); }
-  .s-team .inner { display:flex; align-items:center; gap:48px; padding:36px; background:var(--cream); border-radius:var(--r); }
-  .team-intro { flex:1; }
-  .team-intro h3 { font-size:20px; font-weight:500; margin-bottom:4px; letter-spacing:-0.02em; }
-  .team-intro h3 em { font-family:'Newsreader',serif; font-style:italic; font-size:1.1em; }
-  .team-intro p { font-size:14px; color:var(--text-2); line-height:1.5; }
-  .team-members { display:flex; gap:24px; }
-  .team-member { text-align:center; }
-  .team-avatar { width:68px; height:68px; border-radius:50%; overflow:hidden; margin:0 auto 6px; background:linear-gradient(135deg,var(--blush),var(--warm)); }
-  .team-avatar img { width:100%; height:100%; object-fit:cover; }
-  .team-name { font-size:14px; font-weight:600; }
-  .team-role2 { font-size:12px; color:var(--text-3); }
+  .s-team { padding:100px 40px; background:var(--base); }
+  .s-team h2 { margin-bottom:14px; }
+  .team-sub { font-size:16px; line-height:1.6; color:var(--text-2); max-width:500px; margin-bottom:56px; }
+  .team-block { display:grid; grid-template-columns:1fr 1.4fr; gap:64px; align-items:center; margin-bottom:72px; }
+  .team-block:last-child { margin-bottom:0; }
+  .team-block.reverse { grid-template-columns:1.4fr 1fr; }
+  .team-block.reverse .team-photo-lg { order:2; }
+  .team-block.reverse .team-bio { order:1; }
+  .team-photo-lg { width:100%; aspect-ratio:4/5; border-radius:var(--r); overflow:hidden; background:linear-gradient(160deg,var(--cream),var(--blush)); }
+  .team-photo-lg img { width:100%; height:100%; object-fit:cover; object-position:top; }
+  .team-bio h3 { font-size:24px; font-weight:600; letter-spacing:-0.02em; margin-bottom:4px; }
+  .team-bio .team-title { font-size:15px; color:var(--warm); font-weight:500; margin-bottom:20px; }
+  .team-bio p { font-size:15px; line-height:1.7; color:var(--text-2); margin-bottom:12px; }
+  .team-bio p:last-of-type { margin-bottom:0; }
 
   /* DOCTOR (rich) */
   .s-rich { padding:100px 40px; color:#fff; background:linear-gradient(180deg,var(--rich),#522A20); position:relative; overflow:hidden; }
@@ -443,8 +445,11 @@
     .s-protection .inner { flex-direction:column; gap:10px; }
     .prot-sep { display:none; }
     .comite-grid { grid-template-columns:1fr; gap:32px; }
-    .s-team { padding:0 20px 40px; }
-    .s-team .inner { flex-direction:column; gap:20px; text-align:center; }
+    .s-team { padding:80px 20px; }
+    .team-block, .team-block.reverse { grid-template-columns:1fr !important; gap:32px !important; }
+    .team-block.reverse .team-photo-lg { order:0; }
+    .team-block.reverse .team-bio { order:0; }
+    .team-photo-lg { aspect-ratio:1; }
     .s-cta { padding:80px 20px; } .email-form { flex-direction:column; }
     .email-form .btn { width:100%; justify-content:center; }
     .footer-brand { padding:60px 20px 30px; }
@@ -488,12 +493,12 @@
       </div>
       <div class="problem-block" id="problemBlock">
         <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Le problème</div>
-        <h2>Un parcours de soin<br><em>sans le bon suivi.</em></h2>
-        <p class="sub">6 mois d'attente. Des ordonnances standard. Et zéro suivi entre les rendez-vous. Votre condition de peau mérite mieux.</p>
+        <h2>Les traitements existent. <em>Le suivi, non.</em></h2>
+        <p class="sub">Les traitements dermatologiques fonctionnent. Mais entre des mois d'attente pour un rendez-vous et l'absence de suivi, la plupart des patients abandonnent avant de voir les résultats.</p>
         <div class="problem-stats">
-          <div class="problem-stat"><div class="num">6 mois</div><div class="desc">Délai moyen pour un RDV dermatologue en France</div></div>
-          <div class="problem-stat"><div class="num">53%</div><div class="desc">des patients abandonnent leur traitement dermatologique</div></div>
-          <div class="problem-stat"><div class="num">16M</div><div class="desc">de Français touchés par une maladie de peau chronique</div></div>
+          <div class="problem-stat"><div class="num">16M</div><div class="desc">de Français vivent avec une condition de peau chronique</div></div>
+          <div class="problem-stat"><div class="num">51%</div><div class="desc">des patients arrêtent avant de voir les résultats</div></div>
+          <div class="problem-stat"><div class="num">76%</div><div class="desc">Réduction des lésions quand le traitement est suivi et ajusté dans la durée</div></div>
         </div>
         <a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-white btn-lg" style="margin-top:36px;">Commencer mon parcours →</a>
       </div>
@@ -578,10 +583,10 @@
           <!-- Slide 1: Téléconsultation visio -->
           <div class="how-slide">
             <div class="phone" style="padding:0; position:relative; overflow:hidden;">
-              <img src="images/derm-teleconsult.jpg" alt="Téléconsultation dermatologue" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:32px;">
+              <img src="images/besthabee-consult.jpeg" alt="Téléconsultation dermatologue" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:32px;">
               <!-- Overlay top -->
               <div style="position:absolute; top:0; left:0; right:0; padding:20px 24px; display:flex; justify-content:space-between; align-items:center; background:linear-gradient(180deg,rgba(0,0,0,0.5),transparent); border-radius:32px 32px 0 0;">
-                <div style="color:#fff; font-size:14px; font-weight:600;">Dre. Camille Martin</div>
+                <div style="color:#fff; font-size:14px; font-weight:600;">Dre. Bethsabée Levy Garel</div>
                 <div style="color:#fff; font-size:13px; font-weight:500; opacity:0.8;">12:34</div>
               </div>
               <!-- Self view (PiP) -->
@@ -605,7 +610,7 @@
           <!-- Slide 2: Préparation pharmacie -->
           <div class="how-slide">
             <div class="phone" style="padding:0;">
-              <img src="images/prep.png" alt="Préparation en laboratoire" style="width:100%; flex:1; object-fit:cover; display:block; border-radius:32px;">
+              <img src="images/lab-3.jpg" alt="Préparation en laboratoire" style="width:100%; flex:1; object-fit:cover; display:block; border-radius:32px;">
             </div>
           </div>
           <!-- Slide 3: Tracking -->
@@ -837,20 +842,47 @@
   </div>
 </section>-->
 
-<!-- 10. STORY FOUNDER -->
-<section class="s-founder">
+
+<!-- Team -->
+<section class="s-team" id="equipe">
   <div class="inner">
-    <div class="founder-grid">
-      <div class="founder-photo"><img src="images/laetitia-after.png" alt="Laetitia Payan, fondatrice de Mixt" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
-      <div class="founder-text">
-        <div class="label" style="color:var(--text-2);"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;margin-right:10px;"></span>Pourquoi Mixt existe</div>
-        <h3>« Pendant 10 ans, personne n'a su traiter <em>mon hyperpigmentation.</em> »</h3>
-        <p>Des cosmétiques inadaptés, des rendez-vous espacés de mois, des prescriptions standardisées. Mon problème de peau était chronique, mais mon suivi ne l'était pas.</p>
-        <p>J'ai créé Mixt pour proposer ce qui m'a manqué : un traitement adapté, un suivi continu, et un médecin qui ajuste au fil du temps.</p>
-        <div class="founder-sig">
-          <div class="founder-name">Laetitia Payan</div>
-          <div class="founder-role">CEO & Co-fondatrice · Patiente zéro Mixt</div>
-        </div>
+    <div class="label" style="color:var(--warm);"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;margin-right:10px;"></span>L'équipe</div>
+    <h2>L'équipe <em>fondatrice</em></h2>
+    <p class="team-sub">Dermatologie, tech et entrepreneuriat réunis pour réinventer le soin de la peau.</p>
+
+    <!-- Laetitia -->
+    <div class="team-block">
+      <div class="team-photo-lg"><img src="images/laetitia-after.png" alt="Laetitia Payan"></div>
+      <div class="team-bio">
+        <h3>Laetitia Payan</h3>
+        <div class="team-title">CEO & Co-fondatrice</div>
+        <p>Laetitia a passé plus de trois ans à étudier les modèles de soin en ligne, d'abord en lançant une clinique en ligne aux États-Unis, puis en analysant ce qui marche et ce qui ne marche pas dans la prise en charge dermatologique. Téléconsultation, formulations personnalisées, suivi patient : elle a décortiqué chaque maillon de la chaîne.</p>
+        <p>Patiente elle-même depuis plus de dix ans, confrontée à une hyperpigmentation chronique, des traitements génériques et un suivi inexistant, elle connaît le problème des deux côtés.</p>
+        <p>Avec Mixt, elle construit le service qu'elle aurait voulu trouver : médical, personnalisé, et conçu pour durer.</p>
+      </div>
+    </div>
+
+    <!-- Boris -->
+    <div class="team-block reverse">
+      <div class="team-photo-lg"><img src="images/boris.jpg" alt="Boris Paillard"></div>
+      <div class="team-bio">
+        <h3>Boris Paillard</h3>
+        <div class="team-title">CPO & Co-fondateur</div>
+        <p>Boris Paillard est le cofondateur du Wagon, l'école de code et de data science qui a formé plus de 40 000 alumni à travers le monde. Pendant dix ans, il a construit un produit de référence dans un secteur exigeant, où la confiance se gagne par la qualité de l'expérience et la rigueur de l'exécution.</p>
+        <p>Chez Mixt, Boris conçoit le produit et l'infrastructure technique avec la même philosophie : simplicité, fiabilité et attention au détail.</p>
+        <p>Questionnaire, téléconsultation, suivi, chaque étape du parcours patient est pensée pour que la technologie s'efface derrière le soin.</p>
+      </div>
+    </div>
+
+    <!-- Bethsabée -->
+    <div class="team-block">
+      <div class="team-photo-lg"><img src="images/bethsabee.jpeg" alt="Dr Bethsabée Levy Garel"></div>
+      <div class="team-bio">
+        <h3>Bethsabée Levy Garel</h3>
+        <div class="team-title">Dermatologue Fondatrice</div>
+        <p>Le Dr Bethsabée Levy Garel est dermatologue, formée à la Sorbonne. Elle a effectué son internat de dermatologie à Paris, avant d'exercer à l'Hôpital Cochin puis en cabinet libéral.</p>
+        <p>Au-delà de son expertise clinique, le Dr Levy se distingue par une approche moderne, intégrative et orientée innovation. Spécialisée en dermatologie générale et pédiatrique, dermoscopie, oncodermatologie et maladies inflammatoires et auto-immunes, elle a développé une vision transversale de la médecine : rigoureuse scientifiquement, mais centrée sur l'expérience patient.</p>
+        <p>Son parcours associe excellence académique, expérience hospitalière et pratique libérale, lui donnant une compréhension complète du système de soins — de la prise en charge médicale à la gestion opérationnelle.</p>
       </div>
     </div>
   </div>
