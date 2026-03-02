@@ -378,31 +378,37 @@
   .pricing-card-bottom { padding:24px 32px; background:var(--deep); border-radius:0 0 16px 16px; }
   .pricing-card-launch { font-size:15px; color:var(--cream); font-weight:600; text-align:center; }
 
-  /* REASSURANCE PHARMA */
-  .s-pharma { padding:100px 40px; background:var(--base); }
-  .pharma-layout { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
-  .pharma-text h3 { font-size:24px; font-weight:600; letter-spacing:-0.02em; margin-bottom:14px; line-height:1.3; }
-  .pharma-text p { font-size:16px; line-height:1.7; color:var(--text-2); margin-bottom:20px; }
-  .pharma-logo { height:36px; width:auto; object-fit:contain; opacity:0.45; }
-  .ordo-wrap { display:flex; justify-content:center; }
-  .ordo { background:#fff; border-radius:8px; padding:36px 36px 32px; width:340px; box-shadow:0 6px 28px rgba(54,24,34,0.08); transform:rotate(-5deg); transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
-  .ordo.in-view { transform:rotate(-2deg); }
-  .ordo-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid rgba(0,0,0,0.06); }
-  .ordo-brand { font-family:'Fraunces',serif; font-size:16px; font-weight:500; font-variation-settings:'opsz' 144; }
-  .ordo-meta { text-align:right; }
-  .ordo-meta div:first-child { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-2); }
-  .ordo-meta div:last-child { font-size:11px; color:var(--text-3); }
-  .ordo-patient { font-size:14px; font-weight:600; margin-bottom:24px; }
-  .ordo-lines { display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
-  .ordo-line { height:7px; background:rgba(0,0,0,0.04); border-radius:4px; }
-  .ordo-line:nth-child(1) { width:100%; }
-  .ordo-line:nth-child(2) { width:90%; }
-  .ordo-line:nth-child(3) { width:75%; }
-  .ordo-line:nth-child(4) { width:100%; }
-  .ordo-line:nth-child(5) { width:85%; }
-  .ordo-line:nth-child(6) { width:55%; }
-  .ordo-line:nth-child(7) { width:70%; }
-  .ordo-doctor { font-size:12px; color:var(--text-3); padding-top:18px; border-top:1px solid rgba(0,0,0,0.06); }
+  /* MAGISTRALE */
+  .s-magistrale { padding:100px 40px; background:var(--base); }
+  .magistrale-header { margin-bottom:56px; }
+  .magistrale-header h2 { margin-bottom:14px; }
+  .magistrale-cartels { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; }
+  .magistrale-cartel { border-right:1px solid var(--border); display:flex; flex-direction:column; transition:background 0.25s; }
+  .magistrale-cartel:last-child { border-right:none; }
+  .magistrale-cartel:hover { background:var(--cream); }
+  .magistrale-img { width:100%; aspect-ratio:4/3; overflow:hidden; background:#000; display:flex; align-items:center; justify-content:center; }
+  .magistrale-img img { width:100%; height:100%; object-fit:contain; padding:12px; opacity:0.88; transition:transform 0.4s, opacity 0.3s; }
+  .magistrale-cartel:hover .magistrale-img img { opacity:1; transform:scale(1.12); }
+  .magistrale-body { padding:24px 24px 28px; border-top:1px solid var(--border); flex:1; display:flex; flex-direction:column; }
+  .magistrale-condition { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--accent); margin-bottom:10px; }
+  .magistrale-molecule { display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; }
+  .magistrale-molecule-name { font-family:'Newsreader',serif; font-size:1.25rem; font-weight:400; font-style:italic; line-height:1.25; flex:1; }
+  .magistrale-formula-icon { flex-shrink:0; margin-top:3px; opacity:0.25; transition:opacity 0.25s; }
+  .magistrale-cartel:hover .magistrale-formula-icon { opacity:0.5; }
+  .magistrale-mechanism { font-size:13px; line-height:1.65; color:var(--text-2); margin-bottom:20px; flex:1; }
+  .magistrale-efficacy { margin-top:auto; }
+  .magistrale-efficacy-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px; }
+  .magistrale-efficacy-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-3); }
+  .magistrale-efficacy-number { font-size:1.5rem; font-weight:500; color:var(--deep); letter-spacing:-0.03em; line-height:1; }
+  .magistrale-efficacy-number sup { font-size:0.7rem; font-weight:400; }
+  .magistrale-bar-track { height:2px; background:var(--border); border-radius:1px; overflow:hidden; }
+  .magistrale-bar-fill { height:100%; background:var(--deep); border-radius:1px; transform-origin:left; transform:scaleX(0); }
+  .magistrale-bar-fill.animate { animation:magistraleBar 1s cubic-bezier(0.4,0,0.2,1) forwards; }
+  .magistrale-cartel:nth-child(2) .magistrale-bar-fill.animate { animation-delay:0.15s; }
+  .magistrale-cartel:nth-child(3) .magistrale-bar-fill.animate { animation-delay:0.3s; }
+  @keyframes magistraleBar { to { transform:scaleX(1); } }
+  .magistrale-efficacy-context { margin-top:5px; font-size:11px; color:var(--text-3); }
+  .magistrale-footnote { margin-top:20px; font-size:12px; color:var(--text-3); text-align:center; }
 
   /* FOUNDER STORY */
   .s-founder { padding:100px 40px; background:var(--cream); }
@@ -441,9 +447,10 @@
     .proof-stories { gap:80px !important; }
     .proof-photos { height:220px; margin-left:-20px; margin-right:-20px; } .proof-photo { width:160px; }
     .doctor-spotlight { flex-direction:column; text-align:center; }
-    .s-pharma { padding:40px 20px; }
-    .pharma-layout { grid-template-columns:1fr; gap:40px; }
-    .ordo { width:280px; }
+    .s-magistrale { padding:80px 20px; }
+    .magistrale-cartels { grid-template-columns:1fr; }
+    .magistrale-cartel { border-right:none; border-bottom:1px solid var(--border); }
+    .magistrale-cartel:last-child { border-bottom:none; }
     .condition-tabs { flex-wrap:wrap; gap:6px; }
     .condition-content { grid-template-columns:1fr; }
     .condition-visual { min-height:240px; }
@@ -772,38 +779,74 @@
   </div>
 </section>
 
-<!-- REASSURANCE PHARMA -->
-<section class="s-pharma">
+<!-- TRAITEMENTS MAGISTRAUX -->
+<section class="s-magistrale">
   <div class="inner">
-    <div class="pharma-layout">
-      <div class="ordo-wrap">
-        <div class="ordo">
-          <div class="ordo-header">
-            <div class="ordo-brand">mixt</div>
-            <div class="ordo-meta">
-              <div>Ordonnance médicale</div>
-              <div>12 mars 2026</div>
+    <div class="magistrale-header">
+      <div class="label" style="color:var(--text);"><span style="width:24px;height:1px;background:var(--warm);display:inline-block;margin-right:10px;"></span>Traitements prouvés</div>
+      <h2>Des actifs qui fonctionnent.<br><em>Dosés pour vous.</em></h2>
+      <p style="font-size:16px;line-height:1.7;color:var(--text-2);max-width:480px;margin-top:14px;">Ces traitements existent depuis des décennies en dermatologie. Mixt les rend accessibles, prescrits et suivis par un médecin.</p>
+    </div>
+    <div class="magistrale-cartels" id="magistraleCartels">
+      <div class="magistrale-cartel">
+        <div class="magistrale-img"><img src="images/acne-active.jpg" alt="Peroxyde de benzoyle cristaux"></div>
+        <div class="magistrale-body">
+          <div class="magistrale-condition">Acné</div>
+          <div class="magistrale-molecule">
+            <div class="magistrale-molecule-name">Adapalène<br>+ Peroxyde de benzoyle</div>
+            <svg class="magistrale-formula-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A1210" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,3 20,7.5 20,16.5 12,21 4,16.5 4,7.5"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="magistrale-mechanism">Régule le renouvellement cellulaire et élimine les bactéries responsables des lésions inflammatoires en profondeur.</div>
+          <div class="magistrale-efficacy">
+            <div class="magistrale-efficacy-header">
+              <span class="magistrale-efficacy-label">Réduction des lésions</span>
+              <span class="magistrale-efficacy-number">63<sup>%</sup></span>
             </div>
+            <div class="magistrale-bar-track"><div class="magistrale-bar-fill" style="width:63%"></div></div>
+            <div class="magistrale-efficacy-context">En 12 semaines · étude clinique contrôlée</div>
           </div>
-          <div class="ordo-patient">Mme Sophie Martin</div>
-          <div class="ordo-lines">
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-          </div>
-          <div class="ordo-doctor">Dre. Sophie Laurent — Médecin prescriptrice Mixt</div>
-          <img src="images/delpech.png" alt="Pharmacie Delpech" style="height:32px; width:auto; object-fit:contain; margin-top:16px;">
         </div>
       </div>
-      <div class="pharma-text">
-        <h2>Préparé en pharmacie, <em>sur ordonnance médicale</em></h2>
-        <p>Chaque formulation est préparée par des pharmaciens diplômés dans un cadre réglementé. Principes actifs pharmaceutiques, traçabilité complète.</p>
+      <div class="magistrale-cartel">
+        <div class="magistrale-img"><img src="images/rosacea-active.jpg" alt="Ivermectine poudre"></div>
+        <div class="magistrale-body">
+          <div class="magistrale-condition">Rosacée</div>
+          <div class="magistrale-molecule">
+            <div class="magistrale-molecule-name">Ivermectine 1%</div>
+            <svg class="magistrale-formula-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A1210" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>
+          </div>
+          <div class="magistrale-mechanism">Anti-inflammatoire ciblé qui neutralise les agents pathogènes impliqués dans la rosacée papulo-pustuleuse chronique.</div>
+          <div class="magistrale-efficacy">
+            <div class="magistrale-efficacy-header">
+              <span class="magistrale-efficacy-label">Réduction des lésions</span>
+              <span class="magistrale-efficacy-number">72<sup>%</sup></span>
+            </div>
+            <div class="magistrale-bar-track"><div class="magistrale-bar-fill" style="width:72%"></div></div>
+            <div class="magistrale-efficacy-context">En 16 semaines · étude clinique contrôlée</div>
+          </div>
+        </div>
+      </div>
+      <div class="magistrale-cartel">
+        <div class="magistrale-img"><img src="images/hyperpigmentation-active.jpg" alt="Vitamine C cristaux"></div>
+        <div class="magistrale-body">
+          <div class="magistrale-condition">Hyperpigmentation · Mélasma</div>
+          <div class="magistrale-molecule">
+            <div class="magistrale-molecule-name">Triple combinaison<br>HQ + Trétinoïne + Fluocinolone</div>
+            <svg class="magistrale-formula-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A1210" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><line x1="8.5" y1="11" x2="15.5" y2="7"/><line x1="8.5" y1="13" x2="15.5" y2="17"/></svg>
+          </div>
+          <div class="magistrale-mechanism">Protocole de référence : inhibe la mélanogenèse tout en accélérant le renouvellement de l'épiderme pigmenté.</div>
+          <div class="magistrale-efficacy">
+            <div class="magistrale-efficacy-header">
+              <span class="magistrale-efficacy-label">Score MASI</span>
+              <span class="magistrale-efficacy-number">61<sup>%</sup></span>
+            </div>
+            <div class="magistrale-bar-track"><div class="magistrale-bar-fill" style="width:61%"></div></div>
+            <div class="magistrale-efficacy-context">En 8–12 semaines · étude clinique contrôlée</div>
+          </div>
+        </div>
       </div>
     </div>
+    <p class="magistrale-footnote">Résultats observés dans le cadre d'un protocole médical personnalisé. Les résultats individuels peuvent varier.</p>
   </div>
 </section>
 
@@ -960,8 +1003,9 @@
   })();
   function switchCondition(idx){document.querySelectorAll('.condition-tab').forEach(function(t,i){t.classList.toggle('active',i===idx)});document.querySelectorAll('.condition-panel').forEach(function(p,i){p.classList.toggle('active',i===idx)});}
   var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.querySelectorAll('.step').forEach(function(s){s.classList.add('visible')});obs.unobserve(en.target);}});},{threshold:0.2});var sg=document.getElementById('stepsGrid');if(sg)obs.observe(sg);
-  var viewObs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');viewObs.unobserve(en.target);}});},{threshold:0.3});document.querySelectorAll('.ordo, .proof-story').forEach(function(el){viewObs.observe(el);});
+  var viewObs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');viewObs.unobserve(en.target);}});},{threshold:0.3});document.querySelectorAll('.proof-story').forEach(function(el){viewObs.observe(el);});
   var howSteps=document.querySelectorAll('.how-step-dark[data-how-img]');var howSlides=document.querySelectorAll('#howVisualDark .how-slide');if(howSteps.length&&howSlides.length){var howObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var idx=parseInt(e.target.getAttribute('data-how-img'));howSlides.forEach(function(s,i){s.classList.toggle('active',i===idx);});howSteps.forEach(function(s,i){s.classList.toggle('dimmed',i!==idx);s.classList.toggle('active',i===idx);});}});},{rootMargin:'-50% 0px -50% 0px'});howSteps.forEach(function(s){howObs.observe(s);});}
+  (function(){var c=document.getElementById('magistraleCartels');if(!c)return;var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.querySelectorAll('.magistrale-bar-fill').forEach(function(b){b.classList.add('animate');});o.unobserve(en.target);}});},{threshold:0.3});o.observe(c);})();
 </script>
 <script src="quiz.js"></script>
 </body>
