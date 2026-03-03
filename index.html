@@ -391,11 +391,9 @@
   .magistrale-cartel:hover .magistrale-img img { opacity:1; transform:scale(1.12); }
   .magistrale-body { padding:24px 24px 28px; border-top:1px solid var(--border); flex:1; display:flex; flex-direction:column; }
   .magistrale-condition { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--accent); margin-bottom:10px; }
-  .magistrale-molecule { display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; }
-  .magistrale-molecule-name { font-family:'Newsreader',serif; font-size:1.25rem; font-weight:400; font-style:italic; line-height:1.25; flex:1; }
-  .magistrale-formula-icon { flex-shrink:0; margin-top:3px; opacity:0.25; transition:opacity 0.25s; }
-  .magistrale-cartel:hover .magistrale-formula-icon { opacity:0.5; }
-  .magistrale-mechanism { font-size:13px; line-height:1.65; color:var(--text-2); margin-bottom:20px; flex:1; }
+  .magistrale-ingredients { display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; margin-bottom:20px; align-content:flex-start; }
+  .magistrale-ingredient { font-family:'Newsreader',serif; font-size:0.95rem; font-style:italic; padding:6px 14px; border:1px solid var(--border); border-radius:100px; color:var(--text); line-height:1.3; transition:background 0.2s, border-color 0.2s; }
+  .magistrale-cartel:hover .magistrale-ingredient { border-color:var(--warm); }
   .magistrale-efficacy { margin-top:auto; }
   .magistrale-efficacy-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px; }
   .magistrale-efficacy-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-3); }
@@ -408,7 +406,31 @@
   .magistrale-cartel:nth-child(3) .magistrale-bar-fill.animate { animation-delay:0.3s; }
   @keyframes magistraleBar { to { transform:scaleX(1); } }
   .magistrale-efficacy-context { margin-top:5px; font-size:11px; color:var(--text-3); }
-  .magistrale-footnote { margin-top:20px; font-size:12px; color:var(--text-3); text-align:center; }
+  .magistrale-footnote { margin-top:20px; margin-bottom:48px; font-size:12px; color:var(--text-3); text-align:center; }
+
+  /* REASSURANCE PHARMA (footer of magistrale) */
+  .pharma-card { display:grid; grid-template-columns:auto 1fr; align-items:center; background:var(--cream); border-radius:var(--r); overflow:hidden; }
+  .pharma-card .ordo-wrap { display:flex; justify-content:flex-start; padding:40px 40px 40px 48px; }
+  .pharma-text { padding:40px 48px 40px 24px; }
+  .pharma-text h3 { font-size:24px; font-weight:600; letter-spacing:-0.02em; margin-bottom:14px; line-height:1.3; color:var(--text); }
+  .pharma-text p { font-size:16px; line-height:1.7; color:var(--text-2); }
+  .ordo { background:#fff; border-radius:6px; padding:32px 28px 28px; width:210px; aspect-ratio:210/297; box-shadow:0 4px 20px rgba(54,24,34,0.08); display:flex; flex-direction:column; }
+  .ordo-header { display:flex; align-items:center; justify-content:flex-end; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid rgba(0,0,0,0.06); }
+  .ordo-brand { font-family:'Fraunces',serif; font-size:13px; font-weight:500; font-variation-settings:'opsz' 144; }
+  .ordo-meta { text-align:right; }
+  .ordo-meta div:first-child { font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-2); }
+  .ordo-meta div:last-child { font-size:9px; color:var(--text-3); }
+  .ordo-patient { font-size:11px; font-weight:600; margin-bottom:16px; }
+  .ordo-lines { display:flex; flex-direction:column; gap:7px; flex:1; }
+  .ordo-line { height:5px; background:rgba(0,0,0,0.04); border-radius:3px; }
+  .ordo-line:nth-child(1) { width:100%; }
+  .ordo-line:nth-child(2) { width:90%; }
+  .ordo-line:nth-child(3) { width:75%; }
+  .ordo-line:nth-child(4) { width:100%; }
+  .ordo-line:nth-child(5) { width:85%; }
+  .ordo-line:nth-child(6) { width:55%; }
+  .ordo-line:nth-child(7) { width:70%; }
+  .ordo-doctor { font-size:9px; color:var(--text-3); padding-top:12px; margin-top:auto; border-top:1px solid rgba(0,0,0,0.06); }
 
   /* FOUNDER STORY */
   .s-founder { padding:100px 40px; background:var(--cream); }
@@ -451,6 +473,9 @@
     .magistrale-cartels { grid-template-columns:1fr; }
     .magistrale-cartel { border-right:none; border-bottom:1px solid var(--border); }
     .magistrale-cartel:last-child { border-bottom:none; }
+    .pharma-card { grid-template-columns:1fr; }
+    .pharma-card .ordo-wrap { padding:32px 20px; }
+    .pharma-text { padding:0 20px 32px; }
     .condition-tabs { flex-wrap:wrap; gap:6px; }
     .condition-content { grid-template-columns:1fr; }
     .condition-visual { min-height:240px; }
@@ -789,14 +814,16 @@
     </div>
     <div class="magistrale-cartels" id="magistraleCartels">
       <div class="magistrale-cartel">
-        <div class="magistrale-img"><img src="images/acne-active.jpg" alt="Peroxyde de benzoyle cristaux"></div>
+        <div class="magistrale-img"><img src="images/acne-active.jpg" alt="Actifs anti-acné"></div>
         <div class="magistrale-body">
           <div class="magistrale-condition">Acné</div>
-          <div class="magistrale-molecule">
-            <div class="magistrale-molecule-name">Adapalène<br>+ Peroxyde de benzoyle</div>
-            <svg class="magistrale-formula-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A1210" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,3 20,7.5 20,16.5 12,21 4,16.5 4,7.5"/><circle cx="12" cy="12" r="3"/></svg>
+          <div class="magistrale-ingredients">
+            <span class="magistrale-ingredient">Benzoyl peroxide</span>
+            <span class="magistrale-ingredient">Clindamycine</span>
+            <span class="magistrale-ingredient">Adapalène</span>
+            <span class="magistrale-ingredient">Érythromycine</span>
+            <span class="magistrale-ingredient">Huile de camomille</span>
           </div>
-          <div class="magistrale-mechanism">Régule le renouvellement cellulaire et élimine les bactéries responsables des lésions inflammatoires en profondeur.</div>
           <div class="magistrale-efficacy">
             <div class="magistrale-efficacy-header">
               <span class="magistrale-efficacy-label">Réduction des lésions</span>
@@ -808,14 +835,15 @@
         </div>
       </div>
       <div class="magistrale-cartel">
-        <div class="magistrale-img"><img src="images/rosacea-active.jpg" alt="Ivermectine poudre"></div>
+        <div class="magistrale-img"><img src="images/rosacea-active.jpg" alt="Actifs anti-rosacée"></div>
         <div class="magistrale-body">
           <div class="magistrale-condition">Rosacée</div>
-          <div class="magistrale-molecule">
-            <div class="magistrale-molecule-name">Ivermectine 1%</div>
-            <svg class="magistrale-formula-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A1210" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>
+          <div class="magistrale-ingredients">
+            <span class="magistrale-ingredient">Ivermectine</span>
+            <span class="magistrale-ingredient">Acide azélaïque</span>
+            <span class="magistrale-ingredient">Brimonidine</span>
+            <span class="magistrale-ingredient">Eau de rose</span>
           </div>
-          <div class="magistrale-mechanism">Anti-inflammatoire ciblé qui neutralise les agents pathogènes impliqués dans la rosacée papulo-pustuleuse chronique.</div>
           <div class="magistrale-efficacy">
             <div class="magistrale-efficacy-header">
               <span class="magistrale-efficacy-label">Réduction des lésions</span>
@@ -827,17 +855,19 @@
         </div>
       </div>
       <div class="magistrale-cartel">
-        <div class="magistrale-img"><img src="images/hyperpigmentation-active.jpg" alt="Vitamine C cristaux"></div>
+        <div class="magistrale-img"><img src="images/hyperpigmentation-active.jpg" alt="Actifs anti-mélasma"></div>
         <div class="magistrale-body">
-          <div class="magistrale-condition">Hyperpigmentation · Mélasma</div>
-          <div class="magistrale-molecule">
-            <div class="magistrale-molecule-name">Triple combinaison<br>HQ + Trétinoïne + Fluocinolone</div>
-            <svg class="magistrale-formula-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A1210" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><line x1="8.5" y1="11" x2="15.5" y2="7"/><line x1="8.5" y1="13" x2="15.5" y2="17"/></svg>
+          <div class="magistrale-condition">Mélasma</div>
+          <div class="magistrale-ingredients">
+            <span class="magistrale-ingredient">Hydroquinone</span>
+            <span class="magistrale-ingredient">Trétinoïne</span>
+            <span class="magistrale-ingredient">Fluocinolone</span>
+            <span class="magistrale-ingredient">Acide tranexamique</span>
+            <span class="magistrale-ingredient">Vitamine C</span>
           </div>
-          <div class="magistrale-mechanism">Protocole de référence : inhibe la mélanogenèse tout en accélérant le renouvellement de l'épiderme pigmenté.</div>
           <div class="magistrale-efficacy">
             <div class="magistrale-efficacy-header">
-              <span class="magistrale-efficacy-label">Score MASI</span>
+              <span class="magistrale-efficacy-label">Score MASI (Melasma Area Severity)</span>
               <span class="magistrale-efficacy-number">61<sup>%</sup></span>
             </div>
             <div class="magistrale-bar-track"><div class="magistrale-bar-fill" style="width:61%"></div></div>
@@ -846,7 +876,34 @@
         </div>
       </div>
     </div>
-    <p class="magistrale-footnote">Résultats observés dans le cadre d'un protocole médical personnalisé. Les résultats individuels peuvent varier.</p>
+    <p class="magistrale-footnote">Liste non exhaustive. Chaque prescription est personnalisée par votre médecin selon votre diagnostic.</p>
+    <div class="pharma-card">
+      <div class="ordo-wrap">
+        <div class="ordo">
+          <div class="ordo-header">
+            <div class="ordo-meta">
+              <div>Ordonnance médicale</div>
+              <div>12 mars 2026</div>
+            </div>
+          </div>
+          <div class="ordo-patient">Mme Sophie Martin</div>
+          <div class="ordo-lines">
+            <div class="ordo-line"></div>
+            <div class="ordo-line"></div>
+            <div class="ordo-line"></div>
+            <div class="ordo-line"></div>
+            <div class="ordo-line"></div>
+            <div class="ordo-line"></div>
+            <div class="ordo-line"></div>
+          </div>
+          <div class="ordo-doctor">Dre. Levy — Dermatologue</div>
+        </div>
+      </div>
+      <div class="pharma-text">
+        <h3>Préparé en pharmacie, sur ordonnance</h3>
+        <p>Vos formulations sont préparées par des pharmaciens diplômés dans un cadre réglementé. Principes actifs pharmaceutiques, traçabilité complète.</p>
+      </div>
+    </div>
   </div>
 </section>
 
