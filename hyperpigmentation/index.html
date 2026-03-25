@@ -94,6 +94,7 @@
   .hero-right h1 em { font-family: 'Newsreader', serif; font-style: italic; font-weight: 400; font-size: 1.05em; }
   .hero-text p { font-size: 20px; line-height: 1.65; color: var(--text); margin-bottom: 20px; }
   .hero-text p:last-of-type { margin-bottom: 36px; }
+  .hero-photo-mobile { display: none; }
 
   /* ══════════════════════════════════
      SECTION 2 — MANIFESTO (cream)
@@ -176,8 +177,14 @@
   @media (max-width: 768px) {
     nav { padding: 0 20px; }
     .hero { padding: calc(56px + 48px) 20px 80px; }
-    .hero .inner { grid-template-columns: 1fr; gap: 40px; }
-    .hero-avatar { max-width: 280px; }
+    .hero .inner { grid-template-columns: 1fr; gap: 0; }
+    .hero-left { display: none; }
+    .hero-right h1 { font-size: 32px; }
+    .hero-photo-mobile { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+    .hero-photo-mobile img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
+    .hero-photo-mobile-info { display: flex; flex-direction: column; }
+    .hero-photo-mobile-info strong { font-size: 15px; font-weight: 600; color: var(--text); }
+    .hero-photo-mobile-info span { font-size: 13px; color: var(--text-2); }
     .hero-text p { font-size: 18px; }
     h2 { font-size: 30px; }
     .conviction, .parcours { padding: 80px 20px; }
@@ -197,7 +204,7 @@
 
   @media (max-width: 480px) {
     h2 { font-size: 26px; }
-    .hero-avatar { width: 100px; height: 100px; border-radius: 18px; }
+    .hero-photo-mobile img { width: 48px; height: 48px; }
     .hero-text p { font-size: 17px; }
     .timeline::before, .timeline::after { display: none; }
     .timeline-step { grid-template-columns: 1fr; gap: 12px; padding-bottom: 48px; }
@@ -230,6 +237,10 @@
     </div>
     <div class="hero-right">
       <h1>Hyperpigmentation : rejoignez le programme pilote <em>Mixt.</em></h1>
+      <div class="hero-photo-mobile">
+        <img src="../images/laetitia-pilot.jpeg" alt="Laetitia, co-fondatrice de Mixt">
+        <div class="hero-photo-mobile-info"><strong>Laetitia</strong><span>Co-fondatrice de Mixt</span></div>
+      </div>
       <div class="hero-text">
         <p>Je m'appelle Laetitia. J'ai co-fondé Mixt parce que trop de femmes tournent en rond pendant des années sur leur hyperpigmentation sans jamais avoir de vrai suivi médical.</p>
         <p>On recrute 20&nbsp;femmes pour notre programme pilote — avec une dermatologue, une formulation magistrale sur mesure, et un suivi continu. Si vous voulez en savoir plus, écrivez-moi.</p>
