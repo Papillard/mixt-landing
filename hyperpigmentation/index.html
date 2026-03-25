@@ -83,14 +83,15 @@
      SECTION 1 — HERO (base)
   ══════════════════════════════════ */
   .hero { padding: calc(56px + 82px) 40px 100px; background: var(--base); }
-  .hero .inner { max-width: 1100px; display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: center; }
+  .hero .inner { max-width: 1100px; display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; }
   .hero-left { display: flex; flex-direction: column; align-items: center; }
   .hero-avatar { width: 100%; aspect-ratio: 3/4; border-radius: 10px; overflow: hidden; background: linear-gradient(160deg, var(--cream), var(--blush)); margin-bottom: 14px; }
   .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .hero-avatar .placeholder-text { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-3); }
   .hero-caption { font-size: 14px; color: var(--text-2); text-align: center; }
   .hero-caption strong { color: var(--text); font-weight: 600; display: block; }
-  .hero-right h1 { margin-bottom: 24px; }
+  .hero-right h1 { font-size: 48px; font-weight: 400; line-height: 1.2; letter-spacing: -0.035em; margin-bottom: 24px; }
+  .hero-right h1 em { font-family: 'Newsreader', serif; font-style: italic; font-weight: 400; font-size: 1.05em; }
   .hero-text p { font-size: 20px; line-height: 1.65; color: var(--text); margin-bottom: 20px; }
   .hero-text p:last-of-type { margin-bottom: 36px; }
 
