@@ -406,20 +406,22 @@
   .magistrale-footnote { margin-top:20px; margin-bottom:48px; font-size:12px; color:var(--text-3); text-align:center; }
 
   /* REASSURANCE PHARMA (footer of magistrale) */
-  .pharma-card { display:grid; grid-template-columns:auto 1fr; align-items:center; background:var(--cream); border-radius:var(--r); overflow:hidden; }
-  .pharma-card .ordo-wrap { display:flex; justify-content:flex-start; padding:40px 40px 40px 48px; }
-  .pharma-text { padding:40px 48px 40px 24px; }
-  .pharma-text h3 { font-size:24px; font-weight:600; letter-spacing:-0.02em; margin-bottom:14px; line-height:1.3; color:var(--text); }
-  .pharma-text p { font-size:16px; line-height:1.7; color:var(--text-2); }
-  .ordo { background:#fff; border-radius:6px; padding:32px 28px 28px; width:210px; aspect-ratio:210/297; box-shadow:0 4px 20px rgba(54,24,34,0.08); display:flex; flex-direction:column; }
+  .s-pharma { padding:56px 40px; color:#fff; background:linear-gradient(180deg,var(--violet) 0%,var(--violet-dark) 100%); position:relative; overflow:hidden; }
+  .s-pharma::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:120px 120px; mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 80%,transparent 100%); pointer-events:none; }
+  .pharma-card { display:grid; grid-template-columns:auto 1fr; align-items:center; max-width:1100px; margin:0 auto; position:relative; z-index:2; }
+  .pharma-card .ordo-wrap { display:flex; justify-content:flex-start; padding:0 48px 0 0; }
+  .pharma-text { padding:0; }
+  .pharma-text h3 { font-size:24px; font-weight:600; letter-spacing:-0.02em; margin-bottom:14px; line-height:1.3; color:#fff; }
+  .pharma-text p { font-size:16px; line-height:1.7; color:rgba(255,255,255,0.6); }
+  .ordo { background:#fff; border-radius:6px; padding:20px 18px 18px; width:140px; aspect-ratio:210/297; box-shadow:0 4px 20px rgba(0,0,0,0.2); display:flex; flex-direction:column; }
   .ordo-header { display:flex; align-items:center; justify-content:flex-end; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid rgba(0,0,0,0.06); }
-  .ordo-brand { font-family:'Fraunces',serif; font-size:13px; font-weight:500; font-variation-settings:'opsz' 144; }
+  .ordo-brand { font-family:'Fraunces',serif; font-size:10px; font-weight:500; font-variation-settings:'opsz' 144; }
   .ordo-meta { text-align:right; }
-  .ordo-meta div:first-child { font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-2); }
-  .ordo-meta div:last-child { font-size:9px; color:var(--text-3); }
-  .ordo-patient { font-size:11px; font-weight:600; margin-bottom:16px; }
-  .ordo-lines { display:flex; flex-direction:column; gap:7px; flex:1; }
-  .ordo-line { height:5px; background:rgba(0,0,0,0.04); border-radius:3px; }
+  .ordo-meta div:first-child { font-size:7px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-2); }
+  .ordo-meta div:last-child { font-size:7px; color:var(--text-3); }
+  .ordo-patient { font-size:9px; font-weight:600; margin-bottom:10px; }
+  .ordo-lines { display:flex; flex-direction:column; gap:5px; flex:1; }
+  .ordo-line { height:3px; background:rgba(0,0,0,0.04); border-radius:3px; }
   .ordo-line:nth-child(1) { width:100%; }
   .ordo-line:nth-child(2) { width:90%; }
   .ordo-line:nth-child(3) { width:75%; }
@@ -427,7 +429,7 @@
   .ordo-line:nth-child(5) { width:85%; }
   .ordo-line:nth-child(6) { width:55%; }
   .ordo-line:nth-child(7) { width:70%; }
-  .ordo-doctor { font-size:9px; color:var(--text-3); padding-top:12px; margin-top:auto; border-top:1px solid rgba(0,0,0,0.06); }
+  .ordo-doctor { font-size:7px; color:var(--text-3); padding-top:8px; margin-top:auto; border-top:1px solid rgba(0,0,0,0.06); }
 
   /* FOUNDER STORY */
   .s-founder { padding:100px 40px; background:var(--cream); }
@@ -469,9 +471,10 @@
     .s-magistrale { padding:80px 20px; }
     .magistrale-card { width:calc((100% - 20px) / 2); }
     .magistrale-arrows { display:none; }
-    .pharma-card { grid-template-columns:1fr; }
-    .pharma-card .ordo-wrap { padding:32px 20px; }
-    .pharma-text { padding:0 20px 32px; }
+    .s-pharma { padding:40px 20px; }
+    .pharma-card { grid-template-columns:auto 1fr; gap:0; }
+    .pharma-card .ordo-wrap { padding:0 20px 0 0; }
+    .pharma-text { padding:0; }
     .condition-tabs { flex-wrap:wrap; gap:6px; }
     .condition-content { grid-template-columns:1fr; }
     .condition-visual { min-height:240px; }
@@ -499,9 +502,7 @@
 <nav>
   <a href="index.html" class="nav-logo" style="text-decoration:none;color:inherit;">mixt</a>
   <div class="nav-right">
-    <a href="#parcours">Comment ça marche</a>
-    <a href="#resultats">Résultats</a>
-    <a href="hyperpigmentation/" class="nav-pilot">Pilote hyperpigmentation <span style="font-size:10px;font-weight:700;background:var(--accent);color:#fff;padding:2px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:0.06em;">New</span></a>
+    <a href="hyperpigmentation/" class="nav-pilot">Hyperpigmentation <span style="font-size:10px;font-weight:700;background:var(--accent);color:#fff;padding:2px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:0.06em;">New</span></a>
     <a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-sm">Bilan peau →</a>
   </div>
 </nav>
@@ -512,7 +513,7 @@
     <div class="hero-left">
       <div class="hero-text">
         <h1>Votre peau mérite<br>un vrai <em>traitement.</em></h1>
-        <p class="hero-sub">Rougeurs, taches, acné, eczéma : un médecin évalue votre peau et vous prescrit une formulation magistrale préparée en pharmacie. Votre traitement évolue avec vous.</p>
+        <p class="hero-sub">Rougeurs, taches, acné, eczéma : un médecin évalue votre peau et vous prescrit un traitement préparé sur mesure en pharmacie. Votre traitement évolue avec votre peau.</p>
         <div class="hero-ctas">
           <a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg">Analyser ma peau →</a>
         </div>
@@ -534,7 +535,7 @@
           <div class="problem-stat"><div class="num">51%</div><div class="desc">des patients arrêtent avant de voir les résultats</div></div>
           <div class="problem-stat"><div class="num">76%</div><div class="desc">réduction des lésions quand le traitement est suivi et ajusté dans la durée</div></div>
         </div>
-        <a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-white btn-lg" style="margin-top:36px;">Commencer mon parcours →</a>
+        <a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-white btn-lg" style="margin-top:36px;">Analyser ma peau →</a>
       </div>
     </div>
     <div class="hero-right">
@@ -575,10 +576,10 @@
     <div class="how-layout-dark">
       <div class="how-steps-dark">
         <div class="how-step-dark" data-how-img="0"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="15" y2="14"/><line x1="9" y1="18" x2="13" y2="18"/></svg> Étape 01</div><h3>Décrivez votre peau</h3><p>Photos, symptômes, antécédents, traitements essayés. Tout est transmis à votre médecin pour préparer la consultation.</p></div></div>
-        <div class="how-step-dark" data-how-img="1"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg> Étape 02</div><h3>Consultez votre médecin</h3><p>En vidéo, il vous explique son diagnostic et vous prescrit un protocole personnalisé.</p></div></div>
-        <div class="how-step-dark" data-how-img="2"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> Étape 03</div><h3>Recevez votre traitement</h3><p>Préparé en pharmacie sur ordonnance. Principes actifs choisis et dosés pour vous. Livré chez vous.</p></div></div>
-        <div class="how-step-dark" data-how-img="3"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Étape 04</div><h3>Votre peau change, votre traitement aussi</h3><p>Documentez votre peau régulièrement. Votre médecin suit l'évolution et adapte le protocole tant qu'il faut.</p></div></div>
-        <div style="padding:80px 0 0;"><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-white btn-lg">Commencer mon parcours →</a></div>
+        <div class="how-step-dark" data-how-img="1"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg> Étape 02</div><h3>Consultez un médecin Mixt</h3><p>En vidéo, il vous explique son diagnostic et vous prescrit un protocole personnalisé.</p></div></div>
+        <div class="how-step-dark" data-how-img="2"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> Étape 03</div><h3>Votre traitement sur mesure est en préparation</h3><p>Préparé en pharmacie sur ordonnance. Principes actifs choisis et dosés pour vous. Livré chez vous.</p></div></div>
+        <div class="how-step-dark" data-how-img="3"><div class="how-step-dark-content"><div class="how-step-num-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blush)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Étape 04</div><h3>Votre colis arrive. Votre peau commence à changer.</h3><p>Documentez votre peau régulièrement. Votre médecin suit l'évolution et adapte le protocole tant qu'il faut.</p></div></div>
+        <div style="padding:80px 0 0;"><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-white btn-lg">Analyser ma peau →</a></div>
       </div>
       <div class="how-sticky-dark">
         <div class="how-visual-dark" id="howVisualDark">
@@ -930,56 +931,36 @@
     </div>
     </div>
     <p class="magistrale-footnote">Liste non exhaustive. Chaque prescription est personnalisée par votre médecin selon votre diagnostic.</p>
-    <div class="pharma-card">
-      <div class="ordo-wrap">
-        <div class="ordo">
-          <div class="ordo-header">
-            <div class="ordo-meta">
-              <div>Ordonnance médicale</div>
-              <div>12 mars 2026</div>
-            </div>
-          </div>
-          <div class="ordo-patient">Mme Sophie Martin</div>
-          <div class="ordo-lines">
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-            <div class="ordo-line"></div>
-          </div>
-          <div class="ordo-doctor">Dre. Levy — Dermatologue</div>
-        </div>
-      </div>
-      <div class="pharma-text">
-        <h3>Préparé en pharmacie, sur ordonnance</h3>
-        <p>Vos formulations sont préparées par des pharmaciens diplômés dans un cadre réglementé. Principes actifs pharmaceutiques, traçabilité complète.</p>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- 8. APPROCHE MÉDICALE (violet) -->
-<section class="s-violet" id="approach">
-  <div class="inner">
-    <div class="label" style="color:var(--blush);"><span style="width:24px;height:1px;background:var(--blush);display:inline-block;margin-right:10px;"></span>Notre approche médicale</div>
-    <h2>Une dermatologie rigoureuse, <em>accessible à toutes</em></h2>
-    <div class="pillars">
-      <div class="pillar"><h3>Protocoles dermatologiques</h3><p>Conçus avec des dermatologues, appliqués par des médecins formés à nos protocoles. Chaque prescription est validée médicalement.</p></div>
-      <div class="pillar"><h3>Formulations magistrales</h3><p>Préparées en pharmacie sur ordonnance. Des principes actifs dosés spécifiquement pour votre condition de peau.</p></div>
-      <div class="pillar"><h3>Suivi augmenté par l'IA</h3><p>Notre technologie documente l'évolution de votre peau et aide votre médecin à ajuster le protocole en continu.</p></div>
-    </div>
-    <!-- doctor-spotlight masqué en attendant recrutement -->
-    <!--<div class="doctor-spotlight">
-      <div class="doctor-photo"></div>
-      <div class="doctor-info">
-        <div class="doctor-quote">Chaque protocole Mixt est conçu par un médecin, personnalisé selon votre peau et ajusté dans le temps grâce au suivi continu.</div>
-        <div class="doctor-name">Recrutement en cours</div>
-        <div class="doctor-title">Dermatologue — Directrice scientifique Mixt</div>
+<section class="s-pharma">
+  <div class="pharma-card">
+    <div class="ordo-wrap">
+      <div class="ordo">
+        <div class="ordo-header">
+          <div class="ordo-meta">
+            <div>Ordonnance médicale</div>
+            <div>12 mars 2026</div>
+          </div>
+        </div>
+        <div class="ordo-patient">Mme Sophie Martin</div>
+        <div class="ordo-lines">
+          <div class="ordo-line"></div>
+          <div class="ordo-line"></div>
+          <div class="ordo-line"></div>
+          <div class="ordo-line"></div>
+          <div class="ordo-line"></div>
+          <div class="ordo-line"></div>
+          <div class="ordo-line"></div>
+        </div>
+        <div class="ordo-doctor">Dre. Levy — Dermatologue</div>
       </div>
-    </div>-->
-    <a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-white btn-lg" style="margin-top:36px;">Analyser ma peau →</a>
+    </div>
+    <div class="pharma-text">
+      <h3>Préparé en pharmacie, sur ordonnance</h3>
+      <p>Vos formulations sont préparées par des pharmaciens diplômés dans un cadre réglementé. Principes actifs pharmaceutiques, traçabilité complète.</p>
+    </div>
   </div>
 </section>
 
@@ -1072,7 +1053,7 @@
     <div class="footer-top">
       <div class="footer-left"><div class="fl-logo">mixt</div><div class="fl-tagline">Votre peau, suivie en continu.</div></div>
       <div class="footer-cols">
-        <div class="footer-col"><h4>Produit</h4><a href="#how">Comment ça marche</a><a href="#approach">Notre approche</a><a href="#conditions">Conditions</a></div>
+        <div class="footer-col"><h4>Produit</h4><a href="#how">Comment ça marche</a><a href="#conditions">Conditions</a></div>
         <div class="footer-col"><h4>Entreprise</h4><a href="#">Comité scientifique</a><a href="mailto:contact@mixt.care">Contact</a><a href="#">Presse</a></div>
         <div class="footer-col"><h4>Légal</h4><a href="#">Mentions légales</a><a href="politique-de-confidentialite.html">Données personnelles</a><a href="conditions-generales.html">CGU</a></div>
         <div class="footer-col"><h4>Design</h4><a href="brand-book.html">Charte couleurs</a><a href="ui-kit.html">UI Kit</a></div>
