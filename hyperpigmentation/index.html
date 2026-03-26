@@ -120,17 +120,17 @@
   .timeline { position: relative; padding-left: 0; counter-reset: step; }
 
   /* Single continuous vertical line behind everything */
-  .timeline::before { content: ''; position: absolute; left: 199px; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.1); }
+  .timeline::before { content: ''; position: absolute; left: 239px; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.1); }
   /* Fill line — height controlled by JS */
-  .timeline::after { content: ''; position: absolute; left: 199px; top: 0; width: 1px; height: var(--timeline-fill, 0%); background: var(--blush); transition: height 0.15s linear; }
+  .timeline::after { content: ''; position: absolute; left: 239px; top: 0; width: 1px; height: var(--timeline-fill, 0%); background: var(--blush); transition: height 0.15s linear; }
 
-  .timeline-step { display: grid; grid-template-columns: 180px 40px 1fr; gap: 0; align-items: center; padding-bottom: 120px; position: relative; opacity: 0.35; transition: opacity 0.3s ease; counter-increment: step; }
+  .timeline-step { display: grid; grid-template-columns: 220px 40px 1fr; gap: 0; align-items: center; padding-bottom: 120px; position: relative; opacity: 0.35; transition: opacity 0.3s ease; counter-increment: step; }
   .timeline-step.in-view { opacity: 1; }
   .timeline-step:last-child { padding-bottom: 0; }
 
   /* Left column — avatar + name */
   .timeline-who { display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .timeline-avatar { width: 120px; height: 120px; border-radius: 10px; overflow: hidden; background: linear-gradient(135deg, var(--blush), var(--warm)); margin-bottom: 10px; flex-shrink: 0; }
+  .timeline-avatar { width: 160px; height: 160px; border-radius: 10px; overflow: hidden; background: linear-gradient(135deg, var(--blush), var(--warm)); margin-bottom: 10px; flex-shrink: 0; }
   .timeline-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .timeline-avatar.logo { display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); font-family: 'Fraunces', serif; font-size: 26px; font-weight: 500; color: #fff; font-variation-settings: 'opsz' 144, 'WONK' 0, 'SOFT' 0; }
   .timeline-name { font-size: 19px; font-weight: 600; color: #fff; }
@@ -265,7 +265,7 @@
     <p>Votre phototype change tout. Un peeling ou une concentration d'hydroquinone mal adaptés à une peau mate ou foncée peuvent aggraver l'hyperpigmentation au lieu de la traiter. Ce n'est pas un détail.</p>
     <p>Votre diagnostic compte. Un mélasma d'origine hormonale, une hyperpigmentation post-inflammatoire après acné, des lentigos solaires, ce ne sont pas les mêmes protocoles. Trétinoïne, acide azélaïque, dépigmentants combinés : les associations et les dosages changent tout selon votre profil.</p>
     <p>Et sans suivi, les meilleurs protocoles échouent. Le rétinol irrite au début, c'est normal. Mais sans quelqu'un pour le dire, pour ajuster, pour tenir, souvent on arrête. Et on recommence ailleurs, de zéro.</p>
-    <p>C'est à partir de là qu'on a réfléchi à ce protocole en réunissant dermatologue et pharmaciens.</p>
+    <p>C'est à partir de là qu'on a réfléchi à ce protocole en réunissant dermatologues et pharmaciens.</p>
   </div>
 </section>
 
