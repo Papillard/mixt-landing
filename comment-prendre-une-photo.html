@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comment prendre une photo — Mixt</title>
+<meta name="description" content="Guide pratique pour photographier votre peau : lumière, cadrage et qualité pour un diagnostic dermatologique précis.">
+<meta name="theme-color" content="#361822">
+<link rel="canonical" href="https://mixt.care/comment-prendre-une-photo">
+<link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1&family=Geist:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --deep: #361822;
+    --rich: #6B3D32;
+    --warm: #B07460;
+    --blush: #D4A08A;
+    --cream: #F5E6DA;
+    --base: #FFF8F2;
+    --text: #1A1210;
+    --text-2: #6B5B52;
+    --text-3: #9A8A80;
+    --border: rgba(54, 24, 34, 0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Geist', -apple-system, sans-serif;
+    background: var(--base);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--base);
+    border-bottom: 1px solid var(--border);
+    height: 56px;
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 26px; font-weight: 500;
+    font-variation-settings: 'opsz' 144;
+    color: var(--deep); text-decoration: none;
+  }
+  .nav-right a {
+    font-size: 13px; color: var(--text-2);
+    text-decoration: none;
+  }
+  .nav-right a:hover { color: var(--deep); }
+
+  /* Page layout */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 56px 24px 100px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 56px;
+  }
+  .label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--warm);
+  }
+  .label span.dash {
+    width: 24px; height: 1px;
+    background: var(--warm);
+    display: inline-block;
+  }
+  .hero .label { justify-content: center; }
+  h1 {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+  h1 em {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.05em;
+  }
+  @media (max-width: 768px) { h1 { font-size: 42px; line-height: 1.15; } }
+  @media (max-width: 480px) { h1 { font-size: 28px; } }
+  .lede {
+    color: var(--text-2);
+    font-size: 16px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 72px;
+  }
+  h2 {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--deep);
+    margin-bottom: 24px;
+  }
+
+  /* Lists — styled checks */
+  ul.checks {
+    list-style: none;
+    padding: 0;
+  }
+  ul.checks li {
+    position: relative;
+    padding: 14px 0 14px 40px;
+    font-size: 16px;
+    color: var(--text);
+    border-bottom: 1px dashed var(--border);
+  }
+  ul.checks li:last-child { border-bottom: none; }
+  ul.checks li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 15px;
+    width: 22px; height: 22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  ul.checks li.do::before {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%234a8f5e'/><path d='M5.5 10.5 L8.5 13.5 L14.5 7.5' stroke='white' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  }
+  ul.checks li.dont::before {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%23c85a4a'/><path d='M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5' stroke='white' stroke-width='2.2' fill='none' stroke-linecap='round'/></svg>");
+  }
+
+  /* Hero image (lumière section) */
+  .hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 20px rgba(54,24,34,0.08);
+  }
+
+  /* Intro paragraph */
+  .intro {
+    font-size: 16px;
+    color: var(--text-2);
+    margin-bottom: 36px;
+    line-height: 1.55;
+  }
+
+  /* Duos — 2 columns tuto + laeti side by side */
+  .duos { display: grid; gap: 36px; }
+  .duo {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .duo-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 16px;
+    padding: 0 4px;
+  }
+  .duo-label {
+    font-family: 'Geist', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .duo-step {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm);
+  }
+  .duo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .duo-grid figure {
+    position: relative;
+    margin: 0;
+  }
+  .duo-grid img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+  .duo-grid figcaption {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: rgba(54,24,34,0.85);
+    color: var(--base);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+  .duo-caption {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--deep);
+    margin-top: 20px;
+    padding: 0 4px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-3);
+    font-size: 13px;
+  }
+  footer a { color: var(--warm); text-decoration: none; }
+  footer a:hover { color: var(--deep); }
+
+  @media (max-width: 560px) {
+    .page { padding: 40px 20px 80px; }
+    h1 { font-size: 34px; }
+    h2 { font-size: 28px; }
+    .duo { padding: 14px; }
+    .duo-grid { gap: 8px; }
+    .duo-grid figcaption { font-size: 9px; padding: 3px 6px; }
+    .duo-caption { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">mixt</a>
+  <div class="nav-right">
+    <a href="index.html">Retour au site</a>
+  </div>
+</nav>
+
+<main class="page">
+
+  <header class="hero">
+    <div class="label"><span class="dash"></span>Guide photo</div>
+    <h1>Comment prendre une <em>bonne</em> photo de votre peau</h1>
+    <p class="lede">Quelques minutes pour une photo nette, exploitable par votre dermatologue et qui permet un diagnostic précis.</p>
+  </header>
+
+  <section>
+    <div class="label"><span class="dash"></span>Préparation</div>
+    <h2>Avant de commencer</h2>
+    <ul class="checks">
+      <li class="do">Utilisez la caméra arrière de votre téléphone si possible — elle est bien meilleure que la caméra selfie.</li>
+      <li class="do">Si vous êtes seul(e), la caméra selfie fonctionne très bien aussi.</li>
+      <li class="dont">Désactivez le flash — il écrase les détails et fausse les couleurs.</li>
+      <li class="dont">Pas de filtre, pas de retouche. On a besoin de voir votre peau telle qu'elle est.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="label"><span class="dash"></span>Lumière</div>
+    <h2>La lumière, c'est la clef</h2>
+    <ul class="checks">
+      <li class="do">Placez-vous près d'une fenêtre, en lumière du jour naturelle.</li>
+      <li class="dont">Évitez le soleil direct — une lumière douce et diffuse est parfaite.</li>
+      <li class="dont">Ne vous mettez jamais dos à la fenêtre — votre visage serait dans l'ombre.</li>
+      <li class="do">Le matin ou en milieu de journée, c'est idéal.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="label"><span class="dash"></span>Cadrage</div>
+    <h2>Les 3 types de photos</h2>
+    <p class="intro">Prenez les 3 photos au même endroit, près d'une fenêtre, en lumière naturelle et sans flash. L'orientation par rapport à la fenêtre change selon la photo — voir chaque étape ci-dessous.</p>
+
+    <div class="duos">
+
+      <div class="duo">
+        <div class="duo-header">
+          <span class="duo-step">Étape 1</span>
+          <span class="duo-label">Photo de face</span>
+        </div>
+        <div class="duo-grid">
+          <figure>
+            <img src="images/tuto-face.jpg" alt="Illustration — photo de face">
+            <figcaption>Schéma</figcaption>
+          </figure>
+          <figure>
+            <img src="images/tuto-laeti-face.jpeg" alt="Exemple réel — photo de face">
+            <figcaption>Exemple</figcaption>
+          </figure>
+        </div>
+        <p class="duo-caption">Regardez droit dans l'objectif, lumière de face.</p>
+      </div>
+
+      <div class="duo">
+        <div class="duo-header">
+          <span class="duo-step">Étape 2</span>
+          <span class="duo-label">Photo de profil</span>
+        </div>
+        <div class="duo-grid">
+          <figure>
+            <img src="images/tuto-profil.jpg" alt="Illustration — photo de profil">
+            <figcaption>Schéma</figcaption>
+          </figure>
+          <figure>
+            <img src="images/tuto-laeti-profil.jpeg" alt="Exemple réel — photo de profil">
+            <figcaption>Exemple</figcaption>
+          </figure>
+        </div>
+        <p class="duo-caption">Tournez la tête à 90°, joue bien exposée vers la fenêtre.</p>
+      </div>
+
+      <div class="duo">
+        <div class="duo-header">
+          <span class="duo-step">Étape 3</span>
+          <span class="duo-label">Photo zoomée</span>
+        </div>
+        <div class="duo-grid">
+          <figure>
+            <img src="images/tuto-zoom.jpg" alt="Illustration — photo zoomée">
+            <figcaption>Schéma</figcaption>
+          </figure>
+          <figure>
+            <img src="images/tuto-laeti-zoom.webp" alt="Exemple réel — photo zoomée">
+            <figcaption>Exemple</figcaption>
+          </figure>
+        </div>
+        <p class="duo-caption">Rapprochez l'appareil de la zone concernée, lumière uniforme.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="label"><span class="dash"></span>Vérification</div>
+    <h2>Vérifiez avant d'envoyer</h2>
+    <ul class="checks">
+      <li class="do">La photo est nette — pas floue, pas bougée.</li>
+      <li class="do">On voit clairement la zone de peau concernée.</li>
+      <li class="dont">Pas de filtre, pas d'effet beauté activé sur l'appareil photo.</li>
+      <li class="do">En cas de doute, prenez-en plusieurs et gardez la meilleure.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  Une question ? <a href="mailto:hello@mixt.care">hello@mixt.care</a>
+</footer>
+
+</body>
+</html>
