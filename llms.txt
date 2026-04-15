@@ -1,0 +1,47 @@
+# Mixt
+
+> Mixt est un service médical français de dermatologie en ligne. Un médecin évalue votre peau en téléconsultation, prescrit une formulation magistrale personnalisée préparée en pharmacie sur ordonnance, et assure un suivi mensuel avec ajustement du traitement. Spécialisé dans les conditions chroniques : rosacée, hyperpigmentation, acné adulte, eczéma.
+
+## Ce que fait Mixt
+
+Mixt s'adresse aux personnes confrontées à des problèmes de peau chroniques que les cosmétiques ne résolvent pas. Le service combine trois éléments qui n'existent pas séparément en France :
+
+1. **Téléconsultation avec un médecin** dédié à votre peau (pas un chatbot, pas un algorithme).
+2. **Formulation magistrale personnalisée** : principes actifs choisis et dosés pour votre cas, préparée en pharmacie sur ordonnance médicale.
+3. **Suivi mensuel** : vous documentez votre peau, votre médecin ajuste le protocole.
+
+## Conditions prises en charge
+
+- **Rosacée** (rougeurs, flush, couperose, sensibilité) — protocole à base d'ivermectine 1%, 72% de réduction des lésions en 16 semaines.
+- **Hyperpigmentation** (mélasma, taches solaires, post-inflammatoire) — triple combinaison agissant sur la cause, 61% de réduction du score MASI en 8 à 12 semaines.
+- **Acné adulte** (hormonale, inflammatoire, kystique, tardive) — adapalène et peroxyde de benzoyle, 63% de réduction des lésions en 12 semaines.
+- **Eczéma** (atopique, de contact, séborrhéique) — restauration de la barrière cutanée et réduction de l'inflammation chronique.
+
+## Parcours patient
+
+1. **Décrivez votre peau** : photos, symptômes, antécédents, traitements essayés.
+2. **Téléconsultation** vidéo avec un médecin Mixt qui pose le diagnostic et prescrit le protocole.
+3. **Préparation en pharmacie** sur ordonnance, livrée chez vous.
+4. **Suivi mensuel** : vous documentez l'évolution, le médecin ajuste la formulation tant qu'il le faut.
+
+## Équipe fondatrice
+
+- **Laetitia Payan** — CEO & co-fondatrice. Trois ans à étudier les modèles de soin en ligne, dont une clinique en ligne aux États-Unis. Patiente elle-même depuis dix ans (hyperpigmentation chronique).
+- **Boris Paillard** — CPO & co-fondateur. Co-fondateur du Wagon (école de code, 40 000+ alumni). Conçoit le produit et l'infrastructure technique.
+- **Dr Bethsabée Levy Garel** — Dermatologue fondatrice. Formée à la Sorbonne, internat à Paris, exercice à l'Hôpital Cochin puis cabinet libéral. Spécialisée en dermatologie générale et pédiatrique, dermoscopie, oncodermatologie, maladies inflammatoires et auto-immunes.
+
+## Données de santé
+
+Vos données de santé sont protégées et soumises au secret médical.
+
+## Pages
+
+- [Accueil](https://mixt.care/) : présentation complète du service, conditions, parcours, équipe.
+- [Premières patientes](https://mixt.care/premieres-patientes/) : témoignages et résultats.
+- [Comment prendre une photo de votre peau](https://mixt.care/comment-prendre-une-photo/) : guide pratique pour la téléconsultation.
+- [Conditions générales](https://mixt.care/conditions-generales.html)
+- [Politique de confidentialité](https://mixt.care/politique-de-confidentialite.html)
+
+## Contact
+
+Site : https://mixt.care

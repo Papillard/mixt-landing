@@ -8,7 +8,6 @@
 
 <!-- Meta -->
 <meta name="description" content="Rosacée, hyperpigmentation, acné, eczéma : un médecin évalue votre peau en téléconsultation et propose une formulation magistrale personnalisée, préparée en pharmacie. Suivi dermatologique continu et ajustement mensuel du traitement.">
-<meta name="keywords" content="dermatologue en ligne, téléconsultation dermatologie, rosacée traitement, hyperpigmentation traitement, acné adulte, eczéma traitement, formulation magistrale, préparation en pharmacie, suivi dermatologique, soin peau personnalisé, crème sur-mesure, dermatologie personnalisée">
 <meta name="theme-color" content="#361822">
 <meta name="author" content="Mixt">
 <link rel="canonical" href="https://mixt.care">
@@ -27,6 +26,126 @@
 <meta name="twitter:title" content="Mixt — Votre peau mérite un vrai suivi">
 <meta name="twitter:description" content="Rosacée, hyperpigmentation, acné, eczéma. Un médecin propose votre formulation magistrale en pharmacie. Suivi continu.">
 <meta name="twitter:image" content="https://mixt.care/images/og-image.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mixt.care/#organization",
+      "name": "Mixt",
+      "url": "https://mixt.care",
+      "logo": "https://mixt.care/favicons/android-chrome-512x512.png",
+      "description": "Service médical français de dermatologie en ligne. Téléconsultation, formulation magistrale personnalisée préparée en pharmacie, et suivi dermatologique mensuel pour les conditions chroniques de la peau.",
+      "founder": [
+        { "@id": "https://mixt.care/#laetitia" },
+        { "@id": "https://mixt.care/#boris" },
+        { "@id": "https://mixt.care/#bethsabee" }
+      ]
+    },
+    {
+      "@type": "MedicalBusiness",
+      "@id": "https://mixt.care/#medicalbusiness",
+      "name": "Mixt",
+      "url": "https://mixt.care",
+      "image": "https://mixt.care/images/og-image.png",
+      "medicalSpecialty": "Dermatology",
+      "availableService": [
+        {
+          "@type": "MedicalTherapy",
+          "name": "Téléconsultation dermatologique",
+          "description": "Consultation vidéo avec un médecin pour évaluer votre peau, poser un diagnostic et prescrire un protocole personnalisé."
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Formulation magistrale personnalisée",
+          "description": "Préparation en pharmacie sur ordonnance médicale, avec principes actifs choisis et dosés pour votre cas."
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Suivi dermatologique mensuel",
+          "description": "Documentation régulière de l'évolution de la peau et ajustement du traitement par votre médecin."
+        }
+      ],
+      "areaServed": { "@type": "Country", "name": "France" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mixt.care/#laetitia",
+      "name": "Laetitia Payan",
+      "jobTitle": "CEO & Co-fondatrice",
+      "worksFor": { "@id": "https://mixt.care/#organization" },
+      "image": "https://mixt.care/images/laetitia-after.webp"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mixt.care/#boris",
+      "name": "Boris Paillard",
+      "jobTitle": "CPO & Co-fondateur",
+      "worksFor": { "@id": "https://mixt.care/#organization" },
+      "image": "https://mixt.care/images/boris.webp"
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://mixt.care/#bethsabee",
+      "name": "Dr Bethsabée Levy Garel",
+      "jobTitle": "Dermatologue Fondatrice",
+      "medicalSpecialty": "Dermatology",
+      "worksFor": { "@id": "https://mixt.care/#organization" },
+      "image": "https://mixt.care/images/bethsabee.webp",
+      "alumniOf": "Sorbonne Université"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mixt.care/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne Mixt ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous décrivez votre peau (photos, symptômes, antécédents), un médecin Mixt vous reçoit en téléconsultation vidéo pour poser un diagnostic et prescrire un protocole personnalisé. Votre formulation magistrale est préparée en pharmacie sur ordonnance et livrée chez vous. Chaque mois, vous documentez l'évolution et votre médecin ajuste le traitement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles conditions de peau sont prises en charge ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les médecins Mixt prennent en charge les conditions de peau chroniques : rosacée (rougeurs, flush, couperose), hyperpigmentation (mélasma, taches solaires, post-inflammatoire), acné adulte (hormonale, inflammatoire, kystique), et eczéma (atopique, de contact, séborrhéique)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une formulation magistrale ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une préparation magistrale est un médicament fabriqué en pharmacie sur ordonnance, avec des principes actifs choisis et dosés spécifiquement pour un patient. Chez Mixt, elle est prescrite par votre médecin après la téléconsultation et préparée par une pharmacie partenaire."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mes données de santé sont-elles protégées ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Vos données de santé sont protégées et soumises au secret médical."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "En combien de temps voit-on des résultats ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les délais varient selon la condition. Études cliniques sur les principes actifs prescrits : rosacée, 72% de réduction des lésions en 16 semaines (ivermectine 1%) ; hyperpigmentation, 61% de réduction du score MASI en 8 à 12 semaines ; acné, 63% de réduction des lésions en 12 semaines."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <link rel="icon" type="image/x-icon" href="./favicons/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
@@ -540,8 +659,8 @@
     </div>
     <div class="hero-right">
       <div class="hero-visual-wrap">
-        <div class="hero-visual" id="heroVisual" style="background-image:url('images/test-before.jpg');">
-          <div class="layer-after" style="background-image:url('images/test-after.jpg');"></div>
+        <div class="hero-visual" id="heroVisual" style="background-image:url('images/test-before.webp');">
+          <div class="layer-after" style="background-image:url('images/test-after.webp');"></div>
           <div class="slider-line"></div>
           <div class="slider-handle" id="sliderHandle"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6 5.5L3 9l3 3.5" stroke="#361822" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5.5l3 3.5-3 3.5" stroke="#361822" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span class="slider-label slider-label-before">Après</span>
@@ -621,7 +740,7 @@
           <!-- Slide 1: Téléconsultation visio -->
           <div class="how-slide">
             <div class="phone" style="padding:0; position:relative; overflow:hidden;">
-              <img src="images/besthabee-consult.jpeg" alt="Téléconsultation dermatologue" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:32px;">
+              <img src="images/besthabee-consult.webp" loading="lazy" alt="Téléconsultation dermatologue" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:32px;">
               <!-- Overlay top -->
               <div style="position:absolute; top:0; left:0; right:0; padding:20px 24px; display:flex; justify-content:space-between; align-items:center; background:linear-gradient(180deg,rgba(0,0,0,0.5),transparent); border-radius:32px 32px 0 0;">
                 <div style="color:#fff; font-size:14px; font-weight:600;">Dre. Bethsabée Levy Garel</div>
@@ -648,7 +767,7 @@
           <!-- Slide 2: Préparation pharmacie -->
           <div class="how-slide">
             <div class="phone" style="padding:0;">
-              <img src="images/lab-3.jpg" alt="Préparation en laboratoire" style="width:100%; flex:1; object-fit:cover; display:block; border-radius:32px;">
+              <img src="images/lab-3.webp" loading="lazy" alt="Préparation en laboratoire" style="width:100%; flex:1; object-fit:cover; display:block; border-radius:32px;">
             </div>
           </div>
           <!-- Slide 3: Tracking -->
@@ -662,12 +781,12 @@
               <div class="phone-section">Progrès</div>
               <div class="phone-compare">
                 <div class="phone-thumb" style="position:relative;">
-                  <img src="images/laetitia-before.png" alt="Avant" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;position:absolute;top:0;left:0;">
+                  <img src="images/laetitia-before.webp" loading="lazy" alt="Avant" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;position:absolute;top:0;left:0;">
                   <div class="phone-thumb-label" style="position:relative;z-index:1;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5);margin-top:auto;padding-bottom:4px;">Avant</div>
                   <div class="phone-thumb-date" style="position:relative;z-index:1;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5);padding-bottom:8px;">16 juin</div>
                 </div>
                 <div class="phone-thumb" style="position:relative;">
-                  <img src="images/laetitia-after.png" alt="Actuel" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;position:absolute;top:0;left:0;">
+                  <img src="images/laetitia-after.webp" loading="lazy" alt="Actuel" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;position:absolute;top:0;left:0;">
                   <div class="phone-thumb-label" style="position:relative;z-index:1;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5);margin-top:auto;padding-bottom:4px;">Actuel</div>
                   <div class="phone-thumb-date" style="position:relative;z-index:1;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5);padding-bottom:8px;">14 oct</div>
                 </div>
@@ -714,10 +833,10 @@
       <button class="condition-tab" onclick="switchCondition(3)">Eczéma</button>
       <button class="condition-tab special" onclick="switchCondition(4)">Je ne sais pas →</button>
     </div>
-    <div class="condition-panel active"><div class="condition-content"><div class="condition-text"><h3>Rosacée : rougeurs, flush, sensations de brûlure.</h3><p>Rougeurs soudaines, peau qui chauffe sans raison apparente. La rosacée est une condition chronique, pas une simple sensibilité. L'ivermectine 1% prescrite par votre médecin réduit l'inflammation en profondeur — 72% de réduction des lésions en 16 semaines.</p><div class="condition-tags"><span class="condition-tag">Rougeurs</span><span class="condition-tag">Couperose</span><span class="condition-tag">Flush</span><span class="condition-tag">Sensibilité</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Analyser ma peau →</a></div><div class="condition-visual"><img src="images/rosacea.jpg" alt="Rosacée" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
-    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Hyperpigmentation : taches brunes, teint inégal malgré les soins.</h3><p>La mélanine surproduit, les taches s'installent et résistent aux cosmétiques. La triple combinaison prescrite par votre médecin agit sur la cause — 61% de réduction du score MASI en 8 à 12 semaines.</p><div class="condition-tags"><span class="condition-tag">Mélasma</span><span class="condition-tag">Taches solaires</span><span class="condition-tag">Post-inflammatoire</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Analyser ma peau →</a></div><div class="condition-visual"><img src="images/hyperpigmentation.jpg" alt="Hyperpigmentation" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
-    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Acné : boutons, inflammations, peau qui ne se calme pas.</h3><p>L'acné adulte est fréquente et sous-traitée. Hormonale, inflammatoire ou kystique — l'adapalène et le peroxyde de benzoyle prescrits par votre médecin ciblent le mécanisme, pas seulement les symptômes. 63% de réduction des lésions en 12 semaines.</p><div class="condition-tags"><span class="condition-tag">Hormonale</span><span class="condition-tag">Inflammatoire</span><span class="condition-tag">Kystique</span><span class="condition-tag">Tardive</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Analyser ma peau →</a></div><div class="condition-visual"><img src="images/acne.jpg" alt="Acné" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
-    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Eczéma : démangeaisons, plaques sèches, crises récurrentes.</h3><p>La barrière cutanée est fragilisée, l'inflammation revient par cycles. Le protocole prescrit par votre médecin restaure cette barrière et réduit l'inflammation chronique durablement.</p><div class="condition-tags"><span class="condition-tag">Atopique</span><span class="condition-tag">De contact</span><span class="condition-tag">Séborrhéique</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Analyser ma peau →</a></div><div class="condition-visual"><img src="images/eczema.jpg" alt="Eczéma" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
+    <div class="condition-panel active"><div class="condition-content"><div class="condition-text"><h3>Rosacée : rougeurs, flush, sensations de brûlure.</h3><p>Rougeurs soudaines, peau qui chauffe sans raison apparente. La rosacée est une condition chronique, pas une simple sensibilité. L'ivermectine 1% prescrite par votre médecin réduit l'inflammation en profondeur — 72% de réduction des lésions en 16 semaines.</p><div class="condition-tags"><span class="condition-tag">Rougeurs</span><span class="condition-tag">Couperose</span><span class="condition-tag">Flush</span><span class="condition-tag">Sensibilité</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Analyser ma peau →</a></div><div class="condition-visual"><img src="images/rosacea.webp" loading="lazy" alt="Rosacée" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
+    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Hyperpigmentation : taches brunes, teint inégal malgré les soins.</h3><p>La mélanine surproduit, les taches s'installent et résistent aux cosmétiques. La triple combinaison prescrite par votre médecin agit sur la cause — 61% de réduction du score MASI en 8 à 12 semaines.</p><div class="condition-tags"><span class="condition-tag">Mélasma</span><span class="condition-tag">Taches solaires</span><span class="condition-tag">Post-inflammatoire</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Analyser ma peau →</a></div><div class="condition-visual"><img src="images/hyperpigmentation.webp" loading="lazy" alt="Hyperpigmentation" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
+    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Acné : boutons, inflammations, peau qui ne se calme pas.</h3><p>L'acné adulte est fréquente et sous-traitée. Hormonale, inflammatoire ou kystique — l'adapalène et le peroxyde de benzoyle prescrits par votre médecin ciblent le mécanisme, pas seulement les symptômes. 63% de réduction des lésions en 12 semaines.</p><div class="condition-tags"><span class="condition-tag">Hormonale</span><span class="condition-tag">Inflammatoire</span><span class="condition-tag">Kystique</span><span class="condition-tag">Tardive</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Analyser ma peau →</a></div><div class="condition-visual"><img src="images/acne.webp" loading="lazy" alt="Acné" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
+    <div class="condition-panel"><div class="condition-content"><div class="condition-text"><h3>Eczéma : démangeaisons, plaques sèches, crises récurrentes.</h3><p>La barrière cutanée est fragilisée, l'inflammation revient par cycles. Le protocole prescrit par votre médecin restaure cette barrière et réduit l'inflammation chronique durablement.</p><div class="condition-tags"><span class="condition-tag">Atopique</span><span class="condition-tag">De contact</span><span class="condition-tag">Séborrhéique</span></div><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg" style="margin-top:24px;">Analyser ma peau →</a></div><div class="condition-visual"><img src="images/eczema.webp" loading="lazy" alt="Eczéma" style="width:100%;height:100%;object-fit:cover;"></div></div></div>
     <div class="condition-panel"><div class="condition-content"><div class="condition-help"><h3>Vous ne savez pas exactement ce que vous avez ?</h3><p>Beaucoup de conditions de peau chroniques ne sont jamais diagnostiquées. Notre questionnaire vous aide à y voir plus clair, et votre médecin posera le diagnostic.</p><a href="javascript:void(0)" onclick="openQuiz()" class="btn btn-dark btn-lg">Analyser ma peau →</a></div><div class="condition-visual" style="background:none;"></div></div></div>
     <div style="margin-top:56px; padding-top:24px; border-top:1px solid var(--cream); text-align:center;">
       <span class="prot-text">Vos données de santé sont protégées et soumises au secret médical</span>
@@ -735,8 +854,8 @@
     <div class="proof-stories">
       <div class="proof-story">
         <div class="proof-photos">
-          <div class="proof-photo before"><img src="images/laetitia-before.png" alt="Laetitia avant traitement" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="proof-photo after"><img src="images/laetitia-after.png" alt="Laetitia après traitement" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="proof-photo before"><img src="images/laetitia-before.webp" loading="lazy" alt="Laetitia avant traitement" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="proof-photo after"><img src="images/laetitia-after.webp" loading="lazy" alt="Laetitia après traitement" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
         </div>
         <div class="proof-condition">Hyperpigmentation · 4 mois de protocole personnalisé</div>
         <div class="proof-meta">Laetitia <span>· 41 ans</span></div>
@@ -744,8 +863,8 @@
       </div>
       <div class="proof-story">
         <div class="proof-photos">
-          <div class="proof-photo before"><img src="images/melanie-before.jpg" alt="Marie avant traitement" style="width:100%;height:100%;object-fit:cover;object-position:center 35%;transform:scale(2.8);"></div>
-          <div class="proof-photo after"><img src="images/melanie-after.jpg" alt="Marie après traitement" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="proof-photo before"><img src="images/melanie-before.webp" loading="lazy" alt="Marie avant traitement" style="width:100%;height:100%;object-fit:cover;object-position:center 35%;transform:scale(2.8);"></div>
+          <div class="proof-photo after"><img src="images/melanie-after.webp" loading="lazy" alt="Marie après traitement" style="width:100%;height:100%;object-fit:cover;"></div>
         </div>
         <div class="proof-condition">Rosacée · 3 mois de protocole personnalisé</div>
         <div class="proof-meta">Marie <span>· 45 ans</span></div>
@@ -817,7 +936,7 @@
     </div>
     <div class="magistrale-slider" id="magistraleSlider">
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/adapalene.jpg" alt="Adapalène"></div>
+        <div class="magistrale-card-img"><img src="images/adapalene.webp" loading="lazy" alt="Adapalène"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Adapalène</div>
           <div class="magistrale-card-desc">Rétinoïde qui accélère le renouvellement cellulaire et prévient la formation des comédons.</div>
@@ -825,7 +944,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/ivermectine.jpg" alt="Ivermectine"></div>
+        <div class="magistrale-card-img"><img src="images/ivermectine.webp" loading="lazy" alt="Ivermectine"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Ivermectine</div>
           <div class="magistrale-card-desc">Antiparasitaire qui élimine les Demodex et réduit l'inflammation de la rosacée.</div>
@@ -833,7 +952,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/hydroquinone.jpg" alt="Hydroquinone"></div>
+        <div class="magistrale-card-img"><img src="images/hydroquinone.webp" loading="lazy" alt="Hydroquinone"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Hydroquinone</div>
           <div class="magistrale-card-desc">Dépigmentant de référence qui inhibe la production de mélanine.</div>
@@ -841,7 +960,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/benzoyl-peroxide .jpg" alt="Benzoyl peroxide"></div>
+        <div class="magistrale-card-img"><img src="images/benzoyl-peroxide .webp" loading="lazy" alt="Benzoyl peroxide"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Benzoyl peroxide</div>
           <div class="magistrale-card-desc">Antibactérien puissant qui élimine les bactéries responsables de l'acné et réduit l'inflammation.</div>
@@ -849,7 +968,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/acide-azelaique.jpg" alt="Acide azélaïque"></div>
+        <div class="magistrale-card-img"><img src="images/acide-azelaique.webp" loading="lazy" alt="Acide azélaïque"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Acide azélaïque</div>
           <div class="magistrale-card-desc">Anti-inflammatoire et antibactérien qui atténue rougeurs et imperfections.</div>
@@ -857,7 +976,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/tretinoine.jpg" alt="Trétinoïne"></div>
+        <div class="magistrale-card-img"><img src="images/tretinoine.webp" loading="lazy" alt="Trétinoïne"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Trétinoïne</div>
           <div class="magistrale-card-desc">Rétinoïde qui accélère le renouvellement cellulaire et unifie le teint.</div>
@@ -865,7 +984,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/clindamycine.jpg" alt="Clindamycine"></div>
+        <div class="magistrale-card-img"><img src="images/clindamycine.webp" loading="lazy" alt="Clindamycine"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Clindamycine</div>
           <div class="magistrale-card-desc">Antibiotique topique qui cible les bactéries P. acnes et calme l'inflammation cutanée.</div>
@@ -873,7 +992,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/brimonidine.jpg" alt="Brimonidine"></div>
+        <div class="magistrale-card-img"><img src="images/brimonidine.webp" loading="lazy" alt="Brimonidine"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Brimonidine</div>
           <div class="magistrale-card-desc">Vasoconstricteur qui réduit visiblement les rougeurs en quelques minutes.</div>
@@ -881,7 +1000,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/fluocinolone.jpg" alt="Fluocinolone"></div>
+        <div class="magistrale-card-img"><img src="images/fluocinolone.webp" loading="lazy" alt="Fluocinolone"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Fluocinolone</div>
           <div class="magistrale-card-desc">Corticoïde léger qui réduit l'inflammation et potentialise les dépigmentants.</div>
@@ -889,7 +1008,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/erythromycine.jpg" alt="Érythromycine"></div>
+        <div class="magistrale-card-img"><img src="images/erythromycine.webp" loading="lazy" alt="Érythromycine"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Érythromycine</div>
           <div class="magistrale-card-desc">Antibiotique qui réduit les bactéries et l'inflammation des lésions acnéiques.</div>
@@ -897,7 +1016,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/eau-rose.jpg" alt="Eau de rose"></div>
+        <div class="magistrale-card-img"><img src="images/eau-rose.webp" loading="lazy" alt="Eau de rose"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Eau de rose</div>
           <div class="magistrale-card-desc">Apaisante et hydratante, elle calme les peaux réactives et sensibilisées.</div>
@@ -905,7 +1024,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/acid-tranexamique.jpg" alt="Acide tranexamique"></div>
+        <div class="magistrale-card-img"><img src="images/acid-tranexamique.webp" loading="lazy" alt="Acide tranexamique"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Acide tranexamique</div>
           <div class="magistrale-card-desc">Inhibe le transfert de mélanine et prévient la récidive des taches.</div>
@@ -913,7 +1032,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/huile-camomille.jpg" alt="Huile de camomille"></div>
+        <div class="magistrale-card-img"><img src="images/huile-camomille.webp" loading="lazy" alt="Huile de camomille"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Huile de camomille</div>
           <div class="magistrale-card-desc">Apaisante et anti-inflammatoire, elle calme les irritations liées aux traitements actifs.</div>
@@ -921,7 +1040,7 @@
         </div>
       </div>
       <div class="magistrale-card">
-        <div class="magistrale-card-img"><img src="images/vitamine-c.jpg" alt="Vitamine C"></div>
+        <div class="magistrale-card-img"><img src="images/vitamine-c.webp" loading="lazy" alt="Vitamine C"></div>
         <div class="magistrale-card-body">
           <div class="magistrale-card-name">Vitamine C</div>
           <div class="magistrale-card-desc">Antioxydant puissant qui éclaircit le teint et protège contre les radicaux libres.</div>
@@ -990,7 +1109,7 @@
 
     <!-- Laetitia -->
     <div class="team-block">
-      <div class="team-photo-lg"><img src="images/laetitia-after.png" alt="Laetitia Payan"></div>
+      <div class="team-photo-lg"><img src="images/laetitia-after.webp" loading="lazy" alt="Laetitia Payan" loading="lazy"></div>
       <div class="team-bio">
         <h3>Laetitia Payan</h3>
         <div class="team-title">CEO & Co-fondatrice</div>
@@ -1002,7 +1121,7 @@
 
     <!-- Boris -->
     <div class="team-block reverse">
-      <div class="team-photo-lg"><img src="images/boris.jpg" alt="Boris Paillard"></div>
+      <div class="team-photo-lg"><img src="images/boris.webp" loading="lazy" alt="Boris Paillard"></div>
       <div class="team-bio">
         <h3>Boris Paillard</h3>
         <div class="team-title">CPO & Co-fondateur</div>
@@ -1014,7 +1133,7 @@
 
     <!-- Bethsabée -->
     <div class="team-block">
-      <div class="team-photo-lg"><img src="images/bethsabee.jpeg" alt="Dr Bethsabée Levy Garel"></div>
+      <div class="team-photo-lg"><img src="images/bethsabee.webp" loading="lazy" alt="Dr Bethsabée Levy Garel"></div>
       <div class="team-bio">
         <h3>Bethsabée Levy Garel</h3>
         <div class="team-title">Dermatologue Fondatrice</div>
