@@ -196,6 +196,26 @@
     line-height: 1.55;
   }
 
+  /* About Mixt — short presentation block */
+  .about-mixt {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 56px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .about-mixt p { margin: 0; }
+  .about-mixt p + p { margin-top: 10px; }
+  .about-mixt a {
+    color: var(--deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+  }
+  .about-mixt a:hover { color: var(--rich); }
+
   /* Duos — 2 columns tuto + laeti side by side */
   .duos { display: grid; gap: 36px; }
   .duo {
@@ -299,6 +319,11 @@
     <h1>Comment prendre une <em>bonne</em> photo de votre peau</h1>
     <p class="lede">Quelques minutes pour une photo nette, exploitable par votre dermatologue et qui permet un diagnostic précis.</p>
   </header>
+
+  <aside class="about-mixt">
+    <p>Mixt est une plateforme de télédermatologie dédiée aux affections chroniques de la peau : taches brunes, mélasma, rosacée, acné, hyperpigmentation, eczéma. Nous travaillons avec des dermatologues pour proposer un traitement personnalisé et un suivi sur le long terme.</p>
+    <p>Pour rejoindre nos premières patientes, c'est par <a href="https://mixt.care/premieres-patientes">ici</a>.</p>
+  </aside>
 
   <section>
     <div class="label"><span class="dash"></span>Préparation</div>
