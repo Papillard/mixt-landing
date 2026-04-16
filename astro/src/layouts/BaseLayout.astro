@@ -1,0 +1,90 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  structuredData?: unknown;
+  bodyClass?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = 'https://mixt.care/images/og-image.png',
+  ogTitle,
+  ogDescription,
+  structuredData,
+  bodyClass = '',
+} = Astro.props;
+
+const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
+const ogTitleFinal = ogTitle ?? title;
+const ogDescFinal = ogDescription ?? description;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="vDeRnnaIbCDZpBcv0n-I1k51JxGtdYrh95chK5fqJ8A" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#361822" />
+  <meta name="author" content="Mixt" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={ogTitleFinal} />
+  <meta property="og:description" content={ogDescFinal} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Mixt" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={ogTitleFinal} />
+  <meta name="twitter:description" content={ogDescFinal} />
+  <meta name="twitter:image" content={ogImage} />
+
+  {structuredData && (
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  )}
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicons/site.webmanifest" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body class={bodyClass}>
+  <slot />
+  <script defer src="/cookies.js"></script>
+</body>
+</html>

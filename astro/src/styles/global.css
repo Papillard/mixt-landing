@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────
+   Mixt design tokens — Tailwind v4 @theme
+   Usage: bg-deep, text-accent, font-serif, etc.
+   ────────────────────────────────────────── */
+@theme {
+  --color-deep: #361822;
+  --color-rich: #6B3D32;
+  --color-violet: #5E3A6E;
+  --color-violet-dark: #462858;
+  --color-violet-light: #C0A8CC;
+  --color-violet-bg: #F0EAF4;
+  --color-warm: #B07460;
+  --color-blush: #D4A08A;
+  --color-cream: #F5E6DA;
+  --color-base: #FFF8F2;
+  --color-accent: #C85A4A;
+  --color-ink: #1A1210;
+  --color-ink-2: #6B5B52;
+  --color-ink-3: #9A8A80;
+
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-italic: 'Newsreader', Georgia, serif;
+  --font-sans: 'Geist', -apple-system, system-ui, sans-serif;
+}
+
+/* ──────────────────────────────────────────
+   Legacy CSS vars (utilisées par les composants
+   portés 1:1 comme le quiz)
+   ────────────────────────────────────────── */
+:root {
+  --deep: #361822;
+  --rich: #6B3D32;
+  --violet: #5E3A6E;
+  --violet-dark: #462858;
+  --violet-light: #C0A8CC;
+  --violet-bg: #F0EAF4;
+  --warm: #B07460;
+  --blush: #D4A08A;
+  --cream: #F5E6DA;
+  --base: #FFF8F2;
+  --accent: #C85A4A;
+  --text: #1A1210;
+  --text-2: #6B5B52;
+  --text-3: #9A8A80;
+  --border: rgba(0, 0, 0, 0.06);
+  --r: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Geist', -apple-system, system-ui, sans-serif;
+  background: #FFF8F2;
+  color: #1A1210;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Combo serif italique utilisé dans les titres */
+.italic-serif {
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.08em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

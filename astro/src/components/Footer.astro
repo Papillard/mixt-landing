@@ -1,0 +1,50 @@
+---
+interface Props {
+  basePath?: string; // '' for root pages, '../' for subdir pages
+}
+const { basePath = '' } = Astro.props;
+const home = basePath === '' ? '/' : '/';
+---
+
+<footer class="relative overflow-hidden bg-deep px-10 py-20 md:pb-10 md:pt-20">
+  <div
+    class="absolute bottom-[-5vw] left-1/2 -translate-x-1/2 whitespace-nowrap font-serif text-[22vw] font-medium text-white/[0.04] pointer-events-none leading-[0.85]"
+    style="font-variation-settings: 'opsz' 144;"
+  >
+    mixt
+  </div>
+  <div class="relative z-[2] max-w-[1100px] mx-auto">
+    <div class="flex justify-between mb-12 flex-col md:flex-row gap-8">
+      <div>
+        <div class="font-serif text-[26px] font-medium text-white mb-1.5" style="font-variation-settings: 'opsz' 144;">
+          mixt
+        </div>
+        <div class="text-sm text-white/40">Votre peau, suivie en continu.</div>
+      </div>
+      <div class="flex flex-col md:flex-row gap-6 md:gap-14">
+        <div>
+          <h4 class="text-[10px] font-semibold uppercase tracking-[0.12em] text-blush mb-3.5">Produit</h4>
+          <a class="block text-sm text-white/55 no-underline mb-2 hover:text-white" href="/#how">Comment ça marche</a>
+          <a class="block text-sm text-white/55 no-underline mb-2 hover:text-white" href="/#conditions">Conditions</a>
+        </div>
+        <div>
+          <h4 class="text-[10px] font-semibold uppercase tracking-[0.12em] text-blush mb-3.5">Entreprise</h4>
+          <a class="block text-sm text-white/55 no-underline mb-2 hover:text-white" href="#">Comité scientifique</a>
+          <a class="block text-sm text-white/55 no-underline mb-2 hover:text-white" href="mailto:contact@mixt.care">Contact</a>
+          <a class="block text-sm text-white/55 no-underline mb-2 hover:text-white" href="#">Presse</a>
+        </div>
+        <div>
+          <h4 class="text-[10px] font-semibold uppercase tracking-[0.12em] text-blush mb-3.5">Légal</h4>
+          <a class="block text-sm text-white/55 no-underline mb-2 hover:text-white" href="#">Mentions légales</a>
+          <a class="block text-sm text-white/55 no-underline mb-2 hover:text-white" href="/politique-de-confidentialite">Données personnelles</a>
+          <a class="block text-sm text-white/55 no-underline mb-2 hover:text-white" href="/conditions-generales">CGU</a>
+          <a class="block text-sm text-white/55 no-underline mb-2 hover:text-white" href="#" data-cookie-settings>Gestion des cookies</a>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-between pt-5 flex-col md:flex-row gap-1.5 items-start md:items-center">
+      <span class="text-xs text-white/30">&copy; 2026 Mixt. Tous droits réservés.</span>
+      <span class="text-xs text-white/30">Fait avec soin à Paris.</span>
+    </div>
+  </div>
+</footer>

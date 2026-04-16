@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import Conditions from '../components/sections/Conditions.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
+import QuizCta from '../components/sections/QuizCta.astro';
+import HeroReveal from '../components/motion/HeroReveal.tsx';
+import PhotoReel from '../components/motion/PhotoReel.tsx';
+import FadeInSection from '../components/motion/FadeInSection.tsx';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://mixt.care/#organization',
+      name: 'Mixt',
+      url: 'https://mixt.care',
+      logo: 'https://mixt.care/favicons/android-chrome-512x512.png',
+      description:
+        'Service médical français de dermatologie en ligne. Téléconsultation, formulation magistrale personnalisée préparée en pharmacie, et suivi dermatologique mensuel pour les conditions chroniques de la peau.',
+    },
+    {
+      '@type': 'MedicalBusiness',
+      '@id': 'https://mixt.care/#medicalbusiness',
+      name: 'Mixt',
+      url: 'https://mixt.care',
+      image: 'https://mixt.care/images/og-image.png',
+      medicalSpecialty: 'Dermatology',
+      areaServed: { '@type': 'Country', name: 'France' },
+    },
+  ],
+};
+
+const reelItems = [
+  {
+    src: '/images/laetitia-before.webp',
+    alt: 'Laetitia avant le protocole',
+    label: 'Avant',
+    caption: 'Laetitia, hyperpigmentation post-inflammatoire.',
+  },
+  {
+    src: '/images/laetitia-after.webp',
+    alt: 'Laetitia après 12 semaines',
+    label: 'Après · 12 sem.',
+    caption: 'Formulation magistrale trétinoïne + acide azélaïque.',
+  },
+  {
+    src: '/images/melanie-before.webp',
+    alt: 'Mélanie avant',
+    label: 'Avant',
+    caption: 'Mélanie, mélasma.',
+  },
+  {
+    src: '/images/melanie-after.webp',
+    alt: 'Mélanie après 10 semaines',
+    label: 'Après · 10 sem.',
+    caption: 'Protocole personnalisé dosé par sa dermatologue.',
+  },
+  {
+    src: '/images/besthabee-consult.webp',
+    alt: 'Téléconsultation avec Dr Bethsabée',
+    label: 'Téléconsultation',
+    caption: 'Dr Bethsabée Levy Garel, dermatologue fondatrice.',
+  },
+  {
+    src: '/images/lab-3.webp',
+    alt: 'Préparation magistrale en pharmacie',
+    label: 'Pharmacie',
+    caption: 'Votre préparation, dosée et étiquetée à votre nom.',
+  },
+];
+---
+
+<BaseLayout
+  title="Mixt — Votre peau mérite un vrai suivi | Rosacée, Hyperpigmentation, Acné, Eczéma"
+  description="Rosacée, hyperpigmentation, acné, eczéma : un médecin évalue votre peau en téléconsultation et propose une formulation magistrale personnalisée, préparée en pharmacie. Suivi dermatologique continu et ajustement mensuel du traitement."
+  ogTitle="Mixt — Votre peau mérite un vrai suivi"
+  ogDescription="Rosacée, hyperpigmentation, acné, eczéma. Un médecin propose votre formulation magistrale en pharmacie. Suivi continu, ajustement mensuel."
+  structuredData={structuredData}
+>
+  <Nav ctaLabel="Faire mon bilan" ctaHref="/premieres-patientes" />
+
+  <section class="relative px-6 md:px-10 pt-[calc(56px+80px)] pb-24 md:pb-32 bg-base">
+    <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
+      <div>
+        <HeroReveal
+          client:load
+          eyebrow="Téléconsultation dermatologique"
+          title="Votre peau mérite"
+          highlight="un vrai suivi."
+          subtitle="Un médecin évalue votre peau en téléconsultation, prescrit une formulation magistrale personnalisée préparée en pharmacie, et ajuste le traitement chaque mois."
+        >
+          <div class="flex flex-wrap gap-3">
+            <Button href="/premieres-patientes" variant="dark">Faire mon bilan en 2 min</Button>
+            <Button href="#how" variant="ghost">Comment ça marche</Button>
+          </div>
+        </HeroReveal>
+      </div>
+
+      <FadeInSection client:load delay={0.25} y={24}>
+        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-20px_rgba(54,24,34,0.35)]">
+          <img
+            src="/images/tuto-laeti-face.webp"
+            alt="Portrait de Laetitia"
+            class="absolute inset-0 h-full w-full object-cover"
+            fetchpriority="high"
+          />
+          <div class="absolute left-5 top-5 rounded-full bg-white/85 backdrop-blur px-3 py-1 text-[11px] font-semibold tracking-wider uppercase text-ink">
+            Pilote Mixt
+          </div>
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <section class="bg-cream">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-0">
+      <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-2 mb-4">
+        <span class="inline-block h-px w-10 bg-ink-2/60"></span>
+        Résultats documentés
+      </div>
+      <h2 class="font-serif text-[40px] md:text-[52px] font-normal leading-[1.1] tracking-[-0.03em] max-w-[640px] mb-4" style="font-variation-settings: 'opsz' 144;">
+        Des peaux vraies, <span class="italic-serif">des résultats mesurés.</span>
+      </h2>
+      <p class="text-[16px] md:text-lg leading-relaxed text-ink-2 max-w-[560px]">
+        Avant, après, et le travail qui se passe entre les deux — consultations, préparations, ajustements.
+      </p>
+    </div>
+    <PhotoReel client:load items={reelItems} />
+  </section>
+
+  <HowItWorks />
+  <Conditions />
+  <QuizCta />
+  <Footer />
+</BaseLayout>

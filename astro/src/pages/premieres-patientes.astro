@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import content from '../content/pages/premieres-patientes.html?raw';
+import styles from '../styles/pages/premieres-patientes.css?raw';
+---
+
+<BaseLayout
+  title="Taches brunes, rougeurs, imperfections — Mixt"
+  description="Un diagnostic précis par une dermatologue, un traitement préparé sur mesure, un suivi continu. Rejoignez nos premières patientes."
+  ogImage="https://mixt.care/images/hyperpigmentation.jpg"
+>
+  <Nav ctaLabel="Rejoindre" ctaHref="#rejoindre" />
+  <Fragment set:html={content} />
+  <Footer />
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var timeline = document.querySelector('.timeline');
+      var steps = document.querySelectorAll<HTMLElement>('.timeline-step');
+      if (!timeline || !steps.length) return;
+      function update() {
+        var rect = timeline.getBoundingClientRect();
+        var h = (timeline as HTMLElement).offsetHeight;
+        if (h === 0) { requestAnimationFrame(update); return; }
+        var trigger = window.innerHeight * 0.6;
+        var filled = trigger - rect.top;
+        var pct = Math.max(0, Math.min(100, (filled / h) * 100));
+        (timeline as HTMLElement).style.setProperty('--timeline-fill', pct + '%');
+        var fillAbs = rect.top + (pct / 100) * h;
+        steps.forEach(function (step) {
+          var dot = step.querySelector('.timeline-num');
+          if (!dot) return;
+          var dotY = dot.getBoundingClientRect().top;
+          if (fillAbs >= dotY) step.classList.add('in-view');
+        });
+        requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    });
+  </script>
+</BaseLayout>
+
+<style is:global set:html={styles}></style>
