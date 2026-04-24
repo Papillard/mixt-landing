@@ -15,14 +15,13 @@ const {
 <nav class="fixed top-0 left-0 right-0 z-[100] h-14 px-10 flex items-center justify-between bg-base border-b border-black/[0.06]">
   <a
     href={homeHref}
-    class="font-serif text-[28px] font-medium text-ink no-underline"
+    class="group font-serif text-[28px] font-medium text-ink no-underline leading-none tracking-[-0.01em] transition-colors"
     style="font-variation-settings: 'opsz' 144, 'WONK' 0, 'SOFT' 0;"
-  >
-    mixt
-  </a>
+    aria-label="Mixt — accueil"
+  >mixt<span class="text-ember transition-transform inline-block group-hover:translate-x-[2px]">.</span></a>
   <a
     href={ctaHref}
-    class="inline-flex items-center gap-2 px-[18px] py-2 text-[13px] font-semibold rounded-[6px] bg-deep text-white no-underline transition-colors hover:bg-[#2B1018]"
+    class="inline-flex items-center gap-2 px-5 py-2 text-[13px] font-semibold rounded-full bg-deep text-white no-underline transition-colors hover:bg-[#2B1018]"
   >
     {ctaLabel}
   </a>

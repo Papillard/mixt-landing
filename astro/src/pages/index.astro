@@ -2,13 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import Button from '../components/Button.astro';
-import Conditions from '../components/sections/Conditions.astro';
-import HowItWorks from '../components/sections/HowItWorks.astro';
-import QuizCta from '../components/sections/QuizCta.astro';
-import HeroReveal from '../components/motion/HeroReveal.tsx';
-import PhotoReel from '../components/motion/PhotoReel.tsx';
-import FadeInSection from '../components/motion/FadeInSection.tsx';
+import V3Hero from '../components/sections-v3/V3Hero.astro';
+import V3Problem from '../components/sections-v3/V3Problem.astro';
+import V3Pillars from '../components/sections-v3/V3Pillars.astro';
+import V3Steps from '../components/sections-v3/V3Steps.astro';
+import V3Respiration from '../components/sections-v3/V3Respiration.astro';
+import V3Conditions from '../components/sections-v3/V3Conditions.astro';
+import V3Science from '../components/sections-v3/V3Science.astro';
+import V3Testimonials from '../components/sections-v3/V3Testimonials.astro';
+import V3Pricing from '../components/sections-v3/V3Pricing.astro';
+import V3FaqCta from '../components/sections-v3/V3FaqCta.astro';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -20,7 +23,12 @@ const structuredData = {
       url: 'https://mixt.care',
       logo: 'https://mixt.care/favicons/android-chrome-512x512.png',
       description:
-        'Service médical français de dermatologie en ligne. Téléconsultation, formulation magistrale personnalisée préparée en pharmacie, et suivi dermatologique mensuel pour les conditions chroniques de la peau.',
+        'Service médical français de dermatologie en ligne. Téléconsultation, formulation magistrale personnalisée préparée en pharmacie partenaire, et suivi dermatologique continu pour les conditions chroniques de la peau.',
+      founder: [
+        { '@id': 'https://mixt.care/#laetitia' },
+        { '@id': 'https://mixt.care/#boris' },
+        { '@id': 'https://mixt.care/#bethsabee' },
+      ],
     },
     {
       '@type': 'MedicalBusiness',
@@ -29,111 +37,131 @@ const structuredData = {
       url: 'https://mixt.care',
       image: 'https://mixt.care/images/og-image.png',
       medicalSpecialty: 'Dermatology',
+      availableService: [
+        {
+          '@type': 'MedicalTherapy',
+          name: 'Téléconsultation dermatologique',
+          description:
+            'Consultation vidéo ou téléphonique avec un médecin pour évaluer votre peau, poser un diagnostic et prescrire un protocole personnalisé.',
+        },
+        {
+          '@type': 'MedicalTherapy',
+          name: 'Formulation magistrale personnalisée',
+          description:
+            "Préparation en pharmacie partenaire sur ordonnance médicale, avec principes actifs choisis et dosés pour votre cas.",
+        },
+        {
+          '@type': 'MedicalTherapy',
+          name: 'Suivi dermatologique continu',
+          description:
+            "Documentation régulière de l'évolution de la peau, messagerie illimitée avec votre médecin et ajustement du traitement pendant 3 mois.",
+        },
+      ],
       areaServed: { '@type': 'Country', name: 'France' },
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://mixt.care/#laetitia',
+      name: 'Laetitia Payan',
+      jobTitle: 'CEO & Co-fondatrice',
+      worksFor: { '@id': 'https://mixt.care/#organization' },
+      image: 'https://mixt.care/images/laetitia-after.webp',
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://mixt.care/#boris',
+      name: 'Boris Paillard',
+      jobTitle: 'CPO & Co-fondateur',
+      worksFor: { '@id': 'https://mixt.care/#organization' },
+      image: 'https://mixt.care/images/boris.webp',
+    },
+    {
+      '@type': 'Physician',
+      '@id': 'https://mixt.care/#bethsabee',
+      name: 'Dr Bethsabée Levy Garel',
+      jobTitle: 'Dermatologue Fondatrice',
+      medicalSpecialty: 'Dermatology',
+      worksFor: { '@id': 'https://mixt.care/#organization' },
+      image: 'https://mixt.care/images/bethsabee.webp',
+      alumniOf: 'Sorbonne Université',
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://mixt.care/#faq',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: "Qu'est-ce que Mixt apporte en plus ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Mixt est conçu pour vous accompagner dans la durée : un médecin dédié pendant 3 mois, messagerie illimitée et ajustement de la formule au fil des résultats. C'est un format complémentaire au parcours médical classique — pensé pour aller au bout de votre traitement. On travaille main dans la main avec les médecins, pas à leur place.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Qui est mon médecin Mixt ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Un médecin diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable. Pas un algorithme. Vous échangez avec lui par messagerie sécurisée et en visio ou par téléphone.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Et si la formule ne me convient pas ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Votre médecin la réajuste au fil du suivi. L'ajustement est inclus dans le forfait, sans surcoût.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Comment mes données de santé sont-elles protégées ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Vos données sont hébergées sur une infrastructure certifiée HDS (Hébergeur de Données de Santé), conformément à la réglementation française, et soumises au secret médical.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Comment sont mesurés mes KPI peau ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "À partir d'échelles cliniques validées et utilisées en recherche dermatologique (MASI, GEA, IGA, SCORAD). Votre médecin les évalue à chaque check-in et les traduit en indicateurs lisibles.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'La formule magistrale est-elle remboursée ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Partiellement, selon les actifs prescrits et votre mutuelle. Votre pharmacie partenaire vous fournit une feuille de soins.',
+          },
+        },
+      ],
     },
   ],
 };
-
-const reelItems = [
-  {
-    src: '/images/laetitia-before.webp',
-    alt: 'Laetitia avant le protocole',
-    label: 'Avant',
-    caption: 'Laetitia, hyperpigmentation post-inflammatoire.',
-  },
-  {
-    src: '/images/laetitia-after.webp',
-    alt: 'Laetitia après 12 semaines',
-    label: 'Après · 12 sem.',
-    caption: 'Formulation magistrale trétinoïne + acide azélaïque.',
-  },
-  {
-    src: '/images/melanie-before.webp',
-    alt: 'Mélanie avant',
-    label: 'Avant',
-    caption: 'Mélanie, mélasma.',
-  },
-  {
-    src: '/images/melanie-after.webp',
-    alt: 'Mélanie après 10 semaines',
-    label: 'Après · 10 sem.',
-    caption: 'Protocole personnalisé dosé par sa dermatologue.',
-  },
-  {
-    src: '/images/besthabee-consult.webp',
-    alt: 'Téléconsultation avec Dr Bethsabée',
-    label: 'Téléconsultation',
-    caption: 'Dr Bethsabée Levy Garel, dermatologue fondatrice.',
-  },
-  {
-    src: '/images/lab-3.webp',
-    alt: 'Préparation magistrale en pharmacie',
-    label: 'Pharmacie',
-    caption: 'Votre préparation, dosée et étiquetée à votre nom.',
-  },
-];
 ---
 
 <BaseLayout
-  title="Mixt — Votre peau mérite un vrai suivi | Rosacée, Hyperpigmentation, Acné, Eczéma"
-  description="Rosacée, hyperpigmentation, acné, eczéma : un médecin évalue votre peau en téléconsultation et propose une formulation magistrale personnalisée, préparée en pharmacie. Suivi dermatologique continu et ajustement mensuel du traitement."
-  ogTitle="Mixt — Votre peau mérite un vrai suivi"
-  ogDescription="Rosacée, hyperpigmentation, acné, eczéma. Un médecin propose votre formulation magistrale en pharmacie. Suivi continu, ajustement mensuel."
+  title="Mixt — Programme dermatologique 12 semaines | Suivi 1:1 + formule magistrale"
+  description="Un dermatologue analyse votre peau, construit votre protocole personnalisé, et l'ajuste semaine après semaine. Rosacée, hyperpigmentation, acné, eczéma — traitement sur ordonnance + suivi continu."
+  ogTitle="Mixt — Votre peau mérite un vrai suivi médical"
+  ogDescription="Programme dermato 12 semaines : consultation + formule magistrale personnalisée + suivi 1:1 avec ajustement de formule."
   structuredData={structuredData}
 >
-  <Nav ctaLabel="Faire mon bilan" ctaHref="/premieres-patientes" />
+  <Nav ctaLabel="Commencer" ctaHref="/premieres-patientes" />
 
-  <section class="relative px-6 md:px-10 pt-[calc(56px+80px)] pb-24 md:pb-32 bg-base">
-    <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
-      <div>
-        <HeroReveal
-          client:load
-          eyebrow="Téléconsultation dermatologique"
-          title="Votre peau mérite"
-          highlight="un vrai suivi."
-          subtitle="Un médecin évalue votre peau en téléconsultation, prescrit une formulation magistrale personnalisée préparée en pharmacie, et ajuste le traitement chaque mois."
-        >
-          <div class="flex flex-wrap gap-3">
-            <Button href="/premieres-patientes" variant="dark">Faire mon bilan en 2 min</Button>
-            <Button href="#how" variant="ghost">Comment ça marche</Button>
-          </div>
-        </HeroReveal>
-      </div>
+  <V3Hero />
+  <V3Problem />
+  <V3Pillars />
+  <V3Steps />
+  <V3Respiration />
+  <V3Conditions />
+  <V3Science />
+  <V3Testimonials />
+  <V3Pricing />
+  <V3FaqCta />
 
-      <FadeInSection client:load delay={0.25} y={24}>
-        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-20px_rgba(54,24,34,0.35)]">
-          <img
-            src="/images/tuto-laeti-face.webp"
-            alt="Portrait de Laetitia"
-            class="absolute inset-0 h-full w-full object-cover"
-            fetchpriority="high"
-          />
-          <div class="absolute left-5 top-5 rounded-full bg-white/85 backdrop-blur px-3 py-1 text-[11px] font-semibold tracking-wider uppercase text-ink">
-            Pilote Mixt
-          </div>
-        </div>
-      </FadeInSection>
-    </div>
-  </section>
-
-  <section class="bg-cream">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-0">
-      <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-2 mb-4">
-        <span class="inline-block h-px w-10 bg-ink-2/60"></span>
-        Résultats documentés
-      </div>
-      <h2 class="font-serif text-[40px] md:text-[52px] font-normal leading-[1.1] tracking-[-0.03em] max-w-[640px] mb-4" style="font-variation-settings: 'opsz' 144;">
-        Des peaux vraies, <span class="italic-serif">des résultats mesurés.</span>
-      </h2>
-      <p class="text-[16px] md:text-lg leading-relaxed text-ink-2 max-w-[560px]">
-        Avant, après, et le travail qui se passe entre les deux — consultations, préparations, ajustements.
-      </p>
-    </div>
-    <PhotoReel client:load items={reelItems} />
-  </section>
-
-  <HowItWorks />
-  <Conditions />
-  <QuizCta />
   <Footer />
 </BaseLayout>

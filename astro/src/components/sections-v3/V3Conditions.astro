@@ -1,0 +1,161 @@
+---
+import ConditionTabs from '../motion/ConditionTabs.tsx';
+import FadeInSection from '../motion/FadeInSection.tsx';
+
+// TODO: valider toutes les doses et mécanismes avec la dermatologue
+const tabs = [
+  {
+    id: 'hyperpigmentation',
+    label: 'Hyperpigmentation',
+    image: '/images/hyperpigmentation.webp',
+    imageAlt: 'Hyperpigmentation — peau avec taches brunes',
+    narrative:
+      "Les taches brunes et le mélasma ne partent pas avec une crème du commerce. Il faut des actifs prescrits, dosés au bon niveau, et du temps.",
+    resultBig: '−61 %',
+    resultCaption: 'de score MASI en 8 à 12 semaines¹',
+    formulation: {
+      title: "Une formule type pour l'hyperpigmentation",
+      sections: [
+        {
+          heading: 'Dépigmenter',
+          actifs: [
+            { name: 'Hydroquinone', dose: '4 %', mechanism: 'Inhibe la production de mélanine' },
+            { name: 'Trétinoïne', dose: '0,05 %', mechanism: 'Accélère le renouvellement cellulaire' },
+          ],
+        },
+        {
+          heading: 'Apaiser et prévenir les rechutes',
+          actifs: [
+            { name: 'Acide tranexamique', dose: '3 %', mechanism: "Calme l'inflammation" },
+            { name: 'Niacinamide', dose: '4 %', mechanism: 'Renforce la barrière cutanée' },
+          ],
+        },
+      ],
+      footer:
+        'Crème · application soir · préparée par notre pharmacie partenaire — ajustable à M2 selon votre tolérance et vos progrès',
+    },
+    disclaimer: 'Exemple indicatif. Votre dermatologue adapte la formule à votre cas.',
+  },
+  {
+    id: 'acne',
+    label: 'Acné',
+    image: '/images/acne.webp',
+    imageAlt: 'Acné — peau avec imperfections',
+    narrative:
+      "L'acné adulte est inflammatoire, souvent hormonale. Les crèmes grand public n'ont pas les dosages qu'il faut. Ce qui marche : actifs prescrits, dosés pour votre peau, sur plusieurs mois.",
+    resultBig: '−63 %',
+    resultCaption: 'de lésions inflammatoires en 12 semaines²',
+    formulation: {
+      title: "Une formule type pour l'acné",
+      sections: [
+        {
+          heading: 'Normaliser le renouvellement cellulaire',
+          actifs: [
+            { name: 'Adapalène', dose: '0,1 %', mechanism: 'Débouche les pores, action kératolytique' },
+            { name: 'Acide azélaïque', dose: '15 %', mechanism: 'Anti-inflammatoire, anti-comédogène' },
+          ],
+        },
+        {
+          heading: 'Cibler les bactéries et l\'inflammation',
+          actifs: [
+            { name: 'Clindamycine', dose: '1 %', mechanism: 'Antibiotique topique' },
+            { name: 'Niacinamide', dose: '4 %', mechanism: 'Réduit la séborrhée et les rougeurs' },
+          ],
+        },
+      ],
+      footer:
+        'Gel · application soir · préparée par notre pharmacie partenaire — photoprotection obligatoire le jour',
+    },
+    disclaimer: 'Exemple indicatif. Votre dermatologue adapte la formule à votre cas.',
+  },
+  {
+    id: 'rosacea',
+    label: 'Rosacée',
+    image: '/images/rosacea.webp',
+    imageAlt: 'Rosacée — peau avec rougeurs diffuses',
+    narrative:
+      "Rougeurs persistantes, flushs, couperose : la rosacée ne se maquille pas, elle se traite. Avec les bons actifs prescrits et du temps, on la met en rémission.",
+    resultBig: '−72 %',
+    resultCaption: 'de lésions inflammatoires en 16 semaines³',
+    formulation: {
+      title: 'Une formule type pour la rosacée',
+      sections: [
+        {
+          heading: 'Calmer l\'inflammation',
+          actifs: [
+            { name: 'Ivermectine', dose: '1 %', mechanism: 'Anti-parasitaire et anti-inflammatoire' },
+            { name: 'Acide azélaïque', dose: '15 %', mechanism: 'Diminue rougeurs et papules' },
+          ],
+        },
+        {
+          heading: 'Agir sur les rougeurs diffuses',
+          actifs: [
+            { name: 'Brimonidine', dose: '0,33 %', mechanism: 'Vasoconstricteur sélectif' },
+            { name: 'Niacinamide', dose: '4 %', mechanism: 'Renforce la barrière, apaise' },
+          ],
+        },
+      ],
+      footer:
+        'Crème · application soir · préparée par notre pharmacie partenaire — éviction des déclencheurs en parallèle',
+    },
+    disclaimer: 'Exemple indicatif. Votre dermatologue adapte la formule à votre cas.',
+  },
+  {
+    id: 'eczema',
+    label: 'Eczéma',
+    image: '/images/eczema.webp',
+    imageAlt: 'Peau avec eczéma',
+    narrative:
+      "L'eczéma atopique inflamme, démange, rechute. Une formule magistrale permet d'associer un anti-inflammatoire topique et les émollients qu'il vous faut, au bon dosage.",
+    resultBig: '−58 %',
+    resultCaption: "du score SCORAD en 12 semaines⁴",
+    formulation: {
+      title: "Une formule type pour l'eczéma",
+      sections: [
+        {
+          heading: 'Apaiser les poussées',
+          actifs: [
+            { name: 'Fluocinolone acétonide', dose: '0,025 %', mechanism: 'Corticoïde topique modéré' },
+            { name: 'Allantoïne', dose: '2 %', mechanism: 'Cicatrisante, apaisante' },
+          ],
+        },
+        {
+          heading: 'Restaurer la barrière',
+          actifs: [
+            { name: 'Niacinamide', dose: '4 %', mechanism: 'Lipogenèse, anti-inflammatoire' },
+            { name: 'Huile de camomille', dose: '1 %', mechanism: 'Émollient apaisant' },
+          ],
+        },
+      ],
+      footer:
+        'Crème · application matin et soir · préparée par notre pharmacie partenaire — cure courte sous contrôle dermato',
+    },
+    disclaimer: 'Exemple indicatif. Votre dermatologue adapte la formule à votre cas.',
+  },
+];
+---
+
+<section id="conditions" class="px-6 md:px-10 py-24 md:py-32 bg-cream">
+  <div class="max-w-[1200px] mx-auto">
+    <FadeInSection client:load>
+      <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-violet mb-5">
+        <span class="inline-block h-px w-10 bg-violet/80"></span>
+        Les conditions prises en charge
+      </div>
+      <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] max-w-[820px] mb-5 text-ink">
+        Ce qu'il y a vraiment<br class="hidden md:inline" /> <span class="italic-serif whitespace-nowrap">dans votre formule.</span>
+      </h2>
+      <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 max-w-[580px] mb-14">
+        Des actifs prescrits, dosés pour votre peau, expliqués sans jargon.
+      </p>
+    </FadeInSection>
+
+    <ConditionTabs client:load tabs={tabs} />
+
+    <FadeInSection client:load>
+      <div class="mt-14 pt-8 border-t border-black/[0.08] text-center text-[14px] text-ink-2 italic max-w-[720px] mx-auto leading-relaxed">
+        Ces actifs sont indisponibles en cosmétique, ou dosés 5 à 10 fois plus faiblement. Sur ordonnance uniquement.
+      </div>
+    </FadeInSection>
+  </div>
+</section>

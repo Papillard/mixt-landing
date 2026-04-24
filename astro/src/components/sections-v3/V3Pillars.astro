@@ -1,0 +1,87 @@
+---
+import PillarCard from '../motion/PillarCard.tsx';
+import FadeInSection from '../motion/FadeInSection.tsx';
+
+const pillars = [
+  {
+    image: '/images/lab-manipulation-vertical.jpg',
+    alt: 'Préparation magistrale en pharmacie',
+    title: 'Formule magistrale',
+    description: "Les actifs prescrits que les cosmétiques n'ont pas le droit d'utiliser, dosés sur-mesure pour votre peau.",
+    overlay: {
+      kind: 'formula' as const,
+      patientLabel: 'Préparé pour Marie D.',
+      rows: [
+        { name: 'Hydroquinone', dose: '4 %' },
+        { name: 'Trétinoïne', dose: '0,05 %' },
+        { name: 'Niacinamide', dose: '4 %' },
+        { name: 'Allantoïne', dose: '—' },
+      ],
+      footer: 'Pharmacie partenaire · Paris',
+    },
+  },
+  {
+    image: '/images/pillar-suivi-dermato.jpg',
+    alt: 'Patiente lisant un message de sa dermatologue depuis son canapé',
+    title: 'Suivi dermatologique 1:1',
+    description: 'Votre dermatologue reste avec vous pendant 12 semaines. Messagerie illimitée, ajustement de formule inclus.',
+    overlay: {
+      kind: 'chat' as const,
+      doctor: 'Dr Bethsabée Levy Garel',
+      status: 'En ligne',
+      message: "J'ai ajouté le niacinamide dans votre nouvelle formule. On fait le point à M2 ?",
+      reply: 'Parfait, merci docteur.',
+      avatar: '/images/bethsabee.webp',
+    },
+  },
+  {
+    image: '/images/closeup-eyebrow.jpg',
+    alt: 'Macro peau',
+    title: 'KPI peau mesurés',
+    description: 'Votre progression chiffrée, à partir des mêmes échelles cliniques que les essais en dermatologie.',
+    overlay: {
+      kind: 'score' as const,
+      label: 'Score peau',
+      score: '71',
+      delta: '+29 depuis M1',
+      rows: [
+        { label: 'MASI', value: '18 → 7' },
+        { label: 'Homogénéité', value: '●●●●○' },
+        { label: 'Intensité', value: '●●○○○' },
+      ],
+      footer: 'Calculé à partir du score MASI, échelle clinique de référence.',
+    },
+  },
+];
+---
+
+<section id="approche" class="px-6 md:px-10 py-24 md:py-32 bg-cream">
+  <div class="max-w-[1200px] mx-auto">
+    <FadeInSection client:load>
+      <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-warm mb-5">
+        <span class="inline-block h-px w-10 bg-warm/80"></span>
+        Notre approche
+      </div>
+      <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] max-w-[760px] mb-5 text-ink">
+        On vous accompagne<br class="hidden md:inline" /> <span class="italic-serif whitespace-nowrap">après l'ordonnance.</span>
+      </h2>
+      <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 max-w-[580px]">
+        Votre dermatologue vous suit pendant 12 semaines. Il ajuste votre formule, répond à vos questions, et mesure les progrès avec vous.
+      </p>
+    </FadeInSection>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7 mt-14 md:mt-16">
+      {pillars.map((p, i) => (
+        <PillarCard
+          client:load
+          image={p.image}
+          alt={p.alt}
+          title={p.title}
+          description={p.description}
+          overlay={p.overlay}
+          index={i}
+        />
+      ))}
+    </div>
+  </div>
+</section>

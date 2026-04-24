@@ -1,2 +1,11 @@
 .DS_Store
 .gstack/
+
+# Environment / secrets
+*.env
+!*.env.example
+astro/.env
+
+# AI image generation — archive locale, pas pushée
+astro/public/images/generated/*
+!astro/public/images/generated/.gitkeep
