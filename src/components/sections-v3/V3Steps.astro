@@ -1,0 +1,73 @@
+---
+import StickySteps from '../motion/StickySteps.tsx';
+import FadeInSection from '../motion/FadeInSection.tsx';
+
+const steps = [
+  {
+    number: '01',
+    title: 'On analyse votre peau',
+    desc: "Photos standardisées, symptômes, historique, traitements déjà essayés. Un questionnaire médical de 30 minutes.",
+  },
+  {
+    number: '02',
+    title: 'Consultation avec votre dermatologue',
+    desc: "Diagnostic, discussion, prescription d'une formule magistrale adaptée à votre peau.",
+  },
+  {
+    number: '03',
+    title: 'Préparation et démarrage du traitement',
+    desc: 'Votre formule est préparée par notre pharmacie partenaire et livrée chez vous.',
+  },
+  {
+    number: '04',
+    title: 'Suivi, mesure, ajustement',
+    desc: 'Check-ins mensuels, ajustement de formule, bilan à 12 semaines, puis maintenance.',
+  },
+];
+
+const panels = [
+  {
+    label: 'Étape 01',
+    kind: 'image' as const,
+    src: '/images/woman-mirror-melasma.jpg',
+    alt: 'Auto-observation de sa peau au miroir',
+  },
+  {
+    label: 'Étape 02',
+    kind: 'image' as const,
+    src: '/images/step-02-consultation.jpg',
+    alt: 'Téléconsultation avec la dermatologue depuis chez soi',
+  },
+  {
+    label: 'Étape 03',
+    kind: 'image' as const,
+    src: '/images/step-03-preparation.jpg',
+    alt: 'Préparation de la formule magistrale en pharmacie partenaire',
+  },
+  {
+    label: 'Étape 04',
+    kind: 'chart' as const,
+    chartRows: [
+      { when: 'Semaine 4', what: 'Check-in photos · premier KPI peau' },
+      { when: 'Semaine 8', what: 'Ajustement de formule si besoin' },
+      { when: 'Semaine 12', what: 'Bilan complet · reformulation ou renouvellement' },
+    ],
+  },
+];
+---
+
+<section class="px-6 md:px-10 py-24 md:py-32 bg-base">
+  <div class="max-w-[1200px] mx-auto">
+    <FadeInSection client:load>
+      <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-5">
+        <span class="inline-block h-px w-10 bg-ember-deep/80"></span>
+        Le parcours
+      </div>
+      <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] max-w-[720px] mb-14 md:mb-20 text-ink">
+        Comment <span class="italic-serif">ça marche.</span>
+      </h2>
+    </FadeInSection>
+
+    <StickySteps client:load steps={steps} panels={panels} />
+  </div>
+</section>

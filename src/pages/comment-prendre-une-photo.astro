@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import content from '../content/pages/tuto-photo.html?raw';
+import styles from '../styles/pages/tuto-photo.css?raw';
+---
+
+<BaseLayout
+  title="Comment prendre une bonne photo de votre peau — Mixt"
+  description="Guide photo pour une peau bien évaluée : netteté, lumière, cadrage, et conseils par zone (visage, profil, zoom)."
+>
+  <Nav ctaLabel="Faire mon bilan" ctaHref="/premieres-patientes" />
+  <Fragment set:html={content} />
+  <Footer />
+</BaseLayout>
+
+<style is:global set:html={styles}></style>

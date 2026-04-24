@@ -1,0 +1,11 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import content from '../content/legal/politique.html?raw';
+---
+
+<LegalLayout
+  title="Politique de Confidentialité — Mixt"
+  description="Politique de Confidentialité de la Solution Mixt."
+>
+  <Fragment set:html={content} />
+</LegalLayout>

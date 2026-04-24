@@ -1,0 +1,142 @@
+---
+import Button from '../Button.astro';
+import FadeInSection from '../motion/FadeInSection.tsx';
+
+const features = [
+  'Téléconsultation avec un dermatologue',
+  'Prescription magistrale personnalisée',
+  'Messagerie illimitée pendant 3 mois',
+  'Check-ins mensuels avec photos',
+  'Reformulation incluse si besoin',
+  "Renouvellement d'ordonnance inclus",
+];
+
+const compareRows = [
+  { label: 'Délai pour un RDV', classic: '3 à 6 mois', mixt: '1 semaine' },
+  { label: 'Consultation', classic: '~15 min en cabinet', mixt: 'Entretien de 30 min · analyse photo · plan personnalisé · téléconsultation de 15 min' },
+  { label: 'Traitement', classic: 'Ordonnance parfois générique', mixt: 'Formulation magistrale sur-mesure (quand c\'est adapté)' },
+  { label: 'Suivi', classic: '✗', mixt: 'Mensuel, messagerie illimitée' },
+  { label: 'Ajustement et renouvellement', classic: 'Nouveau RDV (+ attente)', mixt: 'Inclus' },
+  { label: 'Mesure des progrès', classic: '✗', mixt: 'KPI peau mensuels' },
+  { label: 'Coût', classic: 'Paiement par consultation (remboursé selon secteur)', mixt: '119 € · forfait 3 mois complets' },
+];
+
+// TODO: obtenir les accords formels et photos N&B des trois professeurs
+const advisors = [
+  { name: 'Pr Brigitte Dreno', affiliation: 'CHU Nantes · Dermatologie', initials: 'BD' },
+  { name: 'Pr Selim Aractingi', affiliation: 'Hôpital Saint-Louis · Dermatologie', initials: 'SA' },
+  { name: 'Pr Alain Taïeb', affiliation: 'CHU Bordeaux · Dermatologie', initials: 'AT' },
+];
+
+const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
+---
+
+<section id="tarifs" class="px-6 md:px-10 py-24 md:py-32 bg-base">
+  <div class="max-w-[1200px] mx-auto">
+    <FadeInSection client:load>
+      <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] text-center max-w-[880px] mx-auto mb-4 text-ink">
+        Un parcours complet,<br class="hidden md:inline" /> <span class="italic-serif whitespace-nowrap">pensé pour durer.</span>
+      </h2>
+    </FadeInSection>
+
+    <FadeInSection client:load delay={0.1}>
+      <div class="relative max-w-[480px] mx-auto mt-14 mb-14 p-10 md:p-12 bg-deep text-white rounded-[12px] shadow-[0_30px_80px_-30px_rgba(54,24,34,0.6)]">
+        <div class="inline-flex items-center gap-2 mb-5 rounded-full bg-ember text-deep px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em]">
+          <span class="inline-block w-[5px] h-[5px] rounded-full bg-deep"></span>
+          Offre lancement · 100 places
+        </div>
+        <div class="flex items-baseline gap-3 mb-2">
+          <div class="text-[68px] md:text-[80px] font-semibold leading-none tracking-[-0.04em]">
+            69 €
+          </div>
+          <div class="text-[26px] md:text-[30px] font-medium leading-none text-white/40 line-through decoration-white/50 decoration-2">
+            119 €
+          </div>
+        </div>
+        <div class="text-[14px] text-white/60 mb-7 pb-6 border-b border-white/15">
+          3 mois de suivi dermatologique complet
+        </div>
+        <ul class="flex flex-col gap-1 mb-7">
+          {features.map((f) => (
+            <li class="flex items-start gap-3 text-[14px] text-white/90 py-1">
+              <span class="text-jade">✓</span>
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+        <Button href="/premieres-patientes" variant="white" class="w-full justify-center">Commencer mon bilan →</Button>
+        {/* TODO: confirmer pricing pharmacie +30 à 60€ */}
+        <div class="mt-5 pt-4 border-t border-white/15 text-[12px] text-white/55 leading-relaxed">
+          + 30 à 60 € pour l'achat du traitement selon la prescription<br>(non inclus)
+        </div>
+      </div>
+    </FadeInSection>
+
+    <FadeInSection client:load delay={0.15}>
+      <div class="max-w-[920px] mx-auto overflow-hidden rounded-[12px] border border-black/[0.08]">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr>
+              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink-3 font-semibold bg-cream/60 border-b border-black/[0.08]">&nbsp;</th>
+              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink-3 font-semibold bg-cream/60 border-b border-black/[0.08]">Consultation classique</th>
+              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink font-semibold bg-cream border-b border-black/[0.08] border-l border-r border-warm/40">Mixt</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((r, i) => (
+              <tr class={i < compareRows.length - 1 ? 'border-b border-black/[0.06]' : ''}>
+                <td class="px-5 md:px-6 py-4 text-[14px] text-ink font-medium">{r.label}</td>
+                <td class="px-5 md:px-6 py-4 text-[14px] text-ink-2">{r.classic}</td>
+                <td class="px-5 md:px-6 py-4 text-[14px] text-ink bg-cream/60 border-l border-r border-warm/40 font-medium">{r.mixt}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </FadeInSection>
+
+    <FadeInSection client:load>
+      <p class="text-center text-[16px] md:text-[18px] italic-serif text-ink-2 mt-10 max-w-[680px] mx-auto leading-relaxed">
+        Un forfait clair, sans surprise. Tout inclus pour aller au bout de votre traitement.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-6 md:gap-8 mt-8 text-[12.5px] text-ink-3">
+        <span>✓ Secret médical respecté</span>
+        <span>✓ Données de santé hébergées en France (HDS)</span>
+        <span>✓ Médecin diplômé, RPPS vérifiable</span>
+      </div>
+    </FadeInSection>
+
+    {/*
+      Advisory strip (Pr Dreno / Pr Aractingi / Pr Taïeb + logos CHU / SFD / HDS)
+      masquée tant qu'on n'a pas le board médical formel et les accords.
+      À ré-activer quand les partenariats sont signés.
+
+      <FadeInSection client:load>
+        <div class="mt-24 md:mt-28 pt-14 border-t border-black/[0.08] text-center">
+          <h4 class="text-[11px] uppercase tracking-[0.18em] text-ink-2 font-semibold mb-10">
+            Protocole validé par un comité scientifique
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-[720px] mx-auto mb-12">
+            {advisors.map((a) => (
+              <div class="flex flex-col items-center gap-3">
+                <div class="w-24 h-24 rounded-full bg-cream border border-black/[0.08] flex items-center justify-center">
+                  <span class="font-semibold text-[20px] text-ink-2 tracking-[0.04em]">{a.initials}</span>
+                </div>
+                <strong class="text-[14px] font-semibold text-ink">{a.name}</strong>
+                <span class="text-[11.5px] text-ink-3">{a.affiliation}</span>
+              </div>
+            ))}
+          </div>
+          <div class="flex flex-wrap justify-center gap-5 md:gap-8 pt-8 border-t border-black/[0.08]">
+            {logos.map((l) => (
+              <div class="px-4 py-3 rounded-[6px] border border-black/[0.08] text-[11px] text-ink-3 uppercase tracking-[0.12em]">
+                {l}
+              </div>
+            ))}
+          </div>
+        </div>
+      </FadeInSection>
+    */}
+  </div>
+</section>

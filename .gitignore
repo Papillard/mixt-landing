@@ -1,2 +1,27 @@
 .DS_Store
 .gstack/
+
+# Build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment / secrets
+*.env
+!*.env.example
+
+# IDE
+.idea/
+.vscode/
+
+# AI image generation — archive locale, pas pushée
+public/images/generated/*
+!public/images/generated/.gitkeep

@@ -1,0 +1,69 @@
+---
+import BigNumber from '../motion/BigNumber.tsx';
+import FadeInSection from '../motion/FadeInSection.tsx';
+
+// Stats patient-centered, pas de blâme dermato.
+// Ton bienveillant + partenaire.
+const stats = [
+  {
+    value: 16,
+    suffix: ' M',
+    caption: 'de Français vivent avec une condition cutanée chronique.',
+  },
+  {
+    value: 51,
+    suffix: ' %',
+    caption: 'des personnes arrêtent leur traitement avant de voir des résultats.',
+  },
+  {
+    value: 76,
+    suffix: ' %',
+    caption: 'de réduction des lésions quand le traitement est suivi et ajusté dans la durée.',
+  },
+];
+---
+
+<section class="px-6 md:px-10 py-24 md:py-32 bg-base">
+  <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
+    <div>
+      <FadeInSection client:load>
+        <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-5">
+          <span class="inline-block h-px w-10 bg-ember-deep/80"></span>
+          Le constat
+        </div>
+        <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] max-w-[560px] mb-5 text-ink">
+          Les traitements fonctionnent.<br class="hidden md:inline" /> <span class="italic-serif whitespace-nowrap">Le suivi change tout.</span>
+        </h2>
+        <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 max-w-[520px] mb-10 md:mb-12">
+          La dermatologie moderne a les actifs qu'il faut. Ce qu'il manque souvent, c'est un suivi dans la durée pour aller au bout du traitement.
+        </p>
+      </FadeInSection>
+
+      <div class="flex flex-col gap-8">
+        {stats.map((s, i) => (
+          <FadeInSection client:load delay={i * 0.08}>
+            <div class="flex items-center gap-5 md:gap-8 pt-5 border-t border-ink/15">
+              <div class="text-[52px] md:text-[64px] font-semibold leading-[0.95] tracking-[-0.04em] text-ink shrink-0 min-w-[140px] md:min-w-[180px]">
+                <BigNumber client:load value={s.value} suffix={s.suffix} format="comma" />
+              </div>
+              <p class="text-[14.5px] md:text-[15.5px] text-ink-2 leading-[1.5]">{s.caption}</p>
+            </div>
+          </FadeInSection>
+        ))}
+      </div>
+
+    </div>
+
+    <FadeInSection client:load delay={0.15} y={24}>
+      <div class="grain-overlay relative aspect-[4/5] overflow-hidden rounded-3xl bg-blush/20 shadow-[0_20px_60px_-20px_rgba(54,24,34,0.25)]">
+        <img
+          src="/images/problem-visual.jpg"
+          alt="Patiente attentive à sa peau, geste quotidien de soin"
+          loading="lazy"
+          decoding="async"
+          class="film-grade absolute inset-0 h-full w-full object-cover"
+        />
+      </div>
+    </FadeInSection>
+  </div>
+</section>

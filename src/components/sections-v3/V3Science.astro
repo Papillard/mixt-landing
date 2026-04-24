@@ -1,0 +1,60 @@
+---
+import BigNumber from '../motion/BigNumber.tsx';
+import FadeInSection from '../motion/FadeInSection.tsx';
+import ClusterMap from '../motion/ClusterMap.tsx';
+
+const stats = [
+  { value: 500000, suffix: '+', caption: "formulations magistrales analysées pour identifier les combinaisons d'actifs les plus efficaces." },
+  { value: 200, suffix: '+', caption: 'publications dermatologiques croisées pour valider les dosages et les associations.' },
+  { value: 15, suffix: ' ans', caption: "d'expérience de notre pharmacie partenaire dans la préparation magistrale." },
+];
+---
+
+<section class="relative px-6 md:px-10 py-24 md:py-32 bg-sage-deep text-white overflow-hidden">
+  {/* Subtle grid background */}
+  <div
+    class="absolute inset-0 pointer-events-none opacity-[0.4]"
+    style="background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 120px 120px; mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 15%, rgba(0,0,0,0.5) 85%, transparent 100%);"
+  ></div>
+
+  <div class="relative max-w-[1200px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-start">
+      <FadeInSection client:load>
+        <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-mint mb-5">
+          <span class="inline-block h-px w-10 bg-mint/80"></span>
+          La science derrière la formule
+        </div>
+        <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] mb-6 text-white">
+          Documenté. <span class="italic-serif text-mint whitespace-nowrap">Pas inventé.</span>
+        </h2>
+        <p class="text-[17px] md:text-lg leading-relaxed text-white/70 mb-8 max-w-[540px]">
+          Chaque prescription Mixt s'appuie sur trois sources : la littérature dermatologique, l'expérience clinique de votre médecin, et des centaines de milliers de formulations magistrales historiques analysées.
+        </p>
+        <div class="border-l-2 border-mint pl-6 italic-serif text-[18px] leading-relaxed text-white/85 max-w-[540px]">
+          On n'invente pas votre formule. On identifie, dans une base historique de centaines de milliers de prescriptions et dans la littérature scientifique, celle qui a le plus de chances de marcher pour votre peau. Puis votre dermatologue tranche.
+        </div>
+      </FadeInSection>
+
+      <div class="lg:sticky lg:top-24">
+        <FadeInSection client:load delay={0.15}>
+          <ClusterMap client:load />
+          <p class="mt-4 text-[12px] text-white/50 italic text-center leading-relaxed">
+            {/* TODO: valider chiffre 493 000 et logique K-Means */}
+            Analyse K-Means sur 493 000 prescriptions magistrales historiques anonymes — pharmacie partenaire. Chaque cluster représente une combinaison d'actifs récurrente, validée par la littérature.
+          </p>
+        </FadeInSection>
+      </div>
+    </div>
+
+    <div class="mt-24 md:mt-32 pt-10 border-t border-white/10 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+      {stats.map((s, i) => (
+        <FadeInSection client:load delay={i * 0.1}>
+          <div class="text-[48px] md:text-[60px] font-semibold leading-[0.95] tracking-[-0.04em] text-white mb-3">
+            <BigNumber client:load value={s.value} suffix={s.suffix} format="comma" />
+          </div>
+          <p class="text-[14px] text-white/65 leading-relaxed max-w-[260px]">{s.caption}</p>
+        </FadeInSection>
+      ))}
+    </div>
+  </div>
+</section>

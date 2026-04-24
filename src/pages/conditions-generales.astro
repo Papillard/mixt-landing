@@ -1,0 +1,11 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import content from '../content/legal/cgu.html?raw';
+---
+
+<LegalLayout
+  title="Conditions Générales d'Utilisation — Mixt"
+  description="Conditions Générales d'Utilisation de la Solution Mixt."
+>
+  <Fragment set:html={content} />
+</LegalLayout>

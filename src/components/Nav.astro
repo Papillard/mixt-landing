@@ -1,0 +1,37 @@
+---
+interface Props {
+  ctaHref?: string;
+  ctaLabel?: string;
+  homeHref?: string;
+}
+
+const {
+  ctaHref = '/premieres-patientes',
+  ctaLabel = 'Rejoindre',
+  homeHref = '/',
+} = Astro.props;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-[100] h-14 px-10 flex items-center justify-between bg-base border-b border-black/[0.06]">
+  <a
+    href={homeHref}
+    class="group font-serif text-[28px] font-medium text-ink no-underline leading-none tracking-[-0.01em] transition-colors"
+    style="font-variation-settings: 'opsz' 144, 'WONK' 0, 'SOFT' 0;"
+    aria-label="Mixt — accueil"
+  >mixt<span class="text-ember transition-transform inline-block group-hover:translate-x-[2px]">.</span></a>
+  <a
+    href={ctaHref}
+    class="inline-flex items-center gap-2 px-5 py-2 text-[13px] font-semibold rounded-full bg-deep text-white no-underline transition-colors hover:bg-[#2B1018]"
+  >
+    {ctaLabel}
+  </a>
+</nav>
+
+<style>
+  @media (max-width: 720px) {
+    nav {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+</style>

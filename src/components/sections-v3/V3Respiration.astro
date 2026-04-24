@@ -1,0 +1,63 @@
+---
+import Button from '../Button.astro';
+
+interface Props {
+  image?: string;
+  eyebrow?: string;
+  title?: string;
+  highlight?: string;
+  subtitle?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const {
+  image = '/images/respiration-1.jpg',
+  eyebrow = 'Traitement qui évolue',
+  title = 'Un traitement qui évolue avec votre peau.',
+  highlight = "C'est ce qui change tout.",
+  subtitle = 'Chaque mois, votre peau est documentée. Chaque mois, la formule s\'ajuste. Aucun traitement ne reste figé.',
+  ctaLabel = 'Faire mon bilan →',
+  ctaHref = '/premieres-patientes',
+} = Astro.props;
+---
+
+<section class="relative min-h-[560px] md:min-h-[640px] overflow-hidden">
+  {/* Photo background */}
+  <img
+    src={image}
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+    class="film-grade absolute inset-0 h-full w-full object-cover scale-[1.02]"
+  />
+
+  {/* Gradient overlay — darkens bottom and right for text readability */}
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: linear-gradient(180deg, rgba(26,18,16,0.15) 0%, rgba(26,18,16,0.45) 50%, rgba(26,18,16,0.82) 100%);"
+  ></div>
+
+  {/* Grain overlay for cohérence film */}
+  <div class="grain-overlay absolute inset-0 pointer-events-none"></div>
+
+  {/* Contenu */}
+  <div class="relative z-[2] max-w-[1200px] mx-auto px-6 md:px-10 min-h-[560px] md:min-h-[640px] flex flex-col justify-end pb-16 md:pb-20">
+    <div class="max-w-[640px]">
+      <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/85 mb-5">
+        <span class="inline-block h-px w-10 bg-white/60"></span>
+        {eyebrow}
+      </div>
+      <h2 class="text-[36px] md:text-[50px] font-medium leading-[1.08] tracking-[-0.035em] text-white mb-5">
+        {title} <span class="italic-serif whitespace-nowrap">{highlight}</span>
+      </h2>
+      {subtitle && (
+        <p class="text-[16px] md:text-[17px] leading-[1.6] text-white/80 max-w-[540px] mb-8">
+          {subtitle}
+        </p>
+      )}
+      <Button href={ctaHref} variant="white">{ctaLabel}</Button>
+    </div>
+  </div>
+</section>

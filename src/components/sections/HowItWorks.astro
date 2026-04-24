@@ -1,0 +1,46 @@
+---
+const steps = [
+  {
+    n: '01',
+    title: 'Vous décrivez votre peau',
+    body: 'Photos, symptômes, antécédents. Quelques minutes suffisent.',
+  },
+  {
+    n: '02',
+    title: 'Téléconsultation vidéo',
+    body: "Un médecin évalue votre peau, pose un diagnostic et prescrit un protocole personnalisé.",
+  },
+  {
+    n: '03',
+    title: 'Formulation magistrale',
+    body: "Votre préparation est faite en pharmacie sur ordonnance et livrée chez vous.",
+  },
+  {
+    n: '04',
+    title: 'Suivi mensuel',
+    body: "Vous documentez l'évolution, votre médecin ajuste le traitement chaque mois.",
+  },
+];
+---
+
+<section id="how" class="px-10 py-24 md:py-32 bg-cream">
+  <div class="max-w-[1100px] mx-auto">
+    <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-2 mb-5">
+      <span class="inline-block h-px w-10 bg-ink-2/60"></span>
+      Comment ça marche
+    </div>
+    <h2 class="font-serif text-[40px] md:text-[52px] font-normal leading-[1.1] tracking-[-0.03em] max-w-[620px] mb-14" style="font-variation-settings: 'opsz' 144;">
+      Un parcours clair, <span class="italic-serif">un médecin à chaque étape.</span>
+    </h2>
+
+    <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {steps.map((s) => (
+        <li class="relative flex flex-col gap-3 pt-6 border-t border-ink/10">
+          <span class="font-serif text-[13px] font-medium tracking-[0.04em] text-warm" style="font-variation-settings: 'opsz' 144;">{s.n}</span>
+          <h3 class="font-serif text-[22px] font-medium leading-tight text-ink" style="font-variation-settings: 'opsz' 144;">{s.title}</h3>
+          <p class="text-[15px] leading-relaxed text-ink-2">{s.body}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

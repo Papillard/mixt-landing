@@ -1,0 +1,29 @@
+---
+import Button from '../Button.astro';
+---
+
+<section class="px-10 py-24 md:py-32 bg-deep text-white relative overflow-hidden">
+  <div
+    class="absolute -bottom-[6vw] left-1/2 -translate-x-1/2 whitespace-nowrap font-serif text-[22vw] font-medium text-white/[0.04] pointer-events-none leading-[0.85]"
+    style="font-variation-settings: 'opsz' 144;"
+  >
+    mixt
+  </div>
+  <div class="relative z-[2] max-w-[780px] mx-auto text-center">
+    <div class="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-blush mb-6">
+      <span class="inline-block h-px w-10 bg-blush/60"></span>
+      Premières patientes
+      <span class="inline-block h-px w-10 bg-blush/60"></span>
+    </div>
+    <h2 class="font-serif text-[40px] md:text-[54px] font-normal leading-[1.1] tracking-[-0.03em] mb-6 text-white" style="font-variation-settings: 'opsz' 144;">
+      Votre peau mérite <span class="italic-serif">un vrai suivi.</span>
+    </h2>
+    <p class="text-[17px] md:text-lg leading-relaxed text-white/70 mb-10 max-w-[560px] mx-auto">
+      Faites votre bilan de peau en 2 minutes. Un médecin Mixt vous recontacte sous 48h.
+    </p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <Button href="/premieres-patientes" variant="white">Faire mon bilan</Button>
+      <Button href="mailto:contact@mixt.care" variant="ghost-light">Parler à Mixt</Button>
+    </div>
+  </div>
+</section>
