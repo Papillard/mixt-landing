@@ -2,8 +2,53 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import content from '../content/pages/tuto-photo.html?raw';
-import styles from '../styles/pages/tuto-photo.css?raw';
+import FadeInSection from '../components/motion/FadeInSection.tsx';
+import ChecksList from '../components/ChecksList.astro';
+
+const duos = [
+  {
+    step: 'Étape 1',
+    label: 'Photo de face',
+    schema: '/images/tuto-face.webp',
+    example: '/images/tuto-laeti-face.webp',
+    caption: "Regardez droit dans l'objectif, lumière de face.",
+  },
+  {
+    step: 'Étape 2',
+    label: 'Photo de profil',
+    schema: '/images/tuto-profil.webp',
+    example: '/images/tuto-laeti-profil.webp',
+    caption: 'Tournez la tête à 90°, joue bien exposée vers la fenêtre.',
+  },
+  {
+    step: 'Étape 3',
+    label: 'Photo zoomée',
+    schema: '/images/tuto-zoom.webp',
+    example: '/images/tuto-laeti-zoom.webp',
+    caption: "Rapprochez l'appareil de la zone concernée, lumière uniforme.",
+  },
+];
+
+const beforeChecks = [
+  { kind: 'do' as const, text: "Utilisez la caméra arrière de votre téléphone si possible : si un proche peut vous photographier, c'est le mieux — la caméra arrière est de meilleure qualité que la caméra selfie." },
+  { kind: 'do' as const, text: 'Si vous êtes seul(e), la caméra selfie fonctionne très bien aussi.' },
+  { kind: 'dont' as const, text: 'Désactivez le flash — il écrase les détails et fausse les couleurs.' },
+  { kind: 'dont' as const, text: "Pas de filtre, pas de retouche. On a besoin de voir votre peau telle qu'elle est." },
+];
+
+const lightChecks = [
+  { kind: 'do' as const, text: "Placez-vous près d'une fenêtre, en lumière du jour naturelle." },
+  { kind: 'dont' as const, text: 'Évitez le soleil direct — une lumière douce et diffuse est parfaite.' },
+  { kind: 'dont' as const, text: 'Ne vous mettez jamais dos à la fenêtre — votre visage serait dans l\'ombre.' },
+  { kind: 'do' as const, text: "Le matin ou en milieu de journée, c'est idéal." },
+];
+
+const verifyChecks = [
+  { kind: 'do' as const, text: 'La photo est nette — pas floue, pas bougée.' },
+  { kind: 'do' as const, text: 'On voit clairement la zone de peau concernée.' },
+  { kind: 'dont' as const, text: 'Pas de filtre, pas d\'effet beauté activé sur l\'appareil photo.' },
+  { kind: 'do' as const, text: 'En cas de doute, prenez-en plusieurs et gardez la meilleure.' },
+];
 ---
 
 <BaseLayout
@@ -11,8 +56,154 @@ import styles from '../styles/pages/tuto-photo.css?raw';
   description="Guide photo pour une peau bien évaluée : netteté, lumière, cadrage, et conseils par zone (visage, profil, zoom)."
 >
   <Nav ctaLabel="Faire mon bilan" ctaHref="/premieres-patientes" />
-  <Fragment set:html={content} />
+
+  <main class="max-w-[860px] mx-auto px-6 md:px-10 pt-[calc(56px+48px)] md:pt-[calc(56px+72px)] pb-20 md:pb-28">
+    {/* HERO */}
+    <FadeInSection client:load>
+      <header class="text-center pb-10 md:pb-14 mb-12 md:mb-16 border-b border-black/[0.06]">
+        <div class="flex items-center justify-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-5">
+          <span class="inline-block h-px w-6 bg-ember-deep"></span>
+          Guide photo
+        </div>
+        <h1 class="text-[36px] md:text-[48px] lg:text-[56px] font-medium leading-[1.08] tracking-[-0.035em] text-ink mb-5">
+          Comment prendre une <span class="italic-serif">bonne</span> photo de votre peau
+        </h1>
+        <p class="text-[17px] md:text-[19px] leading-[1.6] text-ink-2 max-w-[560px] mx-auto">
+          Quelques minutes pour une photo nette, exploitable par votre dermatologue et qui permet
+          un diagnostic précis.
+        </p>
+      </header>
+    </FadeInSection>
+
+    {/* ABOUT MIXT */}
+    <FadeInSection client:load>
+      <aside class="bg-cream rounded-2xl px-6 py-6 md:px-7 md:py-7 mb-14 md:mb-20 text-[15px] md:text-[16px] leading-[1.65] text-ink">
+        <p class="m-0">
+          Mixt est une plateforme de télédermatologie dédiée aux affections chroniques de la peau :
+          taches brunes, mélasma, rosacée, acné, hyperpigmentation, eczéma. Nous travaillons avec
+          des dermatologues pour proposer un traitement personnalisé et un suivi sur le long terme.
+        </p>
+        <p class="mt-2.5 m-0">
+          Pour rejoindre nos premières patientes, c'est par
+          <a
+            href="/premieres-patientes"
+            class="text-ember-deep underline underline-offset-[3px] font-medium hover:text-ember"
+            >ici</a
+          >.
+        </p>
+      </aside>
+    </FadeInSection>
+
+    {/* PRÉPARATION */}
+    <FadeInSection client:load>
+      <section class="mb-16 md:mb-24">
+        <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-5">
+          <span class="inline-block h-px w-6 bg-ember-deep"></span>
+          Préparation
+        </div>
+        <h2 class="text-[32px] md:text-[40px] lg:text-[48px] font-medium leading-[1.1] tracking-[-0.03em] text-ink mb-7">
+          Avant de <span class="italic-serif">commencer.</span>
+        </h2>
+        <ChecksList checks={beforeChecks} />
+      </section>
+    </FadeInSection>
+
+    {/* LUMIÈRE */}
+    <FadeInSection client:load>
+      <section class="mb-16 md:mb-24">
+        <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-5">
+          <span class="inline-block h-px w-6 bg-ember-deep"></span>
+          Lumière
+        </div>
+        <h2 class="text-[32px] md:text-[40px] lg:text-[48px] font-medium leading-[1.1] tracking-[-0.03em] text-ink mb-7">
+          La lumière, <span class="italic-serif">c'est la clef.</span>
+        </h2>
+        <ChecksList checks={lightChecks} />
+      </section>
+    </FadeInSection>
+
+    {/* CADRAGE */}
+    <FadeInSection client:load>
+      <section class="mb-16 md:mb-24">
+        <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-5">
+          <span class="inline-block h-px w-6 bg-ember-deep"></span>
+          Cadrage
+        </div>
+        <h2 class="text-[32px] md:text-[40px] lg:text-[48px] font-medium leading-[1.1] tracking-[-0.03em] text-ink mb-5">
+          Les 3 types de <span class="italic-serif">photos.</span>
+        </h2>
+        <p class="text-[16px] md:text-[17px] leading-[1.6] text-ink-2 mb-10">
+          Prenez les 3 photos au même endroit, près d'une fenêtre, en lumière naturelle et sans
+          flash. L'orientation par rapport à la fenêtre change selon la photo — voir chaque étape
+          ci-dessous.
+        </p>
+
+        <div class="grid grid-cols-1 gap-9">
+          {duos.map((d, i) => (
+            <FadeInSection client:load delay={i * 0.05}>
+              <div class="bg-cream rounded-2xl p-5 md:p-6">
+                <div class="flex flex-col items-start gap-1.5 mb-4 px-1">
+                  <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ember-deep">
+                    {d.step}
+                  </span>
+                  <span class="text-[20px] md:text-[22px] font-semibold tracking-[-0.02em] text-ink">
+                    {d.label}
+                  </span>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <figure class="relative m-0">
+                    <img
+                      src={d.schema}
+                      loading="lazy"
+                      alt={`Illustration — ${d.label.toLowerCase()}`}
+                      class="w-full aspect-[3/4] object-cover rounded-[10px] block"
+                    />
+                    <figcaption
+                      class="absolute top-2.5 left-2.5 bg-deep/85 text-base text-[10px] font-semibold uppercase tracking-[0.1em] px-2 py-1 rounded backdrop-blur-sm"
+                    >
+                      Schéma
+                    </figcaption>
+                  </figure>
+                  <figure class="relative m-0">
+                    <img
+                      src={d.example}
+                      loading="lazy"
+                      alt={`Exemple réel — ${d.label.toLowerCase()}`}
+                      class="w-full aspect-[3/4] object-cover rounded-[10px] block"
+                    />
+                    <figcaption
+                      class="absolute top-2.5 left-2.5 bg-deep/85 text-base text-[10px] font-semibold uppercase tracking-[0.1em] px-2 py-1 rounded backdrop-blur-sm"
+                    >
+                      Exemple
+                    </figcaption>
+                  </figure>
+                </div>
+                <p
+                  class="font-italic italic text-[20px] md:text-[24px] leading-[1.3] tracking-[-0.01em] text-deep mt-5 px-1"
+                >
+                  {d.caption}
+                </p>
+              </div>
+            </FadeInSection>
+          ))}
+        </div>
+      </section>
+    </FadeInSection>
+
+    {/* VÉRIFICATION */}
+    <FadeInSection client:load>
+      <section>
+        <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-5">
+          <span class="inline-block h-px w-6 bg-ember-deep"></span>
+          Vérification
+        </div>
+        <h2 class="text-[32px] md:text-[40px] lg:text-[48px] font-medium leading-[1.1] tracking-[-0.03em] text-ink mb-7">
+          Vérifiez avant <span class="italic-serif">d'envoyer.</span>
+        </h2>
+        <ChecksList checks={verifyChecks} />
+      </section>
+    </FadeInSection>
+  </main>
+
   <Footer />
 </BaseLayout>
-
-<style is:global set:html={styles}></style>

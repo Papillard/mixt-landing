@@ -34,12 +34,6 @@ const { title, description } = Astro.props;
     margin-bottom: 8px;
     color: var(--color-ink);
   }
-  .s-legal h1 em {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 1.08em;
-  }
   .s-legal .legal-date {
     font-family: 'DM Mono', ui-monospace, monospace;
     font-size: 11px;
@@ -64,8 +58,8 @@ const { title, description } = Astro.props;
     color: var(--color-ink);
   }
   .s-legal p {
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.75;
     color: var(--color-ink-2);
     margin-bottom: 14px;
   }
@@ -79,8 +73,8 @@ const { title, description } = Astro.props;
   .s-legal a:hover { color: var(--color-ember); }
   .s-legal ul { list-style: none; padding: 0; margin: 0 0 14px; }
   .s-legal ul li {
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.75;
     color: var(--color-ink-2);
     padding-left: 22px;
     position: relative;
@@ -118,7 +112,8 @@ const { title, description } = Astro.props;
   .s-legal .legal-block p:last-child { margin-bottom: 0; }
   @media (max-width: 768px) {
     .s-legal { padding: calc(56px + 40px) 20px 72px; }
-    .s-legal h1 { font-size: 32px; }
-    .s-legal h2 { font-size: 20px; margin-top: 40px; }
+    .s-legal h1 { font-size: 36px; }
+    .s-legal h2 { font-size: 22px; margin-top: 40px; }
+    .s-legal h3 { font-size: 17px; }
   }
 </style>

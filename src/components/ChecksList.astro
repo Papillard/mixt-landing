@@ -1,0 +1,41 @@
+---
+interface Check {
+  kind: 'do' | 'dont';
+  text: string;
+}
+interface Props {
+  checks: Check[];
+}
+const { checks } = Astro.props as Props;
+---
+
+<ul class="list-none p-0 m-0">
+  {checks.map((c) => (
+    <li
+      class={`relative pl-11 py-4 text-[16px] md:text-[17px] leading-[1.6] text-ink border-b border-dashed border-black/[0.08] last:border-b-0 ${c.kind === 'do' ? 'check-do' : 'check-dont'}`}
+    >
+      {c.text}
+    </li>
+  ))}
+</ul>
+
+<style>
+  .check-do::before,
+  .check-dont::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 22px;
+    height: 22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .check-do::before {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%234a8f5e'/><path d='M5.5 10.5 L8.5 13.5 L14.5 7.5' stroke='white' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  }
+  .check-dont::before {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%23c85a4a'/><path d='M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5' stroke='white' stroke-width='2.2' fill='none' stroke-linecap='round'/></svg>");
+  }
+</style>
