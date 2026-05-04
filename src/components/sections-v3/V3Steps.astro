@@ -5,22 +5,22 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 const steps = [
   {
     number: '01',
-    title: 'On analyse votre peau',
+    title: 'Vous nous décrivez votre peau',
     desc: "Photos standardisées, symptômes, historique, traitements déjà essayés. Un questionnaire médical de 30 minutes.",
   },
   {
     number: '02',
     title: 'Consultation avec votre dermatologue',
-    desc: "Diagnostic, discussion, prescription d'une formule magistrale adaptée à votre peau.",
+    desc: "Échange, évaluation clinique, prescription d'une formule magistrale adaptée à votre peau.",
   },
   {
     number: '03',
     title: 'Préparation et démarrage du traitement',
-    desc: 'Votre formule est préparée par notre pharmacie partenaire et livrée chez vous.',
+    desc: 'Votre formule est préparée sur ordonnance et peut être réalisée par une pharmacie partenaire ou de votre choix.',
   },
   {
     number: '04',
-    title: 'Suivi, mesure, ajustement',
+    title: 'Accompagnement et ajustements',
     desc: 'Check-ins mensuels, ajustement de formule, bilan à 12 semaines, puis maintenance.',
   },
 ];
@@ -48,9 +48,9 @@ const panels = [
     label: 'Étape 04',
     kind: 'chart' as const,
     chartRows: [
-      { when: 'Semaine 4', what: 'Check-in photos · premier KPI peau' },
-      { when: 'Semaine 8', what: 'Ajustement de formule si besoin' },
-      { when: 'Semaine 12', what: 'Bilan complet · reformulation ou renouvellement' },
+      { when: 'Semaine 4', what: 'Check-in photos · premiers changements visibles' },
+      { when: 'Semaine 8', what: 'Ajustement de la formule si besoin' },
+      { when: 'Semaine 12', what: 'Bilan complet · ajustement ou renouvellement' },
     ],
   },
 ];

@@ -7,15 +7,14 @@ const pillars = [
     image: '/images/lab-manipulation-vertical.jpg',
     alt: 'Préparation magistrale en pharmacie',
     title: 'Formule magistrale',
-    description: "Les actifs prescrits que les cosmétiques n'ont pas le droit d'utiliser, dosés sur-mesure pour votre peau.",
+    description: 'Des actifs prescrits sur ordonnance, dosés au bon niveau pour votre peau.',
     overlay: {
       kind: 'formula' as const,
       patientLabel: 'Préparé pour Marie D.',
       rows: [
-        { name: 'Hydroquinone', dose: '4 %' },
-        { name: 'Trétinoïne', dose: '0,05 %' },
-        { name: 'Niacinamide', dose: '4 %' },
-        { name: 'Allantoïne', dose: '—' },
+        { name: 'Hydroquinone', dose: '5 %' },
+        { name: 'Acétate de dexaméthasone', dose: '0,05 %' },
+        { name: 'Acide rétinoïque', dose: '0,05 %' },
       ],
       footer: 'Pharmacie partenaire · Paris',
     },
@@ -23,13 +22,13 @@ const pillars = [
   {
     image: '/images/pillar-suivi-dermato.jpg',
     alt: 'Patiente lisant un message de sa dermatologue depuis son canapé',
-    title: 'Suivi dermatologique 1:1',
-    description: 'Votre dermatologue reste avec vous pendant 12 semaines. Messagerie illimitée, ajustement de formule inclus.',
+    title: 'Accompagnement 1:1',
+    description: 'Votre dermatologue vous suit pendant 12 semaines. Échanges réguliers, ajustements continus.',
     overlay: {
       kind: 'chat' as const,
       doctor: 'Dr Bethsabée Levy Garel',
       status: 'En ligne',
-      message: "J'ai ajouté le niacinamide dans votre nouvelle formule. On fait le point à M2 ?",
+      message: "J'ai ajouté du niacinamide dans votre nouvelle formule. On fait le point à M2 ?",
       reply: 'Parfait, merci docteur.',
       avatar: '/images/bethsabee.webp',
     },
@@ -37,19 +36,17 @@ const pillars = [
   {
     image: '/images/closeup-eyebrow.jpg',
     alt: 'Macro peau',
-    title: 'KPI peau mesurés',
-    description: 'Votre progression chiffrée, à partir des mêmes échelles cliniques que les essais en dermatologie.',
+    title: 'Votre progression, visible',
+    description: 'Une lecture claire de votre peau dans le temps, pour comprendre ce qui fonctionne pour vous.',
     overlay: {
       kind: 'score' as const,
-      label: 'Score peau',
-      score: '71',
-      delta: '+29 depuis M1',
+      label: 'Exemple de suivi',
       rows: [
-        { label: 'MASI', value: '18 → 7' },
-        { label: 'Homogénéité', value: '●●●●○' },
-        { label: 'Intensité', value: '●●○○○' },
+        { label: 'Surface affectée', value: '●●○○○○' },
+        { label: 'Intensité', value: '●○○○' },
+        { label: 'Confort peau', value: '●●●●○' },
       ],
-      footer: 'Calculé à partir du score MASI, échelle clinique de référence.',
+      footer: 'Exemple non contractuel · résultats variables.',
     },
   },
 ];
@@ -66,7 +63,7 @@ const pillars = [
         On vous accompagne<br class="hidden md:inline" /> <span class="italic-serif whitespace-nowrap">après l'ordonnance.</span>
       </h2>
       <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 max-w-[580px]">
-        Votre dermatologue vous suit pendant 12 semaines. Il ajuste votre formule, répond à vos questions, et mesure les progrès avec vous.
+        Votre dermatologue vous accompagne pendant 12 semaines. Il ajuste votre plan, répond à vos questions et suit votre évolution avec vous.
       </p>
     </FadeInSection>
 

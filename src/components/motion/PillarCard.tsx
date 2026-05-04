@@ -22,8 +22,6 @@ type ChatOverlay = {
 type ScoreOverlay = {
   kind: 'score';
   label: string;
-  score: string;
-  delta: string;
   rows: Array<{ label: string; value: string }>;
   footer: string;
 };
@@ -93,12 +91,8 @@ function renderOverlay(o: Overlay) {
 
   return (
     <div>
-      <div className="text-[10px] uppercase tracking-[0.15em] text-ink-3 mb-2">{o.label}</div>
-      <div className="flex justify-between items-baseline mb-3">
-        <div className="text-[34px] font-semibold text-ink leading-none tracking-[-0.035em]">
-          {o.score}
-        </div>
-        <div className="text-[11px] text-ink-2">{o.delta}</div>
+      <div className="text-[10px] uppercase tracking-[0.15em] text-ink-3 mb-3 pb-2.5 border-b border-black/[0.08]">
+        {o.label}
       </div>
       {o.rows.map((r) => (
         <div key={r.label} className="flex justify-between items-baseline py-1 text-[12px]">
@@ -106,7 +100,7 @@ function renderOverlay(o: Overlay) {
           <span className="text-ink font-mono tracking-[1px]">{r.value}</span>
         </div>
       ))}
-      <div className="mt-2.5 pt-2 border-t border-black/[0.06] text-[10px] italic text-ink-3 leading-snug">
+      <div className="mt-3 pt-2.5 border-t border-black/[0.06] text-[10px] italic text-ink-3 leading-snug">
         {o.footer}
       </div>
     </div>

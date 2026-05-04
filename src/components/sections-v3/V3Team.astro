@@ -1,0 +1,59 @@
+---
+import TeamCard from '../motion/TeamCard.tsx';
+import FadeInSection from '../motion/FadeInSection.tsx';
+
+const founders = [
+  {
+    image: '/images/laetitia-after.webp',
+    alt: 'Laetitia Payan, CEO et co-fondatrice de Mixt',
+    name: 'Laetitia Payan',
+    role: 'CEO · Co-fondatrice',
+    bio: "Patiente depuis dix ans. A passé trois ans à étudier les modèles de soin dermatologique en ligne avant de lancer Mixt.",
+  },
+  {
+    image: '/images/boris.webp',
+    alt: 'Boris Paillard, CPO et co-fondateur de Mixt',
+    name: 'Boris Paillard',
+    role: 'CPO · Co-fondateur',
+    bio: "Cofondateur du Wagon (40 000 alumni). Conçoit le produit Mixt avec la même exigence : simplicité, fiabilité, détail.",
+  },
+  {
+    image: '/images/bethsabee.webp',
+    alt: 'Dr Bethsabée Levy Garel, dermatologue fondatrice de Mixt',
+    name: 'Dr Bethsabée Levy Garel',
+    role: 'Dermatologue · Fondatrice',
+    bio: "Dermatologue formée à la Sorbonne, ex-Cochin. Pilote la rigueur médicale de Mixt.",
+  },
+];
+---
+
+<section class="px-6 md:px-10 py-24 md:py-32 bg-base">
+  <div class="max-w-[1200px] mx-auto">
+    <FadeInSection client:load>
+      <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-5">
+        <span class="inline-block h-px w-10 bg-ember-deep/80"></span>
+        L'équipe
+      </div>
+      <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] max-w-[760px] mb-5 text-ink">
+        Une équipe médicale, technique et patiente. <span class="italic-serif whitespace-nowrap">À vos côtés.</span>
+      </h2>
+      <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 max-w-[580px]">
+        Trois fondateurs, une même obsession : que la dermatologie soit enfin pensée comme un parcours, pas comme une ordonnance unique.
+      </p>
+    </FadeInSection>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-14 md:mt-16">
+      {founders.map((f, i) => (
+        <TeamCard
+          client:load
+          image={f.image}
+          alt={f.alt}
+          name={f.name}
+          role={f.role}
+          bio={f.bio}
+          index={i}
+        />
+      ))}
+    </div>
+  </div>
+</section>

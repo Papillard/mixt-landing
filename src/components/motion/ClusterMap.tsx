@@ -58,19 +58,20 @@ const CLUSTERS: Cluster[] = [
 
 type Point = { x: number; y: number; r: number; color: string; delay: number };
 
+const round = (n: number) => Math.round(n * 1000) / 1000;
+
 function generatePoints(): Point[] {
   const rng = seeded(42);
   const pts: Point[] = [];
   let idx = 0;
   CLUSTERS.forEach((c) => {
     for (let i = 0; i < c.count; i++) {
-      // Gaussian-ish distribution around cluster center
       const angle = rng() * Math.PI * 2;
       const dist = Math.pow(rng(), 0.7) * c.spread;
-      const x = c.cx + Math.cos(angle) * dist;
-      const y = c.cy + Math.sin(angle) * dist * 0.85;
-      const r = 0.8 + rng() * 1.4;
-      pts.push({ x, y, r, color: c.color, delay: 0.4 + idx * 0.012 });
+      const x = round(c.cx + Math.cos(angle) * dist);
+      const y = round(c.cy + Math.sin(angle) * dist * 0.85);
+      const r = round(0.8 + rng() * 1.4);
+      pts.push({ x, y, r, color: c.color, delay: round(0.4 + idx * 0.012) });
       idx++;
     }
   });

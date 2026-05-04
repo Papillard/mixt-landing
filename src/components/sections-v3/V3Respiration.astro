@@ -14,10 +14,10 @@ interface Props {
 const {
   image = '/images/respiration-1.jpg',
   eyebrow = 'Traitement qui évolue',
-  title = 'Un traitement qui évolue avec votre peau.',
+  title = 'Un parcours qui évolue avec votre peau.',
   highlight = "C'est ce qui change tout.",
-  subtitle = 'Chaque mois, votre peau est documentée. Chaque mois, la formule s\'ajuste. Aucun traitement ne reste figé.',
-  ctaLabel = 'Faire mon bilan →',
+  subtitle = 'Un plan qui s\'adapte dans le temps, selon votre évolution.\nChaque mois, vous faites le point. Chaque mois, le plan s\'ajuste.\nRien ne reste figé.',
+  ctaLabel = 'Rejoindre le programme →',
   ctaHref = '/premieres-patientes',
 } = Astro.props;
 ---
@@ -53,7 +53,7 @@ const {
         {title} <span class="italic-serif whitespace-nowrap">{highlight}</span>
       </h2>
       {subtitle && (
-        <p class="text-[16px] md:text-[17px] leading-[1.6] text-white/80 max-w-[540px] mb-8">
+        <p class="text-[16px] md:text-[17px] leading-[1.6] text-white/80 max-w-[540px] mb-8 whitespace-pre-line">
           {subtitle}
         </p>
       )}

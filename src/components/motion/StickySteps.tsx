@@ -23,7 +23,7 @@ type Props = {
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-function PanelMedia({ panel }: { panel: Panel }) {
+function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedChart?: boolean }) {
   return (
     <>
       <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-cream">
@@ -41,7 +41,7 @@ function PanelMedia({ panel }: { panel: Panel }) {
             {panel.caption}
           </div>
         )}
-        {panel.kind === 'chart' && <ProgressChart />}
+        {panel.kind === 'chart' && (animatedChart ? <ProgressChart /> : <StaticChart />)}
         <div className="absolute top-4 left-4 rounded-[6px] bg-deep/95 backdrop-blur px-2.5 py-1 text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
           {panel.label}
         </div>
@@ -103,7 +103,7 @@ export default function StickySteps({ steps, panels }: Props) {
               transition={{ duration: 0.7, ease: EASE }}
               className="flex flex-col gap-6"
             >
-              {p && <PanelMedia panel={p} />}
+              {p && <PanelMedia panel={p} animatedChart={false} />}
               <div>
                 <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-ember-deep mb-2.5">
                   {s.number}
@@ -193,56 +193,103 @@ function ProgressChart() {
 
   return (
     <div ref={ref} className="absolute inset-0">
-    <svg viewBox="0 0 400 260" className="absolute inset-0 h-full w-full p-6">
-      <defs>
-        <linearGradient id="v3chart" x1="0" x2="1" y1="0" y2="0.4">
-          <stop offset="0%" stopColor="#361822" stopOpacity="0.85" />
-          <stop offset="40%" stopColor="#C4513A" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#E8664B" stopOpacity="1" />
-        </linearGradient>
-        <linearGradient id="v3chart-glow" x1="0" x2="1" y1="0" y2="0.4">
-          <stop offset="0%" stopColor="#361822" stopOpacity="0" />
-          <stop offset="100%" stopColor="#E8664B" stopOpacity="0.28" />
-        </linearGradient>
-      </defs>
-      {/* Horizontal guides */}
-      <g stroke="#1A121014" strokeWidth="0.8" strokeDasharray="2 4">
-        <line x1="30" y1="210" x2="370" y2="210" />
-        <line x1="30" y1="140" x2="370" y2="140" />
-        <line x1="30" y1="70" x2="370" y2="70" />
-      </g>
-      {/* Glow layer */}
-      <motion.path
-        d="M 30 210 C 110 208 150 180 200 145 S 310 75 370 50"
-        fill="none"
-        stroke="url(#v3chart-glow)"
-        strokeWidth="8"
-        strokeLinecap="round"
-        style={{ pathLength }}
-      />
-      {/* Main curve — smooth single bezier */}
-      <motion.path
-        d="M 30 210 C 110 208 150 180 200 145 S 310 75 370 50"
-        fill="none"
-        stroke="url(#v3chart)"
-        strokeWidth="2"
-        strokeLinecap="round"
-        style={{ pathLength }}
-      />
-      {/* Dots on curve */}
-      <g fill="#E8664B">
-        <circle cx="30" cy="210" r="3.5" />
-        <circle cx="200" cy="145" r="3" />
-        <circle cx="280" cy="95" r="3" />
-        <circle cx="370" cy="50" r="4" />
-      </g>
-      <g fill="#6B5B52" fontSize="10" fontFamily="'DM Mono', monospace" textAnchor="middle">
-        <text x="30" y="235">S.0</text>
-        <text x="200" y="235">S.4</text>
-        <text x="280" y="235">S.8</text>
-        <text x="370" y="235">S.12</text>
-      </g>
-    </svg>
+      <svg viewBox="0 0 400 260" className="absolute inset-0 h-full w-full p-6">
+        <defs>
+          <linearGradient id="v3chart" x1="0" x2="1" y1="0" y2="0.4">
+            <stop offset="0%" stopColor="#361822" stopOpacity="0.85" />
+            <stop offset="40%" stopColor="#C4513A" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#E8664B" stopOpacity="1" />
+          </linearGradient>
+          <linearGradient id="v3chart-glow" x1="0" x2="1" y1="0" y2="0.4">
+            <stop offset="0%" stopColor="#361822" stopOpacity="0" />
+            <stop offset="100%" stopColor="#E8664B" stopOpacity="0.28" />
+          </linearGradient>
+        </defs>
+        <g stroke="#1A121014" strokeWidth="0.8" strokeDasharray="2 4">
+          <line x1="30" y1="210" x2="370" y2="210" />
+          <line x1="30" y1="140" x2="370" y2="140" />
+          <line x1="30" y1="70" x2="370" y2="70" />
+        </g>
+        <motion.path
+          d="M 30 210 C 110 208 150 180 200 145 S 310 75 370 50"
+          fill="none"
+          stroke="url(#v3chart-glow)"
+          strokeWidth="8"
+          strokeLinecap="round"
+          style={{ pathLength }}
+        />
+        <motion.path
+          d="M 30 210 C 110 208 150 180 200 145 S 310 75 370 50"
+          fill="none"
+          stroke="url(#v3chart)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          style={{ pathLength }}
+        />
+        <g fill="#E8664B">
+          <circle cx="30" cy="210" r="3.5" />
+          <circle cx="200" cy="145" r="3" />
+          <circle cx="280" cy="95" r="3" />
+          <circle cx="370" cy="50" r="4" />
+        </g>
+        <g fill="#6B5B52" fontSize="10" fontFamily="'DM Mono', monospace" textAnchor="middle">
+          <text x="30" y="235">S.0</text>
+          <text x="200" y="235">S.4</text>
+          <text x="280" y="235">S.8</text>
+          <text x="370" y="235">S.12</text>
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+function StaticChart() {
+  return (
+    <div className="absolute inset-0">
+      <svg viewBox="0 0 400 260" className="absolute inset-0 h-full w-full p-6">
+        <defs>
+          <linearGradient id="v3chart-static" x1="0" x2="1" y1="0" y2="0.4">
+            <stop offset="0%" stopColor="#361822" stopOpacity="0.85" />
+            <stop offset="40%" stopColor="#C4513A" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#E8664B" stopOpacity="1" />
+          </linearGradient>
+          <linearGradient id="v3chart-glow-static" x1="0" x2="1" y1="0" y2="0.4">
+            <stop offset="0%" stopColor="#361822" stopOpacity="0" />
+            <stop offset="100%" stopColor="#E8664B" stopOpacity="0.28" />
+          </linearGradient>
+        </defs>
+        <g stroke="#1A121014" strokeWidth="0.8" strokeDasharray="2 4">
+          <line x1="30" y1="210" x2="370" y2="210" />
+          <line x1="30" y1="140" x2="370" y2="140" />
+          <line x1="30" y1="70" x2="370" y2="70" />
+        </g>
+        <path
+          d="M 30 210 C 110 208 150 180 200 145 S 310 75 370 50"
+          fill="none"
+          stroke="url(#v3chart-glow-static)"
+          strokeWidth="8"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 30 210 C 110 208 150 180 200 145 S 310 75 370 50"
+          fill="none"
+          stroke="url(#v3chart-static)"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <g fill="#E8664B">
+          <circle cx="30" cy="210" r="3.5" />
+          <circle cx="200" cy="145" r="3" />
+          <circle cx="280" cy="95" r="3" />
+          <circle cx="370" cy="50" r="4" />
+        </g>
+        <g fill="#6B5B52" fontSize="10" fontFamily="'DM Mono', monospace" textAnchor="middle">
+          <text x="30" y="235">S.0</text>
+          <text x="200" y="235">S.4</text>
+          <text x="280" y="235">S.8</text>
+          <text x="370" y="235">S.12</text>
+        </g>
+      </svg>
     </div>
   );
 }

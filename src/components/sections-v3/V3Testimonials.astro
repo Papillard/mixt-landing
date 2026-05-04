@@ -1,6 +1,5 @@
 ---
 import BeforeAfterReveal from '../motion/BeforeAfterReveal.tsx';
-import BigNumber from '../motion/BigNumber.tsx';
 import FadeInSection from '../motion/FadeInSection.tsx';
 
 // TODO: valider copy patientes + accords publication
@@ -8,18 +7,18 @@ const cases = [
   {
     name: 'Laetitia, 41 ans',
     meta: 'Hyperpigmentation · 4 mois',
-    before: { src: '/images/laetitia-before.webp', alt: 'Laetitia avant le protocole' },
-    after: { src: '/images/laetitia-after.webp', alt: 'Laetitia après 4 mois' },
+    before: { src: '/images/laetitia-before.webp', alt: 'Laetitia avant le protocole', objectPosition: 'center 15%' },
+    after: { src: '/images/laetitia-after.webp', alt: 'Laetitia après 4 mois', objectPosition: 'center 15%' },
     afterLabel: 'Après · 4 mois',
     quote: "Pendant 10 ans j'ai cherché une solution pour ma peau. Aujourd'hui quand je vois les photos d'avant, je n'en reviens pas.",
     context: 'Son hyperpigmentation était modérée à sévère. Suivie pendant 16 semaines par sa dermatologue, avec un ajustement de formule à M2.',
     legal: 'Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d\'une garantie.',
   },
   {
-    name: 'Mélanie, 45 ans',
+    name: 'Marie, 45 ans',
     meta: 'Mélasma · 3 mois',
-    before: { src: '/images/melanie-before.webp', alt: 'Mélanie avant le protocole' },
-    after: { src: '/images/melanie-after.webp', alt: 'Mélanie après 10 semaines' },
+    before: { src: '/images/melanie-before.webp', alt: 'Marie avant le protocole', scale: 2.8, objectPosition: 'center 35%' },
+    after: { src: '/images/melanie-after.webp', alt: 'Marie après 10 semaines' },
     afterLabel: 'Après · 10 sem.',
     quote: "Je ne sortais plus sans fond de teint. Maintenant j'ose le visage nu.",
     context: 'Son mélasma était modéré. Suivie pendant 12 semaines par sa dermatologue, avec un ajustement de formule à M2.',
@@ -27,11 +26,6 @@ const cases = [
   },
 ];
 
-const clinical = [
-  { value: 63, suffix: ' %', prefix: '−', label: "de lésions d'acné", duration: 'en 12 semaines' },
-  { value: 72, suffix: ' %', prefix: '−', label: 'de lésions de rosacée', duration: 'en 16 semaines' },
-  { value: 61, suffix: ' %', prefix: '−', label: 'de score MASI', duration: 'en 8 à 12 semaines' },
-];
 ---
 
 <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
@@ -68,31 +62,5 @@ const clinical = [
       ))}
     </div>
 
-    <div class="mt-24 pt-10 border-t border-black/[0.08]">
-      <FadeInSection client:load>
-        <div class="text-center text-[11px] uppercase tracking-[0.18em] text-ink-3 font-semibold mb-10">
-          Résultats cliniques documentés
-        </div>
-      </FadeInSection>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[960px] mx-auto">
-        {clinical.map((item, i) => (
-          <FadeInSection client:load delay={i * 0.08}>
-            <div class="text-center p-7 rounded-[12px] bg-base border border-black/[0.08]">
-              <div class="text-[48px] md:text-[58px] font-semibold leading-[0.95] tracking-[-0.04em] text-ink mb-3">
-                <BigNumber client:load value={item.value} prefix={item.prefix} suffix={item.suffix} />
-              </div>
-              <div class="text-[14px] text-ink leading-snug mb-1">{item.label}</div>
-              <div class="text-[12px] text-ink-3">{item.duration}</div>
-            </div>
-          </FadeInSection>
-        ))}
-      </div>
-
-      {/* TODO: ajouter sources cliniques précises */}
-      <p class="mt-8 text-[11px] text-ink-3 italic text-center">
-        Sources : études cliniques publiées en dermatologie. Références disponibles sur demande.
-      </p>
-    </div>
   </div>
 </section>

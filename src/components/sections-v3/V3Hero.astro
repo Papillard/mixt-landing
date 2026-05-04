@@ -12,12 +12,12 @@ import HeroMasiChart from '../motion/HeroMasiChart.tsx';
         client:load
         eyebrow="Programme dermato · 12 semaines"
         eyebrowMono={true}
-        title="Votre peau mérite un traitement"
+        title="Votre peau mérite un parcours"
         highlight="sur-mesure."
-        subtitle="Un dermatologue comprend votre peau et prescrit un traitement personnalisé. Préparé par une pharmacie partenaire. Ajusté mois après mois."
+        subtitle="Un dermatologue comprend votre peau et construit une prise en charge adaptée. Ajustée mois après mois."
       >
         <div class="flex flex-wrap gap-3">
-          <Button href="/premieres-patientes" variant="ember-pill">Obtenir ma formule →</Button>
+          <Button href="/premieres-patientes" variant="ember-pill">Rejoindre le programme →</Button>
           <Button href="#approche" variant="ghost">Voir comment ça marche</Button>
         </div>
       </HeroReveal>
@@ -30,10 +30,10 @@ import HeroMasiChart from '../motion/HeroMasiChart.tsx';
           </div>
           <div class="pr-4 border-r border-ink/10">
             <div class="font-mono text-[14px] md:text-[16px] font-medium text-ink leading-tight mb-1.5 tracking-[-0.01em]">12 semaines</div>
-            <div class="font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-3">Premiers résultats</div>
+            <div class="font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-3">De suivi structuré</div>
           </div>
           <div>
-            <div class="font-mono text-[14px] md:text-[16px] font-medium text-ink leading-tight mb-1.5 tracking-[-0.01em]">Suivi 1:1</div>
+            <div class="font-mono text-[14px] md:text-[16px] font-medium text-ink leading-tight mb-1.5 tracking-[-0.01em]">Accompagnement 1:1</div>
             <div class="font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-3">Par un dermatologue</div>
           </div>
         </div>
@@ -56,14 +56,12 @@ import HeroMasiChart from '../motion/HeroMasiChart.tsx';
           Mélasma
         </div>
 
-        {/* Chip résultat bottom-right */}
-        <div class="absolute right-5 bottom-5 z-[5] rounded-[6px] bg-deep/95 backdrop-blur px-3.5 py-2 text-[13px] font-semibold text-white font-mono tracking-[0.04em]">
-          S.8 · −16 %
-        </div>
-
         {/* Graph MASI overlay */}
         <HeroMasiChart client:load />
       </div>
+      <p class="mt-3 text-[11px] italic text-ink-3 leading-snug text-center">
+        Illustration d'un parcours. Les résultats varient selon chaque peau.
+      </p>
     </FadeInSection>
   </div>
 </section>

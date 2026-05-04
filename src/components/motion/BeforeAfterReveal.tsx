@@ -1,9 +1,16 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
+type Photo = {
+  src: string;
+  alt: string;
+  scale?: number;
+  objectPosition?: string;
+};
+
 type Props = {
-  before: { src: string; alt: string };
-  after: { src: string; alt: string };
+  before: Photo;
+  after: Photo;
   beforeLabel?: string;
   afterLabel?: string;
 };
@@ -19,6 +26,11 @@ export default function BeforeAfterReveal({
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.25 });
 
+  const beforeScale = before.scale ?? 1;
+  const beforeObjectPos = before.objectPosition ?? 'center';
+  const afterScale = after.scale ?? 1;
+  const afterObjectPos = after.objectPosition ?? 'center';
+
   return (
     <div ref={ref} className="grid grid-cols-2 gap-2">
       {/* BEFORE */}
@@ -33,8 +45,8 @@ export default function BeforeAfterReveal({
           alt={before.alt}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover scale-[1.6] origin-bottom"
-          style={{ objectPosition: 'center 85%' }}
+          className="absolute inset-0 h-full w-full object-cover origin-center"
+          style={{ objectPosition: beforeObjectPos, transform: `scale(${beforeScale})` }}
         />
         <span className="absolute left-3 top-3 rounded-full bg-deep/95 text-white px-2.5 py-1 text-[10px] font-semibold tracking-[0.18em] uppercase">
           {beforeLabel}
@@ -53,12 +65,12 @@ export default function BeforeAfterReveal({
           alt={after.alt}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover origin-bottom"
-          style={{ objectPosition: 'center 85%' }}
-          initial={{ opacity: 0, scale: 1.7, filter: 'blur(16px)' }}
+          className="absolute inset-0 h-full w-full object-cover origin-center"
+          style={{ objectPosition: afterObjectPos }}
+          initial={{ opacity: 0, scale: afterScale * 1.06, filter: 'blur(16px)' }}
           animate={
             inView
-              ? { opacity: 1, scale: 1.6, filter: 'blur(0px)' }
+              ? { opacity: 1, scale: afterScale, filter: 'blur(0px)' }
               : {}
           }
           transition={{ duration: 1.4, delay: 0.45, ease: [0.16, 0.84, 0.44, 1] }}
