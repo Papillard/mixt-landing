@@ -69,5 +69,21 @@ const panels = [
     </FadeInSection>
 
     <StickySteps client:load steps={steps} panels={panels} />
+
+    <FadeInSection client:load>
+      <div class="flex justify-center mt-20 md:mt-28">
+        <div class="inline-flex flex-wrap items-center justify-center gap-[18px] px-[22px] py-[14px] rounded-full border border-ink/[0.12] bg-base/70 backdrop-blur-md">
+          <span class="inline-flex items-center gap-[7px] font-mono text-[11px] tracking-[0.16em] uppercase text-jade-deep font-medium">
+            <span class="inline-block w-[6px] h-[6px] rounded-full bg-jade shadow-[0_0_0_3px_rgba(95,191,163,0.18)]"></span>
+            HDS · France
+          </span>
+          <span class="text-[14px] text-ink font-medium">Vos données sont sécurisées et soumises au secret médical.</span>
+          <span class="hidden md:inline-block w-px h-[14px] bg-ink/[0.12]"></span>
+          <a href="/politique-de-confidentialite" class="hidden md:inline-flex items-center gap-[5px] text-[13px] text-ink-2 hover:text-ink font-medium transition-colors">
+            En savoir plus <span aria-hidden>→</span>
+          </a>
+        </div>
+      </div>
+    </FadeInSection>
   </div>
 </section>
