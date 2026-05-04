@@ -26,21 +26,21 @@ const steps = [
     role: 'Dermatologue',
     avatarSrc: '/images/bethsabee.webp',
     title: 'Consultation dermatologique',
-    body: "Le Dr Levy Garel établit votre diagnostic précis. Type d'hyperpigmentation, phototype, antécédents, traitements passés. Le protocole est prescrit médicalement.",
+    body: "Le Dr Levy Garel évalue votre peau en téléconsultation : type d'hyperpigmentation, phototype, antécédents, traitements passés. Elle vous prescrit un plan de soin adapté à votre cas.",
   },
   {
-    name: 'Pharmacie partenaire',
-    role: 'Préparation sur-mesure',
+    name: 'Pharmacie',
+    role: 'Préparation et délivrance',
     avatarSrc: '/images/lab-3.webp',
-    title: 'Préparation magistrale',
-    body: "Votre traitement est formulé sur mesure par une de nos pharmacies partenaires. Les actifs, les dosages, les associations — tout est pensé pour votre profil exact.",
+    title: 'Votre plan de soin sur-mesure',
+    body: "Votre plan combine les éléments adaptés à votre cas : une préparation magistrale formulée par notre pharmacie, des médicaments sur ordonnance, et parfois des dermocosmétiques ciblés. Le tout pensé pour fonctionner ensemble.",
   },
   {
     name: 'Mixt',
     role: "L'équipe",
     isLogo: true,
-    title: 'Suivi et accès direct à l\'équipe',
-    body: "Votre peau évolue, votre traitement aussi. On ajuste en fonction de vos résultats. Une question, une réaction : vous écrivez, on répond. Pas de ticket, pas d'attente.",
+    title: 'Accompagnement au quotidien',
+    body: "L'équipe Mixt est à vos côtés au quotidien : conseils pratiques, suivi de vos photos, réponses à vos questions. À 3 mois, vous faites le bilan avec votre dermatologue qui décide de renouveler ou d'ajuster votre plan.",
   },
 ];
 ---
@@ -75,8 +75,8 @@ const steps = [
       <div>
         <FadeInSection client:load y={14}>
           <h1 class="text-[36px] md:text-[44px] lg:text-[52px] font-medium leading-[1.1] tracking-[-0.035em] text-ink mb-6">
-            Taches brunes, rougeurs, imperfections : un suivi médical
-            <span class="italic-serif"> qui marche.</span>
+            Taches brunes, rougeurs, imperfections : un parcours
+            <span class="italic-serif"> pensé pour vous.</span>
           </h1>
         </FadeInSection>
 
@@ -99,12 +99,13 @@ const steps = [
           <div class="flex flex-col gap-5 text-[18px] md:text-[19px] leading-[1.65] text-ink mb-9">
             <p>
               Je m'appelle Laetitia. J'ai co-fondé Mixt parce que trop de femmes tournent en rond
-              pendant des années sur leurs problèmes de peau sans jamais avoir de vrai suivi médical.
+              pendant des années sur leurs problèmes de peau, sans accès à un dermatologue ni
+              accompagnement dans la durée.
             </p>
             <p>
-              Nous accueillons nos premières patientes dans un parcours rigoureux et humain : un
-              diagnostic précis par une dermatologue, un traitement personnalisé, et quelqu'un qui
-              répond à vos questions. On s'en parle ?
+              Nous accueillons nos premières patientes dans un parcours rigoureux et humain : une
+              consultation approfondie avec une dermatologue, une formule magistrale personnalisée,
+              et l'équipe Mixt à vos côtés pendant 3 mois. On s'en parle ?
             </p>
           </div>
         </FadeInSection>
@@ -118,6 +119,10 @@ const steps = [
               Réserver un appel
             </Button>
           </div>
+          <p class="mt-4 text-[12.5px] italic text-ink-3 leading-[1.55] max-w-[480px]">
+            Laetitia répond personnellement aux questions sur le programme. Pour toute question
+            médicale, vous serez mise en relation avec une dermatologue.
+          </p>
         </FadeInSection>
       </div>
     </div>
@@ -145,16 +150,16 @@ const steps = [
             enflammer une rougeur, ou déclencher une poussée d'acné. Ce n'est pas un détail.
           </p>
           <p>
-            Votre diagnostic compte. Mélasma, rosacée, hyperpigmentation post-inflammatoire : ce ne
-            sont pas les mêmes protocoles. Les associations et les dosages changent selon votre
+            Chaque peau est différente. Mélasma, rosacée, hyperpigmentation post-inflammatoire : ce
+            ne sont pas les mêmes protocoles. Les associations et les dosages changent selon votre
             profil.
           </p>
           <p>
-            Et sans suivi, les meilleurs protocoles échouent. Le rétinol irrite au début, c'est
-            normal. Mais sans quelqu'un pour le dire, pour ajuster, pour tenir, souvent on arrête.
-            Et on recommence ailleurs, de zéro.
+            Et sans accompagnement, les meilleurs protocoles échouent. Le rétinol irrite au début,
+            c'est normal. Mais sans personne pour vous le dire, pour vous rassurer, pour vous aider
+            à tenir, souvent on arrête. Et on recommence ailleurs, de zéro.
           </p>
-          <p>C'est à partir de là qu'on a réfléchi à ce protocole en réunissant dermatologues et pharmaciens.</p>
+          <p>C'est à partir de là qu'on a construit Mixt avec une dermatologue et notre pharmacie partenaire.</p>
         </div>
       </FadeInSection>
     </div>

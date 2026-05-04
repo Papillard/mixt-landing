@@ -53,9 +53,9 @@ const structuredData = {
         },
         {
           '@type': 'MedicalTherapy',
-          name: 'Suivi dermatologique continu',
+          name: 'Accompagnement Mixt',
           description:
-            "Documentation régulière de l'évolution de la peau, messagerie illimitée avec votre médecin et ajustement du traitement pendant 3 mois.",
+            "Photos mensuelles, accompagnement par l'équipe Mixt et bilan dermatologique à 3 mois pour renouveler ou ajuster la formule.",
         },
       ],
       areaServed: { '@type': 'Country', name: 'France' },
@@ -92,18 +92,34 @@ const structuredData = {
       mainEntity: [
         {
           '@type': 'Question',
-          name: "Qu'est-ce que Mixt apporte en plus ?",
+          name: 'Vais-je échanger avec mon dermatologue pendant les 3 mois ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Mixt est conçu pour vous accompagner dans la durée : un médecin dédié pendant 3 mois, messagerie illimitée et ajustement de la formule au fil des résultats. C'est un format complémentaire au parcours médical classique — pensé pour aller au bout de votre traitement. On travaille main dans la main avec les médecins, pas à leur place.",
+            text: "Votre dermatologue intervient à deux moments clés : la consultation initiale, où il vous prescrit votre formule personnalisée, et le bilan à 3 mois, où il évalue votre évolution à partir de vos photos et décide de renouveler ou d'ajuster votre formule. Entre les deux, l'équipe Mixt vous accompagne au quotidien : suivi de vos photos mensuelles, conseils pratiques, encouragements. Pour une nouvelle question médicale en cours de parcours, une consultation supplémentaire est possible.",
           },
         },
         {
           '@type': 'Question',
-          name: 'Qui est mon médecin Mixt ?',
+          name: "Qu'est-ce que Mixt apporte en plus d'une consultation classique ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Un médecin diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable. Pas un algorithme. Vous échangez avec lui par messagerie sécurisée et en visio ou par téléphone.",
+            text: "Trois choses que vous n'avez pas en cabinet aujourd'hui : un délai d'une semaine au lieu de plusieurs mois, une formule magistrale sur-mesure plutôt qu'une ordonnance générique, et un accompagnement humain par notre équipe pendant 3 mois pour aller au bout de votre traitement. On ne remplace pas le parcours médical classique : on le rend accessible et on vous tient la main entre les RDV.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Qui est mon dermatologue Mixt ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Un dermatologue diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable. Pas un algorithme. Vous le rencontrez en téléconsultation lors de la consultation initiale, et à nouveau lors du bilan à 3 mois. Pour les échanges du quotidien, c'est l'équipe Mixt qui vous répond et fait le lien avec votre dermatologue si nécessaire.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: "Qui est l'équipe Mixt qui m'accompagne au quotidien ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "L'équipe Mixt — Laetitia (cofondatrice et patiente depuis 10 ans) et notre équipe d'accompagnement — vous suit au quotidien pendant 3 mois. Elle ne pose pas de diagnostic et ne donne pas d'avis médical : son rôle est de vous écouter, de suivre vos photos, de vous conseiller sur l'application et de faire remonter à votre dermatologue toute question médicale qui le nécessite.",
           },
         },
         {
@@ -111,7 +127,15 @@ const structuredData = {
           name: 'Et si la formule ne me convient pas ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Votre médecin la réajuste au fil du suivi. L'ajustement est inclus dans le forfait, sans surcoût.",
+            text: "Si vous ressentez une intolérance ou une gêne importante en cours de traitement, contactez l'équipe Mixt qui transmettra immédiatement à votre dermatologue. Il pourra alors, selon votre situation, ajuster la formule via une nouvelle prescription. L'ajustement programmé est inclus dans votre bilan à 3 mois, sans surcoût.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Comment se passe le bilan à 3 mois ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "À la fin de votre parcours, votre dermatologue revoit l'ensemble de votre évolution : vos photos mensuelles, votre ressenti, l'efficacité observée. Il décide alors soit de renouveler votre formule pour 3 mois supplémentaires si elle vous convient bien, soit de l'ajuster pour la suite. Ce bilan est inclus dans votre forfait.",
           },
         },
         {
@@ -120,14 +144,6 @@ const structuredData = {
           acceptedAnswer: {
             '@type': 'Answer',
             text: 'Vos données sont hébergées sur une infrastructure certifiée HDS (Hébergeur de Données de Santé), conformément à la réglementation française, et soumises au secret médical.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Comment sont mesurés mes KPI peau ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "À partir d'échelles cliniques validées et utilisées en recherche dermatologique (MASI, GEA, IGA, SCORAD). Votre médecin les évalue à chaque check-in et les traduit en indicateurs lisibles.",
           },
         },
         {

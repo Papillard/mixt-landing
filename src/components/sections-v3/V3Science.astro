@@ -4,8 +4,8 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 import ClusterMap from '../motion/ClusterMap.tsx';
 
 const stats = [
-  { value: 500000, suffix: '+', caption: "formulations magistrales analysées pour identifier les combinaisons d'actifs les plus efficaces." },
-  { value: 200, suffix: '+', caption: 'publications dermatologiques croisées pour valider les dosages et les associations.' },
+  { value: 500000, suffix: '+', caption: "formulations magistrales documentées par notre pharmacie partenaire, qui nourrissent l'expertise de nos dermatologues." },
+  { value: 200, suffix: '+', caption: 'publications dermatologiques de référence consultées par nos dermatologues.' },
   { value: 15, suffix: ' ans', caption: "d'expérience de notre pharmacie partenaire dans la préparation magistrale." },
 ];
 ---
@@ -28,10 +28,10 @@ const stats = [
           Documenté. <span class="italic-serif text-mint whitespace-nowrap">Pas inventé.</span>
         </h2>
         <p class="text-[17px] md:text-lg leading-relaxed text-white/70 mb-8 max-w-[540px]">
-          Chaque prescription Mixt s'appuie sur trois sources : la littérature dermatologique, l'expérience clinique de votre médecin, et des centaines de milliers de formulations magistrales historiques analysées.
+          Pour vous prescrire, votre dermatologue s'appuie sur son expertise clinique, la littérature dermatologique de référence, et la bibliothèque de formulations magistrales utilisées de longue date par notre pharmacie partenaire.
         </p>
         <div class="border-l-2 border-mint pl-6 italic-serif text-[18px] leading-relaxed text-white/85 max-w-[540px]">
-          On n'invente pas votre formule. On identifie, dans une base historique de centaines de milliers de prescriptions et dans la littérature scientifique, celle qui a le plus de chances de marcher pour votre peau. Puis votre dermatologue tranche.
+          Vos dermatologues ne partent jamais d'une page blanche. Ils s'appuient sur des décennies de formulations magistrales documentées par notre pharmacie partenaire et sur la littérature scientifique pour concevoir, en conscience, la formule la plus adaptée à votre peau.
         </div>
       </FadeInSection>
 
@@ -39,8 +39,7 @@ const stats = [
         <FadeInSection client:load delay={0.15}>
           <ClusterMap client:load />
           <p class="mt-4 text-[12px] text-white/50 italic text-center leading-relaxed">
-            {/* TODO: valider chiffre 493 000 et logique K-Means */}
-            Analyse K-Means sur 493 000 prescriptions magistrales historiques anonymes — pharmacie partenaire. Chaque cluster représente une combinaison d'actifs récurrente, validée par la littérature.
+            Visualisation des combinaisons d'actifs les plus fréquemment utilisées en formulation magistrale — base anonymisée de notre pharmacie partenaire. À titre illustratif.
           </p>
         </FadeInSection>
       </div>
