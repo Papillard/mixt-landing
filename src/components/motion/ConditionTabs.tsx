@@ -108,7 +108,7 @@ export default function ConditionTabs({ tabs }: Props) {
                   </p>
                 ) : (
                   <>
-                    <div className="grid grid-cols-[170px_90px_1fr] gap-x-6 pb-2.5 border-b border-black/[0.12]">
+                    <div className="hidden md:grid grid-cols-[170px_90px_1fr] gap-x-6 pb-2.5 border-b border-black/[0.12]">
                       <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">
                         Actif type
                       </span>
@@ -122,17 +122,17 @@ export default function ConditionTabs({ tabs }: Props) {
                     {active.actifs.map((a, i) => (
                       <div
                         key={a.name}
-                        className={`grid grid-cols-[170px_90px_1fr] gap-x-6 py-3 items-baseline ${
+                        className={`grid grid-cols-[1fr_auto] md:grid-cols-[170px_90px_1fr] gap-x-3 md:gap-x-6 gap-y-1.5 md:gap-y-0 py-3 md:items-baseline ${
                           i > 0 ? 'border-t border-black/[0.07]' : ''
                         }`}
                       >
                         <span className="text-[14.5px] font-semibold text-ink tracking-[-0.005em]">
                           {a.name}
                         </span>
-                        <span className="font-mono text-[12px] text-ink-3 font-medium whitespace-nowrap">
+                        <span className="font-mono text-[12px] text-ink-3 font-medium whitespace-nowrap text-right md:text-left">
                           {a.dose}
                         </span>
-                        <p className="text-[13.5px] leading-[1.45] text-ink-2 m-0">
+                        <p className="col-span-2 md:col-span-1 text-[13.5px] leading-[1.45] text-ink-2 m-0">
                           <b className="font-semibold text-ink">{a.bold}</b>
                           {a.rest ? ` ${a.rest}` : ''}
                         </p>

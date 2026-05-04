@@ -50,7 +50,7 @@ const CLUSTERS: Cluster[] = [
     color: '#E8664B',
     label: 'Corticoïdes modérés',
     countLabel: '6 100 prescriptions',
-    anchorOffset: { dx: -2, dy: 20 },
+    anchorOffset: { dx: -12, dy: 10 },
   },
   { cx: 35, cy: 72, count: 14, spread: 7, color: '#B4E8C5' },
   { cx: 50, cy: 52, count: 10, spread: 6, color: '#A8B5A7' },
@@ -164,17 +164,17 @@ export default function ClusterMap() {
           initial={{ opacity: 0, y: 6 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 1 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute rounded-[6px] bg-sage-deep/95 backdrop-blur border border-white/15 px-2.5 py-1.5 text-[10px] leading-tight shadow-[0_4px_12px_-4px_rgba(0,0,0,0.4)] pointer-events-none"
+          className="absolute rounded-[6px] bg-sage-deep/95 backdrop-blur border border-white/15 px-2 md:px-2.5 py-1 md:py-1.5 text-[8.5px] md:text-[10px] leading-tight shadow-[0_4px_12px_-4px_rgba(0,0,0,0.4)] pointer-events-none max-w-[110px] md:max-w-[200px]"
           style={{
             left: `${c.cx + (c.anchorOffset?.dx ?? 0)}%`,
             top: `${c.cy + (c.anchorOffset?.dy ?? 0)}%`,
             transform: 'translate(-50%, -50%)',
           }}
         >
-          <div className="font-mono uppercase tracking-[0.1em] font-semibold text-white whitespace-nowrap">
+          <div className="font-mono uppercase tracking-[0.1em] font-semibold text-white">
             {c.label}
           </div>
-          <div className="font-mono text-mint-soft mt-0.5 whitespace-nowrap">{c.countLabel}</div>
+          <div className="font-mono text-mint-soft mt-0.5">{c.countLabel}</div>
         </motion.div>
       ))}
     </div>
