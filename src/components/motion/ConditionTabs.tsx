@@ -29,13 +29,143 @@ type Props = {
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function ConditionTabs({ tabs }: Props) {
+function PanelContent({ tab, compact = false }: { tab: Tab; compact?: boolean }) {
+  return (
+    <div className="flex flex-col gap-6">
+      {compact && (
+        <div className="relative aspect-[16/11] overflow-hidden rounded-xl bg-blush/30">
+          <img
+            src={tab.image}
+            alt={tab.imageAlt}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+      )}
+
+      <div>
+        <p className="text-[17px] font-medium leading-[1.5] tracking-[-0.005em] text-ink mb-3">
+          {tab.pedagogy.lede}
+        </p>
+        <p className="text-[14.5px] leading-[1.65] text-ink-2">{tab.pedagogy.body}</p>
+      </div>
+
+      <div className="rounded-[14px] bg-base border border-black/[0.04] p-5 md:p-7">
+        {tab.placeholder ? (
+          <p className="text-[14px] text-ink-3 italic leading-relaxed">Section en préparation.</p>
+        ) : (
+          <>
+            <div className="hidden md:grid grid-cols-[180px_1fr] gap-x-6 pb-2.5 border-b border-black/[0.12]">
+              <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">
+                Actif
+              </span>
+              <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">
+                Effet
+              </span>
+            </div>
+            {tab.actifs.map((a, i) => (
+              <div
+                key={a.name}
+                className={`grid grid-cols-1 md:grid-cols-[180px_1fr] gap-x-6 gap-y-1.5 md:gap-y-0 py-3 md:items-baseline ${
+                  i > 0 ? 'border-t border-black/[0.07]' : ''
+                }`}
+              >
+                <span className="text-[14px] md:text-[14.5px] font-semibold text-ink tracking-[-0.005em]">
+                  {a.name}
+                </span>
+                <p className="text-[13px] md:text-[13.5px] leading-[1.45] text-ink-2 m-0">
+                  <b className="font-semibold text-ink">{a.bold}</b>
+                  {a.rest ? ` ${a.rest}` : ''}
+                </p>
+              </div>
+            ))}
+            <div className="mt-4 pt-3.5 border-t border-black/[0.07] text-[12.5px] text-ink-3 leading-[1.55]">
+              {tab.footer}
+            </div>
+          </>
+        )}
+      </div>
+
+      <p className="italic-serif text-[13px] text-ink-3">{tab.disclaimer}</p>
+    </div>
+  );
+}
+
+function MobileAccordion({ tabs }: Props) {
+  const [openId, setOpenId] = useState<string>(tabs[0].id);
+
+  return (
+    <div className="md:hidden flex flex-col gap-3">
+      {tabs.map((t) => {
+        const isOpen = t.id === openId;
+        return (
+          <div
+            key={t.id}
+            className={`rounded-[14px] border transition-colors ${
+              isOpen ? 'border-black/[0.1] bg-base' : 'border-black/[0.06] bg-cream/40'
+            }`}
+          >
+            <button
+              type="button"
+              onClick={() => setOpenId(isOpen ? '' : t.id)}
+              className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
+              aria-expanded={isOpen}
+            >
+              <span className="flex items-center gap-3 min-w-0">
+                <span className="font-mono text-[9.5px] font-semibold tracking-[0.16em] uppercase rounded-[5px] bg-deep text-white px-2 py-1 shrink-0">
+                  {t.chip}
+                </span>
+                <span className="text-[15px] font-medium text-ink truncate">{t.label}</span>
+              </span>
+              <motion.svg
+                animate={{ rotate: isOpen ? 180 : 0 }}
+                transition={{ duration: 0.25, ease: EASE }}
+                viewBox="0 0 16 16"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-ink-3 shrink-0"
+                aria-hidden="true"
+              >
+                <path d="M4 6l4 4 4-4" />
+              </motion.svg>
+            </button>
+
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  key="content"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.35, ease: EASE }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-5 pb-5 pt-1">
+                    <PanelContent tab={t} compact />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function DesktopTabs({ tabs }: Props) {
   const [activeId, setActiveId] = useState(tabs[0].id);
   const active = tabs.find((t) => t.id === activeId) ?? tabs[0];
 
   return (
-    <div>
-      <div className="flex gap-6 md:gap-8 overflow-x-auto border-b border-black/[0.08] mb-10 md:mb-12 -mx-6 px-6 md:mx-0 md:px-0 text-[15px] font-medium">
+    <div className="hidden md:block">
+      <div className="flex gap-8 overflow-x-auto border-b border-black/[0.08] mb-12 text-[15px] font-medium">
         {tabs.map((t) => {
           const isActive = t.id === activeId;
           return (
@@ -81,70 +211,27 @@ export default function ConditionTabs({ tabs }: Props) {
           </div>
         </div>
 
-        <div className="flex flex-col gap-7">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active.id}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.45, ease: EASE }}
-              className="flex flex-col gap-7"
-            >
-              <div className="max-w-[560px]">
-                <p className="text-[18px] font-medium leading-[1.5] tracking-[-0.005em] text-ink mb-3">
-                  {active.pedagogy.lede}
-                </p>
-                <p className="text-[15px] leading-[1.65] text-ink-2">
-                  {active.pedagogy.body}
-                </p>
-              </div>
-
-              <div className="rounded-[14px] bg-base border border-black/[0.04] p-6 md:p-7">
-                {active.placeholder ? (
-                  <p className="text-[14px] text-ink-3 italic leading-relaxed">
-                    Section en préparation.
-                  </p>
-                ) : (
-                  <>
-                    <div className="hidden md:grid grid-cols-[180px_1fr] gap-x-6 pb-2.5 border-b border-black/[0.12]">
-                      <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">
-                        Actif
-                      </span>
-                      <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">
-                        Effet
-                      </span>
-                    </div>
-                    {active.actifs.map((a, i) => (
-                      <div
-                        key={a.name}
-                        className={`grid grid-cols-1 md:grid-cols-[180px_1fr] gap-x-6 gap-y-1.5 md:gap-y-0 py-3 md:items-baseline ${
-                          i > 0 ? 'border-t border-black/[0.07]' : ''
-                        }`}
-                      >
-                        <span className="text-[14.5px] font-semibold text-ink tracking-[-0.005em]">
-                          {a.name}
-                        </span>
-                        <p className="text-[13.5px] leading-[1.45] text-ink-2 m-0">
-                          <b className="font-semibold text-ink">{a.bold}</b>
-                          {a.rest ? ` ${a.rest}` : ''}
-                        </p>
-                      </div>
-                    ))}
-                    <div className="mt-4 pt-3.5 border-t border-black/[0.07] text-[12.5px] text-ink-3 leading-[1.55]">
-                      {active.footer}
-                    </div>
-                  </>
-                )}
-              </div>
-
-              <p className="italic-serif text-[13px] text-ink-3">
-                {active.disclaimer}
-              </p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active.id}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.45, ease: EASE }}
+          >
+            <PanelContent tab={active} />
+          </motion.div>
+        </AnimatePresence>
       </div>
+    </div>
+  );
+}
+
+export default function ConditionTabs({ tabs }: Props) {
+  return (
+    <div>
+      <MobileAccordion tabs={tabs} />
+      <DesktopTabs tabs={tabs} />
     </div>
   );
 }
