@@ -28,8 +28,8 @@ const CLUSTERS: Cluster[] = [
     count: 26,
     spread: 11,
     color: '#7FE0A5',
-    label: 'Cluster Kligman',
-    countLabel: '12 400 prescriptions',
+    label: 'Famille dépigmentante',
+    countLabel: 'Combinaisons documentées',
     anchorOffset: { dx: -5, dy: -22 },
   },
   {
@@ -38,8 +38,8 @@ const CLUSTERS: Cluster[] = [
     count: 22,
     spread: 10,
     color: '#D4A08A',
-    label: 'Rétinoïdes + azélaïque',
-    countLabel: '8 900 prescriptions',
+    label: 'Combinaisons régulatrices',
+    countLabel: 'Combinaisons documentées',
     anchorOffset: { dx: -3, dy: -22 },
   },
   {
@@ -48,8 +48,8 @@ const CLUSTERS: Cluster[] = [
     count: 18,
     spread: 8,
     color: '#E8664B',
-    label: 'Corticoïdes modérés',
-    countLabel: '6 100 prescriptions',
+    label: 'Anti-inflammatoires topiques',
+    countLabel: 'Combinaisons documentées',
     anchorOffset: { dx: -12, dy: 10 },
   },
   { cx: 35, cy: 72, count: 14, spread: 7, color: '#B4E8C5' },
@@ -174,7 +174,7 @@ export default function ClusterMap() {
           <div className="font-mono uppercase tracking-[0.1em] font-semibold text-white">
             {c.label}
           </div>
-          <div className="font-mono text-mint-soft mt-0.5">{c.countLabel}</div>
+          <div className="text-white/55 italic mt-0.5 text-[8px] md:text-[9px]">{c.countLabel}</div>
         </motion.div>
       ))}
     </div>

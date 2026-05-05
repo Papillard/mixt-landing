@@ -13,13 +13,18 @@ const stats = [
   {
     value: 51,
     suffix: ' %',
-    caption: 'des personnes arrêtent leur traitement avant de voir des résultats.',
+    caption: "des personnes arrêtent leur traitement avant d'en voir les bénéfices.",
   },
   {
-    value: 76,
-    suffix: ' %',
+    display: '50–70 %',
     caption: 'de réduction des lésions quand le traitement est suivi et ajusté dans la durée.',
   },
+];
+
+const sources = [
+  'EADV Burden of Skin Disease, JEADV 2022.',
+  "Études d'adhérence en dermatologie topique, JAAD.",
+  'Essais cliniques phase III, JAAD.',
 ];
 ---
 
@@ -39,18 +44,32 @@ const stats = [
         </p>
       </FadeInSection>
 
-      <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-6">
         {stats.map((s, i) => (
           <FadeInSection client:load delay={i * 0.08}>
             <div class="flex items-center gap-5 md:gap-8 pt-5 border-t border-ink/15">
-              <div class="text-[52px] md:text-[64px] font-semibold leading-[0.95] tracking-[-0.04em] text-ink shrink-0 min-w-[140px] md:min-w-[180px]">
-                <BigNumber client:load value={s.value} suffix={s.suffix} format="comma" />
+              <div class="text-[36px] md:text-[44px] font-semibold leading-[0.95] tracking-[-0.04em] text-ink shrink-0 w-[140px] md:w-[180px] whitespace-nowrap">
+                {s.display ? (
+                  <span>{s.display}</span>
+                ) : (
+                  <BigNumber client:load value={s.value} suffix={s.suffix} format="comma" />
+                )}
               </div>
-              <p class="text-[14.5px] md:text-[15.5px] text-ink-2 leading-[1.5]">{s.caption}</p>
+              <p class="flex-1 text-[14.5px] md:text-[15.5px] text-ink-2 leading-[1.5]">
+                {s.caption}<sup class="ml-0.5 text-[10px] text-ink-3 font-medium">{i + 1}</sup>
+              </p>
             </div>
           </FadeInSection>
         ))}
       </div>
+
+      <FadeInSection client:load delay={0.3}>
+        <ol class="mt-8 pt-5 border-t border-ink/10 flex flex-col gap-1 text-[11px] text-ink-3 italic leading-snug list-none">
+          {sources.map((src, i) => (
+            <li><sup class="mr-1 not-italic">{i + 1}</sup>{src}</li>
+          ))}
+        </ol>
+      </FadeInSection>
 
     </div>
 

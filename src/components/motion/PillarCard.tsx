@@ -45,9 +45,25 @@ function renderOverlay(o: Overlay) {
           {o.patientLabel}
         </div>
         {o.rows.map((r) => (
-          <div key={r.name} className="flex justify-between items-baseline py-1 text-[12px]">
-            <span className="text-ink-2">{r.name}</span>
-            <strong className="font-semibold text-ink">{r.dose}</strong>
+          <div key={r.name} className="flex justify-between items-center py-1 text-[12px]">
+            <span className="flex items-center gap-2 text-ink-2">
+              <svg
+                viewBox="0 0 16 16"
+                width="11"
+                height="11"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-ember-deep shrink-0"
+                aria-hidden="true"
+              >
+                <path d="M3 8.5l3 3 7-7" />
+              </svg>
+              {r.name}
+            </span>
+            {r.dose && <strong className="font-semibold text-ink">{r.dose}</strong>}
           </div>
         ))}
         <div className="mt-3 pt-2.5 border-t border-black/[0.06] text-[10px] italic text-ink-3">

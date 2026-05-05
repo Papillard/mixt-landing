@@ -4,8 +4,8 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 import ClusterMap from '../motion/ClusterMap.tsx';
 
 const stats = [
-  { value: 500000, suffix: '+', caption: "formulations magistrales documentées par notre pharmacie partenaire, qui nourrissent l'expertise de nos dermatologues." },
-  { value: 200, suffix: '+', caption: 'publications dermatologiques de référence consultées par nos dermatologues.' },
+  { display: 'Décennies', caption: 'de formulations magistrales documentées par notre pharmacie partenaire.' },
+  { display: 'Référence', caption: 'publications dermatologiques de référence consultées par nos dermatologues.' },
   { value: 15, suffix: ' ans', caption: "d'expérience de notre pharmacie partenaire dans la préparation magistrale." },
 ];
 ---
@@ -28,7 +28,7 @@ const stats = [
           Documenté. <span class="italic-serif text-mint whitespace-nowrap">Pas inventé.</span>
         </h2>
         <p class="text-[17px] md:text-lg leading-relaxed text-white/70 mb-8 max-w-[540px]">
-          Pour vous prescrire, votre dermatologue s'appuie sur son expertise clinique, la littérature dermatologique de référence, et la bibliothèque de formulations magistrales utilisées de longue date par notre pharmacie partenaire.
+          Quand une prescription est nécessaire, votre dermatologue s'appuie sur son expertise clinique, la littérature dermatologique de référence, et la bibliothèque de formulations magistrales utilisées de longue date par notre pharmacie partenaire.
         </p>
         <div class="border-l-2 border-mint pl-6 italic-serif text-[18px] leading-relaxed text-white/85 max-w-[540px]">
           Vos dermatologues ne partent jamais d'une page blanche. Ils s'appuient sur des décennies de formulations magistrales documentées par notre pharmacie partenaire et sur la littérature scientifique pour concevoir, en conscience, la formule la plus adaptée à votre peau.
@@ -49,7 +49,11 @@ const stats = [
       {stats.map((s, i) => (
         <FadeInSection client:load delay={i * 0.1}>
           <div class="text-[48px] md:text-[60px] font-semibold leading-[0.95] tracking-[-0.04em] text-white mb-3">
-            <BigNumber client:load value={s.value} suffix={s.suffix} format="comma" />
+            {s.display ? (
+              <span>{s.display}</span>
+            ) : (
+              <BigNumber client:load value={s.value} suffix={s.suffix} format="comma" />
+            )}
           </div>
           <p class="text-[14px] text-white/65 leading-relaxed max-w-[260px]">{s.caption}</p>
         </FadeInSection>
