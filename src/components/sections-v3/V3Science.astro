@@ -4,9 +4,9 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 import ClusterMap from '../motion/ClusterMap.tsx';
 
 const stats = [
-  { display: 'Décennies', caption: 'de formulations magistrales documentées par notre pharmacie partenaire.' },
-  { display: 'Référence', caption: 'publications dermatologiques de référence consultées par nos dermatologues.' },
+  { value: 500000, suffix: '+', caption: 'formulations magistrales documentées par notre pharmacie partenaire.' },
   { value: 15, suffix: ' ans', caption: "d'expérience de notre pharmacie partenaire dans la préparation magistrale." },
+  { value: 100, suffix: ' %', caption: 'des préparations réalisées en France, en pharmacie certifiée.' },
 ];
 ---
 
@@ -49,11 +49,7 @@ const stats = [
       {stats.map((s, i) => (
         <FadeInSection client:load delay={i * 0.1}>
           <div class="text-[48px] md:text-[60px] font-semibold leading-[0.95] tracking-[-0.04em] text-white mb-3">
-            {s.display ? (
-              <span>{s.display}</span>
-            ) : (
-              <BigNumber client:load value={s.value} suffix={s.suffix} format="comma" />
-            )}
+            <BigNumber client:load value={s.value} suffix={s.suffix} format="comma" />
           </div>
           <p class="text-[14px] text-white/65 leading-relaxed max-w-[260px]">{s.caption}</p>
         </FadeInSection>
