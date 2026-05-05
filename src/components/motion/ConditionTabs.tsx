@@ -41,6 +41,9 @@ function PanelContent({ tab, compact = false }: { tab: Tab; compact?: boolean })
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover"
           />
+          <div className="absolute left-3 top-3 rounded-[6px] bg-deep/95 backdrop-blur px-2.5 py-[5px] font-mono text-[9.5px] font-semibold tracking-[0.16em] uppercase text-white">
+            {tab.chip}
+          </div>
         </div>
       )}
 
@@ -112,12 +115,7 @@ function MobileAccordion({ tabs }: Props) {
               className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
               aria-expanded={isOpen}
             >
-              <span className="flex items-center gap-3 min-w-0">
-                <span className="font-mono text-[9.5px] font-semibold tracking-[0.16em] uppercase rounded-[5px] bg-deep text-white px-2 py-1 shrink-0">
-                  {t.chip}
-                </span>
-                <span className="text-[15px] font-medium text-ink truncate">{t.label}</span>
-              </span>
+              <span className="text-[15px] font-medium text-ink truncate min-w-0">{t.label}</span>
               <motion.svg
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.25, ease: EASE }}
