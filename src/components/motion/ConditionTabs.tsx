@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, type PanInfo } from 'framer-motion';
 import { useState } from 'react';
 
 type Actif = {
@@ -29,37 +29,22 @@ type Props = {
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-function PanelContent({ tab, compact = false }: { tab: Tab; compact?: boolean }) {
+function DesktopPanel({ tab }: { tab: Tab }) {
   return (
-    <div className="flex flex-col gap-6">
-      {compact && (
-        <div className="relative aspect-[16/11] overflow-hidden rounded-xl bg-blush/30">
-          <img
-            src={tab.image}
-            alt={tab.imageAlt}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute left-3 top-3 rounded-[6px] bg-deep/95 backdrop-blur px-2.5 py-[5px] font-mono text-[9.5px] font-semibold tracking-[0.16em] uppercase text-white">
-            {tab.chip}
-          </div>
-        </div>
-      )}
-
-      <div>
-        <p className="text-[17px] font-medium leading-[1.5] tracking-[-0.005em] text-ink mb-3">
+    <div className="flex flex-col gap-7">
+      <div className="max-w-[560px]">
+        <p className="text-[18px] font-medium leading-[1.5] tracking-[-0.005em] text-ink mb-3">
           {tab.pedagogy.lede}
         </p>
-        <p className="text-[14.5px] leading-[1.65] text-ink-2">{tab.pedagogy.body}</p>
+        <p className="text-[15px] leading-[1.65] text-ink-2">{tab.pedagogy.body}</p>
       </div>
 
-      <div className="rounded-[14px] bg-base border border-black/[0.04] p-5 md:p-7">
+      <div className="rounded-[14px] bg-base border border-black/[0.04] p-6 md:p-7">
         {tab.placeholder ? (
           <p className="text-[14px] text-ink-3 italic leading-relaxed">Section en préparation.</p>
         ) : (
           <>
-            <div className="hidden md:grid grid-cols-[180px_1fr] gap-x-6 pb-2.5 border-b border-black/[0.12]">
+            <div className="grid grid-cols-[180px_1fr] gap-x-6 pb-2.5 border-b border-black/[0.12]">
               <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">
                 Actif
               </span>
@@ -70,14 +55,14 @@ function PanelContent({ tab, compact = false }: { tab: Tab; compact?: boolean })
             {tab.actifs.map((a, i) => (
               <div
                 key={a.name}
-                className={`grid grid-cols-1 md:grid-cols-[180px_1fr] gap-x-6 gap-y-1.5 md:gap-y-0 py-3 md:items-baseline ${
+                className={`grid grid-cols-[180px_1fr] gap-x-6 py-3 items-baseline ${
                   i > 0 ? 'border-t border-black/[0.07]' : ''
                 }`}
               >
-                <span className="text-[14px] md:text-[14.5px] font-semibold text-ink tracking-[-0.005em]">
+                <span className="text-[14.5px] font-semibold text-ink tracking-[-0.005em]">
                   {a.name}
                 </span>
-                <p className="text-[13px] md:text-[13.5px] leading-[1.45] text-ink-2 m-0">
+                <p className="text-[13.5px] leading-[1.45] text-ink-2 m-0">
                   <b className="font-semibold text-ink">{a.bold}</b>
                   {a.rest ? ` ${a.rest}` : ''}
                 </p>
@@ -95,64 +80,83 @@ function PanelContent({ tab, compact = false }: { tab: Tab; compact?: boolean })
   );
 }
 
-function MobileAccordion({ tabs }: Props) {
-  const [openId, setOpenId] = useState<string>(tabs[0].id);
+function MobileSwipeCards({ tabs }: Props) {
+  const [index, setIndex] = useState(0);
+  const goTo = (i: number) => setIndex(Math.max(0, Math.min(tabs.length - 1, i)));
+
+  const handleDragEnd = (_e: unknown, info: PanInfo) => {
+    const offset = 60;
+    const velocity = 300;
+    if (info.offset.x < -offset || info.velocity.x < -velocity) {
+      goTo(index + 1);
+    } else if (info.offset.x > offset || info.velocity.x > velocity) {
+      goTo(index - 1);
+    }
+  };
 
   return (
-    <div className="md:hidden flex flex-col gap-3">
-      {tabs.map((t) => {
-        const isOpen = t.id === openId;
-        return (
-          <div
-            key={t.id}
-            className={`rounded-[14px] border transition-colors ${
-              isOpen ? 'border-black/[0.1] bg-base' : 'border-black/[0.06] bg-cream/40'
-            }`}
-          >
-            <button
-              type="button"
-              onClick={() => setOpenId(isOpen ? '' : t.id)}
-              className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
-              aria-expanded={isOpen}
-            >
-              <span className="text-[15px] font-medium text-ink truncate min-w-0">{t.label}</span>
-              <motion.svg
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.25, ease: EASE }}
-                viewBox="0 0 16 16"
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-ink-3 shrink-0"
-                aria-hidden="true"
-              >
-                <path d="M4 6l4 4 4-4" />
-              </motion.svg>
-            </button>
-
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  key="content"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.35, ease: EASE }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-5 pb-5 pt-1">
-                    <PanelContent tab={t} compact />
+    <div className="md:hidden">
+      <div className="overflow-hidden">
+        <motion.div
+          className="flex touch-pan-y"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.18}
+          onDragEnd={handleDragEnd}
+          animate={{ x: `${-index * 100}%` }}
+          transition={{ type: 'spring', stiffness: 280, damping: 32 }}
+        >
+          {tabs.map((t) => (
+            <div key={t.id} className="shrink-0 w-full px-1">
+              <article className="rounded-[16px] bg-base border border-black/[0.05] overflow-hidden shadow-[0_8px_28px_-18px_rgba(54,24,34,0.18)]">
+                <div className="relative aspect-[16/11] bg-blush/30">
+                  <img
+                    src={t.image}
+                    alt={t.imageAlt}
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
+                    className="absolute inset-0 h-full w-full object-cover select-none pointer-events-none"
+                  />
+                  <div className="absolute left-3 top-3 rounded-[6px] bg-deep/95 backdrop-blur px-2.5 py-[5px] font-mono text-[9.5px] font-semibold tracking-[0.16em] uppercase text-white">
+                    {t.chip}
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        );
-      })}
+                </div>
+                <div className="px-5 pt-5 pb-6">
+                  <p className="text-[17px] font-medium leading-[1.45] tracking-[-0.005em] text-ink mb-2.5">
+                    {t.pedagogy.lede}
+                  </p>
+                  <p className="text-[14.5px] leading-[1.6] text-ink-2">{t.pedagogy.body}</p>
+                </div>
+              </article>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <div className="flex justify-center items-center gap-1.5 mt-6">
+        {tabs.map((t, i) => (
+          <button
+            key={t.id}
+            type="button"
+            onClick={() => goTo(i)}
+            aria-label={`Voir ${t.label}`}
+            className="py-2 px-1"
+          >
+            <motion.span
+              animate={{ width: i === index ? 22 : 6 }}
+              transition={{ duration: 0.3, ease: EASE }}
+              className={`block h-[6px] rounded-full ${
+                i === index ? 'bg-ink' : 'bg-ink/20'
+              }`}
+            />
+          </button>
+        ))}
+      </div>
+
+      <p className="italic-serif text-[12.5px] text-ink-3 text-center mt-4">
+        {tabs[index]?.disclaimer}
+      </p>
     </div>
   );
 }
@@ -217,7 +221,7 @@ function DesktopTabs({ tabs }: Props) {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.45, ease: EASE }}
           >
-            <PanelContent tab={active} />
+            <DesktopPanel tab={active} />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -228,7 +232,7 @@ function DesktopTabs({ tabs }: Props) {
 export default function ConditionTabs({ tabs }: Props) {
   return (
     <div>
-      <MobileAccordion tabs={tabs} />
+      <MobileSwipeCards tabs={tabs} />
       <DesktopTabs tabs={tabs} />
     </div>
   );
