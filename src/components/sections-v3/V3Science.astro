@@ -4,8 +4,8 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 import ClusterMap from '../motion/ClusterMap.tsx';
 
 const stats = [
-  { value: 500000, suffix: '+', caption: 'formulations magistrales documentées par notre pharmacie partenaire.' },
-  { value: 15, suffix: ' ans', caption: "d'expérience de notre pharmacie partenaire dans la préparation magistrale." },
+  { value: 500000, suffix: '+', caption: 'préparations magistrales réalisées par notre pharmacie partenaire.' },
+  { value: 15, suffix: ' ans', caption: "d'expertise de notre pharmacie partenaire en dermatologie magistrale." },
   { value: 100, suffix: ' %', caption: 'des préparations réalisées en France, en pharmacie certifiée.' },
 ];
 ---
@@ -22,16 +22,16 @@ const stats = [
       <FadeInSection client:load>
         <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-mint mb-5">
           <span class="inline-block h-px w-10 bg-mint/80"></span>
-          La science derrière la formule
+          Une discipline documentée
         </div>
         <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] mb-6 text-white">
           Documenté. <span class="italic-serif text-mint whitespace-nowrap">Pas inventé.</span>
         </h2>
         <p class="text-[17px] md:text-lg leading-relaxed text-white/70 mb-8 max-w-[540px]">
-          Quand une prescription est nécessaire, votre dermatologue s'appuie sur son expertise clinique, la littérature dermatologique de référence, et la bibliothèque de formulations magistrales utilisées de longue date par notre pharmacie partenaire.
+          La dermatologie magistrale est une discipline ancienne et rigoureuse. Quand une prescription est nécessaire, votre dermatologue s'appuie sur son expertise clinique et sur la littérature scientifique de référence.
         </p>
         <div class="border-l-2 border-mint pl-6 italic-serif text-[18px] leading-relaxed text-white/85 max-w-[540px]">
-          Vos dermatologues ne partent jamais d'une page blanche. Ils s'appuient sur des décennies de formulations magistrales documentées par notre pharmacie partenaire et sur la littérature scientifique pour concevoir, en conscience, la formule la plus adaptée à votre peau.
+          La formulation magistrale en dermatologie repose sur des décennies de pratique et de littérature scientifique. Chaque prescription est une décision clinique de votre dermatologue, fondée sur son évaluation et son expérience.
         </div>
       </FadeInSection>
 
@@ -39,7 +39,7 @@ const stats = [
         <FadeInSection client:load delay={0.15}>
           <ClusterMap client:load />
           <p class="mt-4 text-[12px] text-white/50 italic text-center leading-relaxed">
-            Visualisation des combinaisons d'actifs les plus fréquemment utilisées en formulation magistrale — base anonymisée de notre pharmacie partenaire. À titre illustratif.
+            Cartographie illustrative des grands axes de la littérature en dermatologie magistrale. Illustration pédagogique — ne reflète pas une prescription individuelle.
           </p>
         </FadeInSection>
       </div>

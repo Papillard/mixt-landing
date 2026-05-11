@@ -3,21 +3,20 @@ import Button from '../Button.astro';
 import FadeInSection from '../motion/FadeInSection.tsx';
 
 const features = [
-  'Téléconsultation avec votre dermatologue (15 min)',
-  'Prescription magistrale si médicalement indiquée',
-  "Messagerie avec l'équipe Mixt pendant 3 mois",
-  'Check-ins mensuels avec photos',
-  'Bilan dermato à 3 mois : renouvellement ou ajustement de formule',
+  'Accès au réseau de dermatologues partenaires',
+  'Entretien préparatoire de 30 min avec votre experte Mixt',
+  'Dossier dermatologique structuré, transmis à votre dermatologue',
+  "Suivi mensuel et messagerie avec l'équipe Mixt",
+  'Bilan à 3 mois pour préparer la suite',
 ];
 
 const compareRows = [
-  { label: 'Délai pour un RDV', classic: '3 à 6 mois', mixt: 'Sous 1 semaine en moyenne' },
-  { label: 'Consultation', classic: '~15 min en cabinet', mixt: 'Questionnaire détaillé + photos · téléconsultation de 15 min · plan personnalisé' },
-  { label: 'Traitement', classic: 'Ordonnance standard', mixt: 'Formulation magistrale sur-mesure (quand c\'est adapté)' },
-  { label: 'Suivi', classic: 'Aux RDV uniquement', mixt: "Check-ins mensuels · messagerie avec l'équipe Mixt" },
-  { label: 'Ajustement et renouvellement', classic: 'Nouveau RDV (+ attente)', mixt: 'Bilan dermato à 3 mois · inclus' },
-  { label: 'Mesure des progrès', classic: 'Évaluation visuelle en consultation', mixt: 'Photos mensuelles · suivi visuel' },
-  { label: 'Coût', classic: 'Paiement par consultation (remboursé selon secteur)', mixt: '69 € · forfait 3 mois (offre lancement)' },
+  { label: 'Accès au dermatologue', classic: "3 à 6 mois d'attente", mixt: 'Sous 1 semaine, via le réseau partenaire' },
+  { label: 'Préparation de la consultation', classic: 'À votre charge', mixt: 'Entretien de 30 min + dossier dermatologique structuré' },
+  { label: 'Information transmise au dermatologue', classic: 'Ce que vous parvenez à raconter en 15 min', mixt: 'Historique complet, photos, traitements essayés, réactions' },
+  { label: 'Entre les rendez-vous', classic: 'Aucun accompagnement', mixt: "Suivi mensuel et messagerie avec l'équipe Mixt" },
+  { label: "Suivi de l'évolution", classic: 'Évaluation visuelle au RDV suivant', mixt: 'Photos mensuelles et journal de votre peau' },
+  { label: 'À 3 mois', classic: 'Reprise de RDV à votre initiative', mixt: 'Bilan avec Mixt pour préparer la consultation suivante' },
 ];
 
 // TODO: obtenir les accords formels et photos N&B des trois professeurs
@@ -34,7 +33,7 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
   <div class="max-w-[1200px] mx-auto">
     <FadeInSection client:load>
       <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] text-center max-w-[880px] mx-auto mb-4 text-ink">
-        Un parcours complet,<br class="hidden md:inline" /> <span class="italic-serif whitespace-nowrap">pensé pour durer.</span>
+        Un parcours <span class="italic-serif whitespace-nowrap">pensé pour durer.</span>
       </h2>
     </FadeInSection>
 
@@ -46,14 +45,14 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
         </div>
         <div class="flex items-baseline gap-3 mb-2">
           <div class="text-[68px] md:text-[80px] font-semibold leading-none tracking-[-0.04em]">
-            69 €
+            49 €
           </div>
           <div class="text-[26px] md:text-[30px] font-medium leading-none text-white/40 line-through decoration-white/50 decoration-2">
-            119 €
+            89 €
           </div>
         </div>
         <div class="text-[14px] text-white/60 mb-7 pb-6 border-b border-white/15">
-          3 mois de parcours, consultation incluse
+          Le parcours Mixt sur 3 mois
         </div>
         <ul class="flex flex-col gap-1 mb-7">
           {features.map((f) => (
@@ -63,10 +62,22 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
             </li>
           ))}
         </ul>
-        <Button href="/premieres-patientes" variant="white" class="w-full justify-center">Commencer mon bilan →</Button>
-        {/* TODO: confirmer pricing pharmacie +30 à 60€ */}
-        <div class="mt-5 pt-4 border-t border-white/15 text-[12px] text-white/55 leading-relaxed">
-          + 30 à 60 € à prévoir pour la préparation en pharmacie, si une prescription est délivrée (non inclus).
+        <Button href="/premieres-patientes" variant="white" class="w-full justify-center">Commencer mon parcours →</Button>
+      </div>
+    </FadeInSection>
+
+    <FadeInSection client:load delay={0.18}>
+      <div class="max-w-[480px] mx-auto -mt-6 mb-14 px-7 py-6 bg-cream border border-black/[0.08] rounded-[12px]">
+        <div class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-semibold mb-3.5">
+          À prévoir en plus
+        </div>
+        <div class="flex flex-col gap-3 text-[13px] leading-[1.55] text-ink-2">
+          <p>
+            <span class="text-ink font-medium">Consultation dermatologique</span> · selon les tarifs conventionnés, en partie remboursée par la Sécurité sociale (un éventuel reste à charge selon le secteur du dermatologue).
+          </p>
+          <p>
+            <span class="text-ink font-medium">Préparation en pharmacie</span> · 30 à 60 € si une formule magistrale est prescrite.
+          </p>
         </div>
       </div>
     </FadeInSection>
@@ -77,8 +88,8 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
           <thead>
             <tr>
               <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink-3 font-semibold bg-cream/60 border-b border-black/[0.08]">&nbsp;</th>
-              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink-3 font-semibold bg-cream/60 border-b border-black/[0.08]">Consultation classique</th>
-              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink font-semibold bg-cream border-b border-black/[0.08] border-l border-r border-warm/40">Mixt</th>
+              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink-3 font-semibold bg-cream/60 border-b border-black/[0.08]">Parcours classique</th>
+              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink font-semibold bg-cream border-b border-black/[0.08] border-l border-r border-warm/40">Avec Mixt</th>
             </tr>
           </thead>
           <tbody>
@@ -96,7 +107,7 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
 
     <FadeInSection client:load>
       <p class="text-center text-[16px] md:text-[18px] italic-serif text-ink-2 mt-10 max-w-[680px] mx-auto leading-relaxed">
-        Un forfait clair, sans surprise. Tout inclus pour aller au bout de votre traitement.
+        Une seule chose à payer à Mixt. Tout le reste suit le parcours médical classique.
       </p>
 
       <div class="flex flex-wrap justify-center gap-6 md:gap-8 mt-8 text-[12.5px] text-ink-3">

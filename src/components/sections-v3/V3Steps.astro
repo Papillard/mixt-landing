@@ -5,23 +5,23 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 const steps = [
   {
     number: '01',
-    title: 'Vous nous décrivez votre peau',
-    desc: "Photos standardisées, symptômes, historique, traitements déjà essayés. Un questionnaire médical de 30 minutes.",
+    title: 'Votre dossier dermatologique',
+    desc: "30 minutes en visio avec votre experte Mixt pour structurer votre dossier : antécédents, symptômes, traitements essayés, photos. Votre dermatologue le reçoit avant la consultation.",
   },
   {
     number: '02',
     title: 'Consultation avec votre dermatologue',
-    desc: "Échange, évaluation clinique, et prescription d'une formule magistrale si votre situation le justifie.",
+    desc: "Téléconsultation sous une semaine avec un dermatologue partenaire sélectionné pour son expertise en dermatologie personnalisée. Il dispose de votre dossier complet pour adapter son plan de traitement à votre cas. Tarifs conventionnés, en partie remboursée.",
   },
   {
     number: '03',
-    title: 'Préparation et démarrage du traitement',
-    desc: 'Votre formule est préparée sur ordonnance et peut être réalisée par une pharmacie partenaire ou de votre choix.',
+    title: 'Démarrage du traitement',
+    desc: "Si une formule magistrale est prescrite, elle est préparée par notre pharmacie partenaire — 15 ans d'expertise en dermatologie magistrale. L'équipe Mixt vous accompagne sur la prise en main et l'application au quotidien.",
   },
   {
     number: '04',
-    title: 'Accompagnement et bilan',
-    desc: "Check-ins mensuels avec photos, accompagnement par l'équipe Mixt au quotidien, et bilan dermato à 3 mois pour renouveler ou ajuster votre formule.",
+    title: 'Suivi et bilan',
+    desc: "Photos mensuelles, messagerie avec l'équipe Mixt, accompagnement au quotidien. Bilan à 3 mois pour préparer votre prochaine consultation.",
   },
 ];
 
@@ -46,11 +46,11 @@ const panels = [
   },
   {
     label: 'Étape 04',
-    kind: 'chart' as const,
+    kind: 'journal' as const,
     chartRows: [
-      { when: 'Semaine 4', what: 'Premiers résultats visibles' },
+      { when: 'Semaine 4', what: 'Premier point photo' },
       { when: 'Semaine 8', what: "Suivi par l'équipe Mixt" },
-      { when: 'Semaine 12', what: 'Bilan avec votre dermatologue' },
+      { when: 'Semaine 12', what: "Bilan avec l'équipe Mixt" },
     ],
   },
 ];

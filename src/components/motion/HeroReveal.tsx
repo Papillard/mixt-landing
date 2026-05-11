@@ -50,8 +50,8 @@ export default function HeroReveal({
         className={titleClass}
         style={serif ? { fontVariationSettings: "'opsz' 144" } : undefined}
       >
-        {title}{' '}
-        <span className="italic-serif" style={{ display: 'inline' }}>
+        {title}
+        <span className="italic-serif block">
           {highlight}
         </span>
       </motion.h1>

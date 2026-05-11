@@ -9,7 +9,7 @@ type Step = {
 
 type Panel = {
   label: string;
-  kind: 'image' | 'chart';
+  kind: 'image' | 'chart' | 'journal';
   src?: string;
   alt?: string;
   caption?: string;
@@ -24,6 +24,24 @@ type Props = {
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedChart?: boolean }) {
+  if (panel.kind === 'journal') {
+    return (
+      <div className="rounded-[14px] bg-cream border border-black/[0.06] p-6 md:p-7 font-mono text-[13.5px] md:text-[14px]">
+        <div className="mb-5 flex">
+          <div className="rounded-[6px] bg-deep/95 px-2.5 py-1 text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
+            {panel.label}
+          </div>
+        </div>
+        {panel.chartRows?.map((r) => (
+          <div key={r.when} className="flex flex-wrap justify-between items-baseline gap-2 py-2.5 border-b border-black/[0.08] last:border-b-0 last:pb-0 first:pt-0">
+            <span className="text-ember-deep uppercase tracking-[0.12em] font-semibold whitespace-nowrap">{r.when}</span>
+            <span className="text-ink text-right">{r.what}</span>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-cream">

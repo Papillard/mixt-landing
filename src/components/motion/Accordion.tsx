@@ -47,7 +47,7 @@ export default function Accordion({ items, defaultOpen = 0 }: Props) {
                   transition={{ duration: 0.4, ease: EASE }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-6 pr-10 text-[14.5px] text-ink-2 leading-relaxed max-w-[680px]">
+                  <div className="pb-6 pr-10 text-[14.5px] text-ink-2 leading-relaxed max-w-[680px] whitespace-pre-line">
                     {item.a}
                   </div>
                 </motion.div>

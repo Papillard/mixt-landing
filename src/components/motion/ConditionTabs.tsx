@@ -44,6 +44,9 @@ function DesktopPanel({ tab }: { tab: Tab }) {
           <p className="text-[14px] text-ink-3 italic leading-relaxed">Section en préparation.</p>
         ) : (
           <>
+            <p className="text-[13.5px] md:text-[14px] text-ink-2 leading-[1.5] mb-5">
+              Les actifs utilisés en dermatologie sur cette condition.
+            </p>
             <div className="grid grid-cols-[180px_1fr] gap-x-6 pb-2.5 border-b border-black/[0.12]">
               <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">
                 Actif
@@ -75,7 +78,9 @@ function DesktopPanel({ tab }: { tab: Tab }) {
         )}
       </div>
 
-      <p className="italic-serif text-[13px] text-ink-3">{tab.disclaimer}</p>
+      {tab.disclaimer && (
+        <p className="italic-serif text-[13px] text-ink-3">{tab.disclaimer}</p>
+      )}
     </div>
   );
 }
@@ -154,9 +159,11 @@ function MobileSwipeCards({ tabs }: Props) {
         ))}
       </div>
 
-      <p className="italic-serif text-[12.5px] text-ink-3 text-center mt-4">
-        {tabs[index]?.disclaimer}
-      </p>
+      {tabs[index]?.disclaimer && (
+        <p className="italic-serif text-[12.5px] text-ink-3 text-center mt-4">
+          {tabs[index]?.disclaimer}
+        </p>
+      )}
     </div>
   );
 }
