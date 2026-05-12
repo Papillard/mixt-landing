@@ -1,9 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
+type AnswerBlock = { heading?: string; body: string };
+
 type Item = {
   q: string;
-  a: string;
+  a: string | AnswerBlock[];
 };
 
 type Props = {
@@ -47,8 +49,21 @@ export default function Accordion({ items, defaultOpen = 0 }: Props) {
                   transition={{ duration: 0.4, ease: EASE }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-6 pr-10 text-[14.5px] text-ink-2 leading-relaxed max-w-[680px] whitespace-pre-line">
-                    {item.a}
+                  <div className="pb-6 pr-10 text-[14.5px] text-ink-2 leading-relaxed max-w-[680px]">
+                    {Array.isArray(item.a) ? (
+                      <div className="flex flex-col gap-5">
+                        {item.a.map((block, bi) => (
+                          <div key={bi}>
+                            {block.heading && (
+                              <div className="text-[15px] font-semibold text-ink mb-1.5">{block.heading}</div>
+                            )}
+                            <p className="whitespace-pre-line">{block.body}</p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="whitespace-pre-line">{item.a}</p>
+                    )}
                   </div>
                 </motion.div>
               )}

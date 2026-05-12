@@ -5,40 +5,71 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 
 const faq = [
   {
-    q: 'Que paie-je exactement, et à qui ?',
-    a: "Vous payez trois choses, à trois acteurs différents.\n\nÀ Mixt : 49 € pour le parcours d'accompagnement sur 3 mois — l'entretien préparatoire de 30 minutes avec votre experte, la structuration de votre dossier dermatologique, le suivi mensuel par notre équipe, et le bilan à 3 mois.\n\nÀ votre dermatologue : sa consultation aux tarifs conventionnés, en partie remboursée par la Sécurité sociale (un éventuel reste à charge selon le secteur du médecin).\n\nÀ la pharmacie partenaire : la préparation de votre formule magistrale si votre dermatologue en prescrit une (30 à 60 € selon les actifs, partiellement remboursée selon votre mutuelle).\n\nChacun facture pour son propre acte, en toute transparence.",
+    q: "Qu'est-ce que je paie exactement ? Et à qui ?",
+    a: [
+      {
+        heading: 'Une seule fois à Mixt — 49 €',
+        body: "Pour votre parcours de 3 mois : entretien de 30 min avec votre experte, dossier dermatologique structuré, mise en relation avec un dermatologue partenaire formé aux approches personnalisées, suivi par l'équipe, bilan à 3 mois.",
+      },
+      {
+        heading: 'Le reste, comme dans tout parcours médical',
+        body: "Votre consultation est facturée par votre dermatologue aux tarifs conventionnés, en partie remboursée par la Sécurité sociale. Si une formule magistrale est prescrite, sa préparation en pharmacie coûte 30 à 60 €, partiellement remboursée selon votre mutuelle.",
+      },
+      {
+        body: "Vous savez exactement ce que vous payez, et à qui, dès le départ.",
+      },
+    ],
   },
   {
-    q: 'Pourquoi payer Mixt en plus de la consultation ?',
-    a: "Parce que le parcours dermatologique classique laisse beaucoup de choses à votre charge : trouver un dermatologue, préparer votre consultation, savoir quoi raconter en 15 minutes, gérer seul·e les premières semaines de traitement, savoir quand revenir.\n\nMixt prend en charge tout ce qui est autour de l'acte médical. On consacre 30 minutes à structurer votre dossier — historique, traitements essayés, réactions, photos, contexte de vie. Votre dermatologue reçoit toutes ces informations avant la consultation, et peut s'appuyer sur un dossier complet plutôt que sur les 15 minutes habituelles pour poser sa décision clinique. Entre les rendez-vous, l'équipe Mixt continue à observer votre évolution et à transmettre à votre dermatologue les éléments utiles aux ajustements futurs.\n\nCe que vous payez à Mixt, c'est la continuité et la structuration qui permettent à la dermatologie de donner le meilleur d'elle-même.",
+    q: "Concrètement, qu'est-ce que je paie à Mixt ?",
+    a: "Mixt prend en charge tout ce qu'il y a autour de la consultation dermatologique.\n\n30 minutes avec votre experte pour structurer votre dossier — historique, traitements essayés, réactions, photos, contexte. Votre dermatologue dispose ainsi d'une vision complète avant la consultation, pour adapter finement sa décision clinique à votre cas.\n\nEntre les rendez-vous, l'équipe Mixt suit votre évolution, répond à vos questions et transmet à votre dermatologue les éléments utiles aux prochains ajustements.\n\nC'est la continuité et la structuration qui permettent à la dermatologie de donner le meilleur d'elle-même.",
   },
   {
-    q: "Qu'est-ce que Mixt apporte en plus d'une consultation classique ?",
-    a: "Trois choses que vous n'avez pas en cabinet aujourd'hui.\n\nUn accès rapide à un dermatologue. Sous une semaine en moyenne via notre réseau partenaire, contre 3 à 6 mois d'attente en moyenne dans le parcours classique.\n\nUn dossier dermatologique préparé en amont. Nos 30 minutes d'entretien permettent à votre dermatologue de comprendre votre cas en profondeur — vos antécédents, ce que vous avez déjà essayé, vos réactions, votre rythme de vie, vos objectifs. Avec une vision complète, sa prise en charge peut être finement adaptée à votre profil.\n\nUn accompagnement humain pendant 3 mois. Entre les consultations, l'équipe Mixt suit vos photos, répond à vos questions, vous guide dans l'application du traitement, et fait remonter à votre dermatologue tout ce qui mérite son attention.\n\nMixt ne remplace pas le parcours médical classique : on le structure, on l'accélère, et on vous accompagne tout le long.",
+    q: "Qu'est-ce que Mixt apporte de différent ?",
+    a: [
+      {
+        body: "Trois choses que vous n'avez pas en cabinet aujourd'hui.",
+      },
+      {
+        heading: 'Un accès rapide à un dermatologue',
+        body: 'Sous une semaine en moyenne via notre réseau partenaire.',
+      },
+      {
+        heading: 'Un dossier dermatologique préparé en amont',
+        body: '30 minutes avec votre experte pour permettre à votre dermatologue de comprendre votre cas en profondeur : antécédents, traitements essayés, réactions, rythme de vie, objectifs. Avec cette vision complète, sa prise en charge peut être finement adaptée à votre profil.',
+      },
+      {
+        heading: 'Un accompagnement humain pendant 3 mois',
+        body: "Entre les consultations, l'équipe Mixt suit vos photos, répond à vos questions, vous guide dans l'application du traitement, et fait remonter à votre dermatologue tout ce qui mérite son attention.",
+      },
+      {
+        body: "Mixt vient en complément du parcours médical : on le structure, on l'accélère, et on vous accompagne tout le long.",
+      },
+    ],
   },
   {
     q: 'Vais-je échanger avec mon dermatologue pendant les 3 mois ?',
-    a: "Votre dermatologue intervient à la consultation initiale : il évalue votre situation, échange avec vous, et établit son plan de traitement — qui peut inclure une formule magistrale sur mesure si votre cas le justifie.\n\nEntre cette consultation et la suivante, c'est l'équipe Mixt qui vous accompagne au quotidien. On suit vos photos, on répond à vos questions sur la routine, l'application, les sensations que vous ressentez, ce à quoi vous attendre dans les premières semaines. Pour toute nouvelle question médicale en cours de parcours, une consultation supplémentaire avec votre dermatologue est possible.\n\nL'idée, c'est que vous ne soyez jamais seul·e face à votre peau, sans transformer chaque doute en nouveau rendez-vous médical.",
+    a: "Votre dermatologue intervient à la consultation initiale : il évalue votre situation, échange avec vous, et établit son plan de traitement — qui peut inclure une formule magistrale sur mesure si votre cas le justifie.\n\nEntre cette consultation et la suivante, c'est l'équipe Mixt qui vous accompagne au quotidien : suivi de vos photos, réponses à vos questions sur la routine, l'application, les sensations ressenties, ce à quoi vous attendre dans les premières semaines. Pour toute nouvelle question médicale, une consultation supplémentaire reste possible.\n\nL'idée : vous ne soyez jamais seul·e face à votre peau, sans transformer chaque doute en nouveau rendez-vous.",
   },
   {
     q: 'Qui est mon dermatologue Mixt ?',
-    a: "Un dermatologue diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable. Sélectionné pour son expertise en dermatologie personnalisée et son intérêt pour les approches sur mesure, notamment la formulation magistrale.\n\nVous le rencontrez en téléconsultation lors de la consultation initiale. Pour les échanges du quotidien, c'est l'équipe Mixt qui vous répond et fait le lien avec votre dermatologue si nécessaire.",
+    a: "Un dermatologue diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable. Sélectionné pour son expertise en dermatologie personnalisée et sa maîtrise des approches sur mesure, notamment la formulation magistrale.\n\nVous le rencontrez en téléconsultation lors de la consultation initiale. Pour les échanges du quotidien, c'est l'équipe Mixt qui vous répond et fait le lien avec votre dermatologue quand c'est utile.",
   },
   {
     q: "Qui est l'équipe Mixt qui m'accompagne au quotidien ?",
-    a: "L'équipe Mixt, c'est d'abord Laetitia — cofondatrice, et patiente elle-même depuis plus de 10 ans. Elle connaît intimement le parcours, les frustrations, les questions qu'on n'ose pas poser à son derm. Elle est aussi une référence sur la science des actifs dermatologiques et les formulations magistrales : 15 ans de littérature scientifique digérée, des dizaines d'heures d'études chaque semaine.\n\nNotre rôle n'est pas médical : on ne pose pas de diagnostic et on ne donne pas d'avis médical. On vous écoute, on suit vos photos, on vous explique les actifs prescrits, on vous accompagne sur l'application au quotidien, et on fait remonter à votre dermatologue toute question médicale qui le nécessite.\n\nC'est ce que vous n'avez nulle part ailleurs dans le parcours dermato classique : un interlocuteur humain qualifié, présent, qui connaît votre cas.",
+    a: "L'équipe Mixt, c'est d'abord Laetitia — cofondatrice, patiente elle-même depuis plus de 10 ans. Elle connaît intimement le parcours, les questions qu'on n'ose pas toujours poser à son dermatologue. Elle est aussi une référence sur la science des actifs et des formulations magistrales : 15 ans de littérature scientifique étudiée, des dizaines d'heures de recherche chaque semaine.\n\nNotre rôle est non médical, et c'est sa force : on vous écoute, on suit vos photos, on vous explique les actifs prescrits, on vous accompagne dans la routine au quotidien, et on fait remonter à votre dermatologue toute question médicale qui mérite son attention.\n\nUn interlocuteur humain, qualifié, présent — qui connaît votre cas. C'est exactement ce qui manque dans le parcours dermato classique.",
   },
   {
     q: "Et si mon dermatologue ne prescrit pas de formule magistrale ?",
-    a: "Votre dermatologue est seul décisionnaire médical. Selon votre cas, il peut prescrire une formule magistrale sur mesure, une prescription dermatologique classique, ou recommander une approche cosmétique. Sa décision dépend de votre situation clinique, pas d'un protocole standard.\n\nQuelle que soit sa décision, le parcours Mixt reste utile : votre consultation aura été préparée par un dossier complet, et notre équipe vous accompagne dans la prise en main et le suivi de la routine recommandée par votre dermatologue. La sophistication du parcours Mixt, c'est justement de permettre à chaque cas d'être traité à sa juste mesure — y compris quand la bonne réponse n'est pas une magistrale.",
+    a: "Votre dermatologue est seul décisionnaire médical. Selon votre cas, il peut prescrire une formule magistrale sur mesure, une prescription dermatologique classique, ou recommander une approche cosmétique. Sa décision est adaptée à votre situation clinique, pas à un protocole standard.\n\nQuelle que soit sa décision, le parcours Mixt reste utile : votre consultation aura été préparée par un dossier complet, et notre équipe vous accompagne dans la prise en main et le suivi de la routine recommandée. La force du parcours Mixt, c'est justement de permettre à chaque cas d'être traité à sa juste mesure.",
   },
   {
     q: 'Comment se passe le bilan à 3 mois ?',
-    a: "À la fin de votre parcours, l'équipe Mixt fait le point avec vous : votre ressenti, votre observance, vos photos, votre évolution observée. Ce bilan est inclus dans votre forfait.\n\nIl sert à préparer votre prochaine consultation avec votre dermatologue : ce qui a fonctionné, ce qui mérite d'être ajusté, les questions à lui poser. À partir de votre dossier mis à jour, votre dermatologue pourra renouveler votre traitement, l'ajuster, ou faire évoluer son approche selon ce que les 3 mois lui ont appris sur votre peau.\n\nC'est exactement ce qui manque dans le parcours classique : un moment structuré entre vous et le médecin pour que la décision suivante soit informée par tout ce qui s'est passé entre les deux.",
+    a: "À la fin de votre parcours, l'équipe Mixt fait le point avec vous : ressenti, observance, photos, évolution observée. Ce bilan est inclus dans votre forfait.\n\nIl sert à préparer votre prochaine consultation dermatologique : ce qui a fonctionné, ce qui mérite d'être ajusté, les questions à poser. À partir de votre dossier mis à jour, votre dermatologue pourra renouveler votre traitement, l'ajuster, ou faire évoluer son approche selon ce que les 3 mois lui ont appris sur votre peau.\n\nUn moment structuré entre vous et votre médecin, pour que la décision suivante soit informée par tout ce qui s'est passé entre les deux consultations.",
   },
   {
     q: 'Et si la formule ne me convient pas ?',
-    a: "Si vous ressentez une intolérance, une gêne importante, ou des effets inattendus en cours de traitement, contactez l'équipe Mixt — on transmet immédiatement à votre dermatologue. Il pourra alors, dans le cadre d'une consultation de suivi, ajuster sa prescription selon votre situation.\n\nBeaucoup d'effets que les patients prennent pour des « problèmes » sont en réalité attendus dans les premières semaines (tiraillements, micro-réactions, période d'adaptation). Notre rôle, c'est aussi de vous expliquer ce qui est normal, ce qui ne l'est pas, et quand il faut vraiment alerter le médecin.",
+    a: "Si vous ressentez une intolérance, une gêne importante, ou des effets inattendus en cours de traitement, contactez l'équipe Mixt — on transmet immédiatement à votre dermatologue. Il pourra alors, dans le cadre d'une consultation de suivi, ajuster sa prescription selon votre situation.\n\nBeaucoup d'effets que les patients prennent pour des problèmes sont en réalité attendus dans les premières semaines : tiraillements, micro-réactions, période d'adaptation. Notre rôle, c'est aussi de vous expliquer ce qui est normal, ce qui ne l'est pas, et quand il faut vraiment alerter votre médecin.",
   },
   {
     q: 'La formule magistrale est-elle remboursée ?',

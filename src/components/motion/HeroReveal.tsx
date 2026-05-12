@@ -28,8 +28,8 @@ export default function HeroReveal({
   const eyebrowBar = eyebrowMono ? 'bg-ember-deep' : 'bg-ink-2/60';
 
   const titleClass = serif
-    ? "font-serif text-[44px] md:text-[60px] font-normal leading-[1.05] tracking-[-0.035em] text-ink"
-    : 'text-[44px] md:text-[60px] font-medium leading-[1.05] tracking-[-0.035em] text-ink';
+    ? "font-serif text-[44px] md:text-[60px] font-normal leading-[1.12] tracking-[-0.035em] text-ink"
+    : 'text-[44px] md:text-[60px] font-medium leading-[1.12] tracking-[-0.035em] text-ink';
 
   return (
     <div className="flex flex-col gap-5">

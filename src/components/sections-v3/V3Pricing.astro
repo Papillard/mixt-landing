@@ -3,11 +3,11 @@ import Button from '../Button.astro';
 import FadeInSection from '../motion/FadeInSection.tsx';
 
 const features = [
-  'Accès au réseau de dermatologues partenaires',
-  'Entretien préparatoire de 30 min avec votre experte Mixt',
-  'Dossier dermatologique structuré, transmis à votre dermatologue',
-  "Suivi mensuel et messagerie avec l'équipe Mixt",
-  'Bilan à 3 mois pour préparer la suite',
+  'Un dermatologue partenaire sous une semaine',
+  'Un dossier dermatologique structuré en 30 min',
+  'Votre espace de suivi : photos, journal, explications',
+  'Une équipe à vos côtés chaque semaine, par message',
+  'Un bilan à 3 mois pour préparer la suite',
 ];
 
 const compareRows = [
@@ -33,87 +33,65 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
   <div class="max-w-[1200px] mx-auto">
     <FadeInSection client:load>
       <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] text-center max-w-[880px] mx-auto mb-4 text-ink">
-        Un parcours <span class="italic-serif whitespace-nowrap">pensé pour durer.</span>
+        Un parcours transparent, <span class="italic-serif whitespace-nowrap">pensé pour durer.</span>
       </h2>
+      <p class="text-center text-[15px] md:text-[16px] text-ink-2 max-w-[620px] mx-auto leading-relaxed">
+        Un seul paiement à Mixt et le reste suit le parcours médical classique.
+      </p>
     </FadeInSection>
 
     <FadeInSection client:load delay={0.1}>
-      <div class="relative max-w-[480px] mx-auto mt-14 mb-14 p-10 md:p-12 bg-deep text-white rounded-[12px] shadow-[0_30px_80px_-30px_rgba(54,24,34,0.6)]">
-        <div class="inline-flex items-center gap-2 mb-5 rounded-full bg-ember text-deep px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em]">
-          <span class="inline-block w-[5px] h-[5px] rounded-full bg-deep"></span>
-          Offre lancement · 100 places
-        </div>
-        <div class="flex items-baseline gap-3 mb-2">
-          <div class="text-[68px] md:text-[80px] font-semibold leading-none tracking-[-0.04em]">
-            49 €
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 max-w-[980px] mx-auto mt-14 mb-14 items-stretch">
+        {/* Colonne gauche · offre Mixt */}
+        <div class="relative p-10 md:p-12 bg-deep text-white rounded-[12px] shadow-[0_30px_80px_-30px_rgba(54,24,34,0.6)] flex flex-col">
+          <div class="inline-flex self-start items-center gap-2 mb-5 rounded-full bg-ember text-deep px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em]">
+            <span class="inline-block w-[5px] h-[5px] rounded-full bg-deep"></span>
+            Offre lancement · 100 places
           </div>
-          <div class="text-[26px] md:text-[30px] font-medium leading-none text-white/40 line-through decoration-white/50 decoration-2">
-            89 €
+          <div class="flex items-baseline gap-3 mb-2">
+            <div class="text-[68px] md:text-[80px] font-semibold leading-none tracking-[-0.04em]">
+              49 €
+            </div>
+            <div class="text-[26px] md:text-[30px] font-medium leading-none text-white/40 line-through decoration-white/50 decoration-2">
+              89 €
+            </div>
           </div>
-        </div>
-        <div class="text-[14px] text-white/60 mb-7 pb-6 border-b border-white/15">
-          Le parcours Mixt sur 3 mois
-        </div>
-        <ul class="flex flex-col gap-1 mb-7">
-          {features.map((f) => (
-            <li class="flex items-start gap-3 text-[14px] text-white/90 py-1">
-              <span class="text-jade">✓</span>
-              <span>{f}</span>
-            </li>
-          ))}
-        </ul>
-        <Button href="/premieres-patientes" variant="white" class="w-full justify-center">Commencer mon parcours →</Button>
-      </div>
-    </FadeInSection>
-
-    <FadeInSection client:load delay={0.18}>
-      <div class="max-w-[480px] mx-auto -mt-6 mb-14 px-7 py-6 bg-cream border border-black/[0.08] rounded-[12px]">
-        <div class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-semibold mb-3.5">
-          À prévoir en plus
-        </div>
-        <div class="flex flex-col gap-3 text-[13px] leading-[1.55] text-ink-2">
-          <p>
-            <span class="text-ink font-medium">Consultation dermatologique</span> · selon les tarifs conventionnés, en partie remboursée par la Sécurité sociale (un éventuel reste à charge selon le secteur du dermatologue).
-          </p>
-          <p>
-            <span class="text-ink font-medium">Préparation en pharmacie</span> · 30 à 60 € si une formule magistrale est prescrite.
-          </p>
-        </div>
-      </div>
-    </FadeInSection>
-
-    <FadeInSection client:load delay={0.15}>
-      <div class="hidden md:block max-w-[920px] mx-auto overflow-hidden rounded-[12px] border border-black/[0.08]">
-        <table class="w-full border-collapse">
-          <thead>
-            <tr>
-              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink-3 font-semibold bg-cream/60 border-b border-black/[0.08]">&nbsp;</th>
-              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink-3 font-semibold bg-cream/60 border-b border-black/[0.08]">Parcours classique</th>
-              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink font-semibold bg-cream border-b border-black/[0.08] border-l border-r border-warm/40">Avec Mixt</th>
-            </tr>
-          </thead>
-          <tbody>
-            {compareRows.map((r, i) => (
-              <tr class={i < compareRows.length - 1 ? 'border-b border-black/[0.06]' : ''}>
-                <td class="px-5 md:px-6 py-4 text-[14px] text-ink font-medium">{r.label}</td>
-                <td class="px-5 md:px-6 py-4 text-[14px] text-ink-2">{r.classic}</td>
-                <td class="px-5 md:px-6 py-4 text-[14px] text-ink bg-cream/60 border-l border-r border-warm/40 font-medium">{r.mixt}</td>
-              </tr>
+          <div class="text-[14px] text-white/60 mb-7 pb-6 border-b border-white/15">
+            Le parcours Mixt sur 3 mois
+          </div>
+          <ul class="flex flex-col gap-1 mb-7">
+            {features.map((f) => (
+              <li class="flex items-start gap-3 text-[14px] text-white/90 py-1">
+                <span class="text-jade">✓</span>
+                <span>{f}</span>
+              </li>
             ))}
-          </tbody>
-        </table>
-      </div>
-    </FadeInSection>
+          </ul>
+          <div class="mt-auto">
+            <Button href="/premieres-patientes" variant="white" class="w-full justify-center">Commencer mon parcours →</Button>
+          </div>
+        </div>
 
-    <FadeInSection client:load>
-      <p class="text-center text-[16px] md:text-[18px] italic-serif text-ink-2 mt-10 max-w-[680px] mx-auto leading-relaxed">
-        Une seule chose à payer à Mixt. Tout le reste suit le parcours médical classique.
-      </p>
-
-      <div class="flex flex-wrap justify-center gap-6 md:gap-8 mt-8 text-[12.5px] text-ink-3">
-        <span>✓ Secret médical respecté</span>
-        <span>✓ Données de santé hébergées en France (HDS)</span>
-        <span>✓ Médecin diplômé, RPPS vérifiable</span>
+        {/* Colonne droite · à prévoir en plus (texte libre) */}
+        <div class="px-2 md:px-6 py-6 md:py-10 flex flex-col justify-center">
+          <div class="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3 font-semibold mb-8">
+            À prévoir en plus
+          </div>
+          <div class="flex flex-col gap-7">
+            <div>
+              <div class="text-[17px] font-semibold text-ink mb-2">Consultation dermatologique</div>
+              <p class="text-[14px] leading-[1.6] text-ink-2">
+                Comme pour tout rendez-vous médical, votre consultation est facturée par votre dermatologue aux tarifs conventionnés, et en partie remboursée par la Sécurité sociale.
+              </p>
+            </div>
+            <div>
+              <div class="text-[17px] font-semibold text-ink mb-2">Préparation en pharmacie</div>
+              <p class="text-[14px] leading-[1.6] text-ink-2">
+                Si votre dermatologue prescrit une formule magistrale, comptez 30 à 60 € selon les actifs, partiellement remboursée selon votre mutuelle.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </FadeInSection>
 
@@ -148,5 +126,53 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
         </div>
       </FadeInSection>
     */}
+  </div>
+</section>
+
+<section class="px-6 md:px-10 py-24 md:py-32 bg-sage-light/25">
+  <div class="max-w-[1200px] mx-auto">
+    <FadeInSection client:load>
+      <div class="flex items-center justify-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-sage-deep mb-5">
+        <span class="inline-block h-px w-10 bg-sage-deep/70"></span>
+        La différence concrète
+      </div>
+      <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] text-center max-w-[760px] mx-auto mb-4 text-ink">
+        Avec Mixt, <span class="italic-serif">concrètement.</span>
+      </h2>
+      <p class="text-center text-[15px] md:text-[16px] text-ink-2 max-w-[640px] mx-auto leading-relaxed mb-14 md:mb-16">
+        Voici ce que Mixt apporte en plus du parcours dermatologique classique.
+      </p>
+    </FadeInSection>
+
+    <FadeInSection client:load delay={0.1}>
+      <div class="hidden md:block max-w-[920px] mx-auto overflow-hidden rounded-[12px] border border-black/[0.08] bg-base">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr>
+              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink-3 font-semibold bg-cream/60 border-b border-black/[0.08]">&nbsp;</th>
+              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink-3 font-semibold bg-cream/60 border-b border-black/[0.08]">Parcours classique</th>
+              <th class="text-left px-5 md:px-6 py-4 text-[11px] uppercase tracking-[0.14em] text-ink font-semibold bg-cream border-b border-black/[0.08] border-l border-r border-warm/40">Avec Mixt</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((r, i) => (
+              <tr class={i < compareRows.length - 1 ? 'border-b border-black/[0.06]' : ''}>
+                <td class="px-5 md:px-6 py-4 text-[14px] text-ink font-medium">{r.label}</td>
+                <td class="px-5 md:px-6 py-4 text-[14px] text-ink-2">{r.classic}</td>
+                <td class="px-5 md:px-6 py-4 text-[14px] text-ink bg-cream/60 border-l border-r border-warm/40 font-medium">{r.mixt}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </FadeInSection>
+
+    <FadeInSection client:load delay={0.18}>
+      <div class="flex flex-wrap justify-center gap-x-7 gap-y-3 mt-12 md:mt-14 text-[12.5px] text-ink-2">
+        <span>✓ Secret médical respecté</span>
+        <span>✓ Données de santé hébergées en France (HDS)</span>
+        <span>✓ Médecin diplômé, RPPS vérifiable</span>
+      </div>
+    </FadeInSection>
   </div>
 </section>
