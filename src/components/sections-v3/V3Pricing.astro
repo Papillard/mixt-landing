@@ -3,10 +3,10 @@ import Button from '../Button.astro';
 import FadeInSection from '../motion/FadeInSection.tsx';
 
 const features = [
-  'Un dermatologue partenaire sous une semaine',
-  'Un dossier dermatologique structuré en 30 min',
-  'Votre espace de suivi : photos, journal, explications',
-  'Une équipe à vos côtés chaque semaine, par message',
+  'Un dermatologue expert des approches globales, sous une semaine',
+  '30 min avec votre experte pour un dossier qui change tout',
+  'Un plan personnalisé : médicament, cosmétique, objectifs',
+  "L'équipe Mixt chaque semaine, par message",
   'Un bilan à 3 mois pour préparer la suite',
 ];
 
@@ -41,7 +41,7 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
     </FadeInSection>
 
     <FadeInSection client:load delay={0.1}>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 max-w-[980px] mx-auto mt-14 mb-14 items-stretch">
+      <div class="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-5 md:gap-8 max-w-[1080px] mx-auto mt-14 mb-14 items-stretch">
         {/* Colonne gauche · offre Mixt */}
         <div class="relative p-10 md:p-12 bg-deep text-white rounded-[12px] shadow-[0_30px_80px_-30px_rgba(54,24,34,0.6)] flex flex-col">
           <div class="inline-flex self-start items-center gap-2 mb-5 rounded-full bg-ember text-deep px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em]">
@@ -88,6 +88,12 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
               <div class="text-[17px] font-semibold text-ink mb-2">Préparation en pharmacie</div>
               <p class="text-[14px] leading-[1.6] text-ink-2">
                 Si votre dermatologue prescrit une formule magistrale, comptez 30 à 60 € selon les actifs, partiellement remboursée selon votre mutuelle.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-black/[0.1]">
+              <div class="text-[17px] font-semibold text-ink mb-2">Un parcours complet entre 110 et 140 €</div>
+              <p class="text-[14px] leading-[1.6] text-ink-2">
+                Soit 35 à 45 €/mois pour une prise en charge globale de votre peau : médicale, cosmétique, et adaptée à vos objectifs. Tout inclus : accompagnement Mixt, consultation dermatologique, et formule magistrale si prescrite.
               </p>
             </div>
           </div>

@@ -6,22 +6,22 @@ const steps = [
   {
     number: '01',
     title: 'Créez votre dossier dermatologique',
-    desc: "30 minutes en visio avec votre experte : antécédents, symptômes, traitements, photos. Données protégées, hébergées en France. Votre dermatologue reçoit tout avant la consultation.",
+    desc: "30 minutes en visio avec votre experte : antécédents, traitements essayés, photos, objectifs. Votre dermatologue reçoit tout avant la consultation. Données protégées, hébergées en France.",
   },
   {
     number: '02',
     title: 'Rencontrez votre dermatologue',
-    desc: "Téléconsultation sous une semaine avec un dermatologue expert des approches personnalisées. Il a déjà votre dossier pour adapter son traitement. Tarifs conventionnés, en partie remboursés.",
+    desc: "Téléconsultation sous une semaine avec un dermatologue expert des approches globales. Il a déjà votre dossier pour adapter sa prise en charge. Tarifs conventionnés, en partie remboursés.",
   },
   {
     number: '03',
-    title: 'Démarrez votre traitement',
-    desc: "Votre formule magistrale peut être préparée par notre pharmacie de référence — 15 ans d'expertise. L'équipe Mixt vous accompagne au quotidien : prise en main, application, ressentis.",
+    title: 'Démarrez votre plan',
+    desc: "Votre formule magistrale peut être préparée par notre pharmacie de référence — 15 ans d'expertise. L'équipe Mixt vous accompagne au quotidien : application, ressentis, ajustements.",
   },
   {
     number: '04',
     title: 'Suivez votre évolution',
-    desc: "Photos mensuelles, messagerie ouverte, suivi par l'équipe Mixt. À 3 mois, bilan ensemble pour préparer la prochaine consultation.",
+    desc: "Photos mensuelles, messagerie ouverte, suivi par l'équipe Mixt. À 3 mois, bilan pour préparer la prochaine consultation et faire évoluer votre prise en charge.",
   },
 ];
 
@@ -63,9 +63,12 @@ const panels = [
         <span class="inline-block h-px w-10 bg-ember-deep/80"></span>
         Le parcours
       </div>
-      <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] max-w-[720px] mb-14 md:mb-20 text-ink">
+      <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] max-w-[720px] mb-5 text-ink">
         Comment <span class="italic-serif">ça marche.</span>
       </h2>
+      <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 max-w-[640px] mb-14 md:mb-20">
+        Quatre étapes pensées pour que la dermatologie travaille vraiment pour vous.
+      </p>
     </FadeInSection>
 
     <StickySteps client:load steps={steps} panels={panels} />

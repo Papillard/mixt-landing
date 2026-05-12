@@ -7,7 +7,7 @@ const pillars = [
     image: '/images/lab-manipulation-vertical.jpg',
     alt: 'Préparation magistrale en pharmacie',
     title: 'Une formule sur mesure',
-    description: 'Si votre cas le justifie, votre dermatologue prescrit une formule magistrale, préparée en pharmacie partenaire.',
+    description: 'Si votre cas le justifie, votre dermatologue prescrit une formule magistrale qui traite votre problème principal et vos objectifs secondaires : tolérance, éclat, anti-âge.',
     overlay: {
       kind: 'formula' as const,
       patientLabel: 'Composition type',
@@ -17,6 +17,23 @@ const pillars = [
         { name: 'Kératolytique', dose: '' },
       ],
       footer: 'Préparée en pharmacie partenaire selon prescription.',
+    },
+  },
+  {
+    image: '/images/closeup-eyebrow.jpg',
+    alt: 'Macro peau',
+    title: 'Une approche globale',
+    description: "Votre dermatologue ne traite pas qu'un symptôme. Il combine prescription, routine et conseils adaptés à votre peau, vos sensibilités, vos objectifs.",
+    overlay: {
+      kind: 'score' as const,
+      label: 'Plan personnalisé',
+      rows: [
+        { label: 'Traitement principal', value: '●●●●●' },
+        { label: 'Tolérance', value: '●●●○○' },
+        { label: 'Vos objectifs', value: '●●●●○' },
+        { label: 'Routine quotidienne', value: '●●●●●' },
+      ],
+      footer: 'Adapté à votre profil par votre dermatologue.',
     },
   },
   {
@@ -31,22 +48,6 @@ const pillars = [
       message: "Vos photos montrent une belle évolution. On prépare avec vous votre prochaine consultation pour ajuster si besoin.",
       reply: 'Voir mon bilan',
       avatar: '/images/laetitia-after.webp',
-    },
-  },
-  {
-    image: '/images/closeup-eyebrow.jpg',
-    alt: 'Macro peau',
-    title: 'Un suivi photo dans la durée',
-    description: "Photos mensuelles et journal de votre peau. Vous voyez l'évolution mois après mois.",
-    overlay: {
-      kind: 'score' as const,
-      label: 'Exemple de suivi',
-      rows: [
-        { label: 'Évolution photo', value: '●●●●○' },
-        { label: 'Confort ressenti', value: '●●●○○' },
-        { label: 'Routine suivie', value: '●●●●●' },
-      ],
-      footer: 'Exemple non contractuel · résultats variables.',
     },
   },
 ];
