@@ -3,20 +3,20 @@ import Button from '../Button.astro';
 import FadeInSection from '../motion/FadeInSection.tsx';
 
 const features = [
-  'Un dermatologue expert des approches globales, sous une semaine',
-  '30 min avec votre experte pour un dossier qui change tout',
-  'Un plan personnalisé : médicament, cosmétique, objectifs',
-  "L'équipe Mixt chaque semaine, par message",
-  'Un bilan à 3 mois pour préparer la suite',
+  'Un dermatologue qui valide, ajuste et renouvelle votre traitement en continu',
+  'Votre experte Mixt chaque semaine : photos, questions, routine',
+  'Un accès dermatologue sous une semaine — jamais 6 mois d\'attente',
+  'Des renouvellements et ajustements aussi souvent que votre peau en a besoin',
+  'Données hébergées en France (HDS), secret médical',
 ];
 
 const compareRows = [
   { label: 'Accès au dermatologue', classic: "3 à 6 mois d'attente", mixt: 'Sous 1 semaine, via le réseau partenaire' },
-  { label: 'Préparation de la consultation', classic: 'À votre charge', mixt: 'Entretien de 30 min + dossier dermatologique structuré' },
-  { label: 'Information transmise au dermatologue', classic: 'Ce que vous parvenez à raconter en 15 min', mixt: 'Historique complet, photos, traitements essayés, réactions' },
-  { label: 'Entre les rendez-vous', classic: 'Aucun accompagnement', mixt: "Suivi mensuel et messagerie avec l'équipe Mixt" },
-  { label: "Suivi de l'évolution", classic: 'Évaluation visuelle au RDV suivant', mixt: 'Photos mensuelles et journal de votre peau' },
-  { label: 'À 3 mois', classic: 'Reprise de RDV à votre initiative', mixt: 'Bilan avec Mixt pour préparer la consultation suivante' },
+  { label: 'Suivi entre les consultations', classic: 'Aucun accompagnement', mixt: 'Votre experte Mixt chaque semaine' },
+  { label: 'Ajustement du traitement', classic: 'Au prochain RDV, si vous le reprenez', mixt: 'Ajusté en continu par votre dermatologue' },
+  { label: 'Renouvellement', classic: 'À votre initiative, nouvelle ordonnance', mixt: 'Calé sur votre cycle de traitement' },
+  { label: "Suivi de l'évolution", classic: 'Évaluation visuelle au RDV suivant', mixt: 'Photos régulières et journal de votre peau' },
+  { label: 'Face à un doute', classic: 'Seule, jusqu\'au prochain rendez-vous', mixt: 'Votre experte répond, le derm intervient si besoin' },
 ];
 
 // TODO: obtenir les accords formels et photos N&B des trois professeurs
@@ -33,10 +33,10 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
   <div class="max-w-[1200px] mx-auto">
     <FadeInSection client:load>
       <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] text-center max-w-[880px] mx-auto mb-4 text-ink">
-        Un parcours transparent, <span class="italic-serif whitespace-nowrap">pensé pour durer.</span>
+        Un suivi transparent, <span class="italic-serif whitespace-nowrap">pensé pour durer.</span>
       </h2>
-      <p class="text-center text-[15px] md:text-[16px] text-ink-2 max-w-[620px] mx-auto leading-relaxed">
-        Un seul paiement à Mixt et le reste suit le parcours médical classique.
+      <p class="text-center text-[15px] md:text-[16px] text-ink-2 max-w-[640px] mx-auto leading-relaxed">
+        Un seul prix Mixt : 29 €/mois pour votre suivi médical continu. Le traitement, lui, est à part — prescrit par votre dermatologue, préparé en pharmacie, et en partie remboursé.
       </p>
     </FadeInSection>
 
@@ -48,16 +48,16 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
             <span class="inline-block w-[5px] h-[5px] rounded-full bg-deep"></span>
             Offre lancement · 100 places
           </div>
-          <div class="flex items-baseline gap-3 mb-2">
+          <div class="flex items-baseline gap-2 mb-2">
             <div class="text-[68px] md:text-[80px] font-semibold leading-none tracking-[-0.04em]">
-              49 €
+              29 €
             </div>
-            <div class="text-[26px] md:text-[30px] font-medium leading-none text-white/40 line-through decoration-white/50 decoration-2">
-              89 €
+            <div class="text-[20px] md:text-[24px] font-medium leading-none text-white/55">
+              /mois
             </div>
           </div>
           <div class="text-[14px] text-white/60 mb-7 pb-6 border-b border-white/15">
-            Le parcours Mixt sur 3 mois
+            Votre suivi médical continu · engagement 2 mois, calé sur votre cycle de traitement.
           </div>
           <ul class="flex flex-col gap-1 mb-7">
             {features.map((f) => (
@@ -68,32 +68,26 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
             ))}
           </ul>
           <div class="mt-auto">
-            <Button href="/premieres-patientes" variant="white" class="w-full justify-center">Commencer mon parcours →</Button>
+            <Button href="/premieres-patientes" variant="white" class="w-full justify-center">Commencer mon suivi →</Button>
           </div>
         </div>
 
-        {/* Colonne droite · à prévoir en plus (texte libre) */}
+        {/* Colonne droite · le traitement, à part (texte libre) */}
         <div class="px-2 md:px-6 py-6 md:py-10 flex flex-col justify-center">
           <div class="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3 font-semibold mb-8">
-            À prévoir en plus
+            Le traitement, à part
           </div>
           <div class="flex flex-col gap-7">
             <div>
-              <div class="text-[17px] font-semibold text-ink mb-2">Consultation dermatologique</div>
+              <div class="text-[17px] font-semibold text-ink mb-2">Votre formule magistrale sur mesure</div>
               <p class="text-[14px] leading-[1.6] text-ink-2">
-                Comme pour tout rendez-vous médical, votre consultation est facturée par votre dermatologue aux tarifs conventionnés, et en partie remboursée par la Sécurité sociale.
-              </p>
-            </div>
-            <div>
-              <div class="text-[17px] font-semibold text-ink mb-2">Préparation en pharmacie</div>
-              <p class="text-[14px] leading-[1.6] text-ink-2">
-                Si votre dermatologue prescrit une formule magistrale, comptez 30 à 60 € selon les actifs, partiellement remboursée selon votre mutuelle.
+                Si votre dermatologue la prescrit, elle est préparée en pharmacie partenaire : comptez 30 à 60 € selon les actifs. C'est votre traitement, il vous appartient — il n'est pas inclus dans l'abonnement.
               </p>
             </div>
             <div class="pt-6 border-t border-black/[0.1]">
-              <div class="text-[17px] font-semibold text-ink mb-2">Un parcours complet entre 110 et 140 €</div>
+              <div class="text-[17px] font-semibold text-ink mb-2">En partie remboursée</div>
               <p class="text-[14px] leading-[1.6] text-ink-2">
-                Soit 35 à 45 €/mois pour une prise en charge globale de votre peau : médicale, cosmétique, et adaptée à vos objectifs. Tout inclus : accompagnement Mixt, consultation dermatologique, et formule magistrale si prescrite.
+                Parce que c'est une vraie prescription médicale, votre formule est partiellement remboursée par la Sécurité sociale et votre mutuelle — là où la plupart des services en ligne vous laissent tout à votre charge.
               </p>
             </div>
           </div>
