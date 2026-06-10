@@ -1,0 +1,21 @@
+"$schema" = "https://conductor.build/schemas/settings.repo.schema.json"
+
+# Copy the gitignored .env (FAL_API_KEY for the image-gen CLI) into every new
+# workspace. node_modules and build output are recreated by the setup script.
+file_include_globs = ".env\n"
+
+[scripts]
+# Runs once when a workspace is created.
+# - `source ~/.nvm/nvm.sh && nvm use` selects Node 22 (from .nvmrc). Conductor's
+#   non-interactive shell does NOT load nvm automatically, so we load it here.
+# - `--ignore-scripts` avoids a known npm 10 race where sharp's install check
+#   runs before its prebuilt binary is linked and wrongly falls back to a
+#   source build. The prebuilt @img/sharp-* binaries still install and load fine.
+setup = "source ~/.nvm/nvm.sh && nvm use && npm install --ignore-scripts"
+
+# Run button: start the Astro dev server on this workspace's assigned port so
+# multiple workspaces can serve in parallel without colliding.
+run = "source ~/.nvm/nvm.sh && nvm use && npm run dev -- --port $CONDUCTOR_PORT"
+
+# Each workspace gets its own port range, so several can run at the same time.
+run_mode = "concurrent"
