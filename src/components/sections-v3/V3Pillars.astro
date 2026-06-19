@@ -13,28 +13,28 @@ const pillars = [
       kind: 'formula' as const,
       patientLabel: 'Composition type',
       rows: [
-        { name: 'Dépigmentant', dose: '' },
-        { name: 'Anti-inflammatoire', dose: '' },
-        { name: 'Kératolytique', dose: '' },
+        { name: 'Acide tranexamique', dose: 'Dépigmentant' },
+        { name: 'Acide azélaïque', dose: 'Anti-inflammatoire' },
+        { name: 'Rétinoïde', dose: 'Kératolytique' },
       ],
-      footer: 'Préparée en pharmacie partenaire selon prescription.',
+      footer: 'Actifs et dosages choisis par votre médecin, préparés en pharmacie sur ordonnance.',
     },
   },
   {
     image: '/images/closeup-eyebrow.jpg',
     alt: 'Macro peau',
     tag: 'Votre consultation',
-    title: 'Une approche globale',
-    description: "Votre médecin ne traite pas qu'un symptôme. Appuyé par notre comité de dermatologues, il combine prescription, routine et conseils adaptés à votre peau, vos sensibilités, vos objectifs.",
+    title: 'Un plan progressif sur la durée',
+    description: "Votre médecin ne traite pas qu'un symptôme. Appuyé par notre comité de dermatologues, il construit un plan progressif : on attaque, on stabilise, puis on entretient les résultats, en ajustant à chaque étape.",
     overlay: {
       kind: 'score' as const,
-      label: 'Plan personnalisé',
+      label: 'Plan de traitement',
       rows: [
-        { label: 'Traitement principal', value: '●●●●●' },
-        { label: 'Tolérance', value: '●●●○○' },
-        { label: 'Vos objectifs', value: '●●●●○' },
+        { label: 'Attaque', value: 'Mois 1-2' },
+        { label: 'Stabilisation', value: 'Mois 3-4' },
+        { label: 'Entretien', value: 'Mois 5-6' },
       ],
-      footer: 'Adapté à votre profil par votre médecin.',
+      footer: 'Un plan progressif, ajusté par votre médecin à chaque étape.',
     },
   },
   {
@@ -66,7 +66,7 @@ const pillars = [
         On vous accompagne<br class="hidden md:inline" /> <span class="italic-serif whitespace-nowrap">du début à la fin.</span>
       </h2>
       <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 max-w-[580px]">
-        De votre bilan au traitement qui fonctionne, un suivi médical qui s'ajuste dans la durée. Votre médecin reste à vos côtés bien après l'ordonnance, sans jamais vous laisser seul·e.
+        De votre bilan à un traitement qui fonctionne, puis qui s'ajuste dans la durée grâce à un suivi médical régulier. Votre médecin reste à vos côtés bien après l'ordonnance, sans jamais vous laisser seul·e.
       </p>
     </FadeInSection>
 
