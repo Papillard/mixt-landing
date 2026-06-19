@@ -5,79 +5,53 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 
 const faq = [
   {
-    q: "Qu'est-ce que je paie exactement ? Et à qui ?",
+    q: "Combien ça coûte, et à qui ?",
     a: [
       {
-        heading: 'Une seule fois à Mixt — 49 €',
-        body: "Pour votre parcours de 3 mois : entretien de 30 min avec votre experte, dossier dermatologique structuré, mise en relation avec un dermatologue partenaire, suivi par l'équipe, bilan à 3 mois.",
+        heading: 'Le bilan en ligne : gratuit',
+        body: "Vous le faites avec notre assistant IA et repartez avec un dossier dermatologique structuré, à vous.",
       },
       {
-        heading: 'Le reste, comme dans tout parcours médical',
-        body: "Votre consultation est facturée par votre dermatologue aux tarifs conventionnés, en partie remboursée par la Sécurité sociale. Si une formule magistrale est prescrite, sa préparation en pharmacie coûte 30 à 60 €, partiellement remboursée selon votre mutuelle.",
+        heading: 'La première téléconsultation : 59 €',
+        body: "Réglés à Mixt : ce montant couvre les honoraires du médecin et les frais de service Mixt (le bilan IA, le dossier structuré, la coordination). Vous ne payez que si vous décidez de réserver.",
       },
       {
-        body: "Vous savez exactement ce que vous payez, et à qui, dès le départ.",
+        heading: 'La formule magistrale, si prescrite : 30 à 60 €',
+        body: "Facturée par votre pharmacie, partiellement remboursée selon votre mutuelle.",
+      },
+      {
+        heading: 'Le suivi, si vous continuez : dès 29 €/mois',
+        body: "Optionnel, sans engagement, résiliable à tout moment. Vous décidez après votre consultation.",
       },
     ],
   },
   {
-    q: "Concrètement, qu'est-ce que je paie à Mixt ?",
-    a: "Mixt prend en charge tout ce qu'il y a autour de la consultation dermatologique.\n\n30 minutes avec votre experte pour structurer votre dossier — votre histoire, vos traitements essayés, ce qui a piqué ou desquamé, vos photos, vos objectifs (acné, mélasma, rosacée, ridules, teint terne, peau qui tiraille).\n\nVotre dermatologue dispose ainsi d'une vraie photographie de votre peau avant la consultation, et peut prescrire un traitement qui traite votre problème principal tout en respectant votre tolérance et en intégrant vos autres préoccupations.\n\nEntre les rendez-vous, l'équipe Mixt suit votre évolution, répond à vos questions, et transmet à votre dermatologue les éléments utiles aux prochains ajustements.\n\nC'est la continuité et la précision qui permettent à la dermatologie de donner le meilleur d'elle-même.",
+    q: "Le bilan est-il vraiment gratuit ?",
+    a: "Oui. Vous pouvez faire votre bilan en ligne et obtenir votre dossier dermatologique structuré sans rien payer. Vous ne réglez les 59 € que si vous choisissez de réserver votre téléconsultation à l'issue du bilan.",
   },
   {
-    q: "Qu'est-ce que Mixt apporte de différent ?",
-    a: [
-      {
-        body: "Trois choses que vous n'avez pas en cabinet aujourd'hui.",
-      },
-      {
-        heading: 'Un accès rapide à un dermatologue',
-        body: 'Sous une semaine en moyenne via notre réseau partenaire.',
-      },
-      {
-        heading: 'Un dossier dermatologique préparé en amont',
-        body: "30 minutes avec votre experte pour permettre à votre dermatologue de comprendre votre peau en profondeur : votre acné depuis l'adolescence, votre mélasma qui s'aggrave en été, votre rosacée qui flambe au stress, les crèmes qui ont marché, celles qui ont brûlé. Et aussi vos préoccupations annexes — les premières ridules, le teint qui se ternit, les pores qui s'élargissent.",
-      },
-      {
-        heading: 'Un accompagnement humain pendant 3 mois',
-        body: "Entre les consultations, l'équipe Mixt suit vos photos, répond à vos questions, vous guide dans l'application du traitement et de la routine cosmétique recommandée, et fait remonter à votre dermatologue tout ce qui mérite son attention.",
-      },
-      {
-        body: "Mixt vient en complément du parcours médical : on le structure, on l'accélère, et on vous accompagne tout le long.",
-      },
-    ],
+    q: 'Qui est le médecin ?',
+    a: "Un médecin généraliste diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable, formé à une approche globale de la peau. Pour les cas qui le nécessitent, il s'appuie sur notre comité de dermatologues. Vous le rencontrez en téléconsultation, et c'est lui qui assure ensuite votre suivi mensuel si vous continuez.",
   },
   {
-    q: 'Vais-je échanger avec mon dermatologue pendant les 3 mois ?',
-    a: "Votre dermatologue intervient à la consultation initiale : il évalue votre situation, échange avec vous, et établit son plan de traitement — qui peut inclure une formule magistrale sur mesure si votre cas le justifie, ainsi qu'une routine cosmétique adaptée à votre peau (nettoyant, écran solaire, sérum anti-âge, hydratant pour peau sensible…).\n\nEntre cette consultation et la suivante, c'est l'équipe Mixt qui vous accompagne au quotidien : suivi de vos photos, réponses à vos questions sur la routine, l'application, les sensations (picotements, sécheresse, rougeurs des premières semaines). Pour toute nouvelle question médicale, une consultation supplémentaire reste possible.\n\nL'idée : vous ne soyez jamais seul·e face à votre peau, sans transformer chaque doute en nouveau rendez-vous.",
+    q: 'Comment fonctionne la consultation médicale ?',
+    a: "C'est une consultation augmentée. Votre médecin arrive avec tout votre dossier déjà en main : il ne perd pas 15 minutes à le reconstituer. Formé à une approche globale, il s'appuie sur notre comité de dermatologues pour les cas qui le nécessitent, et vous suit dans la durée. Résultat : une consultation dense, préparée, dédiée à votre plan de traitement, là où le parcours classique impose des mois d'attente pour 15 minutes.",
   },
   {
-    q: 'Qui est mon dermatologue Mixt ?',
-    a: "Un dermatologue diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable. Sélectionné pour son expertise en dermatologie personnalisée et sa capacité à articuler traitement médical et routine cosmétique — parce qu'une peau acnéique réactive ne se traite pas comme une peau acnéique tolérante, et qu'une patiente qui veut traiter son mélasma a aussi le droit de penser à ses ridules.\n\nVous le rencontrez en téléconsultation lors de la consultation initiale. Pour les échanges du quotidien, c'est l'équipe Mixt qui vous répond et fait le lien avec votre dermatologue quand c'est utile.",
+    q: 'Mes données et mes photos sont-elles protégées ?',
+    a: "Oui. Vos données (vos photos comprises) sont hébergées sur des serveurs certifiés HDS (Hébergeur de Données de Santé) en France, et soumises au secret médical. Vos photos ne sont jamais transmises à l'IA ni à aucun tiers : elles restent dans votre dossier sécurisé, et seul le médecin que vous consultez peut les ouvrir, uniquement une fois votre rendez-vous réservé, jamais avant.",
   },
   {
-    q: "Qui est l'équipe Mixt qui m'accompagne au quotidien ?",
-    a: "L'équipe Mixt, c'est d'abord Laetitia — cofondatrice, patiente elle-même depuis plus de 10 ans. Elle connaît intimement le parcours, les questions qu'on n'ose pas toujours poser à son dermatologue (« est-ce normal que ça pique le matin ? », « je peux mettre ma crème anti-âge en même temps ? », « pourquoi je vois pas de résultats au bout de 2 semaines ? »).\n\nElle est aussi une référence sur la science des actifs et des formulations magistrales : 15 ans de littérature scientifique étudiée, des dizaines d'heures de recherche chaque semaine.\n\nNotre rôle est non médical, et c'est sa force : on vous écoute, on suit vos photos, on vous explique les actifs prescrits, on vous accompagne dans la routine au quotidien, et on fait remonter à votre dermatologue toute question médicale qui mérite son attention.\n\nUn interlocuteur humain, qualifié, présent — qui connaît votre cas. C'est exactement ce qui manque dans le parcours dermato classique.",
+    q: "Suis-je obligé·e de prendre un abonnement ?",
+    a: "Non. La première téléconsultation se suffit à elle-même : vous repartez avec votre plan de traitement, c'est à vous, vous pouvez vous arrêter là. Le suivi dans la durée est entièrement optionnel, sans engagement, et résiliable à tout moment.",
   },
   {
-    q: "Et si mon dermatologue ne prescrit pas de formule magistrale ?",
-    a: "Votre dermatologue est seul décisionnaire médical. Selon votre cas, il peut prescrire une formule magistrale sur mesure, des traitements dermatologiques classiques (rétinoïdes, acide azélaïque, antibiotiques topiques…), ou recommander une approche essentiellement cosmétique (sérums actifs, écran solaire, soin anti-âge).\n\nQuelle que soit sa décision, le parcours Mixt reste utile : votre consultation aura été préparée par un dossier complet, et notre équipe vous accompagne dans la prise en main et le suivi de la routine recommandée. La force du parcours Mixt, c'est de permettre à chaque cas d'être traité à sa juste mesure — y compris quand la bonne réponse, c'est un traitement médical solide combiné à une routine cosmétique réfléchie.",
+    q: "En quoi consiste le suivi mensuel ?",
+    a: "Deux niveaux d'accompagnement. Au quotidien, l'IA suit votre peau, tient votre journal et répond à vos questions pratiques. Et chaque mois, votre médecin fait le point avec vous, puis renouvelle ou ajuste votre traitement si besoin. C'est un acte médical, réalisé par le médecin, pas par l'IA.",
   },
   {
-    q: 'Comment se passe le bilan à 3 mois ?',
-    a: "À la fin de votre parcours, l'équipe Mixt fait le point avec vous : ressenti, observance, photos, évolution observée. Ce bilan est inclus dans votre forfait.\n\nIl est réalisé par l'équipe Mixt, pas par votre dermatologue. Son rôle : préparer votre prochaine consultation dermatologique avec un dossier mis à jour — ce qui a fonctionné, ce qui mérite d'être ajusté, les questions à poser. À partir de ce bilan, c'est votre dermatologue qui décidera, lors d'une consultation de suivi, de renouveler votre prise en charge, de l'ajuster, ou de la faire évoluer.\n\nC'est exactement ce qui manque dans le parcours classique : un moment structuré entre les consultations, pour que la décision médicale suivante soit informée par tout ce qui s'est passé entre les deux.",
-  },
-  {
-    q: 'Et si la formule ne me convient pas ?',
-    a: "Si vous ressentez une intolérance, une gêne importante, ou des effets inattendus (rougeurs persistantes, brûlures, desquamation excessive), contactez l'équipe Mixt — on transmet immédiatement à votre dermatologue. Il pourra alors, dans le cadre d'une consultation de suivi, ajuster sa prescription selon votre situation.\n\nBeaucoup d'effets que les patients prennent pour des problèmes sont en réalité attendus dans les premières semaines : tiraillements, micro-desquamations, légères rougeurs, période d'adaptation. Notre rôle, c'est aussi de vous expliquer ce qui est normal, ce qui ne l'est pas, et quand il faut vraiment alerter votre médecin.",
-  },
-  {
-    q: 'La formule magistrale est-elle remboursée ?',
-    a: 'Partiellement, selon les actifs prescrits et votre mutuelle. Votre pharmacie partenaire vous fournit une feuille de soins.',
-  },
-  {
-    q: 'Comment mes données de santé sont-elles protégées ?',
-    a: 'Vos données sont hébergées sur une infrastructure certifiée HDS (Hébergeur de Données de Santé), conformément à la réglementation française, et soumises au secret médical.',
+    q: "Aurai-je forcément une ordonnance ?",
+    a: "La prescription relève de la seule décision du médecin. Selon votre cas, il peut prescrire une formule magistrale sur mesure, un traitement dermatologique classique (rétinoïdes, acide azélaïque…), ou recommander une approche essentiellement cosmétique. Dans tous les cas, vous repartez avec un avis médical personnalisé et un plan clair pour votre peau.",
   },
 ];
 ---
@@ -95,13 +69,13 @@ const faq = [
     </div>
 
     <FadeInSection client:load>
-      <div class="max-w-[760px] mx-auto mt-14 md:mt-16 pt-10 border-t border-black/[0.08] text-center">
+      <div class="max-w-[760px] mx-auto mt-12 md:mt-14 text-center">
         <p class="text-[18px] md:text-[20px] font-medium text-ink mb-5">
           Encore des questions ?
         </p>
         <Button href="/premieres-patientes" variant="dark">Nous parler 20 min →</Button>
         <p class="mt-4 text-[13px] text-ink-3">
-          Gratuit, sans engagement
+          Ou créez votre dossier dermato, gratuit et sans engagement.
         </p>
       </div>
     </FadeInSection>
@@ -114,10 +88,9 @@ const faq = [
       <h2 class="text-[36px] md:text-[46px] font-medium leading-[1.12] tracking-[-0.035em] text-white mb-10 max-w-[780px] mx-auto">
         Votre peau mérite mieux<br class="hidden md:inline" /> <span class="italic-serif md:whitespace-nowrap">qu'une ordonnance sans suivi.</span>
       </h2>
-      <Button href="/premieres-patientes" variant="white">Commencer mon parcours →</Button>
-      {/* TODO: valider engagement "Remboursé si pas de prescription" */}
+      <Button href="/premieres-patientes" variant="white">Créer mon dossier dermato →</Button>
       <div class="mt-5 text-[13px] text-white/60">
-        30 minutes. Remboursé si pas de prescription.
+        Gratuit · sans engagement. Vous ne payez que si vous réservez votre téléconsultation.
       </div>
     </FadeInSection>
   </div>

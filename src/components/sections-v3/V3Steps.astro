@@ -5,23 +5,24 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 const steps = [
   {
     number: '01',
-    title: 'Créez votre dossier dermatologique',
-    desc: "30 minutes en visio avec votre experte : antécédents, traitements essayés, photos, objectifs. Votre dermatologue reçoit tout avant la consultation. Données protégées, hébergées en France.",
+    title: 'Construisez votre dossier dermato',
+    desc: "Gratuit, en quelques minutes avec notre assistant IA : antécédents, traitements, photos, objectifs. Vous repartez avec un dossier structuré, prêt pour votre médecin. Données hébergées en France (HDS) ; vos photos ne sont jamais transmises à l'IA.",
   },
   {
     number: '02',
-    title: 'Rencontrez votre dermatologue',
-    desc: "Téléconsultation sous une semaine avec un dermatologue expert des approches globales. Il a déjà votre dossier pour adapter sa prise en charge. Tarifs conventionnés, en partie remboursés.",
+    title: 'Rencontrez votre médecin',
+    desc: "Téléconsultation avec un médecin généraliste appuyé par notre comité de dermatologues. Il a déjà tout votre dossier : la consultation est dense et personnalisée. Vous ne payez que si vous réservez.",
   },
   {
     number: '03',
-    title: 'Démarrez votre plan',
-    desc: "Votre formule magistrale peut être préparée par notre pharmacie de référence — 15 ans d'expertise. L'équipe Mixt vous accompagne au quotidien : application, ressentis, ajustements.",
+    title: 'Démarrez votre traitement',
+    desc: "Si votre médecin la prescrit, votre formule magistrale sur mesure est préparée par notre pharmacie partenaire. Vous repartez avec un plan clair, adapté à votre peau.",
   },
   {
     number: '04',
     title: 'Suivez votre évolution',
-    desc: "Photos mensuelles, messagerie ouverte, suivi par l'équipe Mixt. À 3 mois, bilan pour préparer la prochaine consultation et faire évoluer votre prise en charge.",
+    tag: 'Si vous continuez',
+    desc: "Au quotidien, l'IA suit votre peau et répond à vos questions du quotidien. Chaque mois, votre médecin fait le point et ajuste si besoin. Sans engagement, à partir de 29 €/mois.",
   },
 ];
 
@@ -48,9 +49,9 @@ const panels = [
     label: 'Étape 04',
     kind: 'journal' as const,
     chartRows: [
-      { when: 'Semaine 4', what: 'Premier point photo' },
-      { when: 'Semaine 8', what: "Suivi par l'équipe Mixt" },
-      { when: 'Semaine 12', what: "Bilan avec l'équipe Mixt" },
+      { when: 'Chaque jour', what: "Suivi par l'IA + vos questions" },
+      { when: 'Chaque mois', what: 'Point avec votre médecin' },
+      { when: 'Si besoin', what: 'Traitement renouvelé ou ajusté' },
     ],
   },
 ];
