@@ -5,6 +5,7 @@ type Step = {
   number: string;
   title: string;
   desc: string;
+  tag?: string;
 };
 
 type Panel = {
@@ -129,6 +130,11 @@ export default function StickySteps({ steps, panels }: Props) {
                 <div className="text-[22px] font-semibold text-ink leading-[1.2] mb-3 tracking-[-0.02em]">
                   {s.title}
                 </div>
+                {s.tag && (
+                  <div className="inline-flex items-center rounded-full border border-ink/15 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-2 mb-3">
+                    {s.tag}
+                  </div>
+                )}
                 <p className="text-[15px] text-ink-2 leading-[1.65]">
                   {s.desc}
                 </p>
@@ -189,6 +195,11 @@ export default function StickySteps({ steps, panels }: Props) {
                       <div className="text-[21px] md:text-[23px] font-semibold text-ink leading-[1.2] mb-3 tracking-[-0.02em]">
                         {s.title}
                       </div>
+                      {s.tag && (
+                        <div className="inline-flex items-center rounded-full border border-ink/15 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-2 mb-3">
+                          {s.tag}
+                        </div>
+                      )}
                       <p className="text-[15px] md:text-[15.5px] text-ink-2 leading-[1.65] max-w-[360px]">
                         {s.desc}
                       </p>

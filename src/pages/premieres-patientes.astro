@@ -4,58 +4,51 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import FadeInSection from '../components/motion/FadeInSection.tsx';
-import PatientTimeline from '../components/motion/PatientTimeline.tsx';
 
 const whatsappHref =
-  'https://wa.me/33756948494?text=Bonjour%20Laetitia%2C%20je%20suis%20int%C3%A9ress%C3%A9e%20par%20le%20programme%20pilote';
-const calendarHref =
-  'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1YDqDzikMBBwam5qGgvHDV8QKjLBL4ly328Kqy-YCHeq91FwmEwmO2_ZIXpP1f8MNAM4t6KGIy';
+  'https://wa.me/33756948494?text=' +
+  encodeURIComponent(
+    "Bonjour Laetitia, je suis intéressée par Mixt et j'aimerais en savoir plus / être prévenue au lancement."
+  );
+
+const mailtoHref =
+  'mailto:laetitia@mixt.care?subject=' +
+  encodeURIComponent('Être prévenue au lancement Mixt') +
+  '&body=' +
+  encodeURIComponent("Bonjour, je souhaite être prévenue dès l'ouverture du bilan en ligne Mixt.");
 
 const whatsappIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
 
-const steps = [
+const coming = [
   {
-    name: 'Laetitia',
-    role: 'Co-fondatrice',
-    avatarSrc: '/images/tuto-laeti-face.webp',
-    title: 'Échange initial',
-    body: "On prend le temps de se connaître : votre peau, votre parcours, vos habitudes de soin et votre routine beauté. Pas de formulaire impersonnel.",
+    number: '01',
+    title: 'Votre dossier en ligne',
+    body: "Construit en quelques minutes avec notre assistant, prêt pour votre médecin.",
   },
   {
-    name: 'Dr Levy Garel',
-    role: 'Dermatologue',
-    avatarSrc: '/images/bethsabee.webp',
-    title: 'Consultation dermatologique',
-    body: "Le Dr Levy Garel évalue votre peau en téléconsultation : type d'hyperpigmentation, phototype, antécédents, traitements passés. Elle vous prescrit un plan de soin adapté à votre cas.",
+    number: '02',
+    title: 'Votre consultation',
+    body: "Un médecin qui a déjà tout votre dossier, appuyé par notre comité de dermatologues.",
   },
   {
-    name: 'Pharmacie',
-    role: 'Préparation et délivrance',
-    avatarSrc: '/images/lab-3.webp',
-    title: 'Votre plan de soin sur-mesure',
-    body: "Votre plan combine les éléments adaptés à votre cas : une préparation magistrale formulée par notre pharmacie, des médicaments sur ordonnance, et parfois des dermocosmétiques ciblés. Le tout pensé pour fonctionner ensemble.",
-  },
-  {
-    name: 'Mixt',
-    role: "L'équipe",
-    isLogo: true,
-    title: 'Accompagnement au quotidien',
-    body: "L'équipe Mixt est à vos côtés au quotidien : conseils pratiques, suivi de vos photos, réponses à vos questions. À 3 mois, vous faites le bilan avec votre dermatologue qui décide de renouveler ou d'ajuster votre plan.",
+    number: '03',
+    title: 'Votre suivi',
+    body: "Un point chaque mois pour ajuster votre traitement. Sans engagement.",
   },
 ];
 ---
 
 <BaseLayout
-  title="Taches brunes, rougeurs, imperfections — Mixt"
-  description="Un diagnostic précis par une dermatologue, un traitement préparé sur mesure, un suivi continu. Rejoignez nos premières patientes."
+  title="Mixt arrive très bientôt | Bilan en ligne, consultation médicale et suivi"
+  description="Le parcours Mixt ouvre bientôt : un dossier dermato en ligne, une consultation avec un médecin appuyé par notre comité de dermatologues, et un suivi mois après mois. Échangez avec nous et soyez prévenu·e au lancement."
   ogImage="https://mixt.care/images/hyperpigmentation.jpg"
 >
-  <Nav ctaLabel="Rejoindre" ctaHref="#rejoindre" />
+  <Nav ctaLabel="Être prévenue" ctaHref="#rejoindre" />
 
   {/* ── HERO ── */}
   <section class="px-6 md:px-10 pt-[calc(56px+64px)] md:pt-[calc(56px+82px)] pb-20 md:pb-28 bg-base">
     <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 items-start">
-      {/* Left avatar — desktop only */}
+      {/* Left avatar : desktop only */}
       <FadeInSection client:load delay={0.15} y={20} className="hidden lg:flex flex-col items-center">
         <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-cream to-blush mb-3.5">
           <img
@@ -71,13 +64,17 @@ const steps = [
         </p>
       </FadeInSection>
 
-      {/* Right — copy */}
+      {/* Right : copy */}
       <div>
         <FadeInSection client:load y={14}>
+          <div class="inline-flex items-center gap-2 mb-6 rounded-full bg-ember/10 text-ember-deep px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em]">
+            <span class="inline-block w-[5px] h-[5px] rounded-full bg-ember-deep"></span>
+            Ouverture imminente
+          </div>
           <h1 class="text-[36px] md:text-[44px] lg:text-[52px] font-medium leading-[1.1] tracking-[-0.035em] text-ink mb-6">
-            Taches brunes, rougeurs, imperfections<span class="hidden md:inline"> : un</span><span class="md:hidden">. Un</span> parcours
+            Reprenez la main sur votre peau.
             <br class="hidden md:block" />
-            <span class="italic-serif">pensé pour vous.</span>
+            <span class="italic-serif">On ouvre très bientôt.</span>
           </h1>
         </FadeInSection>
 
@@ -100,13 +97,16 @@ const steps = [
           <div class="flex flex-col gap-5 text-[18px] md:text-[19px] leading-[1.65] text-ink mb-9">
             <p>
               Je m'appelle Laetitia. J'ai co-fondé Mixt parce que trop de femmes tournent en rond
-              pendant des années sur leurs problèmes de peau, sans accès à un dermatologue ni
+              pendant des années sur leurs problèmes de peau, sans accès à un médecin ni
               accompagnement dans la durée.
             </p>
             <p>
-              Nous accueillons nos premières patientes dans un parcours rigoureux et humain : une
-              consultation approfondie avec une dermatologue, une formule magistrale personnalisée,
-              et l'équipe Mixt à vos côtés pendant 3 mois. On s'en parle ?
+              On construit un parcours simple : un dossier en ligne, une consultation avec un médecin
+              qui comprend vraiment votre peau, et un suivi mois après mois. Ça ouvre très bientôt.
+            </p>
+            <p>
+              En attendant, parlons-nous : je réponds personnellement à vos questions et je vous
+              préviens en priorité au lancement.
             </p>
           </div>
         </FadeInSection>
@@ -116,13 +116,13 @@ const steps = [
             <Button href={whatsappHref} variant="ember-pill">
               <Fragment set:html={whatsappIcon} />Écrire à Laetitia
             </Button>
-            <Button href={calendarHref} variant="ghost" target="_blank" rel="noopener">
-              Réserver un appel
+            <Button href={mailtoHref} variant="ghost">
+              Être prévenue au lancement
             </Button>
           </div>
           <p class="mt-4 text-[12.5px] italic text-ink-3 leading-[1.55] max-w-[480px]">
-            Laetitia répond personnellement aux questions sur le programme. Pour toute question
-            médicale, vous serez mise en relation avec une dermatologue.
+            Échange sans engagement. Vos photos et vos infos santé se feront dans notre espace
+            sécurisé à l'ouverture, jamais par message.
           </p>
         </FadeInSection>
       </div>
@@ -160,13 +160,13 @@ const steps = [
             c'est normal. Mais sans personne pour vous le dire, pour vous rassurer, pour vous aider
             à tenir, souvent on arrête. Et on recommence ailleurs, de zéro.
           </p>
-          <p>C'est à partir de là qu'on a construit Mixt avec une dermatologue et notre pharmacie partenaire.</p>
+          <p>C'est à partir de là qu'on a construit Mixt, avec des médecins et notre pharmacie partenaire.</p>
         </div>
       </FadeInSection>
     </div>
   </section>
 
-  {/* ── PARCOURS TIMELINE ── */}
+  {/* ── CE QUI ARRIVE ── */}
   <section class="relative overflow-hidden px-6 md:px-10 py-24 md:py-32 bg-deep text-white">
     <div
       class="absolute inset-0 pointer-events-none"
@@ -178,18 +178,34 @@ const steps = [
       <FadeInSection client:load>
         <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember mb-5">
           <span class="inline-block h-px w-10 bg-ember/80"></span>
-          Nos premières patientes
+          Bientôt
         </div>
         <h2 class="text-[36px] md:text-[44px] lg:text-[52px] font-medium leading-[1.08] tracking-[-0.035em] text-white mb-6 max-w-[700px]">
-          Ce qui <span class="italic-serif">vous attend.</span>
+          Le parcours, <span class="italic-serif">en trois temps.</span>
         </h2>
         <p class="text-[18px] md:text-[20px] leading-[1.6] text-white/85 max-w-[660px] mb-16">
-          Vous serez écoutées, et à l'origine de tout ce qu'on construit. Plus aucune femme ne
-          devrait se sentir seule avec ses taches.
+          Vous serez parmi les premières, et à l'origine de tout ce qu'on construit.
         </p>
       </FadeInSection>
 
-      <PatientTimeline client:load steps={steps} />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        {coming.map((c, i) => (
+          <FadeInSection client:load delay={i * 0.1} y={18}>
+            <div class="border-t border-white/15 pt-5">
+              <div class="font-mono text-[12px] tracking-[0.16em] uppercase text-ember mb-3">{c.number}</div>
+              <h3 class="text-[20px] md:text-[22px] font-semibold text-white leading-tight mb-2.5 tracking-[-0.01em]">{c.title}</h3>
+              <p class="text-[15px] leading-[1.6] text-white/70">{c.body}</p>
+            </div>
+          </FadeInSection>
+        ))}
+      </div>
+
+      <FadeInSection client:load delay={0.3}>
+        <p class="mt-14 pt-6 border-t border-white/10 text-[14px] text-white/55 leading-[1.6] max-w-[620px]">
+          Votre bilan et vos photos se feront uniquement dans notre espace sécurisé, à l'ouverture.
+          Rien de médical ne passe par message.
+        </p>
+      </FadeInSection>
     </div>
   </section>
 
@@ -208,18 +224,18 @@ const steps = [
     <div class="relative z-[2] max-w-[700px] mx-auto">
       <FadeInSection client:load>
         <h2 class="text-[36px] md:text-[44px] lg:text-[52px] font-medium leading-[1.1] tracking-[-0.035em] text-white mb-5">
-          Rejoignez nos <span class="italic-serif">premières patientes.</span>
+          Soyez les <span class="italic-serif">premières au lancement.</span>
         </h2>
         <p class="text-[17px] md:text-[18px] leading-[1.65] text-white/55 max-w-[500px] mx-auto mb-9">
-          Chaque profil est étudié, chaque protocole est prescrit, chaque formule est préparée sur
-          mesure. Si vous êtes intéressée, écrivez-nous.
+          On ouvre très bientôt. Écrivez-nous ou laissez votre email : on vous prévient en priorité,
+          et on répond à toutes vos questions d'ici là.
         </p>
         <div class="flex flex-wrap justify-center gap-3">
           <Button href={whatsappHref} variant="white">
             <Fragment set:html={whatsappIcon} />Écrire à Laetitia sur WhatsApp
           </Button>
-          <Button href={calendarHref} variant="ghost-light" target="_blank" rel="noopener">
-            Réserver un appel
+          <Button href={mailtoHref} variant="ghost-light">
+            Être prévenue au lancement
           </Button>
         </div>
       </FadeInSection>

@@ -6,8 +6,9 @@ const pillars = [
   {
     image: '/images/lab-manipulation-vertical.jpg',
     alt: 'Préparation magistrale en pharmacie',
+    tag: 'Votre consultation',
     title: 'Une formule sur mesure',
-    description: 'Si votre cas le justifie, votre dermatologue prescrit une formule magistrale qui traite votre problème principal et vos objectifs secondaires : tolérance, éclat, anti-âge.',
+    description: 'Si votre cas le justifie, votre médecin prescrit une formule magistrale qui traite votre problème principal et vos objectifs secondaires : tolérance, éclat, anti-âge.',
     overlay: {
       kind: 'formula' as const,
       patientLabel: 'Composition type',
@@ -22,8 +23,9 @@ const pillars = [
   {
     image: '/images/closeup-eyebrow.jpg',
     alt: 'Macro peau',
+    tag: 'Votre consultation',
     title: 'Une approche globale',
-    description: "Votre dermatologue ne traite pas qu'un symptôme. Il combine prescription, routine et conseils adaptés à votre peau, vos sensibilités, vos objectifs.",
+    description: "Votre médecin ne traite pas qu'un symptôme. Appuyé par notre comité de dermatologues, il combine prescription, routine et conseils adaptés à votre peau, vos sensibilités, vos objectifs.",
     overlay: {
       kind: 'score' as const,
       label: 'Plan personnalisé',
@@ -31,23 +33,23 @@ const pillars = [
         { label: 'Traitement principal', value: '●●●●●' },
         { label: 'Tolérance', value: '●●●○○' },
         { label: 'Vos objectifs', value: '●●●●○' },
-        { label: 'Routine quotidienne', value: '●●●●●' },
       ],
-      footer: 'Adapté à votre profil par votre dermatologue.',
+      footer: 'Adapté à votre profil par votre médecin.',
     },
   },
   {
     image: '/images/pillar-suivi-dermato.jpg',
-    alt: 'Patiente lisant un message de sa dermatologue depuis son canapé',
-    title: 'Un accompagnement humain',
-    description: "Photos, questions, conseils. On vous suit chaque semaine et on fait le lien avec votre dermatologue.",
+    alt: 'Patiente lisant un message de son médecin depuis son canapé',
+    tag: 'Si vous continuez · sans engagement',
+    title: 'Un suivi médical, dans la durée',
+    description: "Au quotidien, l'IA suit votre peau et répond à vos questions. Chaque mois, votre médecin fait le point, renouvelle ou ajuste votre traitement si besoin.",
     overlay: {
       kind: 'chat' as const,
-      doctor: 'Laetitia · Équipe Mixt',
-      status: 'Bilan M3',
-      message: "Vos photos montrent une belle évolution. On prépare avec vous votre prochaine consultation pour ajuster si besoin.",
-      reply: 'Voir mon bilan',
-      avatar: '/images/laetitia-after.webp',
+      doctor: 'Dr Estelle G.',
+      status: 'En ligne',
+      message: "Belle progression. Je renouvelle votre formule et ajuste le dosage.",
+      reply: 'Voir mon traitement →',
+      avatar: '/images/estelle-grimonet.jpg',
     },
   },
 ];
@@ -64,7 +66,7 @@ const pillars = [
         On vous accompagne<br class="hidden md:inline" /> <span class="italic-serif whitespace-nowrap">du début à la fin.</span>
       </h2>
       <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 max-w-[580px]">
-        Un parcours dermatologique structuré, du premier dossier au suivi dans la durée. Sans jamais être seul·e.
+        De votre bilan au traitement qui fonctionne, un suivi médical qui s'ajuste dans la durée. Votre médecin reste à vos côtés bien après l'ordonnance, sans jamais vous laisser seul·e.
       </p>
     </FadeInSection>
 
@@ -74,6 +76,7 @@ const pillars = [
           client:load
           image={p.image}
           alt={p.alt}
+          tag={p.tag}
           title={p.title}
           description={p.description}
           overlay={p.overlay}

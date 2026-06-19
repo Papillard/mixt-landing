@@ -34,6 +34,7 @@ type Props = {
   title: string;
   description: string;
   overlay: Overlay;
+  tag?: string;
   index?: number;
 };
 
@@ -76,29 +77,29 @@ function renderOverlay(o: Overlay) {
   if (o.kind === 'chat') {
     return (
       <div>
-        <div className="flex items-center gap-2 pb-3 mb-3 border-b border-black/[0.08]">
+        <div className="flex items-center gap-2.5 mb-3.5">
           {o.avatar ? (
             <img
               src={o.avatar}
               alt={o.doctor}
-              className="w-7 h-7 rounded-full object-cover border border-black/[0.05] shrink-0"
+              className="w-9 h-9 rounded-full object-cover border border-black/[0.05] shrink-0"
               loading="lazy"
               decoding="async"
             />
           ) : (
-            <div className="w-7 h-7 rounded-full bg-blush/60 border border-black/[0.05] shrink-0" />
+            <div className="w-9 h-9 rounded-full bg-blush/60 border border-black/[0.05] shrink-0" />
           )}
           <div>
-            <div className="text-[11px] font-semibold text-ink leading-tight">{o.doctor}</div>
-            <div className="text-[9px] text-ink-3 leading-tight flex items-center gap-1 mt-0.5">
+            <div className="text-[13px] font-semibold text-ink leading-tight">{o.doctor}</div>
+            <div className="text-[11px] text-ink-3 leading-tight flex items-center gap-1 mt-0.5">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#4E8A6B]" /> {o.status}
             </div>
           </div>
         </div>
-        <div className="bg-cream/80 rounded-[10px] px-3 py-2 text-[11px] text-ink mb-1.5 max-w-[88%] leading-snug">
+        <div className="bg-cream/80 rounded-[10px] px-3.5 py-2.5 text-[13px] text-ink mb-1.5 max-w-[92%] leading-snug">
           {o.message}
         </div>
-        <div className="ml-auto bg-deep text-white rounded-[10px] px-3 py-2 text-[11px] mt-1.5 max-w-[60%] leading-snug">
+        <div className="text-right mt-2.5 text-[13px] font-semibold text-ember-deep">
           {o.reply}
         </div>
       </div>
@@ -129,6 +130,7 @@ export default function PillarCard({
   title,
   description,
   overlay,
+  tag,
   index = 0,
 }: Props) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -175,6 +177,11 @@ export default function PillarCard({
           {renderOverlay(overlay)}
         </motion.div>
       </motion.div>
+      {tag && (
+        <div className="inline-flex self-start items-center gap-1.5 mb-3 rounded-full border border-ink/15 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-2">
+          {tag}
+        </div>
+      )}
       <h3 className="text-[22px] md:text-[23px] font-semibold leading-tight text-ink mb-2 tracking-[-0.02em]">
         {title}
       </h3>
