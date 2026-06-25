@@ -69,7 +69,7 @@ const coming = [
         <FadeInSection client:load y={14}>
           <div class="inline-flex items-center gap-2 mb-6 rounded-full bg-ember/10 text-ember-deep px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em]">
             <span class="inline-block w-[5px] h-[5px] rounded-full bg-ember-deep"></span>
-            Ouverture imminente
+            <span data-concern-kicker>Ouverture imminente</span>
           </div>
           <h1 class="text-[36px] md:text-[44px] lg:text-[52px] font-medium leading-[1.1] tracking-[-0.035em] text-ink mb-6">
             Reprenez la main sur votre peau.
@@ -113,10 +113,10 @@ const coming = [
 
         <FadeInSection client:load delay={0.3} y={10}>
           <div class="flex flex-wrap gap-3">
-            <Button href={whatsappHref} variant="ember-pill">
+            <Button href={whatsappHref} variant="ember-pill" data-prefill="whatsapp">
               <Fragment set:html={whatsappIcon} />Écrire à Laetitia
             </Button>
-            <Button href={mailtoHref} variant="ghost">
+            <Button href={mailtoHref} variant="ghost" data-prefill="email">
               Être prévenue au lancement
             </Button>
           </div>
@@ -231,10 +231,10 @@ const coming = [
           et on répond à toutes vos questions d'ici là.
         </p>
         <div class="flex flex-wrap justify-center gap-3">
-          <Button href={whatsappHref} variant="white">
+          <Button href={whatsappHref} variant="white" data-prefill="whatsapp">
             <Fragment set:html={whatsappIcon} />Écrire à Laetitia sur WhatsApp
           </Button>
-          <Button href={mailtoHref} variant="ghost-light">
+          <Button href={mailtoHref} variant="ghost-light" data-prefill="email">
             Être prévenue au lancement
           </Button>
         </div>
@@ -243,4 +243,28 @@ const coming = [
   </section>
 
   <Footer />
+
+  {/* Continuité d'intention : si on arrive depuis une page concern (?concern=…),
+      on pré-remplit le message WhatsApp / l'email et on contextualise le bandeau. */}
+  <script>
+    const ALLOWED = ['Acné', 'Hyperpigmentation', 'Mélasma', 'Rosacée'];
+    const raw = new URLSearchParams(window.location.search).get('concern');
+    const concern = raw && ALLOWED.includes(raw) ? raw : null;
+
+    if (concern) {
+      const waText = `Bonjour Laetitia, je suis intéressée par Mixt (sujet : ${concern}) et j'aimerais être prévenue au lancement.`;
+      const waHref = 'https://wa.me/33756948494?text=' + encodeURIComponent(waText);
+      document.querySelectorAll('[data-prefill="whatsapp"]').forEach((a) => a.setAttribute('href', waHref));
+
+      const subject = encodeURIComponent(`Être prévenue au lancement Mixt (${concern})`);
+      const body = encodeURIComponent(
+        `Bonjour, je souhaite être prévenue dès l'ouverture du bilan en ligne Mixt. Sujet qui m'intéresse : ${concern}.`
+      );
+      const mailHref = `mailto:laetitia@mixt.care?subject=${subject}&body=${body}`;
+      document.querySelectorAll('[data-prefill="email"]').forEach((a) => a.setAttribute('href', mailHref));
+
+      const kicker = document.querySelector('[data-concern-kicker]');
+      if (kicker) kicker.textContent = `Ouverture imminente · ${concern}`;
+    }
+  </script>
 </BaseLayout>

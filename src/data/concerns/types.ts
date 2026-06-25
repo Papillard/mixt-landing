@@ -15,6 +15,27 @@ export type RelatedLink = {
   teaser: string;
 };
 
+export type ProofPhoto = {
+  src: string;
+  alt: string;
+  /** Optional zoom to reframe a tight crop, mirrors BeforeAfterReveal. */
+  scale?: number;
+  objectPosition?: string;
+};
+
+/** Real before/after testimonial, rendered when present. */
+export type Proof = {
+  name: string;
+  /** e.g. "Hyperpigmentation · 4 mois" */
+  meta: string;
+  before: ProofPhoto;
+  after: ProofPhoto;
+  afterLabel: string;
+  quote: string;
+  context: string;
+  legal: string;
+};
+
 export type Concern = {
   /** URL slug, also the route filename. */
   slug: string;
@@ -56,6 +77,8 @@ export type Concern = {
     /** Small disclaimer line under the timeline (e.g. résultats non garantis). */
     footnote?: string;
   };
+  /** Optional real before/after testimonial. Falls back to a cohort invite when absent. */
+  proof?: Proof;
   /** Concern specific FAQ. Shared medical FAQ is appended by the layout. */
   faq: FaqItem[];
   related: RelatedLink[];
