@@ -5,40 +5,98 @@
    Usage: bg-deep, text-accent, font-serif, etc.
    ────────────────────────────────────────── */
 @theme {
-  --color-deep: #361822;
-  --color-rich: #6B3D32;
-  --color-violet: #5E3A6E;
-  --color-violet-dark: #462858;
-  --color-violet-light: #C0A8CC;
-  --color-violet-bg: #F0EAF4;
-  --color-warm: #B07460;
-  --color-blush: #D4A08A;
-  --color-cream: #F5E6DA;
-  --color-base: #FFF8F2;
-  --color-accent: #C85A4A;
-  /* Corail vibrant — accent principal chaud (CTA, highlights, liaisons).
-     Plus vital que le jaune miel, plus moderne que le terracotta prod. */
-  --color-ember: #E8664B;
-  --color-ember-dark: #C4513A;
-  --color-ember-deep: #9E3E2B;
-  /* Jade frais — accent froid "medical tech vital". Contrepoint au chaud. */
-  --color-jade: #5FBFA3;
-  --color-jade-deep: #3A8A75;
-  --color-jade-soft: #BCE4D6;
-  /* Sage — sections dark "science", inchangés */
-  --color-sage: #4A5F52;
-  --color-sage-deep: #2D4239;
-  --color-sage-light: #A8B5A7;
-  --color-mint: #7FE0A5;
-  --color-mint-soft: #B4E8C5;
+  /* Encres (texte) */
   --color-ink: #1A1210;
   --color-ink-2: #6B5B52;
   --color-ink-3: #9A8A80;
 
+  /* Canvas clair */
+  --color-base: #FFF8F2;
+  --color-cream: #F5E6DA;
+
+  /* Bruns / ancrage (rampe deep > warm > blush) */
+  --color-deep: #361822;
+  --color-warm: #B07460;
+  --color-blush: #D4A08A;
+
+  /* Action : registre chaud (base / hover / texte-sur-clair) */
+  --color-ember: #E8664B;
+  --color-ember-dark: #C4513A;
+  --color-ember-deep: #9E3E2B;
+
+  /* Négatif / erreur (croix "don't", erreurs de formulaire) */
+  --color-danger: #C85A4A;
+
+  /* Froid : signal médical, sur fond clair */
+  --color-jade: #5FBFA3;
+  --color-jade-deep: #3A8A75;
+
+  /* Froid : fonds sombres "science" + tints clairs */
+  --color-sage: #4A5F52;
+  --color-sage-deep: #2D4239;
+  --color-sage-light: #A8B5A7;
+
+  /* Froid : accent sur fond sombre */
+  --color-mint: #7FE0A5;
+
+  /* DEPRECATED, en cours de migration (voir DESIGN.md). Ne pas étendre :
+     - rich   : 3 "text-rich" restants, à migrer vers ink-2.
+     - violet : eyebrows des sections Conditions, à migrer vers ember-deep/jade. */
+  --color-rich: #6B3D32;
+  --color-violet: #5E3A6E;
+
+  /* Familles typographiques */
   --font-serif: 'Fraunces', Georgia, serif;
   --font-italic: 'Newsreader', Georgia, serif;
   --font-sans: 'Geist', -apple-system, system-ui, sans-serif;
   --font-mono: 'DM Mono', ui-monospace, monospace;
+
+  /* Échelle typographique nommée (voir DESIGN.md).
+     display/stat/h2/h3 sont fluides (clamp mobile > desktop). */
+  --text-display: clamp(2.5rem, 1.62rem + 2.75vw, 3.25rem); /* 40 > 52 */
+  --text-display--line-height: 1.06;
+  --text-display--letter-spacing: -0.035em;
+  --text-display--font-weight: 500;
+
+  --text-stat: clamp(3rem, 2.25rem + 2.34vw, 3.75rem); /* 48 > 60 */
+  --text-stat--line-height: 0.95;
+  --text-stat--letter-spacing: -0.04em;
+  --text-stat--font-weight: 600;
+
+  --text-h2: clamp(2rem, 1.69rem + 0.98vw, 2.25rem); /* 32 > 36 */
+  --text-h2--line-height: 1.12;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h2--font-weight: 500;
+
+  --text-h3: clamp(1.375rem, 1.3rem + 0.39vw, 1.5rem); /* 22 > 24 */
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h3--font-weight: 500;
+
+  --text-lead: 1.25rem; /* 20 */
+  --text-lead--line-height: 1.5;
+
+  --text-body-lg: 1.125rem; /* 18 */
+  --text-body-lg--line-height: 1.6;
+
+  --text-body: 1rem; /* 16 */
+  --text-body--line-height: 1.6;
+
+  --text-body-sm: 0.875rem; /* 14 */
+  --text-body-sm--line-height: 1.5;
+
+  --text-caption: 0.75rem; /* 12 */
+  --text-caption--line-height: 1.4;
+
+  --text-eyebrow: 0.6875rem; /* 11 */
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.18em;
+  --text-eyebrow--font-weight: 500;
+
+  --text-label: 0.625rem; /* 10 */
+  --text-label--line-height: 1;
+  --text-label--letter-spacing: 0.10em;
+  --text-label--font-weight: 500;
 }
 
 /* ──────────────────────────────────────────
