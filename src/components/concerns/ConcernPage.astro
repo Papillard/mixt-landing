@@ -5,6 +5,7 @@ import Footer from '../Footer.astro';
 import Button from '../Button.astro';
 import Accordion from '../motion/Accordion.tsx';
 import FadeInSection from '../motion/FadeInSection.tsx';
+import BeforeAfterReveal from '../motion/BeforeAfterReveal.tsx';
 import type { Concern } from '../../data/concerns/types';
 
 interface Props {
@@ -13,7 +14,9 @@ interface Props {
 
 const { concern } = Astro.props;
 
-const CTA_HREF = '/premieres-patientes/';
+// CTA concern-aware : on transporte le concern jusqu'à la waitlist pour pré-remplir
+// le message WhatsApp / l'email et garder la continuité d'intention.
+const CTA_HREF = `/premieres-patientes/?concern=${encodeURIComponent(concern.chip)}`;
 const CTA_LABEL = 'Rejoindre les premières patientes';
 
 // Jeu d'icônes minimal (tracés Lucide, stroke 1.5), inline pour éviter une dépendance.
@@ -119,20 +122,20 @@ const structuredData = {
 >
   <Nav ctaLabel="Être prévenue" ctaHref={CTA_HREF} />
 
-  {/* ── HERO ── */}
-  <section class="px-6 md:px-10 pt-[calc(56px+64px)] md:pt-[calc(56px+80px)] pb-20 md:pb-28 bg-base">
-    <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
-      <div>
+  {/* ── HERO (split asymétrique, image plein bord droit) ── */}
+  <section class="relative bg-base overflow-hidden">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-10 pt-[calc(56px+52px)] pb-12 lg:pt-[calc(56px+40px)] lg:pb-24 lg:min-h-[86vh] flex items-center">
+      <div class="w-full lg:w-[53%] lg:pr-14">
         <FadeInSection client:load y={14}>
           <div class="inline-flex items-center gap-2 mb-6 rounded-full bg-ember/10 text-ember-deep px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em]">
             <span class="inline-block w-[5px] h-[5px] rounded-full bg-ember-deep"></span>
             {concern.hero.kicker}
           </div>
-          <h1 class="text-[36px] md:text-[44px] lg:text-[52px] font-medium leading-[1.08] tracking-[-0.035em] text-ink mb-6">
-            {concern.hero.title}{' '}
+          <h1 class="text-balance text-[38px] md:text-[48px] lg:text-[56px] font-medium leading-[1.06] tracking-[-0.035em] text-ink mb-6">
+            {concern.hero.title}<br />
             <span class="italic-serif">{concern.hero.highlight}</span>
           </h1>
-          <p class="text-[18px] md:text-[19px] leading-[1.65] text-ink-2 max-w-[560px] mb-9">
+          <p class="text-[18px] md:text-[19px] leading-[1.65] text-ink-2 max-w-[540px] mb-9">
             {concern.hero.lead}
           </p>
         </FadeInSection>
@@ -140,7 +143,7 @@ const structuredData = {
         <FadeInSection client:load delay={0.25} y={10}>
           <div class="flex flex-wrap items-center gap-3">
             <Button href={CTA_HREF} variant="ember-pill">{CTA_LABEL} →</Button>
-            <Button href={CTA_HREF} variant="ghost">Être prévenue au lancement</Button>
+            <Button href="#parcours" variant="ghost">Voir comment ça marche</Button>
           </div>
           <div class="flex flex-wrap gap-x-6 gap-y-2.5 mt-7 text-[12.5px] text-ink-2">
             {trust.map((t) => (
@@ -152,20 +155,18 @@ const structuredData = {
           </div>
         </FadeInSection>
       </div>
+    </div>
 
-      <FadeInSection client:load delay={0.2} y={24}>
-        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-20px_rgba(54,24,34,0.35)]">
-          <img
-            src={concern.hero.image}
-            alt={concern.hero.imageAlt}
-            class="absolute inset-0 h-full w-full object-cover"
-            fetchpriority="high"
-          />
-          <div class="absolute left-5 top-5 z-[5] rounded-[6px] bg-deep/95 backdrop-blur px-3 py-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
-            {concern.chip}
-          </div>
-        </div>
-      </FadeInSection>
+    {/* Image : bande pleine largeur sur mobile, plein bord droit pleine hauteur sur desktop */}
+    <div class="relative h-[64vw] max-h-[440px] bg-blush/30 lg:h-auto lg:max-h-none lg:absolute lg:inset-y-0 lg:right-0 lg:w-[47%]">
+      <img
+        src={concern.hero.image}
+        alt={concern.hero.imageAlt}
+        class="absolute inset-0 h-full w-full object-cover"
+        style="object-position: center 25%;"
+        fetchpriority="high"
+      />
+      <div class="hidden lg:block absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-base to-transparent pointer-events-none"></div>
     </div>
   </section>
 
@@ -173,8 +174,8 @@ const structuredData = {
   <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
     <div class="max-w-[760px] mx-auto">
       <FadeInSection client:load>
-        <h2 class="text-[32px] md:text-[44px] font-medium leading-[1.12] tracking-[-0.035em] text-ink mb-10">
-          {concern.problem.title}{' '}
+        <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.12] tracking-[-0.035em] text-ink mb-10">
+          {concern.problem.title}<br />
           <span class="italic-serif">{concern.problem.highlight}</span>
         </h2>
       </FadeInSection>
@@ -182,6 +183,22 @@ const structuredData = {
         <div class="flex flex-col gap-6 text-[17px] md:text-[18px] leading-[1.75] text-rich">
           {concern.problem.paras.map((p) => <p>{p}</p>)}
         </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  {/* ── MID CTA (relance après l'empathie) ── */}
+  <section class="px-6 md:px-10 py-14 md:py-20 bg-deep text-white">
+    <div class="max-w-[1100px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-7">
+      <FadeInSection client:load>
+        <div class="font-mono text-[11px] uppercase tracking-[0.18em] text-ember mb-3">Prête à avancer ?</div>
+        <p class="text-balance text-[22px] md:text-[28px] font-medium leading-[1.3] tracking-[-0.02em] text-white max-w-[620px]">
+          Arrêtez de tâtonner sur votre {concern.chip.toLowerCase()}.<br />
+          <span class="italic-serif text-white/85">Une peau suivie, pas juste traitée.</span>
+        </p>
+      </FadeInSection>
+      <FadeInSection client:load delay={0.1}>
+        <Button href={CTA_HREF} variant="white" class="shrink-0 whitespace-nowrap">{CTA_LABEL} →</Button>
       </FadeInSection>
     </div>
   </section>
@@ -250,6 +267,95 @@ const structuredData = {
     </div>
   </section>
 
+  {/* ── PROOF ── */}
+  {concern.proof ? (
+    <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
+      <div class="max-w-[1100px] mx-auto">
+        <FadeInSection client:load>
+          <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-jade-deep mb-5">
+            <span class="inline-block h-px w-10 bg-jade-deep/80"></span>
+            Résultats réels
+          </div>
+          <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.08] tracking-[-0.035em] text-ink mb-12 md:mb-14 max-w-[680px]">
+            Elle a suivi le parcours <span class="italic-serif whitespace-nowrap">avant vous.</span>
+          </h2>
+        </FadeInSection>
+        <div class="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-10 lg:gap-14 items-center">
+          <BeforeAfterReveal
+            client:load
+            before={concern.proof.before}
+            after={concern.proof.after}
+            afterLabel={concern.proof.afterLabel}
+          />
+          <FadeInSection client:load delay={0.15}>
+            <h3 class="text-[22px] md:text-[24px] font-semibold text-ink mb-1 tracking-[-0.02em]">{concern.proof.name}</h3>
+            <div class="text-[13px] uppercase tracking-[0.12em] text-ink-3 font-semibold mb-6">{concern.proof.meta}</div>
+            <blockquote class="italic-serif text-[24px] md:text-[30px] leading-[1.45] text-ink mb-6 pb-6 border-b border-black/[0.08]">
+              « {concern.proof.quote} »
+            </blockquote>
+            <p class="text-[14.5px] text-ink-2 leading-relaxed max-w-[480px]">{concern.proof.context}</p>
+            <p class="mt-4 text-[11px] text-ink-3 italic leading-snug">{concern.proof.legal}</p>
+            <div class="mt-8">
+              <Button href={CTA_HREF} variant="dark">{CTA_LABEL} →</Button>
+            </div>
+          </FadeInSection>
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
+      <div class="max-w-[1100px] mx-auto">
+        <FadeInSection client:load>
+          <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-jade-deep mb-12 md:mb-14">
+            <span class="inline-block h-px w-10 bg-jade-deep/80"></span>
+            Les premières patientes
+          </div>
+        </FadeInSection>
+        <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-center">
+          {/* Portrait fondatrice */}
+          <FadeInSection client:load delay={0.1} y={20}>
+            <div class="relative aspect-[4/5] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-22px_rgba(54,24,34,0.32)]">
+              <img
+                src="/images/tuto-laeti-face.webp"
+                alt="Laetitia, co-fondatrice de Mixt"
+                class="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute left-5 top-5 z-[5] rounded-[6px] bg-deep/95 backdrop-blur px-3 py-1.5 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
+                Première cohorte
+              </div>
+              <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/45 to-transparent pointer-events-none"></div>
+              <div class="absolute left-5 bottom-5 z-[5] text-white">
+                <div class="text-[15px] font-semibold leading-tight">Laetitia</div>
+                <div class="text-[12px] text-white/85">Co-fondatrice de Mixt</div>
+              </div>
+            </div>
+          </FadeInSection>
+
+          {/* Invitation cohorte */}
+          <FadeInSection client:load delay={0.15}>
+            <h2 class="text-balance text-[30px] md:text-[42px] font-medium leading-[1.1] tracking-[-0.03em] text-ink mb-5">
+              Reprenez la main sur votre {concern.chip.toLowerCase()},<br />
+              <span class="italic-serif">dès l'ouverture.</span>
+            </h2>
+            <p class="text-[16px] md:text-[18px] leading-[1.7] text-ink-2 mb-8 max-w-[520px]">
+              Mixt ouvre tout juste. Rejoignez la première cohorte de patientes suivies de près par un médecin expert de votre peau, et soyez parmi les premières à montrer ce que change un vrai suivi.
+            </p>
+            <Button href={CTA_HREF} variant="ember-pill">{CTA_LABEL} →</Button>
+            <div class="flex flex-wrap gap-x-6 gap-y-2.5 mt-8 text-[12.5px] text-ink-2">
+              {trust.map((t) => (
+                <span class="inline-flex items-center gap-1.5">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[15px] h-[15px] text-jade-deep shrink-0"><Fragment set:html={icons[t.icon]} /></svg>
+                  {t.label}
+                </span>
+              ))}
+            </div>
+          </FadeInSection>
+        </div>
+      </div>
+    </section>
+  )}
+
   {/* ── EXPECTATIONS (optional) ── */}
   {concern.expectations && (
     <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
@@ -259,9 +365,9 @@ const structuredData = {
             <span class="inline-block h-px w-10 bg-violet/80"></span>
             Le rythme du traitement
           </div>
-          <h2 class="text-[32px] md:text-[44px] font-medium leading-[1.12] tracking-[-0.035em] text-ink mb-3 max-w-[760px]">
+          <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.12] tracking-[-0.035em] text-ink mb-3 max-w-[760px]">
             {concern.expectations.title}{' '}
-            <span class="italic-serif">{concern.expectations.highlight}</span>
+            <span class="italic-serif whitespace-nowrap">{concern.expectations.highlight}</span>
           </h2>
           {concern.expectations.intro && (
             <p class="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 max-w-[620px] mb-12">
@@ -291,15 +397,15 @@ const structuredData = {
   )}
 
   {/* ── HOW IT WORKS ── */}
-  <section class="relative overflow-hidden px-6 md:px-10 py-24 md:py-32 bg-deep text-white">
+  <section id="parcours" class="relative overflow-hidden px-6 md:px-10 py-24 md:py-32 bg-deep text-white scroll-mt-20">
     <div class="relative z-[2] max-w-[1200px] mx-auto">
       <FadeInSection client:load>
         <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember mb-5">
           <span class="inline-block h-px w-10 bg-ember/80"></span>
           Le parcours
         </div>
-        <h2 class="text-[32px] md:text-[44px] font-medium leading-[1.1] tracking-[-0.035em] text-white mb-16 max-w-[640px]">
-          De votre dossier à votre suivi, <span class="italic-serif">en trois temps.</span>
+        <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.1] tracking-[-0.035em] text-white mb-16 max-w-[640px]">
+          De votre dossier à votre suivi, <span class="italic-serif whitespace-nowrap">en trois temps.</span>
         </h2>
       </FadeInSection>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
@@ -323,7 +429,7 @@ const structuredData = {
   <section class="px-6 md:px-10 py-24 md:py-32 bg-base">
     <div class="max-w-[1200px] mx-auto">
       <FadeInSection client:load>
-        <h2 class="text-[32px] md:text-[44px] font-medium leading-[1.08] tracking-[-0.035em] text-center max-w-[820px] mx-auto mb-4 text-ink">
+        <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.08] tracking-[-0.035em] text-center max-w-[820px] mx-auto mb-4 text-ink">
           Ce que vous payez, <span class="italic-serif whitespace-nowrap">et à qui.</span>
         </h2>
         <p class="text-center text-[15px] md:text-[16px] text-ink-2 max-w-[620px] mx-auto leading-relaxed">
@@ -351,8 +457,8 @@ const structuredData = {
   <section class="px-6 md:px-10 pt-24 md:pt-32 pb-16 md:pb-24 bg-cream">
     <div class="max-w-[1200px] mx-auto">
       <FadeInSection client:load>
-        <h2 class="text-[32px] md:text-[44px] font-medium leading-[1.08] tracking-[-0.035em] text-center mb-12 md:mb-16 text-ink">
-          {concern.chip}, <span class="italic-serif">vos questions.</span>
+        <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.08] tracking-[-0.035em] text-center mb-12 md:mb-16 text-ink">
+          {concern.chip}, <span class="italic-serif whitespace-nowrap">vos questions.</span>
         </h2>
       </FadeInSection>
       <div class="max-w-[760px] mx-auto">
@@ -387,8 +493,8 @@ const structuredData = {
   <section class="relative overflow-hidden px-6 md:px-10 py-24 md:py-32 bg-deep text-white text-center">
     <div class="relative z-[2] max-w-[780px] mx-auto">
       <FadeInSection client:load>
-        <h2 class="text-[34px] md:text-[46px] font-medium leading-[1.12] tracking-[-0.035em] text-white mb-6 max-w-[680px] mx-auto">
-          {concern.chip} : et si on s'en occupait <span class="italic-serif">vraiment ?</span>
+        <h2 class="text-balance text-[34px] md:text-[46px] font-medium leading-[1.12] tracking-[-0.035em] text-white mb-6 max-w-[680px] mx-auto">
+          {concern.chip} : et si on s'en occupait <span class="italic-serif whitespace-nowrap">vraiment ?</span>
         </h2>
         <p class="text-[16px] md:text-[18px] leading-[1.65] text-white/60 max-w-[520px] mx-auto mb-9">
           Mixt ouvre très bientôt. Rejoignez les premières patientes : on vous prévient en priorité au lancement et on répond à toutes vos questions d'ici là.
