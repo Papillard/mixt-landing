@@ -18,6 +18,15 @@ pnpm-debug.log*
 *.env
 !*.env.example
 
+# Private knowledge base (local read-only symlink to mixt-brain).
+# NEVER commit: this repo is public, the brain is private medical/business data.
+# Each dev creates the symlink locally: ln -s /path/to/mixt-brain .brain
+.brain
+.brain/
+
+# Local agent instructions — references the private brain, keep out of the public repo.
+CLAUDE.md
+
 # IDE
 .idea/
 .vscode/

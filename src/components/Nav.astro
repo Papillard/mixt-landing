@@ -6,10 +6,17 @@ interface Props {
 }
 
 const {
-  ctaHref = '/premieres-patientes',
+  ctaHref = '/premieres-patientes/',
   ctaLabel = 'Rejoindre',
   homeHref = '/',
 } = Astro.props;
+
+const conditions = [
+  { href: '/melasma/', label: 'Mélasma', teaser: 'Masque de grossesse, taches hormonales' },
+  { href: '/hyperpigmentation/', label: 'Hyperpigmentation', teaser: "Taches brunes, taches solaires, marques d'acné" },
+  { href: '/rosacee/', label: 'Rosacée', teaser: 'Rougeurs diffuses, sensations de chaleur' },
+  { href: '/acne/', label: 'Acné', teaser: 'Boutons, points noirs, marques' },
+];
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-[100] h-14 px-10 flex items-center justify-between bg-base border-b border-black/[0.06]">
@@ -19,12 +26,41 @@ const {
     style="font-variation-settings: 'opsz' 144, 'WONK' 0, 'SOFT' 0;"
     aria-label="Mixt, accueil"
   >mixt<span class="text-ember transition-transform inline-block group-hover:translate-x-[2px]">.</span></a>
-  <a
-    href={ctaHref}
-    class="inline-flex items-center gap-2 px-5 py-2 text-[13px] font-semibold rounded-full bg-deep text-white no-underline transition-colors hover:bg-[#2B1018]"
-  >
-    {ctaLabel}
-  </a>
+
+  <div class="flex items-center gap-1 md:gap-3">
+    {/* Conditions dropdown, desktop only */}
+    <div class="relative hidden md:block group">
+      <button
+        type="button"
+        class="inline-flex items-center gap-1.5 px-3 py-2 text-[13px] font-medium text-ink-2 hover:text-ink transition-colors"
+        aria-haspopup="true"
+      >
+        Conditions
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+
+      <div class="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-all duration-200 absolute right-0 top-full pt-2.5">
+        <div class="w-[320px] rounded-2xl border border-black/[0.08] bg-base shadow-[0_24px_60px_-24px_rgba(54,24,34,0.40)] p-2">
+          {conditions.map((c) => (
+            <a href={c.href} class="group/item flex items-center justify-between gap-3 rounded-xl px-3.5 py-2.5 no-underline transition-colors hover:bg-cream/70">
+              <span>
+                <span class="block text-[14px] font-semibold text-ink">{c.label}</span>
+                <span class="block text-[12px] text-ink-2 leading-snug mt-0.5">{c.teaser}</span>
+              </span>
+              <span class="text-ember shrink-0 opacity-0 -translate-x-1 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0" aria-hidden>→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <a
+      href={ctaHref}
+      class="inline-flex items-center gap-2 px-5 py-2 text-[13px] font-semibold rounded-full bg-deep text-white no-underline transition-colors hover:bg-[#2B1018]"
+    >
+      {ctaLabel}
+    </a>
+  </div>
 </nav>
 
 <style>

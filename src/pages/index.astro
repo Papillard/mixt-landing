@@ -95,7 +95,7 @@ const structuredData = {
           name: "Combien ça coûte, et à qui ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Le bilan en ligne est gratuit : vous le faites avec notre assistant IA et repartez avec un dossier dermatologique structuré, à vous. La première téléconsultation coûte 59 €, réglés à Mixt : ce montant couvre les honoraires du médecin et les frais de service Mixt. Vous ne payez que si vous décidez de réserver. La formule magistrale, si elle est prescrite, est facturée 30 à 60 € par votre pharmacie, partiellement remboursée selon votre mutuelle. Le suivi dans la durée est optionnel : dès 29 €/mois, sans engagement, résiliable à tout moment.",
+            text: "Le bilan en ligne est gratuit : vous le faites avec notre assistant IA et repartez avec un dossier dermatologique structuré, à vous. La première consultation coûte 59 €, qui reviennent intégralement au médecin : Mixt ne prélève aucun frais dessus. Vous ne payez que si vous décidez de réserver. La formule magistrale, si elle est prescrite, est facturée 30 à 60 € par votre pharmacie, partiellement remboursée selon votre mutuelle. Le suivi avec l'assistant IA est inclus ; le suivi par le médecin est optionnel, à 29 €/mois, sans engagement et résiliable à tout moment.",
           },
         },
         {
@@ -161,13 +161,11 @@ const structuredData = {
 ---
 
 <BaseLayout
-  title="Mixt · Votre dossier dermatologique en ligne | Téléconsultation + formule sur mesure"
-  description="Créez votre dossier dermatologique gratuit en ligne. Un médecin, appuyé par notre comité de dermatologues, construit votre plan de traitement personnalisé : formule magistrale sur mesure si besoin. Rosacée, hyperpigmentation, acné, eczéma."
-  ogTitle="Mixt · Votre peau mérite un vrai suivi médical"
-  ogDescription="Bilan gratuit en ligne, téléconsultation à 59 €, formule magistrale personnalisée et suivi mensuel par votre médecin. Sans engagement."
+  title="Mixt · Soin dermatologique sur-mesure, suivi dans la durée"
+  description="Un médecin expert de votre peau, supervisé par un dermatologue, construit un plan de soin sur-mesure et vous suit dans la durée. Mélasma, rosacée, acné."
   structuredData={structuredData}
 >
-  <Nav ctaLabel="Créer mon dossier" ctaHref="/premieres-patientes" />
+  <Nav ctaLabel="Créer mon dossier" ctaHref="/premieres-patientes/" />
 
   <V3Hero />
   <V3Problem />
