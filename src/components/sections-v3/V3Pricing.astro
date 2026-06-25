@@ -12,15 +12,21 @@ const ledger = [
   {
     label: 'Téléconsultation',
     price: '59 €',
-    who: 'Honoraires médecin + frais Mixt',
+    who: 'Reversés intégralement au médecin',
     get: 'Consultation dense, plan personnalisé, ordonnance si besoin',
     highlight: true,
   },
   {
-    label: 'Suivi mensuel',
-    price: 'dès 29 €/mois',
-    who: 'Sans engagement · résiliable',
-    get: 'Suivi IA quotidien + point médecin chaque mois',
+    label: "Suivi avec l'assistant IA Mixt",
+    price: 'Inclus',
+    who: 'Au quotidien, avec votre plan',
+    get: "Questions pratiques sur le plan de traitement, journaling photo toutes les deux semaines, conseils cosméto. Pas de diagnostic ni d'avis médical.",
+  },
+  {
+    label: 'Suivi par le médecin',
+    price: '29 €/mois',
+    who: 'Optionnel, sans engagement, résiliable',
+    get: "Point mensuel sur 3 à 6 mois pour adapter ou renouveler le plan de traitement et l'ordonnance si besoin.",
   },
   {
     label: 'Préparation pharmacie',
@@ -78,7 +84,7 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
     <FadeInSection client:load delay={0.15}>
       <div class="max-w-[860px] mx-auto mt-6 rounded-[12px] bg-sage-light/30 border border-sage-deep/15 px-6 md:px-8 py-6">
         <p class="text-[15px] md:text-[16px] leading-[1.6] text-ink">
-          <strong class="font-semibold">La téléconsultation se suffit à elle-même.</strong> Vous repartez avec un plan de traitement personnalisé et une formule magistrale sur mesure si prescrite. C'est à vous. Vous êtes libre de vous arrêter là. Si vous voulez continuer, le suivi est sans engagement.
+          <strong class="font-semibold">Les 59 € reviennent intégralement au médecin.</strong> Mixt ne prélève aucun frais sur la consultation. Vous repartez avec un plan de traitement personnalisé et une formule magistrale sur mesure si prescrite. C'est à vous, vous êtes libre de vous arrêter là. Si vous voulez continuer, le suivi est sans engagement.
         </p>
         <p class="mt-3 text-[11px] text-ink-3 leading-snug">
           Toute prescription relève de la seule appréciation du médecin.
@@ -88,7 +94,7 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
 
     <FadeInSection client:load delay={0.2}>
       <div class="flex flex-col items-center gap-3 mt-12 mb-2">
-        <Button href="/premieres-patientes" variant="dark">Créer mon dossier dermato →</Button>
+        <Button href="/premieres-patientes/" variant="dark">Créer mon dossier dermato →</Button>
         <p class="font-mono text-[11px] text-ink-3 tracking-[0.04em]">Gratuit · vous ne payez que si vous réservez votre téléconsultation</p>
       </div>
     </FadeInSection>

@@ -1,0 +1,405 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../Nav.astro';
+import Footer from '../Footer.astro';
+import Button from '../Button.astro';
+import Accordion from '../motion/Accordion.tsx';
+import FadeInSection from '../motion/FadeInSection.tsx';
+import type { Concern } from '../../data/concerns/types';
+
+interface Props {
+  concern: Concern;
+}
+
+const { concern } = Astro.props;
+
+const CTA_HREF = '/premieres-patientes/';
+const CTA_LABEL = 'Rejoindre les premières patientes';
+
+// Jeu d'icônes minimal (tracés Lucide, stroke 1.5), inline pour éviter une dépendance.
+const icons: Record<string, string> = {
+  fileText:
+    '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
+  stethoscope:
+    '<path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/>',
+  calendarCheck:
+    '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/>',
+  badgeCheck:
+    '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
+  shieldCheck:
+    '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+};
+
+// Bandeau de réassurance du hero.
+const trust = [
+  { icon: 'stethoscope', label: 'Médecin expert de votre peau' },
+  { icon: 'badgeCheck', label: 'Supervisé par un dermatologue' },
+  { icon: 'shieldCheck', label: 'Données hébergées en France (HDS)' },
+];
+
+// Parcours, identique pour chaque concern.
+const steps = [
+  {
+    number: '01',
+    icon: 'fileText',
+    title: 'Votre dossier en ligne',
+    body: "Construit en quelques minutes avec notre assistant. Vos antécédents, vos photos, ce que vous avez déjà essayé : tout est prêt pour votre médecin.",
+  },
+  {
+    number: '02',
+    icon: 'stethoscope',
+    title: 'Votre consultation',
+    body: 'Une consultation en ligne avec un médecin expert de votre peau, supervisé par un dermatologue. Il arrive avec votre dossier en main et repart avec un plan de soin clair.',
+  },
+  {
+    number: '03',
+    icon: 'calendarCheck',
+    title: 'Votre suivi',
+    body: 'Un point chaque mois pour ajuster votre traitement, et un suivi au quotidien entre les rendez-vous. Une peau suivie, pas juste traitée. Sans engagement.',
+  },
+];
+
+// Tarification transparente, reprise de la home.
+const ledger = [
+  { label: 'Bilan dermato', price: 'Gratuit', who: 'Avec notre assistant', get: 'Un dossier structuré, à vous' },
+  { label: 'Consultation médicale', price: '59 €', who: 'Reversés intégralement au médecin', get: 'Un plan personnalisé, ordonnance si besoin', highlight: true },
+  { label: "Suivi avec l'assistant IA Mixt", price: 'Inclus', who: 'Au quotidien, avec votre plan', get: "Questions pratiques sur le plan de traitement, journaling photo toutes les deux semaines, conseils cosméto. Pas de diagnostic ni d'avis médical." },
+  { label: 'Suivi par le médecin', price: '29 €/mois', who: 'Optionnel, sans engagement, résiliable', get: "Point mensuel sur 3 à 6 mois pour adapter ou renouveler le plan de traitement et l'ordonnance si besoin." },
+  { label: 'Préparation pharmacie', price: '30 à 60 €', who: 'Si prescrite, remboursement partiel', get: 'Formule magistrale sur-mesure' },
+];
+
+// FAQ médicale partagée, commune à toutes les pages concern.
+const sharedFaq = [
+  {
+    q: 'Qui est le médecin ?',
+    a: "Un médecin diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable, expert de votre peau et supervisé par un dermatologue. C'est lui qui vous consulte, puis qui assure votre suivi mensuel si vous continuez.",
+  },
+  {
+    q: 'Mes données et mes photos sont-elles protégées ?',
+    a: "Oui. Vos données et vos photos sont hébergées sur des serveurs certifiés HDS (Hébergeur de Données de Santé) en France, et soumises au secret médical. Vos photos ne sont jamais transmises à un tiers : seul le médecin qui vous consulte peut les ouvrir, une fois votre rendez-vous réservé.",
+  },
+  {
+    q: 'Aurai-je forcément une ordonnance ?',
+    a: "La prescription relève de la seule décision du médecin. Selon votre cas, il peut prescrire une formule magistrale sur-mesure, un traitement dermatologique classique, ou recommander une approche essentiellement cosmétique. Dans tous les cas, vous repartez avec un avis médical personnalisé.",
+  },
+];
+
+const allFaq = [...concern.faq, ...sharedFaq];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'MedicalWebPage',
+      '@id': `https://mixt.care/${concern.slug}/#webpage`,
+      url: `https://mixt.care/${concern.slug}/`,
+      name: concern.seo.title,
+      description: concern.seo.description,
+      inLanguage: 'fr-FR',
+      about: { '@type': 'MedicalCondition', name: concern.chip },
+      isPartOf: { '@id': 'https://mixt.care/#organization' },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `https://mixt.care/${concern.slug}/#faq`,
+      mainEntity: allFaq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={concern.seo.title}
+  description={concern.seo.description}
+  structuredData={structuredData}
+>
+  <Nav ctaLabel="Être prévenue" ctaHref={CTA_HREF} />
+
+  {/* ── HERO ── */}
+  <section class="px-6 md:px-10 pt-[calc(56px+64px)] md:pt-[calc(56px+80px)] pb-20 md:pb-28 bg-base">
+    <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
+      <div>
+        <FadeInSection client:load y={14}>
+          <div class="inline-flex items-center gap-2 mb-6 rounded-full bg-ember/10 text-ember-deep px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em]">
+            <span class="inline-block w-[5px] h-[5px] rounded-full bg-ember-deep"></span>
+            {concern.hero.kicker}
+          </div>
+          <h1 class="text-[36px] md:text-[44px] lg:text-[52px] font-medium leading-[1.08] tracking-[-0.035em] text-ink mb-6">
+            {concern.hero.title}{' '}
+            <span class="italic-serif">{concern.hero.highlight}</span>
+          </h1>
+          <p class="text-[18px] md:text-[19px] leading-[1.65] text-ink-2 max-w-[560px] mb-9">
+            {concern.hero.lead}
+          </p>
+        </FadeInSection>
+
+        <FadeInSection client:load delay={0.25} y={10}>
+          <div class="flex flex-wrap items-center gap-3">
+            <Button href={CTA_HREF} variant="ember-pill">{CTA_LABEL} →</Button>
+            <Button href={CTA_HREF} variant="ghost">Être prévenue au lancement</Button>
+          </div>
+          <div class="flex flex-wrap gap-x-6 gap-y-2.5 mt-7 text-[12.5px] text-ink-2">
+            {trust.map((t) => (
+              <span class="inline-flex items-center gap-1.5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[15px] h-[15px] text-jade-deep shrink-0"><Fragment set:html={icons[t.icon]} /></svg>
+                {t.label}
+              </span>
+            ))}
+          </div>
+        </FadeInSection>
+      </div>
+
+      <FadeInSection client:load delay={0.2} y={24}>
+        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-20px_rgba(54,24,34,0.35)]">
+          <img
+            src={concern.hero.image}
+            alt={concern.hero.imageAlt}
+            class="absolute inset-0 h-full w-full object-cover"
+            fetchpriority="high"
+          />
+          <div class="absolute left-5 top-5 z-[5] rounded-[6px] bg-deep/95 backdrop-blur px-3 py-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
+            {concern.chip}
+          </div>
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  {/* ── PROBLEM ── */}
+  <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
+    <div class="max-w-[760px] mx-auto">
+      <FadeInSection client:load>
+        <h2 class="text-[32px] md:text-[44px] font-medium leading-[1.12] tracking-[-0.035em] text-ink mb-10">
+          {concern.problem.title}{' '}
+          <span class="italic-serif">{concern.problem.highlight}</span>
+        </h2>
+      </FadeInSection>
+      <FadeInSection client:load delay={0.1}>
+        <div class="flex flex-col gap-6 text-[17px] md:text-[18px] leading-[1.75] text-rich">
+          {concern.problem.paras.map((p) => <p>{p}</p>)}
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  {/* ── MECHANISM + ACTIFS ── */}
+  <section class="px-6 md:px-10 py-24 md:py-32 bg-base">
+    <div class="max-w-[1180px] mx-auto">
+      <FadeInSection client:load>
+        <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-violet mb-8">
+          <span class="inline-block h-px w-10 bg-violet/80"></span>
+          La science dermatologique
+        </div>
+      </FadeInSection>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
+        {/* Photo : préparation en pharmacie */}
+        <FadeInSection client:load delay={0.1} y={20}>
+          <div class="relative aspect-[3/2] lg:aspect-[4/5] overflow-hidden rounded-2xl bg-blush/30 shadow-[0_20px_60px_-22px_rgba(54,24,34,0.32)] lg:sticky lg:top-28">
+            <img
+              src="/images/lab-manipulation-vertical.jpg"
+              alt="Préparation d'une formule magistrale en pharmacie"
+              class="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute left-5 top-5 z-[5] rounded-[6px] bg-deep/95 backdrop-blur px-3 py-1.5 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
+              Préparé en pharmacie
+            </div>
+          </div>
+        </FadeInSection>
+
+        {/* Pédagogie + actifs */}
+        <div>
+          <FadeInSection client:load>
+            <p class="text-[22px] md:text-[28px] font-medium leading-[1.3] tracking-[-0.02em] text-ink mb-3">
+              {concern.mechanism.lede}
+            </p>
+            <p class="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 mb-10">
+              {concern.mechanism.body}
+            </p>
+          </FadeInSection>
+
+          <FadeInSection client:load delay={0.1}>
+            <div class="rounded-[16px] bg-base border border-black/[0.06] shadow-[0_12px_44px_-24px_rgba(54,24,34,0.30)] p-6 md:p-8">
+              <p class="text-[13.5px] md:text-[14px] text-ink-2 leading-[1.5] mb-5">
+                Les actifs utilisés en dermatologie sur cette condition.
+              </p>
+              <div class="hidden sm:grid sm:grid-cols-[200px_1fr] gap-x-8 pb-2.5 border-b border-black/[0.12]">
+                <span class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">Actif</span>
+                <span class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">Effet</span>
+              </div>
+              {concern.mechanism.actifs.map((a, i) => (
+                <div class={`grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-x-8 gap-y-1 py-3.5 items-baseline ${i > 0 ? 'border-t border-black/[0.07]' : ''}`}>
+                  <span class="text-[14px] sm:text-[14.5px] font-semibold text-ink tracking-[-0.005em]">{a.name}</span>
+                  <p class="text-[13.5px] leading-[1.5] text-ink-2 m-0">
+                    <strong class="font-semibold text-ink">{a.bold}</strong>{a.rest ? ' ' + a.rest : (/[.!?]$/.test(a.bold) ? '' : '.')}
+                  </p>
+                </div>
+              ))}
+              <div class="mt-4 pt-3.5 border-t border-black/[0.07] text-[12.5px] text-ink-3 leading-[1.55]">
+                {concern.mechanism.footer} Ces actifs ne sont pas disponibles en cosmétique : ils sont prescrits et préparés en pharmacie sur ordonnance médicale.
+              </div>
+            </div>
+          </FadeInSection>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── EXPECTATIONS (optional) ── */}
+  {concern.expectations && (
+    <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
+      <div class="max-w-[1100px] mx-auto">
+        <FadeInSection client:load>
+          <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-violet mb-5">
+            <span class="inline-block h-px w-10 bg-violet/80"></span>
+            Le rythme du traitement
+          </div>
+          <h2 class="text-[32px] md:text-[44px] font-medium leading-[1.12] tracking-[-0.035em] text-ink mb-3 max-w-[760px]">
+            {concern.expectations.title}{' '}
+            <span class="italic-serif">{concern.expectations.highlight}</span>
+          </h2>
+          {concern.expectations.intro && (
+            <p class="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 max-w-[620px] mb-12">
+              {concern.expectations.intro}
+            </p>
+          )}
+        </FadeInSection>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+          {concern.expectations.steps.map((s, i) => (
+            <FadeInSection client:load delay={i * 0.1} y={18}>
+              <div class="border-t border-black/[0.12] pt-5">
+                <div class="font-mono text-[12px] tracking-[0.14em] uppercase text-ember-deep mb-3">{s.when}</div>
+                <p class="text-[15px] leading-[1.6] text-rich">{s.body}</p>
+              </div>
+            </FadeInSection>
+          ))}
+        </div>
+        {concern.expectations.footnote && (
+          <FadeInSection client:load delay={0.15}>
+            <p class="mt-12 pt-8 border-t border-black/[0.08] text-[13.5px] text-ink-2 italic leading-relaxed max-w-[720px]">
+              {concern.expectations.footnote}
+            </p>
+          </FadeInSection>
+        )}
+      </div>
+    </section>
+  )}
+
+  {/* ── HOW IT WORKS ── */}
+  <section class="relative overflow-hidden px-6 md:px-10 py-24 md:py-32 bg-deep text-white">
+    <div class="relative z-[2] max-w-[1200px] mx-auto">
+      <FadeInSection client:load>
+        <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember mb-5">
+          <span class="inline-block h-px w-10 bg-ember/80"></span>
+          Le parcours
+        </div>
+        <h2 class="text-[32px] md:text-[44px] font-medium leading-[1.1] tracking-[-0.035em] text-white mb-16 max-w-[640px]">
+          De votre dossier à votre suivi, <span class="italic-serif">en trois temps.</span>
+        </h2>
+      </FadeInSection>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        {steps.map((s, i) => (
+          <FadeInSection client:load delay={i * 0.1} y={18}>
+            <div class="border-t border-white/15 pt-5">
+              <div class="flex items-center gap-2.5 mb-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[20px] h-[20px] text-ember shrink-0"><Fragment set:html={icons[s.icon]} /></svg>
+                <span class="font-mono text-[12px] tracking-[0.16em] uppercase text-ember">{s.number}</span>
+              </div>
+              <h3 class="text-[20px] md:text-[22px] font-semibold text-white leading-tight mb-2.5 tracking-[-0.01em]">{s.title}</h3>
+              <p class="text-[15px] leading-[1.6] text-white/70">{s.body}</p>
+            </div>
+          </FadeInSection>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── PRICING ── */}
+  <section class="px-6 md:px-10 py-24 md:py-32 bg-base">
+    <div class="max-w-[1200px] mx-auto">
+      <FadeInSection client:load>
+        <h2 class="text-[32px] md:text-[44px] font-medium leading-[1.08] tracking-[-0.035em] text-center max-w-[820px] mx-auto mb-4 text-ink">
+          Ce que vous payez, <span class="italic-serif whitespace-nowrap">et à qui.</span>
+        </h2>
+        <p class="text-center text-[15px] md:text-[16px] text-ink-2 max-w-[620px] mx-auto leading-relaxed">
+          La transparence, dès le premier jour. Les 59 € de la consultation reviennent intégralement au médecin : Mixt ne prélève rien dessus. Vous ne payez que si vous décidez de réserver.
+        </p>
+      </FadeInSection>
+      <FadeInSection client:load delay={0.1}>
+        <div class="max-w-[860px] mx-auto mt-14 overflow-hidden rounded-[12px] border border-black/[0.08] bg-base">
+          {ledger.map((row, i) => (
+            <div class={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 px-5 md:px-7 py-5 ${i < ledger.length - 1 ? 'border-b border-black/[0.07]' : ''} ${row.highlight ? 'bg-cream/60' : ''}`}>
+              <div class="sm:w-[230px] shrink-0">
+                <div class="text-[15px] font-semibold text-ink">{row.label}</div>
+                <div class="text-[12px] text-ink-3 mt-0.5">{row.who}</div>
+              </div>
+              <div class="flex-1 text-[13.5px] text-ink-2 leading-snug order-3 sm:order-2">{row.get}</div>
+              <div class={`order-2 sm:order-3 sm:text-right font-semibold tracking-[-0.02em] ${row.highlight ? 'text-[28px] text-ink' : 'text-[20px] text-ink'}`}>{row.price}</div>
+            </div>
+          ))}
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  {/* ── FAQ ── */}
+  <section class="px-6 md:px-10 pt-24 md:pt-32 pb-16 md:pb-24 bg-cream">
+    <div class="max-w-[1200px] mx-auto">
+      <FadeInSection client:load>
+        <h2 class="text-[32px] md:text-[44px] font-medium leading-[1.08] tracking-[-0.035em] text-center mb-12 md:mb-16 text-ink">
+          {concern.chip}, <span class="italic-serif">vos questions.</span>
+        </h2>
+      </FadeInSection>
+      <div class="max-w-[760px] mx-auto">
+        <Accordion client:load items={allFaq} />
+      </div>
+    </div>
+  </section>
+
+  {/* ── RELATED ── */}
+  {concern.related.length > 0 && (
+    <section class="px-6 md:px-10 pb-24 md:pb-28 bg-cream">
+      <div class="max-w-[860px] mx-auto">
+        <FadeInSection client:load>
+          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3 mb-6 text-center">Autres préoccupations</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {concern.related.map((r) => (
+              <a href={r.href} class="group block rounded-2xl border border-black/[0.08] bg-base px-6 py-5 no-underline transition-colors hover:border-ink/25">
+                <div class="flex items-center justify-between">
+                  <span class="text-[16px] font-semibold text-ink">{r.label}</span>
+                  <span class="text-ember transition-transform group-hover:translate-x-[3px]" aria-hidden>→</span>
+                </div>
+                <p class="text-[13.5px] text-ink-2 leading-snug mt-1.5">{r.teaser}</p>
+              </a>
+            ))}
+          </div>
+        </FadeInSection>
+      </div>
+    </section>
+  )}
+
+  {/* ── FINAL CTA ── */}
+  <section class="relative overflow-hidden px-6 md:px-10 py-24 md:py-32 bg-deep text-white text-center">
+    <div class="relative z-[2] max-w-[780px] mx-auto">
+      <FadeInSection client:load>
+        <h2 class="text-[34px] md:text-[46px] font-medium leading-[1.12] tracking-[-0.035em] text-white mb-6 max-w-[680px] mx-auto">
+          {concern.chip} : et si on s'en occupait <span class="italic-serif">vraiment ?</span>
+        </h2>
+        <p class="text-[16px] md:text-[18px] leading-[1.65] text-white/60 max-w-[520px] mx-auto mb-9">
+          Mixt ouvre très bientôt. Rejoignez les premières patientes : on vous prévient en priorité au lancement et on répond à toutes vos questions d'ici là.
+        </p>
+        <Button href={CTA_HREF} variant="white">{CTA_LABEL} →</Button>
+        <div class="mt-5 text-[13px] text-white/60">
+          Échange sans engagement. Rien de médical ne passe par message.
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
