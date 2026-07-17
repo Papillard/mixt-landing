@@ -1,0 +1,419 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Vos données de santé chez Mixt',
+  description:
+    "Comment Mixt protège vos données de santé : hébergement certifié en Europe, accès limité, aucune revente, et pourquoi vos photos ne sont jamais envoyées à une IA.",
+  inLanguage: 'fr-FR',
+  author: { '@type': 'Organization', name: 'Mixt' },
+  publisher: { '@type': 'Organization', name: 'Mixt' },
+};
+---
+
+<BaseLayout
+  title="Vos données de santé chez Mixt"
+  description="Comment Mixt protège vos données de santé : hébergement certifié en Europe, accès limité, aucune revente, et pourquoi vos photos ne sont jamais envoyées à une IA."
+  structuredData={structuredData}
+  noindex={true}
+>
+  <Nav ctaLabel="Faire mon bilan" ctaHref="/premieres-patientes/" />
+
+  <article class="vd">
+    <div class="vd-col">
+      <p class="vd-eyebrow">Confidentialité · protection des données</p>
+      <h1>Vos données de santé chez Mixt</h1>
+      <p class="vd-standfirst">
+        Quand vous utilisez Mixt, vous nous confiez des choses intimes : des photos de votre peau, le
+        récit de vos antécédents, vos doutes. Vous avez le droit de savoir précisément où vont ces
+        informations, qui peut les lire, et ce que nous en faisons. Voici l'explication, sans jargon.
+      </p>
+
+      <h2>Le principe</h2>
+      <p>
+        En une phrase : vos données restent en France, chez des hébergeurs certifiés pour la santé
+        (HDS = Hébergeur de Données de Santé) ; très peu de personnes y ont accès ; elles ne sont
+        jamais vendues ni utilisées pour entraîner
+        une intelligence artificielle ; et c'est toujours un médecin qui prend les décisions. L'IA nous
+        aide à préparer votre consultation et votre suivi en collectant des données. Elle ne juge pas et
+        ne soigne pas.
+      </p>
+      <p>Le reste de cet article détaille chacun de ces points.</p>
+
+      <h2>Comment vos données circulent</h2>
+      <p>
+        Le schéma ci-dessous résume tout le trajet, entre vous, l'application, l'assistant IA et votre
+        médecin. Ensuite, on l'explique en mots.
+      </p>
+    </div>
+
+    {/* ── SCHÉMA CLÉ ── */}
+    <figure class="vd-figure">
+      <div class="vd-figscroll">
+        <svg viewBox="0 0 860 412" role="img" aria-label="Schéma : l'application Mixt et l'assistant IA en haut, vous et votre médecin en dessous. L'application stocke vos informations et vos photos, qui ne sortent jamais ; seuls vos textes et audios sont envoyés à l'assistant IA ; votre médecin consulte votre dossier.">
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#8A7A70" />
+            </marker>
+            <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#361822" flood-opacity="0.10" />
+            </filter>
+          </defs>
+
+          {/* ── flux Application ⇄ Assistant IA (horizontal, même couleur) ── */}
+          <path d="M372 104 L 488 104" fill="none" stroke="#8A7A70" stroke-width="1.5" marker-end="url(#ah)" />
+          <path d="M488 128 L 372 128" fill="none" stroke="#8A7A70" stroke-width="1.5" marker-end="url(#ah)" />
+          <text x="430" y="92" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#6B5B52">audio + texte</text>
+          <text x="430" y="148" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#6B5B52">texte organisé</text>
+
+          {/* ── flux Vous ⇄ Application et Médecin ⇄ Application (vertical) ── */}
+          <path d="M110 254 L 110 192" fill="none" stroke="#8A7A70" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)" />
+          <path d="M310 254 L 310 192" fill="none" stroke="#8A7A70" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)" />
+
+          {/* ── Boîte : Application Mixt ── */}
+          <rect x="40" y="36" width="330" height="150" rx="16" fill="#fff" stroke="#000" stroke-opacity="0.05" filter="url(#soft)" />
+          <text x="64" y="68" font-family="Geist, sans-serif" font-size="17.5" font-weight="600" fill="#1A1210">Application Mixt</text>
+          <text x="64" y="96" font-family="Geist, sans-serif" font-size="12" fill="#6B5B52">Stocke vos informations et vos photos.</text>
+          <text x="64" y="114" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#1A1210">Vos photos ne quittent jamais Mixt.</text>
+          <image href="/images/logos/clevercloud.svg" x="64" y="150" width="21" height="21" />
+          <text x="92" y="165" font-family="Geist, sans-serif" font-size="12" font-weight="500" fill="#6B5B52">Hébergé en France · certifié HDS</text>
+
+          {/* ── Boîte : Assistant IA (même structure) ── */}
+          <rect x="490" y="36" width="330" height="150" rx="16" fill="#fff" stroke="#000" stroke-opacity="0.05" filter="url(#soft)" />
+          <text x="514" y="68" font-family="Geist, sans-serif" font-size="17.5" font-weight="600" fill="#1A1210">Assistant IA</text>
+          <text x="514" y="96" font-family="Geist, sans-serif" font-size="12" fill="#6B5B52">Met vos textes et audios au clair.</text>
+          <text x="514" y="114" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#1A1210">Ne voit pas vos photos. Ne garde rien.</text>
+          <image href="/images/logos/mistral.svg" x="514" y="148" width="22" height="22" />
+          <image href="/images/logos/claude.svg" x="540" y="148" width="22" height="22" />
+          <text x="570" y="165" font-family="Geist, sans-serif" font-size="12" font-weight="500" fill="#6B5B52">Hébergé en Europe · certifié HDS</text>
+
+          {/* ── Acteur : Vous (fond prune, icône blanche) ── */}
+          <circle cx="110" cy="286" r="30" fill="#361822" />
+          <g transform="translate(98,274)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" />
+          </g>
+          <text x="110" y="340" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#1A1210">Vous</text>
+          <text x="110" y="358" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#9A8A80">le patient</text>
+          <text x="110" y="384" text-anchor="middle" font-family="Geist, sans-serif" font-size="11.5" fill="#6B5B52">« Je partage mes photos</text>
+          <text x="110" y="399" text-anchor="middle" font-family="Geist, sans-serif" font-size="11.5" fill="#6B5B52">et je pose mes questions »</text>
+
+          {/* ── Acteur : Médecin (fond prune, icône blanche) ── */}
+          <circle cx="310" cy="286" r="30" fill="#361822" />
+          <g transform="translate(298,274)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 2v2" /><path d="M5 2v2" /><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path d="M8 15a6 6 0 0 0 12 0v-3" /><circle cx="20" cy="10" r="2" />
+          </g>
+          <text x="310" y="340" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#1A1210">Votre médecin</text>
+          <text x="310" y="358" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#9A8A80">celui qui vous suit</text>
+          <text x="310" y="384" text-anchor="middle" font-family="Geist, sans-serif" font-size="11.5" fill="#6B5B52">« J'accède au dossier</text>
+          <text x="310" y="399" text-anchor="middle" font-family="Geist, sans-serif" font-size="11.5" fill="#6B5B52">et je détaille le plan »</text>
+        </svg>
+      </div>
+
+      <figcaption class="vd-legend">
+        <p class="vd-legend-note">
+          L'assistant IA ne reçoit que l'audio et le texte, <strong>jamais vos photos</strong>. Il est
+          hébergé en Europe et ne conserve ni ces textes ni ces audio (« zéro rétention ») : il les
+          organise seulement le temps de bien les ranger dans votre dossier, sur l'application Mixt.
+          L'application comme l'assistant IA sont chez des prestataires certifiés santé (HDS).
+        </p>
+      </figcaption>
+    </figure>
+
+    <div class="vd-col">
+      <p>
+        Concrètement : vous décrivez votre peau dans l'application, par un message vocal, quelques
+        photos, du texte. Tout est immédiatement rangé dans un coffre hébergé en France, certifié
+        « Hébergeur de Données de Santé » (HDS), le niveau d'exigence légal pour héberger des données
+        médicales.
+      </p>
+      <p>
+        Pour préparer votre suivi, l'application a besoin de mettre votre récit en clair. Elle envoie
+        alors, et seulement alors, votre audio puis le texte correspondant à un assistant IA. Deux
+        choses comptent ici : cet assistant tourne lui aussi chez un hébergeur certifié santé, en
+        Europe, et il ne reçoit jamais vos photos. Il ne voit que du texte.
+      </p>
+      <p>
+        Enfin, votre médecin ouvre votre dossier dans l'application et prend les décisions. Il n'y
+        accède que s'il vous suit vraiment, et derrière une double sécurité que l'on détaille plus bas.
+      </p>
+
+      <h2>Vos photos ne quittent jamais notre hébergement</h2>
+      <p>
+        Vos photos sont ce que vous nous confiez de plus sensible. Elles restent dans notre hébergement
+        certifié santé, ne sont vues que par vous et votre médecin, et ne sont <strong>jamais envoyées à
+        un service d'intelligence artificielle extérieur</strong>, ni vendues, ni utilisées pour
+        entraîner quoi que ce soit.
+      </p>
+      <p>
+        Il se peut qu'un jour un outil nous aide à analyser vos photos, pour préparer le travail de
+        votre médecin. Le cas échéant, cette analyse se fera <strong>à l'intérieur de notre hébergement
+        certifié santé</strong>, sur nos propres serveurs, sans que vos photos en sortent. La règle ne
+        change pas : vos photos restent chez nous.
+      </p>
+
+      <h2>Qui peut voir votre dossier</h2>
+      <p>
+        Notre règle est simple : le moins de personnes possible, uniquement pour vous soigner ou faire
+        fonctionner le service, et chaque accès laisse une trace.
+      </p>
+      <ul>
+        <li>
+          <strong>Votre médecin</strong> est la seule personne à avoir une vue clinique complète de
+          votre dossier. Et encore : seulement le médecin qui vous suit, celui à qui vous êtes
+          rattaché·e pour une téléconsultation. Aucun autre praticien n'y a accès.
+        </li>
+        <li>
+          <strong>L'équipe Mixt</strong> n'ouvre votre dossier que lorsque c'est nécessaire (vous
+          aider, faire fonctionner le service), chacun limité à ce dont il a besoin, sous obligation de
+          confidentialité. Chaque modification est enregistrée et attribuée à son auteur.
+        </li>
+        <li>
+          <strong>Nos prestataires techniques</strong> (l'hébergeur, l'assistant IA) font tourner
+          l'infrastructure mais ne consultent pas votre dossier. L'IA traite votre texte à la volée,
+          sans rien conserver.
+        </li>
+        <li><strong>Personne d'autre.</strong> Ni publicitaires, ni tiers, jamais.</li>
+      </ul>
+
+      <h2>Comment on protège l'accès</h2>
+      <p>
+        Un coffre ne vaut que par sa serrure. Nous n'utilisons jamais un simple mot de passe, qui peut
+        fuiter. Vous vous connectez par un lien sécurisé envoyé sur votre email : rien à retenir, et
+        c'est votre boîte mail qui prouve à chaque fois que c'est bien vous.
+      </p>
+      <p>
+        Côté médecin, l'accès passe par une double authentification forte (2FA), le standard des données de santé.
+        Même si son mot de passe était volé, son compte resterait verrouillé sans son téléphone.
+      </p>
+
+      <h2>L'IA collecte, le médecin décide</h2>
+      <p>
+        L'intelligence artificielle a chez nous un rôle précis et volontairement limité : elle collecte
+        et met en clair ce que vous racontez, pour faire gagner du temps à votre médecin. C'est tout.
+      </p>
+      <p>
+        Elle ne pose aucun diagnostic, ne donne aucun score de gravité, ne suggère aucun traitement, et
+        n'oriente jamais la décision. <strong>Cent pour cent des décisions médicales sont prises par
+        votre médecin.</strong> C'est un choix de conception, et c'est aussi ce que la loi impose.
+      </p>
+
+      <h2>Où tout cela est hébergé</h2>
+      <p>Deux briques, deux hébergeurs, tous les deux certifiés santé.</p>
+      <ul>
+        <li>
+          <strong>Le stockage</strong> de vos données au repos (dossier, photos, audio) est chez
+          <strong>Clever Cloud</strong>, hébergeur français certifié HDS sur les six domaines prévus par
+          la loi, du bâtiment physique jusqu'aux sauvegardes, en France.
+        </li>
+        <li>
+          <strong>L'assistant IA</strong> (transcription de l'audio, mise en clair du texte) tourne sur
+          <strong>Amazon Bedrock</strong>, dans une région certifiée HDS située en Europe, et ne conserve
+          aucune donnée (zéro rétention). Il s'appuie sur deux modèles : <strong>Voxtral Mini</strong>
+          (Mistral) pour transformer votre voix en texte, et <strong>Claude Haiku</strong> (Anthropic)
+          pour structurer votre dossier.
+        </li>
+      </ul>
+
+      <div class="vd-stack">
+        <span class="vd-stack-label">Nos hébergeurs et modèles</span>
+        <div class="vd-stack-row">
+          <span class="vd-stack-item"><img src="/images/logos/clevercloud.svg" alt="Clever Cloud" /><b>Clever Cloud</b><em>Stockage · France</em></span>
+          <span class="vd-stack-item"><img src="/images/logos/aws.svg" alt="Amazon Bedrock" class="wide" /><b>Amazon Bedrock</b><em>Assistant IA · UE</em></span>
+          <span class="vd-stack-item"><img src="/images/logos/mistral.svg" alt="Mistral" /><b>Voxtral Mini</b><em>Transcription</em></span>
+          <span class="vd-stack-item"><img src="/images/logos/claude.svg" alt="Claude" /><b>Claude Haiku</b><em>Structuration</em></span>
+        </div>
+      </div>
+
+      <p>
+        Vos données restent donc en Europe : stockées en France, traitées en Europe. Elles ne sont
+        jamais vendues ni utilisées pour entraîner une IA, et un contrat encadre le traitement chez
+        chaque prestataire.
+      </p>
+
+      <h2>Ce que nous ne faisons jamais</h2>
+      <p class="vd-never">
+        Vendre vos données. Les utiliser pour entraîner une IA. Les sortir d'Europe. Laisser une
+        machine décider à votre place.
+      </p>
+
+      <hr />
+      <p class="vd-contact">
+        Une question sur vos données ? Notre délégué à la protection des données vous répond :
+        <a href="mailto:dpo@mixt.care">dpo@mixt.care</a>.
+      </p>
+    </div>
+  </article>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  .vd {
+    padding: calc(56px + 72px) 24px 96px;
+    background: var(--color-base);
+  }
+  .vd-col { max-width: 700px; margin: 0 auto; }
+
+  .vd-eyebrow {
+    font-family: 'DM Mono', ui-monospace, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-jade-deep);
+    margin-bottom: 20px;
+  }
+  .vd h1 {
+    font-size: clamp(32px, 5vw, 46px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    color: var(--color-ink);
+    margin-bottom: 24px;
+  }
+  .vd-standfirst {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-ink-2);
+    margin-bottom: 8px;
+  }
+  .vd h2 {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin: 52px 0 18px;
+  }
+  .vd p {
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--color-ink);
+    margin-bottom: 18px;
+  }
+  .vd-standfirst + h2 { margin-top: 44px; }
+  .vd ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .vd ul li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--color-ink);
+    margin-bottom: 14px;
+  }
+  .vd ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 14px;
+    height: 1.5px;
+    background: var(--color-jade);
+  }
+  .vd strong { font-weight: 600; }
+  .vd a {
+    color: var(--color-ember-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .vd a:hover { color: var(--color-ember); }
+  .vd hr { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 48px 0 28px; }
+  .vd-contact { font-size: 16px; color: var(--color-ink-2); }
+  .vd-never {
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+
+  /* ── Figure : schéma clé ── */
+  .vd-figure {
+    max-width: 920px;
+    margin: 40px auto 44px;
+  }
+  .vd-figscroll { overflow-x: auto; }
+  .vd-figure svg {
+    display: block;
+    width: 100%;
+    min-width: 600px;
+    height: auto;
+  }
+  .vd-legend {
+    max-width: 700px;
+    margin: 22px auto 0;
+  }
+  .vd-legend-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px 28px;
+    margin-bottom: 12px;
+  }
+  .vd-legend-grid p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-ink-2);
+    margin: 0;
+  }
+  .vd-legend b { color: var(--color-ink); font-weight: 600; }
+  .vd-legend strong { color: var(--color-ink); font-weight: 600; }
+  .vd-legend-note {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-ink-3);
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 12px;
+    margin: 4px 0 0;
+  }
+  @media (min-width: 640px) {
+    .vd-legend-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── Bandeau hébergeurs / modèles ── */
+  .vd-stack {
+    max-width: 700px;
+    margin: 26px auto 26px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+    background: var(--color-base);
+    padding: 20px 22px;
+  }
+  .vd-stack-label {
+    display: block;
+    font-family: 'DM Mono', ui-monospace, monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-ink-3);
+    margin-bottom: 16px;
+  }
+  .vd-stack-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 20px;
+  }
+  .vd-stack-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 7px;
+  }
+  .vd-stack-item img { width: 28px; height: 28px; }
+  .vd-stack-item img.wide { width: 46px; height: 28px; object-fit: contain; }
+  .vd-stack-item b { font-size: 13.5px; font-weight: 600; color: var(--color-ink); line-height: 1.2; }
+  .vd-stack-item em { font-style: normal; font-size: 12px; color: var(--color-ink-2); line-height: 1.2; }
+
+  @media (min-width: 640px) {
+    .vd-stack-row { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 767px) {
+    .vd { padding-top: calc(56px + 40px); }
+    .vd h1 { font-size: 32px; }
+    .vd-standfirst { font-size: 18px; }
+    .vd p, .vd ul li { font-size: 17px; }
+    .vd h2 { font-size: 23px; }
+  }
+</style>
