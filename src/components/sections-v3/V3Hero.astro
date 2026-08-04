@@ -3,6 +3,11 @@ import Button from '../Button.astro';
 import HeroReveal from '../motion/HeroReveal.tsx';
 import FadeInSection from '../motion/FadeInSection.tsx';
 import HeroMasiChart from '../motion/HeroMasiChart.tsx';
+
+const startHref = 'https://app.mixt.care/start';
+const whatsappHref =
+  'https://wa.me/33756948494?text=' +
+  encodeURIComponent("Bonjour Laetitia, j'aimerais échanger à propos de Mixt et de ma peau.");
 ---
 
 <section class="relative px-6 md:px-10 pt-[calc(56px+80px)] pb-20 md:pb-28 bg-base">
@@ -10,15 +15,15 @@ import HeroMasiChart from '../motion/HeroMasiChart.tsx';
     <div>
       <HeroReveal
         client:load
-        eyebrow="Dermatologie personnalisée"
+        eyebrow="Un médecin pour votre peau"
         eyebrowMono={true}
         title="Reprenez la main"
         highlight="sur votre peau."
-        subtitle="Un dossier dermato en ligne, une consultation médicale sous une semaine, et un accompagnement personnalisé à chaque étape de votre parcours."
+        subtitle="Un bilan peau en ligne, une consultation médicale sous une semaine, et un accompagnement personnalisé à chaque étape de votre parcours."
       >
         <div class="flex flex-wrap items-center gap-3">
-          <Button href="/premieres-patientes/" variant="ember-pill">Créer mon dossier dermato →</Button>
-          <Button href="/premieres-patientes/" variant="ghost">Nous parler 20 min →</Button>
+          <Button href={startHref} variant="ember-pill">Créer mon profil peau →</Button>
+          <Button href={whatsappHref} variant="ghost">Nous parler 20 min →</Button>
         </div>
       </HeroReveal>
 

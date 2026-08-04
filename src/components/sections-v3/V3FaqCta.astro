@@ -3,6 +3,11 @@ import Accordion from '../motion/Accordion.tsx';
 import Button from '../Button.astro';
 import FadeInSection from '../motion/FadeInSection.tsx';
 
+const startHref = 'https://app.mixt.care/start';
+const whatsappHref =
+  'https://wa.me/33756948494?text=' +
+  encodeURIComponent("Bonjour Laetitia, j'aimerais échanger à propos de Mixt et de ma peau.");
+
 const faq = [
   {
     q: "Combien ça coûte, et à qui ?",
@@ -73,7 +78,7 @@ const faq = [
         <p class="text-[18px] md:text-[20px] font-medium text-ink mb-5">
           Encore des questions ?
         </p>
-        <Button href="/premieres-patientes/" variant="dark">Nous parler 20 min →</Button>
+        <Button href={whatsappHref} variant="dark">Nous parler 20 min →</Button>
         <p class="mt-4 text-[13px] text-ink-3">
           Ou créez votre dossier dermato, gratuit et sans engagement.
         </p>
@@ -88,7 +93,7 @@ const faq = [
       <h2 class="text-[36px] md:text-[46px] font-medium leading-[1.12] tracking-[-0.035em] text-white mb-10 max-w-[780px] mx-auto">
         Votre peau mérite mieux<br class="hidden md:inline" /> <span class="italic-serif md:whitespace-nowrap">qu'une ordonnance sans suivi.</span>
       </h2>
-      <Button href="/premieres-patientes/" variant="white">Créer mon dossier dermato →</Button>
+      <Button href={startHref} variant="white">Créer mon profil peau →</Button>
       <div class="mt-5 text-[13px] text-white/60">
         Gratuit · sans engagement. Vous ne payez que si vous réservez votre téléconsultation.
       </div>
