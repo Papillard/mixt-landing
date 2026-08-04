@@ -16,7 +16,7 @@ const { concern } = Astro.props;
 
 // CTA concern-aware : on transporte le concern jusqu'à la waitlist pour pré-remplir
 // le message WhatsApp / l'email et garder la continuité d'intention.
-const CTA_HREF = `/premieres-patientes/?concern=${encodeURIComponent(concern.chip)}`;
+const CTA_HREF = 'https://app.mixt.care/start';
 const CTA_LABEL = 'Rejoindre les premières patientes';
 
 // Jeu d'icônes minimal (tracés Lucide, stroke 1.5), inline pour éviter une dépendance.
