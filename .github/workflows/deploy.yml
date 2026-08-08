@@ -36,6 +36,7 @@ jobs:
           # passe via des "Repository variables" GitHub (Settings > Variables).
           # Vides = analytics non branchés (le site build quand même).
           PUBLIC_POSTHOG_KEY: ${{ vars.PUBLIC_POSTHOG_KEY }}
+          PUBLIC_POSTHOG_HOST: ${{ vars.PUBLIC_POSTHOG_HOST }}
           PUBLIC_META_PIXEL_ID: ${{ vars.PUBLIC_META_PIXEL_ID }}
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
