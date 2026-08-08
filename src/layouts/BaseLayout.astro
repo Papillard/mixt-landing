@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '../components/Analytics.astro';
 
 interface Props {
   title: string;
@@ -93,5 +94,6 @@ const ogDescFinal = ogDescription ?? description;
 <body class={bodyClass}>
   <slot />
   <script defer src="/cookies.js"></script>
+  <Analytics />
 </body>
 </html>

@@ -1,0 +1,76 @@
+---
+/**
+ * Analytics — PostHog + Meta Pixel, chargés UNIQUEMENT après consentement.
+ *
+ * Le consentement est géré par public/cookies.js, qui expose `window.mixtConsent`
+ * (avec `.isAccepted()`) et émet un CustomEvent `mixt:consent` au moment du choix.
+ *
+ * Contraintes (spec analytics, sections 2/3/8) :
+ *  - PostHog : api_host EU, persistence localStorage+cookie, cookie cross-sous-domaine
+ *    sur .mixt.care (continuité vers app.mixt.care), pageview + autocapture, inputs masqués.
+ *  - Meta Pixel : base code + un seul PageView. Aucun autre event ici.
+ *  - Aucun contenu utilisateur n'est envoyé : seulement PageView + UTM auto-capturés.
+ *
+ * Les 3 valeurs sont publiques et doivent atteindre le navigateur, donc elles
+ * portent toutes le préfixe PUBLIC_ (seul préfixe qu'Astro/Vite injecte côté
+ * client — un nom sans PUBLIC_ ressort vide, vérifié au build).
+ * Si une valeur manque (dev), le snippet correspondant n'est pas branché.
+ */
+const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY ?? '';
+const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST ?? 'https://eu.i.posthog.com';
+const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID ?? '';
+---
+
+{(posthogKey || metaPixelId) && (
+  <script is:inline define:vars={{ posthogKey, posthogHost, metaPixelId }}>
+    (function () {
+      'use strict';
+
+      var started = false;
+
+      function loadPostHog() {
+        if (!posthogKey) return;
+        // Snippet officiel PostHog (stub + chargement async de array.js).
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        window.posthog.init(posthogKey, {
+          api_host: posthogHost,
+          persistence: 'localStorage+cookie',
+          cross_subdomain_cookie: true,
+          capture_pageview: true,
+          autocapture: true,
+          session_recording: { maskAllInputs: true }
+        });
+      }
+
+      function loadMetaPixel() {
+        if (!metaPixelId) return;
+        // Meta Pixel base code + un seul PageView (aucun autre event).
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        window.fbq('init', metaPixelId);
+        window.fbq('track', 'PageView');
+      }
+
+      function start() {
+        if (started) return;
+        started = true;
+        loadPostHog();
+        loadMetaPixel();
+      }
+
+      function accepted() {
+        return !!(window.mixtConsent && typeof window.mixtConsent.isAccepted === 'function' && window.mixtConsent.isAccepted());
+      }
+
+      // Choix fait pendant la session (clic « Accepter »).
+      document.addEventListener('mixt:consent', function (e) {
+        if (e && e.detail === 'accepted') start();
+      });
+
+      // Visiteur déjà consentant (choix mémorisé). On attend l'exécution de cookies.js :
+      // les deux scripts sont "defer", donc window.mixtConsent existe au plus tard à 'load'.
+      function checkStored() { if (accepted()) start(); }
+      if (document.readyState === 'complete') { checkStored(); }
+      else { window.addEventListener('load', checkStored); }
+    })();
+  </script>
+)}
