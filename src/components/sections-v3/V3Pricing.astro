@@ -20,13 +20,7 @@ const ledger = [
     label: "Suivi avec l'assistant IA Mixt",
     price: 'Inclus',
     who: 'Au quotidien, avec votre plan',
-    get: "Questions pratiques sur le plan de traitement, journaling photo toutes les deux semaines, conseils cosméto. Pas de diagnostic ni d'avis médical.",
-  },
-  {
-    label: 'Suivi par le médecin',
-    price: '29 €/mois',
-    who: 'Optionnel, sans engagement, résiliable',
-    get: "Point mensuel sur 3 à 6 mois pour adapter ou renouveler le plan de traitement et l'ordonnance si besoin.",
+    get: "Questions pratiques sur le plan de traitement, journaling photo, conseils cosméto, et l'équipe Mixt joignable. Pas de diagnostic ni d'avis médical.",
   },
   {
     label: 'Préparation pharmacie',
@@ -40,9 +34,9 @@ const compareRows = [
   { label: 'Accès à un médecin', classic: "3 à 6 mois d'attente", mixt: 'Téléconsultation sous quelques jours' },
   { label: 'Préparation de la consultation', classic: 'À votre charge', mixt: 'Bilan IA + dossier structuré, en amont' },
   { label: 'Ce que reçoit le médecin', classic: 'Ce que vous racontez en 15 min', mixt: 'Historique complet, photos, traitements essayés' },
-  { label: 'Entre les rendez-vous', classic: 'Aucun accompagnement', mixt: 'Suivi IA quotidien + médecin chaque mois' },
-  { label: "Suivi de l'évolution", classic: 'Évaluation au RDV suivant', mixt: 'Photos mensuelles et journal de peau' },
-  { label: 'À 3 mois', classic: 'Nouveau RDV à votre initiative', mixt: "Bilan d'évolution, traitement déjà ajusté en continu" },
+  { label: 'Entre les rendez-vous', classic: 'Aucun accompagnement', mixt: 'Suivi IA au quotidien + équipe Mixt joignable' },
+  { label: "Suivi de l'évolution", classic: 'Évaluation au RDV suivant', mixt: 'Journal photo de votre peau, inclus' },
+  { label: 'À 3 mois', classic: 'Nouveau RDV à votre initiative', mixt: 'Un plan pensé sur plusieurs mois dès la consultation' },
 ];
 
 // TODO: obtenir les accords formels et photos N&B des trois professeurs
@@ -59,7 +53,7 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
   <div class="max-w-[1200px] mx-auto">
     <FadeInSection client:load>
       <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] text-center max-w-[880px] mx-auto mb-4 text-ink">
-        Ce que vous payez, <span class="italic-serif whitespace-nowrap">et à qui.</span>
+        Ce que vous payez, <span class="italic-serif whitespace-nowrap">et à qui</span>
       </h2>
       <p class="text-center text-[15px] md:text-[16px] text-ink-2 max-w-[620px] mx-auto leading-relaxed">
         La transparence, dès le premier jour. Vous savez exactement où va chaque euro.
@@ -84,7 +78,7 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
     <FadeInSection client:load delay={0.15}>
       <div class="max-w-[860px] mx-auto mt-6 rounded-[12px] bg-sage-light/30 border border-sage-deep/15 px-6 md:px-8 py-6">
         <p class="text-[15px] md:text-[16px] leading-[1.6] text-ink">
-          <strong class="font-semibold">Les 59 € reviennent intégralement au médecin.</strong> Mixt ne prélève aucun frais sur la consultation. Vous repartez avec un plan de traitement personnalisé et, le cas échéant, l'ordonnance de votre formule magistrale sur mesure. C'est à vous, vous êtes libre de vous arrêter là. Si vous voulez continuer, le suivi est sans engagement.
+          <strong class="font-semibold">Les 59 € reviennent intégralement au médecin.</strong> Mixt ne prélève aucun frais sur la consultation. Vous repartez avec un plan de traitement personnalisé et, le cas échéant, l'ordonnance de votre formule magistrale sur mesure. C'est à vous. Et après la consultation, le suivi avec l'assistant IA et l'équipe Mixt est inclus, sans surcoût.
         </p>
         <p class="mt-3 text-[11px] text-ink-3 leading-snug">
           Toute prescription relève de la seule appréciation du médecin.
@@ -94,7 +88,7 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
 
     <FadeInSection client:load delay={0.2}>
       <div class="flex flex-col items-center gap-3 mt-12 mb-2">
-        <Button href="https://app.mixt.care/start" variant="dark">Créer mon profil peau →</Button>
+        <Button href="https://app.mixt.care/start" variant="dark">Consulter un médecin →</Button>
         <p class="font-mono text-[11px] text-ink-3 tracking-[0.04em]">Gratuit · vous ne payez que si vous réservez votre téléconsultation</p>
       </div>
     </FadeInSection>
@@ -141,7 +135,7 @@ const logos = ['CHU Nantes', 'Hôpital Saint-Louis', 'SFD', 'HDS'];
         La différence concrète
       </div>
       <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] text-center max-w-[760px] mx-auto mb-4 text-ink">
-        Avec Mixt, <span class="italic-serif">concrètement.</span>
+        Avec Mixt, <span class="italic-serif">concrètement</span>
       </h2>
       <p class="text-center text-[15px] md:text-[16px] text-ink-2 max-w-[640px] mx-auto leading-relaxed mb-14 md:mb-16">
         Voici ce que Mixt apporte en plus du parcours dermatologique classique.

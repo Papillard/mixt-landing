@@ -78,7 +78,7 @@ function renderOverlay(o: Overlay) {
     return (
       <div>
         <div className="flex items-center gap-2.5 mb-3.5">
-          {o.avatar ? (
+          {o.avatar && (
             <img
               src={o.avatar}
               alt={o.doctor}
@@ -86,8 +86,6 @@ function renderOverlay(o: Overlay) {
               loading="lazy"
               decoding="async"
             />
-          ) : (
-            <div className="w-9 h-9 rounded-full bg-blush/60 border border-black/[0.05] shrink-0" />
           )}
           <div>
             <div className="text-[13px] font-semibold text-ink leading-tight">{o.doctor}</div>

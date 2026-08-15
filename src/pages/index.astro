@@ -6,6 +6,7 @@ import V3Hero from '../components/sections-v3/V3Hero.astro';
 import V3Problem from '../components/sections-v3/V3Problem.astro';
 import V3Pillars from '../components/sections-v3/V3Pillars.astro';
 import V3Steps from '../components/sections-v3/V3Steps.astro';
+import V3Reviews from '../components/sections-v3/V3Reviews.astro';
 import V3Respiration from '../components/sections-v3/V3Respiration.astro';
 import V3Conditions from '../components/sections-v3/V3Conditions.astro';
 import V3Science from '../components/sections-v3/V3Science.astro';
@@ -53,9 +54,9 @@ const structuredData = {
         },
         {
           '@type': 'MedicalTherapy',
-          name: 'Suivi médical mensuel',
+          name: 'Suivi inclus par assistant IA',
           description:
-            "Accompagnement quotidien par l'IA et point mensuel avec votre médecin pour renouveler ou ajuster le traitement. Optionnel, sans engagement.",
+            "Après la consultation, accompagnement inclus par l'assistant IA et l'équipe Mixt : suivi de la peau, journal photo et réponses aux questions pratiques. Sans surcoût, sans abonnement.",
         },
       ],
       areaServed: { '@type': 'Country', name: 'France' },
@@ -95,7 +96,7 @@ const structuredData = {
           name: "Combien ça coûte, et à qui ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Le bilan en ligne est gratuit : vous le faites avec notre assistant IA et repartez avec un dossier dermatologique structuré, à vous. La première consultation coûte 59 €, qui reviennent intégralement au médecin : Mixt ne prélève aucun frais dessus. Vous ne payez que si vous décidez de réserver. La formule magistrale, si elle est prescrite, est facturée 30 à 60 € par votre pharmacie, partiellement remboursée selon votre mutuelle. Le suivi avec l'assistant IA est inclus ; le suivi par le médecin est optionnel, à 29 €/mois, sans engagement et résiliable à tout moment.",
+            text: "Le bilan en ligne est gratuit : vous le faites avec notre assistant IA et repartez avec un dossier dermatologique structuré, à vous. La première consultation coûte 59 €, qui reviennent intégralement au médecin : Mixt ne prélève aucun frais dessus. Vous ne payez que si vous décidez de réserver. La formule magistrale, si elle est prescrite, est facturée 30 à 60 € par votre pharmacie, partiellement remboursée selon votre mutuelle. Après la consultation, le suivi avec l'assistant IA et l'équipe Mixt est inclus, sans surcoût ni abonnement.",
           },
         },
         {
@@ -111,7 +112,7 @@ const structuredData = {
           name: 'Qui est le médecin ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Un médecin généraliste diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable, formé à une approche globale de la peau. Pour les cas qui le nécessitent, il s'appuie sur notre comité de dermatologues. Vous le rencontrez en téléconsultation, et c'est lui qui assure ensuite votre suivi mensuel si vous continuez.",
+            text: "Un médecin généraliste diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable, formé à une approche globale de la peau. Vous le rencontrez en téléconsultation, et il construit votre plan de traitement personnalisé.",
           },
         },
         {
@@ -132,18 +133,18 @@ const structuredData = {
         },
         {
           '@type': 'Question',
-          name: "Suis-je obligé·e de prendre un abonnement ?",
+          name: "Y a-t-il un abonnement ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Non. La première téléconsultation se suffit à elle-même : vous repartez avec votre plan de traitement, c'est à vous, vous pouvez vous arrêter là. Le suivi dans la durée est entièrement optionnel, sans engagement, et résiliable à tout moment.",
+            text: "Non, aucun abonnement. La téléconsultation se suffit à elle-même : vous repartez avec votre plan de traitement, c'est à vous. Après la consultation, le suivi avec l'assistant IA et l'équipe Mixt est inclus, sans surcoût.",
           },
         },
         {
           '@type': 'Question',
-          name: "En quoi consiste le suivi mensuel ?",
+          name: "En quoi consiste le suivi inclus ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Deux niveaux d'accompagnement. Au quotidien, l'IA suit votre peau, tient votre journal et répond à vos questions pratiques. Et chaque mois, votre médecin fait le point avec vous, puis renouvelle ou ajuste votre traitement si besoin. C'est un acte médical, réalisé par le médecin, pas par l'IA.",
+            text: "Après la consultation, l'assistant IA Mixt suit votre peau, tient votre journal photo et répond à vos questions pratiques, et l'équipe Mixt reste joignable. C'est un accompagnement inclus, sans surcoût, pas un acte médical ni un diagnostic.",
           },
         },
         {
@@ -165,18 +166,16 @@ const structuredData = {
   description="Un médecin expert de votre peau, supervisé par un dermatologue, construit un plan de soin sur-mesure et vous suit dans la durée. Mélasma, rosacée, acné."
   structuredData={structuredData}
 >
-  <Nav ctaLabel="Créer mon profil" ctaHref="https://app.mixt.care/start" />
+  <Nav ctaLabel="Consulter un médecin" ctaHref="https://app.mixt.care/start" />
 
   <V3Hero />
+  <V3Steps />
+  <V3Reviews />
   <V3Problem />
   <V3Pillars />
-  <V3Steps />
-  <V3Respiration />
   <V3Conditions />
-  <V3Science />
   <V3Testimonials />
   <V3Pricing />
-  <V3Team />
   <V3FaqCta />
 
   <Footer />

@@ -1,0 +1,73 @@
+---
+import FadeInSection from '../motion/FadeInSection.tsx';
+
+// Verbatims réels, avis 5★ publiés sur Trustpilot (juillet 2026).
+const reviews = [
+  {
+    quote: "Les premiers résultats sont arrivés très rapidement, en même pas 1 mois, ma peau était plus uniforme et les rougeurs avaient nettement diminué.",
+    name: 'Marie D.',
+    tag: 'Acné',
+  },
+  {
+    quote: "J'ai enfin l'impression d'être suivie par des gens qui regardent vraiment, réagissent vite et savent exactement quoi faire.",
+    name: 'Amandine B.',
+    tag: 'Rosacée',
+  },
+  {
+    quote: "J'ai l'impression d'avoir appris plus sur ma peau en quelques mois qu'en des années à tester des produits toute seule.",
+    name: 'Marie G.',
+    tag: 'Masque de grossesse',
+  },
+  {
+    quote: "La crème est plus efficace que tout ce que j'ai pu tester pour l'instant, et l'équipe Mixt est super disponible.",
+    name: 'Sadie B.',
+    tag: 'Formule sur-mesure',
+  },
+];
+---
+
+<section class="px-6 md:px-10 py-24 md:py-32 bg-deep text-white">
+  <div class="max-w-[1200px] mx-auto">
+    <FadeInSection client:load>
+      <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember mb-5">
+        <span class="inline-block h-px w-10 bg-ember/70"></span>
+        Ce qu'elles en disent
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-14 md:mb-16">
+        <h2 class="text-[36px] md:text-[48px] font-medium leading-[1.08] tracking-[-0.035em] max-w-[620px]">
+          Elles ont commencé leur parcours <span class="italic-serif">avec Mixt</span>
+        </h2>
+        <div class="shrink-0 inline-flex items-center gap-2.5 rounded-full bg-base pl-2.5 pr-4 py-2">
+          <span class="inline-flex items-center gap-[3px]">
+            {[0, 1, 2, 3, 4].map(() => (
+              <span class="inline-flex items-center justify-center w-[18px] h-[18px] rounded-[3px]" style="background:#00b67a">
+                <span class="text-white text-[11px] leading-none">★</span>
+              </span>
+            ))}
+          </span>
+          <span class="text-[13.5px] text-ink"><strong class="font-semibold">Trustpilot</strong> · avis vérifiés</span>
+        </div>
+      </div>
+    </FadeInSection>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+      {reviews.map((r, i) => (
+        <FadeInSection client:load delay={0.08 + i * 0.06} className="h-full">
+          <figure class="h-full flex flex-col rounded-2xl bg-base border border-black/[0.06] p-6">
+            <div class="mb-4">
+              <span class="text-ember text-[19px] tracking-[0.1em]" aria-label="Noté 5 sur 5">★★★★★</span>
+            </div>
+            <blockquote class="italic-serif text-[21px] md:text-[23px] leading-[1.42] text-ink flex-1">
+              « {r.quote} »
+            </blockquote>
+            <figcaption class="mt-5 pt-4 border-t border-black/[0.08] flex items-center justify-between gap-2">
+              <span class="text-[14px] font-semibold text-ink">{r.name}</span>
+              <span class="rounded-[6px] bg-deep px-2.5 py-1 text-[9.5px] font-semibold tracking-[0.16em] uppercase text-white">{r.tag}</span>
+            </figcaption>
+          </figure>
+        </FadeInSection>
+      ))}
+    </div>
+
+  </div>
+</section>
