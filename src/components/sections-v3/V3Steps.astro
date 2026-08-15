@@ -5,24 +5,23 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 const steps = [
   {
     number: '01',
-    title: 'Construisez votre dossier dermato',
-    desc: "Gratuit, en quelques minutes avec notre assistant IA : antécédents, traitements, photos, objectifs. Vous repartez avec un dossier structuré, prêt pour votre médecin. Données hébergées en France (HDS) ; vos photos ne sont jamais transmises à l'IA.",
+    title: 'Racontez votre peau',
+    desc: "En 5 minutes, l'assistant IA Mixt vous pose les bonnes questions et réunit vos photos. Votre médecin les étudie en amont. Gratuit et sécurisé.",
   },
   {
     number: '02',
-    title: 'Rencontrez votre médecin',
-    desc: "Téléconsultation avec un médecin généraliste appuyé par notre comité de dermatologues. Il a déjà tout votre dossier : la consultation est dense et personnalisée. Vous ne payez que si vous réservez.",
+    title: 'Consultez votre médecin',
+    desc: "Une visio avec un médecin expert de la peau du visage, qui a étudié votre dossier en amont et prépare un plan de traitement adapté, pour une consultation précise.",
   },
   {
     number: '03',
-    title: 'Démarrez votre traitement',
-    desc: "Si votre médecin la prescrit, votre formule magistrale sur mesure est préparée par notre pharmacie partenaire. Vous repartez avec un plan clair, adapté à votre peau.",
+    title: 'Votre traitement personnalisé',
+    desc: "Un traitement pensé pour votre peau, pas pour tout le monde : une formule sur mesure préparée par une pharmacie partenaire, sur prescription de votre médecin.",
   },
   {
     number: '04',
     title: 'Suivez votre évolution',
-    tag: 'Si vous continuez',
-    desc: "Au quotidien, l'IA suit votre peau et répond à vos questions du quotidien. Chaque mois, votre médecin fait le point et ajuste si besoin. Sans engagement, à partir de 29 €/mois.",
+    desc: "L'équipe Mixt et l'assistant IA vous suivent au quotidien : questions pratiques, journal photo, ajustements de routine. Inclus, sans surcoût.",
   },
 ];
 
@@ -42,16 +41,17 @@ const panels = [
   {
     label: 'Étape 03',
     kind: 'image' as const,
-    src: '/images/step-03-preparation.jpg',
-    alt: 'Préparation de la formule magistrale en pharmacie partenaire',
+    src: '/images/step-03-lab.jpg',
+    alt: 'Formule magistrale préparée en pharmacie partenaire',
+    objectPosition: 'center 82%',
   },
   {
     label: 'Étape 04',
-    kind: 'journal' as const,
-    chartRows: [
-      { when: 'Chaque jour', what: "Suivi par l'IA + vos questions" },
-      { when: 'Chaque mois', what: 'Point avec votre médecin' },
-      { when: 'Si besoin', what: 'Traitement renouvelé ou ajusté' },
+    kind: 'chat' as const,
+    chat: [
+      { from: 'assistant' as const, text: 'Votre consultation est terminée. Votre plan de traitement est prêt.' },
+      { from: 'user' as const, text: "J'ai des rougeurs après 3 jours, c'est normal ?" },
+      { from: 'assistant' as const, text: 'Oui, très fréquent au début. On garde le rythme. Si ça persiste, je préviens votre médecin.' },
     ],
   },
 ];
@@ -65,7 +65,7 @@ const panels = [
         Le parcours
       </div>
       <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] max-w-[720px] mb-5 text-ink">
-        Comment <span class="italic-serif">ça marche.</span>
+        Comment <span class="italic-serif">ça marche</span>
       </h2>
       <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 max-w-[640px] mb-14 md:mb-20">
         Quatre étapes pensées pour que la dermatologie travaille vraiment pour vous.
@@ -77,11 +77,11 @@ const panels = [
     <FadeInSection client:load>
       <div class="flex justify-center mt-20 md:mt-28">
         <div class="inline-flex flex-col md:flex-row md:flex-wrap items-center md:justify-center gap-2.5 md:gap-[18px] px-5 py-3 md:px-[22px] md:py-[14px] rounded-2xl md:rounded-full border border-ink/[0.12] bg-base/70 backdrop-blur-md text-center md:text-left max-w-[340px] md:max-w-none">
-          <span class="inline-flex items-center gap-[7px] font-mono text-[11px] tracking-[0.16em] uppercase text-jade-deep font-medium">
+          <span class="inline-flex items-center gap-[7px] font-mono text-[12.5px] tracking-[0.16em] uppercase text-jade-deep font-medium">
             <span class="inline-block w-[6px] h-[6px] rounded-full bg-jade shadow-[0_0_0_3px_rgba(95,191,163,0.18)]"></span>
             HDS · France
           </span>
-          <span class="text-[13px] md:text-[14px] text-ink font-medium leading-snug">Vos données sont sécurisées et soumises au secret médical.</span>
+          <span class="text-[15px] md:text-[16.5px] text-ink font-medium leading-snug">Vos données et vos photos sont sécurisées et soumises au secret médical.</span>
         </div>
       </div>
     </FadeInSection>

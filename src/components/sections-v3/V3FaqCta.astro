@@ -25,8 +25,8 @@ const faq = [
         body: "Facturée par votre pharmacie, partiellement remboursée selon votre mutuelle.",
       },
       {
-        heading: 'Le suivi, si vous continuez',
-        body: "Le suivi avec l'assistant IA Mixt est inclus. Le suivi par le médecin (point mensuel pour adapter ou renouveler votre plan) est à 29 €/mois, optionnel, sans engagement, résiliable à tout moment. Vous décidez après votre consultation.",
+        heading: 'Le suivi : inclus',
+        body: "Après la consultation, le suivi avec l'assistant IA Mixt et l'équipe est inclus, sans surcoût : questions pratiques, journal photo, conseils. Aucun abonnement.",
       },
     ],
   },
@@ -36,7 +36,7 @@ const faq = [
   },
   {
     q: 'Qui est le médecin ?',
-    a: "Un médecin généraliste diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable, formé à une approche globale de la peau. Pour les cas qui le nécessitent, il s'appuie sur notre comité de dermatologues. Vous le rencontrez en téléconsultation, et c'est lui qui assure ensuite votre suivi mensuel si vous continuez.",
+    a: "Un médecin généraliste diplômé, inscrit à l'Ordre des Médecins, avec un RPPS vérifiable, formé à une approche globale de la peau. Vous le rencontrez en téléconsultation, et il construit votre plan de traitement personnalisé.",
   },
   {
     q: 'Comment fonctionne la consultation médicale ?',
@@ -47,12 +47,12 @@ const faq = [
     a: "Oui. Vos données (vos photos comprises) sont hébergées sur des serveurs certifiés HDS (Hébergeur de Données de Santé) en France, et soumises au secret médical. Vos photos ne sont jamais transmises à l'IA ni à aucun tiers : elles restent dans votre dossier sécurisé, et seul le médecin que vous consultez peut les ouvrir, uniquement une fois votre rendez-vous réservé, jamais avant.",
   },
   {
-    q: "Suis-je obligé·e de prendre un abonnement ?",
-    a: "Non. La première téléconsultation se suffit à elle-même : vous repartez avec votre plan de traitement, c'est à vous, vous pouvez vous arrêter là. Le suivi dans la durée est entièrement optionnel, sans engagement, et résiliable à tout moment.",
+    q: "Y a-t-il un abonnement ?",
+    a: "Non, aucun abonnement. La téléconsultation se suffit à elle-même : vous repartez avec votre plan de traitement, c'est à vous. Et après la consultation, le suivi avec l'assistant IA et l'équipe Mixt est inclus, sans surcoût.",
   },
   {
-    q: "En quoi consiste le suivi mensuel ?",
-    a: "Deux niveaux d'accompagnement. Au quotidien, l'IA suit votre peau, tient votre journal et répond à vos questions pratiques. Et chaque mois, votre médecin fait le point avec vous, puis renouvelle ou ajuste votre traitement si besoin. C'est un acte médical, réalisé par le médecin, pas par l'IA.",
+    q: "En quoi consiste le suivi inclus ?",
+    a: "Après la consultation, l'assistant IA Mixt suit votre peau, tient votre journal photo et répond à vos questions pratiques, et l'équipe Mixt reste joignable. C'est un accompagnement, inclus et sans surcoût, pas un acte médical ni un diagnostic.",
   },
   {
     q: "Aurai-je forcément une ordonnance ?",
@@ -65,7 +65,7 @@ const faq = [
   <div class="max-w-[1200px] mx-auto">
     <FadeInSection client:load>
       <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] text-center mb-12 md:mb-16 text-ink">
-        Questions <span class="italic-serif whitespace-nowrap">fréquentes.</span>
+        Questions <span class="italic-serif whitespace-nowrap">fréquentes</span>
       </h2>
     </FadeInSection>
 
@@ -80,7 +80,7 @@ const faq = [
         </p>
         <Button href={whatsappHref} variant="dark">Nous parler 20 min →</Button>
         <p class="mt-4 text-[13px] text-ink-3">
-          Ou créez votre dossier dermato, gratuit et sans engagement.
+          Ou démarrez votre diagnostic, gratuit et sans engagement.
         </p>
       </div>
     </FadeInSection>
@@ -91,9 +91,9 @@ const faq = [
   <div class="relative z-[2] max-w-[780px] mx-auto">
     <FadeInSection client:load>
       <h2 class="text-[36px] md:text-[46px] font-medium leading-[1.12] tracking-[-0.035em] text-white mb-10 max-w-[780px] mx-auto">
-        Votre peau mérite mieux<br class="hidden md:inline" /> <span class="italic-serif md:whitespace-nowrap">qu'une ordonnance sans suivi.</span>
+        Votre peau mérite mieux<br class="hidden md:inline" /> <span class="italic-serif md:whitespace-nowrap">qu'une ordonnance sans suivi</span>
       </h2>
-      <Button href={startHref} variant="white">Créer mon profil peau →</Button>
+      <Button href={startHref} variant="white">Consulter un médecin →</Button>
       <div class="mt-5 text-[13px] text-white/60">
         Gratuit · sans engagement. Vous ne payez que si vous réservez votre téléconsultation.
       </div>

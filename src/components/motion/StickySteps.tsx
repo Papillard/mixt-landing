@@ -10,11 +10,13 @@ type Step = {
 
 type Panel = {
   label: string;
-  kind: 'image' | 'chart' | 'journal';
+  kind: 'image' | 'chart' | 'journal' | 'chat';
   src?: string;
   alt?: string;
+  objectPosition?: string;
   caption?: string;
   chartRows?: Array<{ when: string; what: string }>;
+  chat?: Array<{ from: 'assistant' | 'user'; text: string }>;
 };
 
 type Props = {
@@ -25,6 +27,79 @@ type Props = {
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedChart?: boolean }) {
+  if (panel.kind === 'chat') {
+    const nav = ['Messagerie', 'Assistant IA', 'Ta peau', 'Consultation', 'Traitement'];
+    return (
+      <div className="flex overflow-hidden rounded-2xl border border-black/[0.08] bg-base shadow-[0_20px_60px_-30px_rgba(54,24,34,0.4)] h-[440px]">
+        {/* Rail sombre */}
+        <div className="hidden sm:flex flex-col w-[132px] shrink-0 bg-deep text-white/90 px-3.5 py-4">
+          <div className="font-serif text-[19px] font-semibold leading-none" style={{ fontOpticalSizing: 'auto' }}>Mixt</div>
+          <div className="mt-1 text-[9px] leading-tight text-white/45">Ta peau, suivie<br />par un médecin</div>
+          <div className="mt-5 flex flex-col gap-0.5">
+            {nav.map((n, i) => (
+              <div
+                key={n}
+                className={`flex items-center gap-1.5 rounded-md px-2 py-1.5 text-[11px] ${i === 0 ? 'bg-white/12 text-white font-medium' : 'text-white/55'}`}
+              >
+                <span className={`inline-block w-1 h-1 rounded-full ${i === 0 ? 'bg-ember' : 'bg-white/25'}`}></span>
+                {n}
+              </div>
+            ))}
+          </div>
+          <div className="mt-auto flex items-center gap-2 pt-4">
+            <img
+              src="/images/laetitia-after.webp"
+              alt="Laetitia"
+              className="w-6 h-6 rounded-full object-cover border border-white/15"
+              loading="lazy"
+              decoding="async"
+            />
+            <span className="text-[10px] text-white/60">Laetitia</span>
+          </div>
+        </div>
+        {/* Zone chat */}
+        <div className="flex-1 flex flex-col bg-cream/50 min-w-0">
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-black/[0.06]">
+            <span className="flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-deep text-white">
+                <span className="font-serif font-semibold text-[16px] leading-none -translate-y-[0.5px]" style={{ fontOpticalSizing: 'auto' }}>m</span>
+              </span>
+              <span className="leading-tight">
+                <span className="block text-[12px] font-semibold text-ink">Équipe Mixt</span>
+                <span className="flex items-center gap-1 text-[10px] text-ink-3">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#4E8A6B]"></span>
+                  Répond sous 24h
+                </span>
+              </span>
+            </span>
+            <span className="text-ember-deep font-medium text-[10.5px]">Voir mon ordonnance →</span>
+          </div>
+          <div className="flex-1 flex flex-col gap-2.5 px-4 py-4 overflow-hidden">
+            {panel.chat?.map((m, i) => (
+              <div key={i} className={`flex ${m.from === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div
+                  className={`max-w-[82%] rounded-2xl px-3.5 py-2.5 text-[12.5px] leading-snug ${
+                    m.from === 'user'
+                      ? 'bg-deep text-white rounded-br-md'
+                      : 'bg-white text-ink border border-black/[0.05] rounded-bl-md'
+                  }`}
+                >
+                  {m.text}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="px-4 pb-4">
+            <div className="flex items-center gap-2 rounded-full bg-white border border-black/[0.08] px-3.5 py-2.5">
+              <span className="text-[12px] text-ink-3 flex-1">Votre message…</span>
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-deep text-white text-[11px]">↑</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (panel.kind === 'journal') {
     return (
       <div className="rounded-[14px] bg-cream border border-black/[0.06] p-6 md:p-7 font-mono text-[13.5px] md:text-[14px]">
@@ -53,6 +128,7 @@ function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedCha
             loading="lazy"
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover"
+            style={panel.objectPosition ? { objectPosition: panel.objectPosition } : undefined}
           />
         )}
         {panel.kind === 'image' && !panel.src && (

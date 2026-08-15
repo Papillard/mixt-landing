@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 type Props = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   highlight: string;
   subtitle: string;
@@ -33,15 +33,17 @@ export default function HeroReveal({
 
   return (
     <div className="flex flex-col gap-5">
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: EASE, delay: 0.05 }}
-        className={eyebrowClass}
-      >
-        <span className={`inline-block h-px w-10 ${eyebrowBar}`} />
-        {eyebrow}
-      </motion.div>
+      {eyebrow && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: EASE, delay: 0.05 }}
+          className={eyebrowClass}
+        >
+          <span className={`inline-block h-px w-10 ${eyebrowBar}`} />
+          {eyebrow}
+        </motion.div>
+      )}
 
       <motion.h1
         initial={{ opacity: 0, y: 14 }}
