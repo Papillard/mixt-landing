@@ -37,7 +37,6 @@ Vos données de santé sont protégées et soumises au secret médical.
 ## Pages
 
 - [Accueil](https://mixt.care/) : présentation complète du service, conditions, parcours, équipe.
-- [Premières patientes](https://mixt.care/premieres-patientes/) : témoignages et résultats.
 - [Comment prendre une photo de votre peau](https://mixt.care/comment-prendre-une-photo/) : guide pratique pour la téléconsultation.
 - [Conditions générales](https://mixt.care/conditions-generales.html)
 - [Politique de confidentialité](https://mixt.care/politique-de-confidentialite.html)
