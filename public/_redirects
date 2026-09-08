@@ -1,0 +1,5 @@
+# Redirections 301 (Cloudflare Workers Assets)
+# Ancienne page "premières patientes" retirée : 301 vers la home pour
+# préserver le lien entrant et sortir proprement de l'index Google.
+/premieres-patientes      /  301
+/premieres-patientes/*    /  301
