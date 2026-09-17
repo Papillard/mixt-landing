@@ -4,7 +4,7 @@
   var STORAGE_KEY = 'mixt-consent';
   var VERSION = 1;
   var TTL_MS = 1000 * 60 * 60 * 24 * 30 * 6; // 6 months
-  var POLICY_HREF = '/politique-de-confidentialite.html';
+  var POLICY_HREF = '/politique-cookies';
 
   var CSS = [
     '.mixt-cookie-banner{',

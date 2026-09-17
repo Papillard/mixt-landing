@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "gen:legal": "node scripts/build-legal.mjs",
+    "build": "node scripts/build-legal.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "gen:image": "node --env-file=.env scripts/gen-image.mjs",
