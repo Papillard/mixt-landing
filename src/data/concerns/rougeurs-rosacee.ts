@@ -7,6 +7,7 @@ export const rougeursRosacee: Concern = {
     title: "Rougeurs et rosacée : ce n'est pas qu'une peau sensible | Mixt",
     description:
       "Rougeurs qui reviennent, chaleurs, boutons : la rosacée n'est pas une simple sensibilité. Un médecin cible ses mécanismes avec des actifs prescrits et vous suit dans la durée. Consultation 59 €.",
+    noindex: true,
   },
   hero: {
     kicker: 'Rougeurs & rosacée',

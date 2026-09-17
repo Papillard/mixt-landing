@@ -8,11 +8,14 @@ export const antiAge: Concern = {
     description:
       "L'actif anti-âge le plus étudié au monde ne s'achète pas en vente libre : il se prescrit. Un médecin construit votre protocole, dosé pour votre peau et ajusté chaque mois. Consultation 59 €.",
   },
+  heroProof: { label: 'Avis vérifiés sur Trustpilot' },
+  faqPosition: 'early',
+  objectionsTitle: 'Ce que vous vous demandez',
   hero: {
     kicker: 'Anti-âge · rides & fermeté',
     title: 'Votre crème a fait',
     highlight: "ce qu'elle pouvait.",
-    lead: "Un médecin vous prescrit la trétinoïne, dosée pour votre peau, et ajuste votre protocole mois après mois. Consultation sous 7 jours.",
+    lead: "Ridules, fermeté, éclat : un médecin vous prescrit la trétinoïne dosée pour votre peau, et ajuste votre protocole chaque mois. Bilan gratuit, consultation sous 7 jours.",
     image: '/images/header-aging.webp',
     imageAlt: 'Femme de 40 ans à la peau naturelle et lumineuse',
     imagePosition: 'center 35%',
@@ -82,6 +85,22 @@ export const antiAge: Concern = {
       { when: 'Au-delà', body: "L'entretien, sur le long terme. C'est la régularité qui construit et protège les résultats, année après année." },
     ],
     footnote: "Résultats individuels, non garantis. La protection solaire quotidienne conditionne l'efficacité de tout protocole anti-âge.",
+  },
+  authority: {
+    kicker: 'Qui conçoit votre protocole',
+    title: 'Une dermatologue',
+    highlight: 'derrière chaque ordonnance.',
+    image: '/images/besthabee-consult.webp',
+    imageAlt: 'Dr Bethsabée Levy Garel, dermatologue fondatrice de Mixt',
+    name: 'Dr Bethsabée Levy Garel',
+    role: 'Dermatologue · Fondatrice',
+    quote: "La trétinoïne fonctionne. Ce qui fait échouer les gens, c'est le dosage et l'absence de suivi pendant les premières semaines.",
+    points: [
+      'Dermatologue formée à la Sorbonne, ex-Cochin',
+      'Définit les protocoles de traitement Mixt',
+      'Supervise les médecins qui vous consultent',
+      'Chaque ordonnance relève de la décision du médecin qui vous suit',
+    ],
   },
   review: {
     quote: "La crème est plus efficace que tout ce que j'ai pu tester pour l'instant, et l'équipe Mixt est super disponible.",

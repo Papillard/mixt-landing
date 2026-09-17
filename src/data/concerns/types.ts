@@ -44,6 +44,11 @@ export type Concern = {
   seo: {
     title: string;
     description: string;
+    /**
+     * true pour les LP publicitaires qui doublonnent une page condition déjà
+     * indexée : évite qu'elles se cannibalisent sur les mêmes requêtes.
+     */
+    noindex?: boolean;
   };
   hero: {
     kicker: string;
@@ -104,6 +109,33 @@ export type Concern = {
     name: string;
     tag: string;
   };
+  /**
+   * Trustpilot pill shown ABOVE the H1. Social proof before the argument,
+   * the way the strongest teledermatology landing pages do it.
+   * No review count: Mixt is early stage, we only claim what is verifiable.
+   */
+  heroProof?: { label: string };
+  /**
+   * Medical authority block: the dermatologist behind the protocols, with a real
+   * face. Answers "who actually decides my treatment?" before the price.
+   */
+  authority?: {
+    kicker?: string;
+    title: string;
+    highlight: string;
+    image: string;
+    imageAlt: string;
+    name: string;
+    role: string;
+    quote: string;
+    points: string[];
+  };
+  /**
+   * Concern-specific objections rendered EARLY (right after the contrast block)
+   * instead of being buried at the bottom. The shared medical FAQ stays at the end.
+   */
+  objectionsTitle?: string;
+  faqPosition?: 'early' | 'bottom';
   /** Optional benefit-led relance band. `image` adds a landscape visual beside it. */
   midCta?: {
     kicker?: string;

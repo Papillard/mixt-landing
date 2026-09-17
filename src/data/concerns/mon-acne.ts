@@ -7,6 +7,7 @@ export const monAcne: Concern = {
     title: "Acné qui persiste : enfin un plan qui marche | Mixt",
     description:
       "Vous avez tout essayé et l'acné revient ? Un vrai médecin cherche la cause avec vous et construit un plan de soin personnalisé, avec un suivi dans la durée. Consultation 59 €.",
+    noindex: true,
   },
   hero: {
     kicker: 'Acné qui persiste',
