@@ -9,6 +9,9 @@ export const rougeursRosacee: Concern = {
       "Rougeurs qui reviennent, chaleurs, boutons : la rosacée n'est pas une simple sensibilité. Un médecin cible ses mécanismes avec des actifs prescrits et vous suit dans la durée. Consultation 49 €.",
     noindex: true,
   },
+  heroProof: { label: 'Avis vérifiés sur Trustpilot' },
+  faqPosition: 'early',
+  objectionsTitle: 'Ce que vous vous demandez',
   hero: {
     kicker: 'Rougeurs & rosacée',
     title: 'Vos rougeurs',
@@ -78,13 +81,37 @@ export const rougeursRosacee: Concern = {
     after: { src: '/images/melanie-after.webp', alt: 'Marie après 3 mois', objectPosition: 'center' },
     afterLabel: 'Après · 3 mois',
     quote: "Je ne sortais plus sans fond de teint. Maintenant j'ose le visage nu.",
-    context: "Rosacée diagnostiquée par sa dermatologue. Parcours de 3 mois avec l'équipe Mixt et formule magistrale prescrite.",
+    context: "Rosacée diagnostiquée par sa dermatologue. Parcours de 3 mois avec l'équipe et formule magistrale prescrite.",
     legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
   },
   review: {
     quote: "J'ai enfin l'impression d'être suivie par des gens qui regardent vraiment, réagissent vite et savent exactement quoi faire.",
     name: 'Amandine B.',
     tag: 'Rosacée',
+  },
+  treatment: {
+    kicker: 'Votre traitement',
+    title: 'Une formule préparée',
+    highlight: "pour une peau qui réagit.",
+    lead: "Si le médecin la prescrit, votre formule est préparée en pharmacie : des actifs anti-inflammatoires dosés pour une peau réactive, sans les excipients qui l'irritent.",
+    benefits: [
+      { label: 'Sur-mesure', body: "Pas la même formule pour tout le monde : les actifs et leurs concentrations sont décidés pour votre peau, à partir de votre dossier et de vos photos." },
+      { label: 'Une seule application', body: "Les actifs sont combinés dans une formule unique, à appliquer le soir. Pas une routine à sept étapes qu'on abandonne au bout d'un mois." },
+      { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
+    ],
+    footnote: "Préparation en pharmacie de 30 à 60 € selon la formule, avec remboursement partiel possible. Toute prescription relève de la seule appréciation du médecin : selon votre cas, il peut aussi recommander un traitement classique ou une approche cosmétique.",
+  },
+  expectations: {
+    title: 'Le rythme réel',
+    highlight: "d'une peau qu'on calme.",
+    intro: "La rosacée ne se règle pas en une cure : elle se contrôle. Voici ce qui se passe vraiment, poussée après poussée.",
+    steps: [
+      { when: 'Semaines 1 à 4', body: "On calme le terrain et on identifie vos facteurs déclenchants. La peau reste réactive, c'est attendu." },
+      { when: 'Semaine 8', body: "Les boutons inflammatoires diminuent, les épisodes de chaleur s'espacent. Le fond rouge bouge plus lentement." },
+      { when: 'Semaine 12', body: "Des rougeurs nettement moins marquées chez celles qui répondent, et des poussées plus rares." },
+      { when: 'Au-delà', body: "On entretient. C'est la régularité, et l'évitement de vos déclencheurs, qui tiennent les résultats." },
+    ],
+    footnote: "Résultats individuels, non garantis. La rosacée est chronique : le traitement la contrôle, il ne la supprime pas.",
   },
   faq: [
     {

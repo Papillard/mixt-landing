@@ -8,6 +8,9 @@ export const acnePeauNoire: Concern = {
     description:
       "Sur les peaux foncées, chaque bouton peut laisser une tache. Un médecin expert des peaux noires traite l'acné et l'hyperpigmentation en même temps, avec des actifs adaptés. Consultation 49 €.",
   },
+  heroProof: { label: 'Avis vérifiés sur Trustpilot' },
+  faqPosition: 'early',
+  objectionsTitle: 'Ce que vous vous demandez',
   hero: {
     kicker: 'Acné & taches · peaux foncées',
     title: 'Le bouton part.',
@@ -64,6 +67,30 @@ export const acnePeauNoire: Concern = {
     quote: "Les premiers résultats sont arrivés très rapidement, en même pas 1 mois, ma peau était plus uniforme et les rougeurs avaient nettement diminué.",
     name: 'Marie D.',
     tag: 'Acné',
+  },
+  treatment: {
+    kicker: 'Votre traitement',
+    title: 'Une formule préparée',
+    highlight: "pour votre phototype.",
+    lead: "Si le médecin la prescrit, votre formule est préparée en pharmacie : des actifs et des dosages choisis pour une peau qui marque, pour traiter sans créer de nouvelles taches.",
+    benefits: [
+      { label: 'Sur-mesure', body: "Pas la même formule pour tout le monde : les actifs et leurs concentrations sont décidés pour votre peau, à partir de votre dossier et de vos photos." },
+      { label: 'Une seule application', body: "Les actifs sont combinés dans une formule unique, à appliquer le soir. Pas une routine à sept étapes qu'on abandonne au bout d'un mois." },
+      { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
+    ],
+    footnote: "Préparation en pharmacie de 30 à 60 € selon la formule, avec remboursement partiel possible. Toute prescription relève de la seule appréciation du médecin : selon votre cas, il peut aussi recommander un traitement classique ou une approche cosmétique.",
+  },
+  expectations: {
+    title: 'Le rythme réel',
+    highlight: 'du bouton, puis de la tache.',
+    intro: "Deux horloges différentes : l'acné se calme en quelques semaines, la pigmentation met plusieurs mois. Le savoir évite de croire que ça ne marche pas.",
+    steps: [
+      { when: 'Semaines 1 à 4', body: "Phase d'adaptation. La peau s'habitue aux actifs, avec un dosage prudent choisi pour votre phototype pour ne pas créer de nouvelles marques." },
+      { when: 'Semaine 8', body: "L'acné active recule nettement. Les taches, elles, commencent à peine à s'éclaircir : c'est le rythme normal de la pigmentation." },
+      { when: 'Semaine 12', body: "Le teint s'unifie visiblement chez celles qui répondent. Le médecin ajuste les dépigmentants selon ce qu'il observe." },
+      { when: 'Au-delà', body: "On entretient. Tant que l'acné est contrôlée, aucune nouvelle marque ne se forme, et les anciennes continuent de s'estomper." },
+    ],
+    footnote: "Résultats individuels, non garantis. Sur peau foncée, la protection solaire quotidienne conditionne l'effacement des marques.",
   },
   faq: [
     {

@@ -9,6 +9,9 @@ export const tachesBrunes: Concern = {
       "Mélasma, masque de grossesse, taches de soleil : la cosmétique plafonne. Un médecin prescrit les actifs dépigmentants qui agissent vraiment et vous suit dans la durée. Consultation 49 €.",
     noindex: true,
   },
+  heroProof: { label: 'Avis vérifiés sur Trustpilot' },
+  faqPosition: 'early',
+  objectionsTitle: 'Ce que vous vous demandez',
   hero: {
     kicker: 'Taches & mélasma',
     title: 'Vos taches résistent',
@@ -72,6 +75,18 @@ export const tachesBrunes: Concern = {
     imageAlt: 'Femme avec des taches pigmentaires sur le visage',
     imageBadge: '',
   },
+  treatment: {
+    kicker: 'Votre traitement',
+    title: 'Une formule préparée',
+    highlight: "pour vos taches, et pour votre peau.",
+    lead: "Si le médecin la prescrit, votre formule est préparée en pharmacie à partir de son ordonnance : les dépigmentants qu'il a choisis, aux dosages adaptés à votre phototype.",
+    benefits: [
+      { label: 'Sur-mesure', body: "Pas la même formule pour tout le monde : les actifs et leurs concentrations sont décidés pour votre peau, à partir de votre dossier et de vos photos." },
+      { label: 'Une seule application', body: "Les actifs sont combinés dans une formule unique, à appliquer le soir. Pas une routine à sept étapes qu'on abandonne au bout d'un mois." },
+      { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
+    ],
+    footnote: "Préparation en pharmacie de 30 à 60 € selon la formule, avec remboursement partiel possible. Toute prescription relève de la seule appréciation du médecin : selon votre cas, il peut aussi recommander un traitement classique ou une approche cosmétique.",
+  },
   expectations: {
     title: 'À quoi vous pouvez',
     highlight: 'vous attendre.',
@@ -91,7 +106,7 @@ export const tachesBrunes: Concern = {
     after: { src: '/images/laetitia-after.webp', alt: 'Laetitia après 4 mois', objectPosition: 'center 15%' },
     afterLabel: 'Après · 4 mois',
     quote: "Pendant 10 ans j'ai cherché une solution pour ma peau. Aujourd'hui quand je vois les photos d'avant, je n'en reviens pas.",
-    context: "Hyperpigmentation diagnostiquée par sa dermatologue. Parcours de 4 mois avec l'équipe Mixt et formule magistrale prescrite.",
+    context: "Hyperpigmentation diagnostiquée par sa dermatologue. Parcours de 4 mois avec l'équipe et formule magistrale prescrite.",
     legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
   },
   review: {

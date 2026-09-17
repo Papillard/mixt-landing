@@ -92,7 +92,7 @@ export const antiAge: Concern = {
     highlight: 'pour votre peau, et pour personne d\'autre.',
     lead: "Si le médecin la prescrit, votre formule est préparée en pharmacie à partir de votre ordonnance : les actifs qu'il a choisis, aux dosages qu'il a fixés pour votre peau. Pas un produit de rayon.",
     benefits: [
-      { label: 'Sur-mesure', body: "Les actifs et leurs concentrations sont décidés pour votre peau, pas pour une moyenne. C'est ce que permet la préparation magistrale." },
+      { label: 'Sur-mesure', body: "Pas la même formule pour tout le monde : les actifs et leurs concentrations sont décidés pour votre peau, à partir de votre dossier et de vos photos." },
       { label: 'Une seule application', body: "Les actifs sont combinés dans une formule unique, à appliquer le soir. Pas une routine à sept étapes qu'on abandonne au bout d'un mois." },
       { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
     ],
@@ -115,7 +115,7 @@ export const antiAge: Concern = {
     ],
   },
   review: {
-    quote: "La crème est plus efficace que tout ce que j'ai pu tester pour l'instant, et l'équipe Mixt est super disponible.",
+    quote: "La crème est plus efficace que tout ce que j'ai pu tester pour l'instant, et l'équipe est super disponible.",
     name: 'Sadie B.',
     tag: 'Formule sur-mesure',
   },

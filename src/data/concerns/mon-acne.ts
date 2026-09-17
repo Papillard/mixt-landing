@@ -9,6 +9,9 @@ export const monAcne: Concern = {
       "Vous avez tout essayé et l'acné revient ? Un vrai médecin cherche la cause avec vous et construit un plan de soin personnalisé, avec un suivi dans la durée. Consultation 49 €.",
     noindex: true,
   },
+  heroProof: { label: 'Avis vérifiés sur Trustpilot' },
+  faqPosition: 'early',
+  objectionsTitle: 'Ce que vous vous demandez',
   hero: {
     kicker: 'Acné qui persiste',
     title: 'Tout essayé.',
@@ -69,13 +72,37 @@ export const monAcne: Concern = {
     after: { src: '/images/elodie-after.webp', alt: 'Elodie après 1 mois', objectPosition: 'center' },
     afterLabel: 'Après · 1 mois',
     quote: "Des années d'acné, j'avais tout essayé, dermato, routines, produits en pharmacie. En quelques semaines ma peau était visiblement plus lisse, mon entourage l'a remarqué.",
-    context: "Acné adulte prise en charge par un médecin Mixt, supervisé par un dermatologue. Parcours d'un mois et formule magistrale prescrite sur-mesure.",
+    context: "Acné adulte prise en charge par un médecin partenaire, supervisé par un dermatologue. Parcours d'un mois et formule magistrale prescrite sur-mesure.",
     legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
   },
   review: {
     quote: "Les premiers résultats sont arrivés très rapidement, en même pas 1 mois, ma peau était plus uniforme et les rougeurs avaient nettement diminué.",
     name: 'Marie D.',
     tag: 'Acné',
+  },
+  treatment: {
+    kicker: 'Votre traitement',
+    title: 'Une formule préparée',
+    highlight: "pour votre peau, pas pour une moyenne.",
+    lead: "Si le médecin la prescrit, votre formule est préparée en pharmacie à partir de son ordonnance : les actifs qu'il a choisis, aux dosages qu'il a fixés pour votre acné.",
+    benefits: [
+      { label: 'Sur-mesure', body: "Pas la même formule pour tout le monde : les actifs et leurs concentrations sont décidés pour votre peau, à partir de votre dossier et de vos photos." },
+      { label: 'Une seule application', body: "Les actifs sont combinés dans une formule unique, à appliquer le soir. Pas une routine à sept étapes qu'on abandonne au bout d'un mois." },
+      { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
+    ],
+    footnote: "Préparation en pharmacie de 30 à 60 € selon la formule, avec remboursement partiel possible. Toute prescription relève de la seule appréciation du médecin : selon votre cas, il peut aussi recommander un traitement classique ou une approche cosmétique.",
+  },
+  expectations: {
+    title: 'Le rythme réel',
+    highlight: "d'un traitement qui marche.",
+    intro: "Personne ne vous le dit avant de commencer : les premières semaines, la peau peut se rebeller. C'est normal, c'est transitoire, et c'est là qu'on arrête trop tôt.",
+    steps: [
+      { when: 'Semaines 1 à 4', body: "La peau s'adapte. Rougeurs, sécheresse, parfois une poussée : c'est la phase d'adaptation au rétinoïde. Le médecin ajuste le dosage pour la traverser." },
+      { when: 'Semaine 8', body: "Moins de nouvelles lésions, un grain de peau plus régulier. Les premiers vrais signes arrivent ici, pas avant." },
+      { when: 'Semaine 12', body: "Une peau nettement plus calme chez celles qui répondent. Le médecin réévalue et ajuste selon vos résultats." },
+      { when: 'Au-delà', body: "On stabilise. L'acné se contrôle dans la durée : on allège quand la peau tient, on renforce si ça repart." },
+    ],
+    footnote: "Résultats individuels, non garantis. La régularité des premières semaines conditionne tout le reste.",
   },
   faq: [
     {

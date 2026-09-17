@@ -45,7 +45,7 @@ export const acne: Concern = {
     after: { src: '/images/elodie-after.webp', alt: 'Elodie après 1 mois', objectPosition: 'center' },
     afterLabel: 'Après · 1 mois',
     quote: "Des années d'acné, j'avais tout essayé, dermato, routines, produits en pharmacie. En quelques semaines ma peau était visiblement plus lisse, mon entourage l'a remarqué.",
-    context: "Acné adulte prise en charge par un médecin Mixt, supervisé par un dermatologue. Parcours d'un mois et formule magistrale prescrite sur-mesure.",
+    context: "Acné adulte prise en charge par un médecin partenaire, supervisé par un dermatologue. Parcours d'un mois et formule magistrale prescrite sur-mesure.",
     legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
   },
   faq: [

@@ -44,7 +44,7 @@ export const rosacee: Concern = {
     after: { src: '/images/melanie-after.webp', alt: 'Marie après 3 mois', objectPosition: 'center' },
     afterLabel: 'Après · 3 mois',
     quote: "Je ne sortais plus sans fond de teint. Maintenant j'ose le visage nu.",
-    context: "Rosacée diagnostiquée par sa dermatologue. Parcours de 3 mois avec l'équipe Mixt et formule magistrale prescrite.",
+    context: "Rosacée diagnostiquée par sa dermatologue. Parcours de 3 mois avec l'équipe et formule magistrale prescrite.",
     legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
   },
   faq: [

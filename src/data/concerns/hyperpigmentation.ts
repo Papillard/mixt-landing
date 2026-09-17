@@ -45,7 +45,7 @@ export const hyperpigmentation: Concern = {
     after: { src: '/images/laetitia-after.webp', alt: 'Laetitia après 4 mois', objectPosition: 'center 15%' },
     afterLabel: 'Après · 4 mois',
     quote: "Pendant 10 ans j'ai cherché une solution pour ma peau. Aujourd'hui quand je vois les photos d'avant, je n'en reviens pas.",
-    context: "Hyperpigmentation diagnostiquée par sa dermatologue. Parcours de 4 mois avec l'équipe Mixt et formule magistrale prescrite.",
+    context: "Hyperpigmentation diagnostiquée par sa dermatologue. Parcours de 4 mois avec l'équipe et formule magistrale prescrite.",
     legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
   },
   faq: [

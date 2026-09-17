@@ -6,6 +6,7 @@ import Button from '../Button.astro';
 import Accordion from '../motion/Accordion.tsx';
 import FadeInSection from '../motion/FadeInSection.tsx';
 import BeforeAfterReveal from '../motion/BeforeAfterReveal.tsx';
+import ProgressCurve from '../motion/ProgressCurve.tsx';
 import type { Concern } from '../../data/concerns/types';
 
 interface Props {
@@ -315,12 +316,12 @@ const structuredData = {
     </div>
   </section>
 
-  {/* ── MECHANISM + ACTIFS ── */}
-  <section class="px-6 md:px-10 py-24 md:py-32 bg-base">
+  {/* ── MECHANISM + ACTIFS (registre vert scientifique : actifs, labo, preuves) ── */}
+  <section class="px-6 md:px-10 py-24 md:py-32 bg-sage-deep text-white">
     <div class="max-w-[1180px] mx-auto">
       <FadeInSection client:load>
-        <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-violet mb-8">
-          <span class="inline-block h-px w-10 bg-violet/80"></span>
+        <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-mint mb-8">
+          <span class="inline-block h-px w-10 bg-mint/70"></span>
           La science dermatologique
         </div>
       </FadeInSection>
@@ -348,32 +349,32 @@ const structuredData = {
         {/* Pédagogie + actifs */}
         <div>
           <FadeInSection client:load>
-            <p class="text-[22px] md:text-[28px] font-medium leading-[1.3] tracking-[-0.02em] text-ink mb-3">
+            <p class="text-[22px] md:text-[28px] font-medium leading-[1.3] tracking-[-0.02em] text-white mb-3">
               {concern.mechanism.lede}
             </p>
-            <p class="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 mb-10">
+            <p class="text-[16px] md:text-[17px] leading-[1.7] text-white/70 mb-10">
               {concern.mechanism.body}
             </p>
           </FadeInSection>
 
           <FadeInSection client:load delay={0.1}>
-            <div class="rounded-[16px] bg-base border border-black/[0.06] shadow-[0_12px_44px_-24px_rgba(54,24,34,0.30)] p-6 md:p-8">
-              <p class="text-[13.5px] md:text-[14px] text-ink-2 leading-[1.5] mb-5">
+            <div class="rounded-[16px] bg-white/[0.06] border border-white/15 p-6 md:p-8">
+              <p class="text-[13.5px] md:text-[14px] text-white/65 leading-[1.5] mb-5">
                 Les actifs utilisés en dermatologie sur cette condition.
               </p>
-              <div class="hidden sm:grid sm:grid-cols-[200px_1fr] gap-x-8 pb-2.5 border-b border-black/[0.12]">
-                <span class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">Actif</span>
-                <span class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-3 font-medium">Effet</span>
+              <div class="hidden sm:grid sm:grid-cols-[200px_1fr] gap-x-8 pb-2.5 border-b border-white/20">
+                <span class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-mint font-medium">Actif</span>
+                <span class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-mint font-medium">Effet</span>
               </div>
               {concern.mechanism.actifs.map((a, i) => (
-                <div class={`grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-x-8 gap-y-1 py-3.5 items-baseline ${i > 0 ? 'border-t border-black/[0.07]' : ''}`}>
-                  <span class="text-[14px] sm:text-[14.5px] font-semibold text-ink tracking-[-0.005em]">{a.name}</span>
-                  <p class="text-[13.5px] leading-[1.5] text-ink-2 m-0">
-                    <strong class="font-semibold text-ink">{a.bold}</strong>{a.rest ? ' ' + a.rest : (/[.!?]$/.test(a.bold) ? '' : '.')}
+                <div class={`grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-x-8 gap-y-1 py-3.5 items-baseline ${i > 0 ? 'border-t border-white/10' : ''}`}>
+                  <span class="text-[14px] sm:text-[14.5px] font-semibold text-white tracking-[-0.005em]">{a.name}</span>
+                  <p class="text-[13.5px] leading-[1.5] text-white/70 m-0">
+                    <strong class="font-semibold text-white">{a.bold}</strong>{a.rest ? ' ' + a.rest : (/[.!?]$/.test(a.bold) ? '' : '.')}
                   </p>
                 </div>
               ))}
-              <div class="mt-4 pt-3.5 border-t border-black/[0.07] text-[12.5px] text-ink-3 leading-[1.55]">
+              <div class="mt-4 pt-3.5 border-t border-white/10 text-[12.5px] text-white/55 leading-[1.55]">
                 {concern.mechanism.footer} Ces actifs ne sont pas disponibles en cosmétique : ils sont prescrits et préparés en pharmacie sur ordonnance médicale.
               </div>
             </div>
@@ -492,6 +493,12 @@ const structuredData = {
               {concern.expectations.intro}
             </p>
           )}
+        </FadeInSection>
+        {/* Device signature : courbe de suivi S.0 -> S.12 (charte Mixt) */}
+        <FadeInSection client:load delay={0.1} y={18}>
+          <div class="mb-14 md:mb-16 rounded-2xl border border-black/[0.08] bg-base p-6 md:p-9 text-ink">
+            <ProgressCurve client:visible label={concern.chip} />
+          </div>
         </FadeInSection>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {concern.expectations.steps.map((s, i) => (
