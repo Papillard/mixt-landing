@@ -77,6 +77,11 @@ export type Concern = {
     title: string;
     highlight: string;
     paras: string[];
+    image?: string | null;
+    imageAlt?: string;
+    /** Brief de la photo à produire, affiché dans le placeholder. */
+    imageBrief?: string;
+    imageDesc?: string;
   };
   /** The dermatology mechanism + named actives (the credibility core). */
   mechanism: {
@@ -84,6 +89,8 @@ export type Concern = {
     body: string;
     actifs: Actif[];
     footer: string;
+    imageBrief?: string;
+    imageDesc?: string;
     /**
      * Illustration for the mechanism section. Defaults to the pharmacy lab shot.
      * Pass `null` to render no photo at all: better an empty column than an
@@ -148,6 +155,10 @@ export type Concern = {
     lead: string;
     benefits: { label: string; body: string }[];
     footnote: string;
+    image?: string | null;
+    imageAlt?: string;
+    imageBrief?: string;
+    imageDesc?: string;
   };
   /** Optional benefit-led relance band. `image` adds a landscape visual beside it. */
   midCta?: {
@@ -156,6 +167,8 @@ export type Concern = {
     highlight?: string;
     image?: string;
     imageAlt?: string;
+    imageBrief?: string;
+    imageDesc?: string;
   };
   /**
    * Optional override of the cohort-invite block (shown only when `proof` is absent).
@@ -165,6 +178,8 @@ export type Concern = {
     /** `null` renders the invite without any portrait. */
     image: string | null;
     imageAlt?: string;
+    imageBrief?: string;
+    imageDesc?: string;
     /** Overlay name; omit to hide the name/role overlay entirely. */
     name?: string;
     role?: string;

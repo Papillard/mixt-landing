@@ -29,6 +29,9 @@ export const tachesBrunes: Concern = {
       "Pire, s'acharner avec les mauvais produits aggrave la tache. Un peeling trop fort ou un actif mal dosé enflamme la zone et la fonce.",
       "La dermatologie agit là où ça se joue : la fabrication du pigment. Les bons actifs, aux bons dosages, ajustés au fil des mois.",
     ],
+    image: null,
+    imageBrief: 'Macro taches sur la pommette',
+    imageDesc: "Gros plan sur des taches de mélasma bien dessinées sur la pommette. Lumière du jour, fond neutre chaud, peau réelle.",
   },
   midCta: {
     kicker: 'Reprendre la main',
@@ -86,6 +89,9 @@ export const tachesBrunes: Concern = {
       { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
     ],
     footnote: "Préparation en pharmacie de 30 à 60 € selon la formule, avec remboursement partiel possible. Toute prescription relève de la seule appréciation du médecin : selon votre cas, il peut aussi recommander un traitement classique ou une approche cosmétique.",
+    image: null,
+    imageBrief: 'Flacon de préparation magistrale',
+    imageDesc: "Le flacon Mixt sur un plan clair, lumière naturelle rasante, étiquette lisible. Sobre et premium, jamais packshot sur fond blanc.",
   },
   expectations: {
     title: 'À quoi vous pouvez',

@@ -7,6 +7,7 @@ import Accordion from '../motion/Accordion.tsx';
 import FadeInSection from '../motion/FadeInSection.tsx';
 import BeforeAfterReveal from '../motion/BeforeAfterReveal.tsx';
 import ProgressCurve from '../motion/ProgressCurve.tsx';
+import PhotoSlot from './PhotoSlot.astro';
 import type { Concern } from '../../data/concerns/types';
 
 interface Props {
@@ -143,7 +144,7 @@ const structuredData = {
       <div class="w-full lg:w-[53%] lg:pr-14">
         <FadeInSection client:load y={14}>
           {concern.heroProof && (
-            <div class="inline-flex items-center gap-2.5 mb-4 rounded-full bg-cream px-3 py-1.5">
+            <div class="flex items-center gap-2 mb-3.5">
               <span class="inline-flex items-center gap-[2px]">
                 {[0, 1, 2, 3, 4].map(() => (
                   <span class="inline-flex items-center justify-center w-[15px] h-[15px] rounded-[2px]" style="background:#00b67a">
@@ -151,11 +152,10 @@ const structuredData = {
                   </span>
                 ))}
               </span>
-              <span class="text-[12.5px] text-ink">{concern.heroProof.label}</span>
+              <span class="text-[12.5px] text-ink-2">{concern.heroProof.label}</span>
             </div>
           )}
-          <div class="inline-flex items-center gap-2 mb-6 rounded-full bg-ember/10 text-ember-deep px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em]">
-            <span class="inline-block w-[5px] h-[5px] rounded-full bg-ember-deep"></span>
+          <div class="mb-5 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ember-deep">
             {concern.hero.kicker}
           </div>
           <h1 class="text-balance text-[38px] md:text-[48px] lg:text-[56px] font-medium leading-[1.06] tracking-[-0.035em] text-ink mb-6">
@@ -198,17 +198,29 @@ const structuredData = {
 
   {/* ── PROBLEM ── */}
   <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
-    <div class="max-w-[760px] mx-auto">
-      <FadeInSection client:load>
-        <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.12] tracking-[-0.035em] text-ink mb-10">
-          {concern.problem.title}<br />
-          <span>{concern.problem.highlight}</span>
-        </h2>
-      </FadeInSection>
-      <FadeInSection client:load delay={0.1}>
-        <div class="flex flex-col gap-6 text-[17px] md:text-[18px] leading-[1.75] text-rich">
-          {concern.problem.paras.map((p) => <p>{p}</p>)}
-        </div>
+    <div class="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-20 items-center">
+      <div>
+        <FadeInSection client:load>
+          <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.12] tracking-[-0.035em] text-ink mb-8">
+            {concern.problem.title}<br />
+            <span>{concern.problem.highlight}</span>
+          </h2>
+        </FadeInSection>
+        <FadeInSection client:load delay={0.1}>
+          <div class="flex flex-col gap-5 text-[16.5px] md:text-[17.5px] leading-[1.7] text-rich">
+            {concern.problem.paras.map((p) => <p>{p}</p>)}
+          </div>
+        </FadeInSection>
+      </div>
+      <FadeInSection client:load delay={0.15} y={20}>
+        <PhotoSlot
+          src={concern.problem.image ?? null}
+          alt={concern.problem.imageAlt ?? ''}
+          brief={concern.problem.imageBrief ?? 'Gros plan sur la condition'}
+          desc={concern.problem.imageDesc}
+          ratio="4/5"
+          class="shadow-[0_20px_60px_-24px_rgba(54,24,34,0.32)]"
+        />
       </FadeInSection>
     </div>
   </section>
@@ -216,7 +228,7 @@ const structuredData = {
   {/* ── CONTRAST (signature persona : prix / accès / cosméto vs prescription) ── */}
   {concern.contrast && (
     <section class="px-6 md:px-10 py-20 md:py-28 bg-base">
-      <div class="max-w-[980px] mx-auto">
+      <div class="max-w-[1100px] mx-auto">
         {concern.contrast.kicker && (
           <FadeInSection client:load>
             <div class="flex items-center justify-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-10">
@@ -226,16 +238,16 @@ const structuredData = {
             </div>
           </FadeInSection>
         )}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 items-stretch">
-          <FadeInSection client:load y={16}>
-            <div class="h-full rounded-[18px] border border-black/[0.08] bg-cream/60 p-7 md:p-9">
-              <div class="text-[40px] md:text-[52px] font-medium tracking-[-0.03em] text-ink-3 leading-none mb-4">{concern.contrast.left.value}</div>
-              <p class="text-[16px] md:text-[17px] leading-[1.5] text-ink-2 m-0">{concern.contrast.left.label}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px md:gap-px items-stretch rounded-[20px] overflow-hidden border border-black/[0.10]">
+          <FadeInSection client:load y={16} className="h-full">
+            <div class="h-full bg-cream p-9 md:p-12">
+              <div class="text-[58px] md:text-[80px] font-medium tracking-[-0.04em] text-ink-3/50 leading-[0.92] mb-6">{concern.contrast.left.value}</div>
+              <p class="text-[16px] md:text-[17px] leading-[1.5] text-ink-3 m-0">{concern.contrast.left.label}</p>
               {concern.contrast.left.items && (
                 <ul class="mt-6 flex flex-col gap-2.5 list-none p-0 m-0">
                   {concern.contrast.left.items.map((it) => (
                     <li class="flex items-start gap-2.5 text-[14px] leading-[1.45] text-ink-3">
-                      <span class="mt-[7px] inline-block h-[6px] w-[6px] rounded-full bg-ink-3/40 shrink-0"></span>
+                      <span class="mt-[7px] inline-block h-[6px] w-[6px] rounded-full bg-ink-3/35 shrink-0"></span>
                       {it}
                     </li>
                   ))}
@@ -243,15 +255,15 @@ const structuredData = {
               )}
             </div>
           </FadeInSection>
-          <FadeInSection client:load y={16} delay={0.1}>
-            <div class="h-full rounded-[18px] border border-ember/25 bg-ember/[0.06] p-7 md:p-9">
-              <div class="text-[40px] md:text-[52px] font-medium tracking-[-0.03em] text-ember-deep leading-none mb-4">{concern.contrast.right.value}</div>
-              <p class="text-[16px] md:text-[17px] leading-[1.5] text-ink m-0">{concern.contrast.right.label}</p>
+          <FadeInSection client:load y={16} delay={0.1} className="h-full">
+            <div class="h-full bg-deep text-white p-9 md:p-12">
+              <div class="text-[58px] md:text-[80px] font-medium tracking-[-0.04em] text-ember leading-[0.92] mb-6">{concern.contrast.right.value}</div>
+              <p class="text-[16px] md:text-[17px] leading-[1.5] text-white/85 m-0">{concern.contrast.right.label}</p>
               {concern.contrast.right.items && (
                 <ul class="mt-6 flex flex-col gap-2.5 list-none p-0 m-0">
                   {concern.contrast.right.items.map((it) => (
-                    <li class="flex items-start gap-2.5 text-[14px] leading-[1.45] text-rich">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-[3px] w-[14px] h-[14px] text-jade-deep shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
+                    <li class="flex items-start gap-2.5 text-[14px] leading-[1.45] text-white/80">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-[3px] w-[14px] h-[14px] text-mint shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
                       {it}
                     </li>
                   ))}
@@ -293,25 +305,21 @@ const structuredData = {
         </div>
       </FadeInSection>
 
-      <div class={`grid grid-cols-1 gap-10 lg:gap-16 items-start ${mechanismImage ? 'lg:grid-cols-[0.8fr_1.2fr]' : ''}`}>
-        {/* Photo : uniquement si on a un visuel de qualité. Sinon, pas de photo du tout. */}
-        {mechanismImage && (
-          <FadeInSection client:load delay={0.1} y={20}>
-            <div class="relative aspect-[3/2] lg:aspect-[4/5] overflow-hidden rounded-2xl bg-blush/30 shadow-[0_20px_60px_-22px_rgba(54,24,34,0.32)] lg:sticky lg:top-28">
-              <img
-                src={mechanismImage}
-                alt={concern.mechanism.imageAlt ?? "Préparation d'une formule magistrale en pharmacie"}
-                class="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
-              />
-              {concern.mechanism.imageBadge !== '' && (
-                <div class="absolute left-5 top-5 z-[5] rounded-[6px] bg-deep px-3 py-1.5 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
-                  {concern.mechanism.imageBadge ?? 'Préparé en pharmacie'}
-                </div>
-              )}
-            </div>
-          </FadeInSection>
-        )}
+      <div class="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
+        <FadeInSection client:load delay={0.1} y={20}>
+          <div class="lg:sticky lg:top-28">
+            <PhotoSlot
+              src={mechanismImage}
+              alt={concern.mechanism.imageAlt ?? "Préparation d'une formule magistrale en pharmacie"}
+              brief={concern.mechanism.imageBrief ?? 'Macro peau'}
+              desc={concern.mechanism.imageDesc}
+              tone="dark"
+              ratio="4/5"
+              badge={concern.mechanism.imageBadge === '' ? undefined : (concern.mechanism.imageBadge ?? 'Préparé en pharmacie')}
+              class="shadow-[0_20px_60px_-22px_rgba(54,24,34,0.32)]"
+            />
+          </div>
+        </FadeInSection>
 
         {/* Pédagogie + actifs */}
         <div>
@@ -395,16 +403,17 @@ const structuredData = {
             Commencer maintenant
           </div>
         </FadeInSection>
-        <div class={`grid grid-cols-1 gap-10 lg:gap-16 items-center ${cohortImage ? 'lg:grid-cols-[0.85fr_1.15fr]' : ''}`}>
-          {/* Portrait : uniquement si visuel de qualité brand */}
-          {cohortImage && (
+        <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-center">
           <FadeInSection client:load delay={0.1} y={20}>
-            <div class="relative aspect-[4/5] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-22px_rgba(54,24,34,0.32)]">
-              <img
+            <div class="relative">
+              <PhotoSlot
                 src={cohortImage}
                 alt={concern.cohort?.imageAlt ?? 'Laetitia, co-fondatrice de Mixt'}
-                class="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
+                brief={concern.cohort?.imageBrief ?? 'Portrait patiente'}
+                desc={concern.cohort?.imageDesc}
+                ratio="4/5"
+                rounded="rounded-3xl"
+                class="shadow-[0_20px_60px_-22px_rgba(54,24,34,0.32)]"
               />
               {(concern.cohort ? concern.cohort.name : 'Laetitia') && (
                 <div class="absolute left-5 bottom-5 z-[5] rounded-[6px] bg-deep px-3 py-2 text-white">
@@ -416,7 +425,6 @@ const structuredData = {
               )}
             </div>
           </FadeInSection>
-          )}
 
           {/* Invitation à consulter */}
           <FadeInSection client:load delay={0.15}>
@@ -444,17 +452,21 @@ const structuredData = {
 
   {/* ── MID CTA (relance bénéfice, photo paysage optionnelle) ── */}
   <section class="relative overflow-hidden bg-deep text-white">
-    {concern.midCta?.image && (
+    {(concern.midCta?.image || concern.midCta?.imageBrief) && (
       <div class="absolute inset-y-0 right-0 hidden lg:block w-[42%]">
-        <img
-          src={concern.midCta.image}
+        <PhotoSlot
+          src={concern.midCta.image ?? null}
           alt={concern.midCta.imageAlt ?? ''}
-          class="absolute inset-0 h-full w-full object-cover"
-          loading="lazy"
+          brief={concern.midCta.imageBrief ?? ''}
+          desc={concern.midCta.imageDesc}
+          tone="dark"
+          ratio="auto"
+          rounded=""
+          class="absolute inset-0 h-full w-full"
         />
       </div>
     )}
-    <div class={`relative z-[2] px-6 md:px-10 py-14 md:py-20 max-w-[1100px] mx-auto flex flex-col gap-7 ${concern.midCta?.image ? 'lg:pr-[46%]' : 'md:flex-row md:items-center md:justify-between'}`}>
+    <div class={`relative z-[2] px-6 md:px-10 py-14 md:py-20 max-w-[1100px] mx-auto flex flex-col gap-7 ${(concern.midCta?.image || concern.midCta?.imageBrief) ? 'lg:pr-[48%] lg:min-h-[340px] lg:justify-center' : 'md:flex-row md:items-center md:justify-between'}`}>
       <FadeInSection client:load>
         <div class="font-mono text-[11px] uppercase tracking-[0.18em] text-ember mb-3">
           {concern.midCta?.kicker ?? 'Prête à avancer ?'}
@@ -500,16 +512,6 @@ const structuredData = {
             <ProgressCurve client:visible label={concern.chip} />
           </div>
         </FadeInSection>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-          {concern.expectations.steps.map((s, i) => (
-            <FadeInSection client:load delay={i * 0.1} y={18}>
-              <div class="border-t border-black/[0.12] pt-5">
-                <div class="font-mono text-[12px] tracking-[0.14em] uppercase text-ember-deep mb-3">{s.when}</div>
-                <p class="text-[15px] leading-[1.6] text-rich">{s.body}</p>
-              </div>
-            </FadeInSection>
-          ))}
-        </div>
         {concern.expectations.footnote && (
           <FadeInSection client:load delay={0.15}>
             <p class="mt-12 pt-8 border-t border-black/[0.08] text-[13.5px] text-ink-2 italic leading-relaxed max-w-[720px]">
@@ -563,8 +565,22 @@ const structuredData = {
             {concern.treatment.title}<br />
             <span>{concern.treatment.highlight}</span>
           </h2>
-          <p class="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 max-w-[600px] mb-12">{concern.treatment.lead}</p>
         </FadeInSection>
+        <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-center mb-12">
+          <FadeInSection client:load y={20}>
+            <PhotoSlot
+              src={concern.treatment.image ?? null}
+              alt={concern.treatment.imageAlt ?? ''}
+              brief={concern.treatment.imageBrief ?? 'Préparation magistrale'}
+              desc={concern.treatment.imageDesc}
+              ratio="4/5"
+              class="shadow-[0_20px_60px_-24px_rgba(54,24,34,0.32)]"
+            />
+          </FadeInSection>
+          <FadeInSection client:load delay={0.1}>
+            <p class="text-[16px] md:text-[17px] leading-[1.7] text-ink-2">{concern.treatment.lead}</p>
+          </FadeInSection>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
           {concern.treatment.benefits.map((b, i) => (
             <FadeInSection client:load delay={i * 0.08} y={16}>

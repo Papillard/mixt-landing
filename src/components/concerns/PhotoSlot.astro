@@ -1,0 +1,80 @@
+---
+/**
+ * Emplacement photo. Affiche l'image si elle existe, sinon un placeholder
+ * explicite décrivant la photo à produire.
+ *
+ * Règle brand : jamais de photo hors-sujet pour boucher un trou. Tant que le
+ * bon visuel n'existe pas, on assume un aplat légendé plutôt qu'une image
+ * qui ne sert pas le message.
+ */
+interface Props {
+  src?: string | null;
+  alt?: string;
+  /** Titre court du placeholder, ex. "Macro peau foncée". */
+  brief: string;
+  /** Description de la photo à générer. */
+  desc?: string;
+  /** Format, ex. "4/5", "16/9", "3/2". */
+  ratio?: string;
+  objectPosition?: string;
+  class?: string;
+  /** Pastille posée en haut à gauche de l'image. */
+  badge?: string;
+  rounded?: string;
+  /** 'dark' quand le placeholder est posé sur un aplat vert ou aubergine. */
+  tone?: 'light' | 'dark';
+}
+const {
+  src = null,
+  alt = '',
+  brief,
+  desc,
+  ratio = '4/5',
+  objectPosition = 'center',
+  class: extra = '',
+  badge,
+  rounded = 'rounded-2xl',
+  tone = 'light',
+} = Astro.props;
+
+const ph =
+  tone === 'dark'
+    ? { box: 'bg-white/[0.07] border border-white/20', kicker: 'text-mint/80', title: 'text-white', desc: 'text-white/65' }
+    : { box: 'bg-blush/50 border border-ember/25', kicker: 'text-ember-deep/75', title: 'text-ink', desc: 'text-ink-2' };
+---
+
+<div
+  class={`relative overflow-hidden ${rounded} ${extra}`}
+  style={`aspect-ratio:${ratio};`}
+>
+  {src ? (
+    <>
+      <img
+        src={src}
+        alt={alt}
+        class="absolute inset-0 h-full w-full object-cover"
+        style={`object-position:${objectPosition};`}
+        loading="lazy"
+      />
+      {badge && (
+        <div class="absolute left-5 top-5 z-[5] rounded-[6px] bg-deep px-3 py-1.5 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
+          {badge}
+        </div>
+      )}
+    </>
+  ) : (
+    <div class={`absolute inset-0 flex flex-col items-center justify-center text-center px-7 ${ph.box}`}>
+      <span class={`font-mono text-[10px] uppercase tracking-[0.2em] mb-3 ${ph.kicker}`}>
+        Photo à produire
+      </span>
+      <span class={`text-[17px] md:text-[19px] font-medium leading-snug max-w-[280px] ${ph.title}`}>
+        {brief}
+      </span>
+      {desc && (
+        <span class={`mt-2.5 text-[13px] leading-[1.5] max-w-[300px] ${ph.desc}`}>
+          {desc}
+        </span>
+      )}
+    </div>
+  )}
+</div>

@@ -29,6 +29,9 @@ export const monAcne: Concern = {
       "L'acné, c'est un follicule qui se bouche puis s'enflamme, avec une part hormonale fréquente. Les bons actifs existent : c'est le dosage et l'association qui font la différence.",
       "Et sans suivi, même le bon traitement échoue. Un rétinoïde irrite au début, c'est normal, mais si personne ne vous le dit, vous arrêtez trop tôt.",
     ],
+    image: null,
+    imageBrief: 'Macro joue, acné inflammatoire',
+    imageDesc: "Gros plan sur une joue de jeune femme avec acné active. Lumière naturelle chaude, fond clair, texture de peau réelle sans retouche.",
   },
   midCta: {
     kicker: 'Reprendre la main',
@@ -91,6 +94,9 @@ export const monAcne: Concern = {
       { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
     ],
     footnote: "Préparation en pharmacie de 30 à 60 € selon la formule, avec remboursement partiel possible. Toute prescription relève de la seule appréciation du médecin : selon votre cas, il peut aussi recommander un traitement classique ou une approche cosmétique.",
+    image: null,
+    imageBrief: 'Flacon de préparation magistrale',
+    imageDesc: "Le flacon Mixt sur un plan clair, lumière naturelle rasante, étiquette lisible. Sobre et premium, jamais packshot sur fond blanc.",
   },
   expectations: {
     title: 'Le rythme réel',

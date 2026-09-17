@@ -29,6 +29,9 @@ export const rougeursRosacee: Concern = {
       "Derrière les rougeurs, plusieurs mécanismes se combinent : des vaisseaux hyperréactifs, une inflammation chronique, parfois des micro-organismes. Une crème apaisante ne peut pas tout couvrir.",
       "La rosacée ne se guérit pas en une cure, elle se contrôle. Avec les bons traitements et un suivi qui ajuste au fil des poussées.",
     ],
+    image: null,
+    imageBrief: 'Macro rougeurs sur les joues',
+    imageDesc: "Gros plan sur des rougeurs de rosacée diffuses avec vaisseaux visibles. Lumière du jour, fond neutre, peau réelle sans filtre.",
   },
   midCta: {
     kicker: 'Retrouvez votre peau',
@@ -100,6 +103,9 @@ export const rougeursRosacee: Concern = {
       { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
     ],
     footnote: "Préparation en pharmacie de 30 à 60 € selon la formule, avec remboursement partiel possible. Toute prescription relève de la seule appréciation du médecin : selon votre cas, il peut aussi recommander un traitement classique ou une approche cosmétique.",
+    image: null,
+    imageBrief: 'Flacon de préparation magistrale',
+    imageDesc: "Le flacon Mixt sur un plan clair, lumière naturelle rasante, étiquette lisible. Sobre et premium, jamais packshot sur fond blanc.",
   },
   expectations: {
     title: 'Le rythme réel',

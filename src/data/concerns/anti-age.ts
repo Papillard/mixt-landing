@@ -28,11 +28,16 @@ export const antiAge: Concern = {
       "Ce qui compte n'est donc pas la concentration affichée sur un flacon, mais le dosage choisi par un médecin pour votre peau, et la rigueur du suivi.",
       "Un anti-âge sérieux n'est pas une accumulation de produits. C'est un protocole évalué, suivi et ajusté dans le temps.",
     ],
+    image: null,
+    imageBrief: 'Macro ridules péri-oculaires',
+    imageDesc: "Gros plan sur le contour de l'oeil d'une femme 45-55 ans : ridules et texture assumées. Lumière rasante douce, fond neutre chaud.",
   },
   midCta: {
     kicker: 'Le vrai standard médical',
     title: 'Une peau plus ferme, plus lisse.',
     highlight: 'Prouvé, pas promis.',
+    imageBrief: 'Rituel de soin, femme 45-55',
+    imageDesc: "Femme mature appliquant son soin devant le miroir de sa salle de bain, lumière du matin. Cadrage paysage, sujet décalé à droite.",
   },
   contrast: {
     kicker: 'Ce qui sépare les deux',
@@ -69,6 +74,8 @@ export const antiAge: Concern = {
     footer:
       "Le médecin choisit les actifs et dosages adaptés à votre peau et à vos objectifs, selon son évaluation clinique. La trétinoïne demande un accompagnement : dosage progressif, gestion de la phase d'adaptation, ajustements.",
     image: null,
+    imageBrief: 'Préparation en pharmacie',
+    imageDesc: "Mains du préparateur pesant les actifs au comptoir, lumière du jour. Geste précis, jamais de blouse ni de gants trop médicalisés.",
   },
   cohort: {
     image: '/images/agence-lifestyle-lit.webp',
@@ -97,6 +104,9 @@ export const antiAge: Concern = {
       { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
     ],
     footnote: "Préparation en pharmacie de 30 à 60 € selon la formule, avec remboursement partiel possible. Toute prescription relève de la seule appréciation du médecin : selon votre cas, il peut aussi recommander un traitement classique ou une approche cosmétique.",
+    image: null,
+    imageBrief: 'Flacon de préparation magistrale',
+    imageDesc: "Le flacon Mixt sur un plan clair, lumière naturelle rasante, étiquette lisible. Sobre et premium, jamais packshot sur fond blanc.",
   },
   authority: {
     kicker: 'Qui conçoit votre protocole',

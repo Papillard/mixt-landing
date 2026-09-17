@@ -28,11 +28,16 @@ export const acnePeauNoire: Concern = {
       "Et beaucoup de traitements trop agressifs l'aggravent. Sur un phototype foncé, un actif mal dosé crée une tache là où il devait l'effacer.",
       "La bonne approche traite les deux fronts dans un seul plan : calmer l'acné, estomper les marques, sans jamais agresser.",
     ],
+    image: null,
+    imageBrief: 'Macro joue, phototype V',
+    imageDesc: "Gros plan sur une joue peau foncée montrant à la fois des boutons actifs et des marques brunes post-inflammatoires. Lumière naturelle chaude, fond clair, texture de peau réelle.",
   },
   midCta: {
     kicker: 'Sans attendre six mois',
     title: 'Une peau nette,',
     highlight: 'sans les taches qui restent.',
+    imageBrief: 'Portrait paysage, phototype V',
+    imageDesc: "Femme noire 25-30 ans, teint net et uniforme, regard vers une fenêtre, lumière naturelle, fond neutre chaud. Sujet décalé à droite.",
   },
   contrast: {
     kicker: 'Arrêtez d\'attendre',
@@ -59,9 +64,29 @@ export const acnePeauNoire: Concern = {
     footer:
       'Le médecin choisit les actifs et dosages adaptés à votre phototype et à votre cas, selon son évaluation clinique. Sur peau foncée, la prudence sur les dosages est essentielle pour ne pas créer de nouvelles taches.',
     image: null,
+    imageBrief: 'Application du soin, peau foncée',
+    imageDesc: "Mains appliquant une formule sur le visage, peau foncée, salle de bain en lumière du jour. Geste du quotidien, cadrage vertical.",
   },
   cohort: {
     image: null,
+    imageBrief: 'Portrait "après", phototype V',
+    imageDesc: "Femme noire 25-35 ans, peau nette et uniforme, sourire discret, fond clair chaud. Expression calme et confiante, sans retouche lissante.",
+  },
+  authority: {
+    kicker: 'Qui conçoit votre protocole',
+    title: 'Une dermatologue',
+    highlight: 'derrière chaque ordonnance.',
+    image: '/images/besthabee-consult.webp',
+    imageAlt: 'Dr Bethsabée Levy Garel, dermatologue fondatrice de Mixt',
+    name: 'Dr Bethsabée Levy Garel',
+    role: 'Dermatologue · Fondatrice',
+    quote: "Sur une peau foncée, l'erreur classique est de taper trop fort sur l'acné. On gagne le bouton et on perd le teint.",
+    points: [
+      'Dermatologue formée à la Sorbonne, ex-Cochin',
+      'Définit les protocoles de traitement Mixt',
+      'Supervise les médecins qui vous consultent',
+      'Chaque ordonnance relève de la décision du médecin qui vous suit',
+    ],
   },
   review: {
     quote: "Les premiers résultats sont arrivés très rapidement, en même pas 1 mois, ma peau était plus uniforme et les rougeurs avaient nettement diminué.",
@@ -79,6 +104,9 @@ export const acnePeauNoire: Concern = {
       { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
     ],
     footnote: "Préparation en pharmacie de 30 à 60 € selon la formule, avec remboursement partiel possible. Toute prescription relève de la seule appréciation du médecin : selon votre cas, il peut aussi recommander un traitement classique ou une approche cosmétique.",
+    image: null,
+    imageBrief: 'Flacon de préparation magistrale',
+    imageDesc: "Le flacon Mixt sur un plan clair, lumière naturelle rasante, étiquette lisible. Sobre et premium, jamais packshot e-commerce sur fond blanc.",
   },
   expectations: {
     title: 'Le rythme réel',
