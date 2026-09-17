@@ -40,12 +40,12 @@ export const hyperpigmentation: Concern = {
   },
   proof: {
     name: 'Laetitia, 41 ans',
-    meta: 'Hyperpigmentation · 4 mois',
+    meta: 'Co-fondatrice de Mixt · Hyperpigmentation · 4 mois',
     before: { src: '/images/laetitia-before.webp', alt: 'Laetitia avant le protocole', objectPosition: 'center 15%' },
     after: { src: '/images/laetitia-after.webp', alt: 'Laetitia après 4 mois', objectPosition: 'center 15%' },
     afterLabel: 'Après · 4 mois',
     quote: "Pendant 10 ans j'ai cherché une solution pour ma peau. Aujourd'hui quand je vois les photos d'avant, je n'en reviens pas.",
-    context: "Hyperpigmentation diagnostiquée par sa dermatologue. Parcours de 4 mois avec l'équipe et formule magistrale prescrite.",
+    context: "Laetitia est co-fondatrice de Mixt. Elle a cherché une solution pour sa peau pendant dix ans avant de créer l'entreprise, et a suivi exactement le parcours proposé ici : bilan, consultation, formule magistrale prescrite. Hyperpigmentation diagnostiquée par sa dermatologue, parcours de 4 mois.",
     legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
   },
   faq: [
