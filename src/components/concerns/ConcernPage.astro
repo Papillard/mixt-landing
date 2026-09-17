@@ -8,6 +8,7 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 import BeforeAfterReveal from '../motion/BeforeAfterReveal.tsx';
 import ProgressCurve from '../motion/ProgressCurve.tsx';
 import PhotoSlot from './PhotoSlot.astro';
+import PrescriptionLabel from './PrescriptionLabel.astro';
 import type { Concern } from '../../data/concerns/types';
 
 interface Props {
@@ -508,9 +509,9 @@ const structuredData = {
         </FadeInSection>
         {/* Device signature : courbe de suivi S.0 -> S.12 (charte Mixt) */}
         <FadeInSection client:load delay={0.1} y={18}>
-          <div class="mb-14 md:mb-16 rounded-[20px] bg-sage-deep p-7 md:p-10">
-            <div class="flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[0.18em] text-mint/80 mb-7">
-              <span class="inline-block h-px w-8 bg-mint/40"></span>
+          <div class="mb-14 md:mb-16 rounded-[20px] bg-base border border-black/[0.08] p-7 md:p-10">
+            <div class="flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-3 mb-7">
+              <span class="inline-block h-px w-8 bg-ink-3/40"></span>
               {concern.chip} · 12 semaines
             </div>
             <ProgressCurve
@@ -579,14 +580,23 @@ const structuredData = {
         </FadeInSection>
         <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-center mb-12">
           <FadeInSection client:load y={20}>
-            <PhotoSlot
-              src={concern.treatment.image ?? null}
-              alt={concern.treatment.imageAlt ?? ''}
-              brief={concern.treatment.imageBrief ?? 'Préparation magistrale'}
-              desc={concern.treatment.imageDesc}
-              ratio="4/5"
-              class="shadow-[0_20px_60px_-24px_rgba(54,24,34,0.32)]"
-            />
+            {concern.treatment.label ? (
+              <PrescriptionLabel
+                formula={concern.treatment.label.formula}
+                lines={concern.treatment.label.lines}
+                base={concern.treatment.label.base}
+                note={concern.treatment.label.note}
+              />
+            ) : (
+              <PhotoSlot
+                src={concern.treatment.image ?? null}
+                alt={concern.treatment.imageAlt ?? ''}
+                brief={concern.treatment.imageBrief ?? 'Préparation magistrale'}
+                desc={concern.treatment.imageDesc}
+                ratio="4/5"
+                class="shadow-[0_20px_60px_-24px_rgba(54,24,34,0.32)]"
+              />
+            )}
           </FadeInSection>
           <FadeInSection client:load delay={0.1}>
             <p class="text-[16px] md:text-[17px] leading-[1.7] text-ink-2">{concern.treatment.lead}</p>

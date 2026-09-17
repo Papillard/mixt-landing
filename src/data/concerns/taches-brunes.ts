@@ -92,6 +92,18 @@ export const tachesBrunes: Concern = {
     image: null,
     imageBrief: 'Flacon de préparation magistrale',
     imageDesc: "Le flacon Mixt sur un plan clair, lumière naturelle rasante, étiquette lisible. Sobre et premium, jamais packshot sur fond blanc.",
+    label: {
+      formula: 'Pigment Contrôle Boost',
+      lines: [
+        { name: 'Acide azélaïque', pct: '20 %' },
+        { name: 'Acide tranexamique', pct: '5 %' },
+        { name: 'Vitamine PP', pct: '4 %' },
+        { name: 'Centella asiatica', pct: '5 %' },
+        { name: 'Acide kojique', pct: '1 %' },
+      ],
+      base: 'Hydrocrème',
+      note: "Exemple d'une formule réellement prescrite et préparée en pharmacie. La vôtre dépendra de votre peau et de l'évaluation du médecin.",
+    },
   },
   expectations: {
     title: 'À quoi vous pouvez',

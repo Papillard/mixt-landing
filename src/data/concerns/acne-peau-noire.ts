@@ -12,7 +12,7 @@ export const acnePeauNoire: Concern = {
   faqPosition: 'early',
   objectionsTitle: 'Ce que vous vous demandez',
   hero: {
-    kicker: 'Acné & taches · peaux foncées',
+    kicker: 'Acné & taches · peaux noires et métissées',
     title: 'Le bouton part.',
     highlight: 'La tache reste.',
     lead: "Un médecin qui connaît les phototypes IV à VI traite l'acné et les marques en même temps. Consultation sous 7 jours, avec des actifs qui ne foncent pas votre peau.",

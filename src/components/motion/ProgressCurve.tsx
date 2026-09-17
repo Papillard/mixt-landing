@@ -68,21 +68,21 @@ export default function ProgressCurve({
   const marks = milestones.length ? milestones : [{ week: 12, label: '' }];
 
   return (
-    <div ref={ref} className="w-full text-white">
+    <div ref={ref} className="w-full text-ink">
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img"
         aria-label={`Progression sur 12 semaines pour ${label}`}>
 
         {weeks.map((w) => (
           <line key={w} x1={x(w)} y1={padT} x2={x(w)} y2={H - padB}
-            stroke="#ffffff" strokeOpacity="0.10" strokeWidth="1" />
+            stroke="#1A1210" strokeOpacity="0.10" strokeWidth="1" />
         ))}
         <line x1={padL} y1={H - padB} x2={W - padR} y2={H - padB}
-          stroke="#ffffff" strokeOpacity="0.26" strokeWidth="1" />
+          stroke="#1A1210" strokeOpacity="0.22" strokeWidth="1" />
 
         {/* bornes de phase */}
-        <line x1={x(0)} y1={padT - 20} x2={x(4)} y2={padT - 20} stroke="#7FE0A5" strokeOpacity="0.5" strokeWidth="1" />
+        <line x1={x(0)} y1={padT - 20} x2={x(4)} y2={padT - 20} stroke="#3A8A75" strokeOpacity="0.45" strokeWidth="1" />
         <line x1={x(4)} y1={padT - 20} x2={x(12)} y2={padT - 20} stroke="#E8664B" strokeOpacity="0.6" strokeWidth="1" />
-        <text x={x(2)} y={padT - 28} textAnchor="middle" fill="#7FE0A5" fontSize="9.5"
+        <text x={x(2)} y={padT - 28} textAnchor="middle" fill="#3A8A75" fontSize="9.5"
           style={{ letterSpacing: '0.16em', fontFamily: 'ui-monospace, monospace' }} opacity="0.9">
           ADAPTATION
         </text>
@@ -92,9 +92,9 @@ export default function ProgressCurve({
         </text>
 
 
-        <motion.path d={smooth(sidePts)} fill="none" stroke="#7FE0A5" strokeWidth="2"
+        <motion.path d={smooth(sidePts)} fill="none" stroke="#3A8A75" strokeWidth="2"
           strokeDasharray="4 5" strokeLinecap="round"
-          initial={{ opacity: 0 }} animate={inView ? { opacity: 0.7 } : {}}
+          initial={{ opacity: 0 }} animate={inView ? { opacity: 0.75 } : {}}
           transition={{ duration: 0.8, delay: 0.55 }} />
 
         <motion.path d={improveD} fill="none" stroke="#E8664B" strokeWidth="3.5" strokeLinecap="round"
@@ -104,13 +104,13 @@ export default function ProgressCurve({
         {marks.map((m, i) => (
           <g key={m.week}>
             <motion.circle cx={x(m.week)} cy={y(valAt(m.week))} r="5.5" fill="#E8664B"
-              stroke="#2D4239" strokeWidth="2.5"
+              stroke="#FFF8F2" strokeWidth="2.5"
               initial={{ scale: 0 }} animate={inView ? { scale: 1 } : {}}
               transition={{ duration: 0.35, delay: 0.75 + i * 0.2 }} />
             {m.label && (
               <motion.text x={x(m.week)} y={y(valAt(m.week)) - 18} textAnchor={m.week === 12 ? 'end' : 'middle'}
-                fill="#ffffff" fontSize="11" opacity="0.92"
-                initial={{ opacity: 0 }} animate={inView ? { opacity: 0.92 } : {}}
+                fill="#1A1210" fontSize="11" opacity="0.92"
+                initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.4, delay: 0.95 + i * 0.2 }}>
                 {m.label}
               </motion.text>
@@ -119,20 +119,20 @@ export default function ProgressCurve({
         ))}
 
         {weeks.map((w) => (
-          <text key={w} x={x(w)} y={H - padB + 22} textAnchor="middle" fill="#ffffff" fontSize="10.5"
-            opacity="0.55" style={{ fontFamily: 'ui-monospace, monospace', letterSpacing: '0.06em' }}>
+          <text key={w} x={x(w)} y={H - padB + 22} textAnchor="middle" fill="#1A1210" fontSize="10.5"
+            opacity="0.5" style={{ fontFamily: 'ui-monospace, monospace', letterSpacing: '0.06em' }}>
             S.{w}
           </text>
         ))}
       </svg>
 
-      <div className="mt-6 pt-5 border-t border-white/12 flex flex-col sm:flex-row gap-x-8 gap-y-2.5 text-[12.5px]">
-        <span className="inline-flex items-center gap-2.5 text-white/90">
+      <div className="mt-6 pt-5 border-t border-black/10 flex flex-col sm:flex-row gap-x-8 gap-y-2.5 text-[12.5px]">
+        <span className="inline-flex items-center gap-2.5 text-ink">
           <span className="inline-block w-6 h-[3px] rounded-full" style={{ background: '#E8664B' }} />
           {improveLabel}
         </span>
-        <span className="inline-flex items-center gap-2.5 text-white/60">
-          <span className="inline-block w-6 h-0 border-t-2 border-dashed" style={{ borderColor: '#7FE0A5' }} />
+        <span className="inline-flex items-center gap-2.5 text-ink-2">
+          <span className="inline-block w-6 h-0 border-t-2 border-dashed" style={{ borderColor: '#3A8A75' }} />
           {sideEffectLabel}
         </span>
       </div>
