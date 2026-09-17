@@ -6,7 +6,7 @@ export const monAcne: Concern = {
   seo: {
     title: "Acné qui persiste : enfin un plan qui marche | Mixt",
     description:
-      "Vous avez tout essayé et l'acné revient ? Un vrai médecin cherche la cause avec vous et construit un plan de soin personnalisé, avec un suivi dans la durée. Consultation 59 €.",
+      "Vous avez tout essayé et l'acné revient ? Un vrai médecin cherche la cause avec vous et construit un plan de soin personnalisé, avec un suivi dans la durée. Consultation 49 €.",
     noindex: true,
   },
   hero: {
@@ -41,10 +41,10 @@ export const monAcne: Concern = {
       label: "dépensés dans des crèmes achetées à l'aveugle, sans jamais savoir si c'était le bon actif.",
     },
     right: {
-      value: '59 €',
+      value: '49 €',
       label: "une consultation avec un vrai médecin, et une routine simple et personnalisée.",
     },
-    note: "Les 59 € de la consultation reviennent intégralement au médecin. Mixt ne prélève rien dessus.",
+    note: "Les 49 € de la consultation reviennent intégralement au médecin. Mixt ne prélève rien dessus.",
   },
   mechanism: {
     lede: "Des actifs prescrits qui agissent là où les crèmes s'arrêtent.",

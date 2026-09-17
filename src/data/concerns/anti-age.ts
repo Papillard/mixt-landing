@@ -6,7 +6,7 @@ export const antiAge: Concern = {
   seo: {
     title: "Anti-âge : les actifs prescrits que la cosmétique ne peut pas égaler | Mixt",
     description:
-      "L'actif anti-âge le plus étudié au monde ne s'achète pas en vente libre : il se prescrit. Un médecin construit votre protocole, dosé pour votre peau et ajusté chaque mois. Consultation 59 €.",
+      "L'actif anti-âge le plus étudié au monde ne s'achète pas en vente libre : il se prescrit. Un médecin construit votre protocole, dosé pour votre peau et ajusté chaque mois. Consultation 49 €.",
   },
   heroProof: { label: 'Avis vérifiés sur Trustpilot' },
   faqPosition: 'early',
@@ -15,7 +15,7 @@ export const antiAge: Concern = {
     kicker: 'Anti-âge · rides & fermeté',
     title: 'Votre crème a fait',
     highlight: "ce qu'elle pouvait.",
-    lead: "Ridules, fermeté, éclat : un médecin vous prescrit la trétinoïne dosée pour votre peau, et ajuste votre protocole chaque mois. Bilan gratuit, consultation sous 7 jours.",
+    lead: "Ridules, fermeté, éclat : un médecin vous prescrit la trétinoïne dosée pour votre peau, et ajuste votre protocole chaque mois. Consultation sous 7 jours.",
     image: '/images/header-aging.webp',
     imageAlt: 'Femme de 40 ans à la peau naturelle et lumineuse',
     imagePosition: 'center 35%',
@@ -85,6 +85,18 @@ export const antiAge: Concern = {
       { when: 'Au-delà', body: "L'entretien, sur le long terme. C'est la régularité qui construit et protège les résultats, année après année." },
     ],
     footnote: "Résultats individuels, non garantis. La protection solaire quotidienne conditionne l'efficacité de tout protocole anti-âge.",
+  },
+  treatment: {
+    kicker: 'Votre traitement',
+    title: 'Une formule préparée',
+    highlight: 'pour votre peau, et pour personne d\'autre.',
+    lead: "Si le médecin la prescrit, votre formule est préparée en pharmacie à partir de votre ordonnance : les actifs qu'il a choisis, aux dosages qu'il a fixés pour votre peau. Pas un produit de rayon.",
+    benefits: [
+      { label: 'Sur-mesure', body: "Les actifs et leurs concentrations sont décidés pour votre peau, pas pour une moyenne. C'est ce que permet la préparation magistrale." },
+      { label: 'Une seule application', body: "Les actifs sont combinés dans une formule unique, à appliquer le soir. Pas une routine à sept étapes qu'on abandonne au bout d'un mois." },
+      { label: 'Ajustée dans le temps', body: "Le dosage évolue avec votre peau. On monte en puissance quand elle est prête, on lève le pied quand elle réagit." },
+    ],
+    footnote: "Préparation en pharmacie de 30 à 60 € selon la formule, avec remboursement partiel possible. Toute prescription relève de la seule appréciation du médecin : selon votre cas, il peut aussi recommander un traitement classique ou une approche cosmétique.",
   },
   authority: {
     kicker: 'Qui conçoit votre protocole',

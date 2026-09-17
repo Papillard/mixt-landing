@@ -17,8 +17,11 @@ const { concern } = Astro.props;
 // CTA concern-aware : on transporte le concern jusqu'à la waitlist pour pré-remplir
 // le message WhatsApp / l'email et garder la continuité d'intention.
 const CTA_HREF = 'https://app.mixt.care/start';
-const CTA_LABEL = 'Consulter un médecin';
-const CTA_SECONDARY = 'Démarrer mon diagnostic';
+const CTA_LABEL = 'Démarrer mon bilan gratuit';
+const CTA_NAV = 'Bilan gratuit';
+// Transparence prix directement sous le bouton : le patron commun aux trois
+// benchmarks (Skin+Me, Formel Skin, Skin&Out). Tue l'objection avant qu'elle naisse.
+const CTA_NOTE = 'Gratuit, 5 minutes. Consultation ensuite à 49 €, reversés intégralement au médecin.';
 
 // Jeu d'icônes minimal (tracés Lucide, stroke 1.5), inline pour éviter une dépendance.
 const icons: Record<string, string> = {
@@ -67,9 +70,8 @@ const steps = [
 // Tarification transparente, reprise de la home.
 const ledger = [
   { label: 'Bilan dermato', price: 'Gratuit', who: 'Avec notre assistant', get: 'Un dossier structuré, à vous' },
-  { label: 'Consultation médicale', price: '59 €', who: 'Reversés intégralement au médecin', get: 'Un plan personnalisé, ordonnance si besoin', highlight: true },
+  { label: 'Consultation médicale', price: '49 €', who: 'Reversés intégralement au médecin', get: 'Un plan personnalisé, ordonnance si besoin', highlight: true },
   { label: "Suivi avec l'assistant IA Mixt", price: 'Inclus', who: 'Au quotidien, avec votre plan', get: "Questions pratiques sur le plan de traitement, journaling photo toutes les deux semaines, conseils cosméto. Pas de diagnostic ni d'avis médical." },
-  { label: 'Suivi par le médecin', price: '29 €/mois', who: 'Optionnel, sans engagement, résiliable', get: "Point mensuel sur 3 à 6 mois pour adapter ou renouveler le plan de traitement et l'ordonnance si besoin." },
   { label: 'Préparation pharmacie', price: '30 à 60 €', who: 'Si prescrite, remboursement partiel', get: 'Formule magistrale sur-mesure' },
 ];
 
@@ -132,7 +134,7 @@ const structuredData = {
   structuredData={structuredData}
   noindex={concern.seo.noindex ?? false}
 >
-  <Nav ctaLabel={CTA_LABEL} ctaHref={CTA_HREF} />
+  <Nav ctaLabel={CTA_NAV} ctaHref={CTA_HREF} />
 
   {/* ── HERO (split asymétrique, image plein bord droit) ── */}
   <section class="relative bg-base overflow-hidden">
@@ -167,8 +169,8 @@ const structuredData = {
         <FadeInSection client:load delay={0.25} y={10}>
           <div class="flex flex-wrap items-center gap-3">
             <Button href={CTA_HREF} variant="ember-pill">{CTA_LABEL} →</Button>
-            <Button href={CTA_HREF} variant="ghost" class="hidden sm:inline-flex">{CTA_SECONDARY} →</Button>
           </div>
+          <p class="mt-3.5 text-[13px] leading-[1.5] text-ink-3 max-w-[420px]">{CTA_NOTE}</p>
           <div class="flex flex-wrap gap-x-6 gap-y-2.5 mt-7 text-[12.5px] text-ink-2">
             {trust.map((t) => (
               <span class="inline-flex items-center gap-1.5">
@@ -307,7 +309,7 @@ const structuredData = {
       <FadeInSection client:load delay={0.1}>
         <div class="flex flex-wrap items-center gap-3">
           <Button href={CTA_HREF} variant="white" class="shrink-0 whitespace-nowrap">{CTA_LABEL} →</Button>
-          <span class="text-[13px] text-white/55">Bilan gratuit, sans engagement</span>
+          <span class="text-[13px] text-white/55 max-w-[280px] leading-snug">{CTA_NOTE}</span>
         </div>
       </FadeInSection>
     </div>
@@ -541,6 +543,40 @@ const structuredData = {
     </div>
   </section>
 
+  {/* ── LE TRAITEMENT (ce que le patient reçoit réellement) ── */}
+  {concern.treatment && (
+    <section class="px-6 md:px-10 py-24 md:py-32 bg-base">
+      <div class="max-w-[1000px] mx-auto">
+        <FadeInSection client:load>
+          <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-6">
+            <span class="inline-block h-px w-10 bg-ember-deep/80"></span>
+            {concern.treatment.kicker ?? 'Votre traitement'}
+          </div>
+          <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.1] tracking-[-0.035em] text-ink mb-4 max-w-[680px]">
+            {concern.treatment.title}<br />
+            <span class="italic-serif">{concern.treatment.highlight}</span>
+          </h2>
+          <p class="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 max-w-[600px] mb-12">{concern.treatment.lead}</p>
+        </FadeInSection>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+          {concern.treatment.benefits.map((b, i) => (
+            <FadeInSection client:load delay={i * 0.08} y={16}>
+              <div class="border-t border-black/[0.12] pt-5">
+                <div class="font-mono text-[12px] tracking-[0.14em] uppercase text-ember-deep mb-3">{b.label}</div>
+                <p class="text-[15px] leading-[1.6] text-rich m-0">{b.body}</p>
+              </div>
+            </FadeInSection>
+          ))}
+        </div>
+        <FadeInSection client:load delay={0.2}>
+          <p class="mt-10 pt-7 border-t border-black/[0.08] text-[13px] text-ink-3 leading-relaxed max-w-[720px]">
+            {concern.treatment.footnote}
+          </p>
+        </FadeInSection>
+      </div>
+    </section>
+  )}
+
   {/* ── AUTORITÉ MÉDICALE (un vrai visage derrière la promesse) ── */}
   {concern.authority && (
     <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
@@ -618,7 +654,7 @@ const structuredData = {
           Ce que vous payez, <span class="italic-serif whitespace-nowrap">et à qui.</span>
         </h2>
         <p class="text-center text-[15px] md:text-[16px] text-ink-2 max-w-[620px] mx-auto leading-relaxed">
-          La transparence, dès le premier jour. Les 59 € de la consultation reviennent intégralement au médecin : Mixt ne prélève rien dessus. Vous ne payez que si vous décidez de réserver.
+          La transparence, dès le premier jour. Les 49 € de la consultation reviennent intégralement au médecin : Mixt ne prélève rien dessus. Vous ne payez que si vous décidez de réserver.
         </p>
       </FadeInSection>
       <FadeInSection client:load delay={0.1}>
@@ -685,9 +721,7 @@ const structuredData = {
           Bilan gratuit en 5 minutes, consultation sous 7 jours, plan de traitement personnalisé. Vous ne payez que si vous décidez de réserver.
         </p>
         <Button href={CTA_HREF} variant="white">{CTA_LABEL} →</Button>
-        <div class="mt-5 text-[13px] text-white/60">
-          59 € la consultation, reversés intégralement au médecin. Sans engagement.
-        </div>
+        <div class="mt-5 text-[13px] text-white/60">{CTA_NOTE}</div>
       </FadeInSection>
     </div>
   </section>

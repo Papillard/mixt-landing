@@ -6,7 +6,7 @@ export const acnePeauNoire: Concern = {
   seo: {
     title: "Acné sur peau noire et métissée : traiter sans laisser de marques | Mixt",
     description:
-      "Sur les peaux foncées, chaque bouton peut laisser une tache. Un médecin expert des peaux noires traite l'acné et l'hyperpigmentation en même temps, avec des actifs adaptés. Consultation 59 €.",
+      "Sur les peaux foncées, chaque bouton peut laisser une tache. Un médecin expert des peaux noires traite l'acné et l'hyperpigmentation en même temps, avec des actifs adaptés. Consultation 49 €.",
   },
   hero: {
     kicker: 'Acné & taches · peaux foncées',

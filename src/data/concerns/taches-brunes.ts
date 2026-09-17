@@ -6,7 +6,7 @@ export const tachesBrunes: Concern = {
   seo: {
     title: "Taches brunes, mélasma, taches de soleil : le traitement qui agit | Mixt",
     description:
-      "Mélasma, masque de grossesse, taches de soleil : la cosmétique plafonne. Un médecin prescrit les actifs dépigmentants qui agissent vraiment et vous suit dans la durée. Consultation 59 €.",
+      "Mélasma, masque de grossesse, taches de soleil : la cosmétique plafonne. Un médecin prescrit les actifs dépigmentants qui agissent vraiment et vous suit dans la durée. Consultation 49 €.",
     noindex: true,
   },
   hero: {

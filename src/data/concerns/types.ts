@@ -63,7 +63,7 @@ export type Concern = {
   };
   /**
    * Optional two-column contrast block (persona signature moment).
-   * Renders the ad-style tension: price (600 € vs 59 €), access (6 mois vs 7j),
+   * Renders the ad-style tension: price (600 € vs 49 €), access (6 mois vs 7j),
    * or cosmetics vs prescription. Left = status quo, right = Mixt.
    */
   contrast?: {
@@ -101,7 +101,7 @@ export type Concern = {
   trust?: { icon: 'stethoscope' | 'badgeCheck' | 'shieldCheck' | 'calendarCheck'; label: string }[];
   /**
    * Persona-matched Trustpilot verbatim, rendered just before the pricing table
-   * (the moment the "is it worth 59 €" objection peaks).
+   * (the moment the "is it worth 49 €" objection peaks).
    * Only ever use real published reviews.
    */
   review?: {
@@ -136,6 +136,19 @@ export type Concern = {
    */
   objectionsTitle?: string;
   faqPosition?: 'early' | 'bottom';
+  /**
+   * The treatment the patient actually receives. This is where Mixt earns its
+   * margin (service fee on the order), so the LP must make it tangible instead
+   * of leaving it as a footnote in the pricing table.
+   */
+  treatment?: {
+    kicker?: string;
+    title: string;
+    highlight: string;
+    lead: string;
+    benefits: { label: string; body: string }[];
+    footnote: string;
+  };
   /** Optional benefit-led relance band. `image` adds a landscape visual beside it. */
   midCta?: {
     kicker?: string;
