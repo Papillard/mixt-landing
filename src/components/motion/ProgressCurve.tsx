@@ -120,8 +120,9 @@ export default function ProgressCurve({
 
         {weeks.map((w) => (
           <text key={w} x={x(w)} y={H - padB + 22} textAnchor="middle" fill="#1A1210" fontSize="10.5"
-            opacity="0.5" style={{ fontFamily: 'ui-monospace, monospace', letterSpacing: '0.06em' }}>
-            S.{w}
+            opacity={w === 0 || w === 12 ? 0.75 : 0.45}
+            style={{ fontFamily: 'ui-monospace, monospace', letterSpacing: '0.06em' }}>
+            {w === 0 ? 'Départ' : w === 12 ? '12 semaines' : w}
           </text>
         ))}
       </svg>
