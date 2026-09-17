@@ -30,8 +30,8 @@ export const tachesBrunes: Concern = {
       "La dermatologie agit là où ça se joue : la fabrication du pigment. Les bons actifs, aux bons dosages, ajustés au fil des mois.",
     ],
     image: null,
-    imageBrief: 'Macro taches sur la pommette',
-    imageDesc: "Gros plan sur des taches de mélasma bien dessinées sur la pommette. Lumière du jour, fond neutre chaud, peau réelle.",
+    imageBrief: 'Femme face au miroir, taches',
+    imageDesc: "Femme 35-45 examinant ses taches dans le miroir de sa salle de bain, lumière du jour. Geste du quotidien, cadrage vertical.",
   },
   midCta: {
     kicker: 'Reprendre la main',
@@ -74,9 +74,10 @@ export const tachesBrunes: Concern = {
     ],
     footer:
       "Le médecin choisit les actifs et dosages adaptés à votre phototype et à votre cas, selon son évaluation clinique. La protection solaire, elle, n'est jamais optionnelle.",
-    image: '/images/agence-taches-visage.webp',
-    imageAlt: 'Femme avec des taches pigmentaires sur le visage',
+    image: null,
     imageBadge: '',
+    imageBrief: 'Macro pommette, taches',
+    imageDesc: "Gros plan sur des taches de mélasma sur la pommette. Fond neutre chaud, lumière de fenêtre.",
   },
   treatment: {
     kicker: 'Votre traitement',
@@ -123,15 +124,10 @@ export const tachesBrunes: Concern = {
       milestones: [{ week: 8, label: 'Premiers signes' }, { week: 12, label: 'Teint plus uniforme' }],
     },
   },
-  proof: {
-    name: 'Laetitia, 41 ans',
-    meta: 'Co-fondatrice de Mixt · Hyperpigmentation · 4 mois',
-    before: { src: '/images/laetitia-before.webp', alt: 'Laetitia avant le protocole', objectPosition: 'center 15%' },
-    after: { src: '/images/laetitia-after.webp', alt: 'Laetitia après 4 mois', objectPosition: 'center 15%' },
-    afterLabel: 'Après · 4 mois',
-    quote: "Pendant 10 ans j'ai cherché une solution pour ma peau. Aujourd'hui quand je vois les photos d'avant, je n'en reviens pas.",
-    context: "Laetitia est co-fondatrice de Mixt. Elle a cherché une solution pour sa peau pendant dix ans avant de créer l'entreprise, et a suivi exactement le parcours proposé ici : bilan, consultation, formule magistrale prescrite. Hyperpigmentation diagnostiquée par sa dermatologue, parcours de 4 mois.",
-    legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
+  cohort: {
+    image: null,
+    imageBrief: 'Avant / après standardisé',
+    imageDesc: "Même patiente, même angle, même distance, même lumière de fenêtre, à S.0 et S.12. C'est la standardisation qui rend la comparaison crédible.",
   },
   review: {
     quote: "J'ai l'impression d'avoir appris plus sur ma peau en quelques mois qu'en des années à tester des produits toute seule.",

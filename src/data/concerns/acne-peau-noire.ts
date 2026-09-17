@@ -29,8 +29,8 @@ export const acnePeauNoire: Concern = {
       "La bonne approche traite les deux fronts dans un seul plan : calmer l'acné, estomper les marques, sans jamais agresser.",
     ],
     image: null,
-    imageBrief: 'Macro joue, phototype V',
-    imageDesc: "Gros plan sur une joue peau foncée montrant à la fois des boutons actifs et des marques brunes post-inflammatoires. Lumière naturelle chaude, fond clair, texture de peau réelle.",
+    imageBrief: 'Femme face au miroir, phototype V',
+    imageDesc: "Femme noire 25-35 examinant sa peau dans le miroir de sa salle de bain, lumière du jour. Geste du quotidien, cadrage vertical.",
   },
   midCta: {
     kicker: 'Sans attendre six mois',
