@@ -48,25 +48,38 @@ const trust = Astro.props.concern.trust ?? [
   { icon: 'shieldCheck', label: 'Bilan gratuit, sans engagement' },
 ];
 
-// Parcours, identique pour chaque concern.
+// Parcours, identique pour chaque concern. Les trois visuels montrent le
+// service en train de fonctionner, pas la condition : ils sont donc partagés.
 const steps = [
   {
     number: '01',
     icon: 'fileText',
+    tag: 'Gratuit · 5 minutes',
     title: 'Votre dossier en ligne',
     body: "Construit en quelques minutes avec notre assistant. Vos antécédents, vos photos, ce que vous avez déjà essayé : tout est prêt pour votre médecin.",
+    image: null,
+    imageBrief: 'Photos guidées au miroir',
+    imageDesc: "Femme face au miroir de sa salle de bain, téléphone en main, prenant sa photo de face. Lumière du jour, sujet décalé dans le cadre.",
   },
   {
     number: '02',
     icon: 'stethoscope',
+    tag: 'Sous 7 jours',
     title: 'Votre consultation',
     body: 'Une consultation en ligne avec un médecin expert de votre peau, supervisé par un dermatologue. Il arrive avec votre dossier en main et repart avec un plan de soin clair.',
+    image: null,
+    imageBrief: 'Consultation en visio',
+    imageDesc: "Femme chez elle en appel avec un médecin, écran visible et net. Cadrage large, pièce réelle, lumière naturelle.",
   },
   {
     number: '03',
     icon: 'calendarCheck',
+    tag: 'Sans engagement',
     title: 'Votre suivi',
-    body: 'Un point chaque mois pour ajuster votre traitement, et un suivi au quotidien entre les rendez-vous. Une peau suivie, pas juste traitée. Sans engagement.',
+    body: 'Un point chaque mois pour ajuster votre traitement, et un suivi au quotidien entre les rendez-vous. Une peau suivie, pas juste traitée.',
+    image: null,
+    imageBrief: 'Application du soin, le soir',
+    imageDesc: "Femme appliquant sa formule, le flacon blanc visible sur le lavabo. Salle de bain réelle, lumière chaude.",
   },
 ];
 
@@ -547,16 +560,33 @@ const structuredData = {
           De votre dossier à votre suivi, <span class="whitespace-nowrap">en trois temps.</span>
         </h2>
       </FadeInSection>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
         {steps.map((s, i) => (
-          <FadeInSection client:load delay={i * 0.1} y={18}>
-            <div class="border-t border-white/15 pt-5">
-              <div class="flex items-center gap-2.5 mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[20px] h-[20px] text-ember shrink-0"><Fragment set:html={icons[s.icon]} /></svg>
-                <span class="font-mono text-[12px] tracking-[0.16em] uppercase text-ember">{s.number}</span>
+          <FadeInSection client:load delay={i * 0.1} y={18} className="h-full">
+            <div class="relative h-full overflow-hidden rounded-[20px] bg-base" style="aspect-ratio:3/4;">
+              <PhotoSlot
+                src={s.image}
+                alt={s.title}
+                brief={s.imageBrief}
+                desc={s.imageDesc}
+                ratio="3/4"
+                rounded=""
+                class="absolute inset-0 h-full w-full [&>div]:pb-[38%]"
+              />
+              {/* pastille de marque posée sur la photo */}
+              <div class="absolute left-4 top-4 z-[5] inline-flex items-center gap-2 rounded-full bg-deep px-3 py-1.5">
+                <span class="font-mono text-[10px] font-semibold tracking-[0.16em] uppercase text-ember">{s.number}</span>
+                <span class="inline-block h-[10px] w-px bg-white/25"></span>
+                <span class="font-mono text-[10px] tracking-[0.1em] uppercase text-white/80">{s.tag}</span>
               </div>
-              <h3 class="text-[20px] md:text-[22px] font-semibold text-white leading-tight mb-2.5 tracking-[-0.01em]">{s.title}</h3>
-              <p class="text-[15px] leading-[1.6] text-white/70">{s.body}</p>
+              {/* aplat opaque dans l'image : jamais de dégradé */}
+              <div class="absolute inset-x-3 bottom-3 z-[5] rounded-[14px] bg-deep px-5 py-5">
+                <div class="flex items-center gap-2.5 mb-2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[17px] h-[17px] text-ember shrink-0"><Fragment set:html={icons[s.icon]} /></svg>
+                  <h3 class="text-[18px] md:text-[19px] font-semibold text-white leading-tight tracking-[-0.01em] m-0">{s.title}</h3>
+                </div>
+                <p class="text-[13.5px] leading-[1.55] text-white/70 m-0">{s.body}</p>
+              </div>
             </div>
           </FadeInSection>
         ))}
