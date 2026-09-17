@@ -119,6 +119,12 @@ export const acnePeauNoire: Concern = {
       { when: 'Au-delà', body: "On entretient. Tant que l'acné est contrôlée, aucune nouvelle marque ne se forme, et les anciennes continuent de s'estomper." },
     ],
     footnote: "Résultats individuels, non garantis. Sur peau foncée, la protection solaire quotidienne conditionne l'effacement des marques.",
+    curve: {
+      pace: 'slow',
+      sideEffectLabel: "Phase d'adaptation : sécheresse et tiraillements, dosage prudent",
+      improveLabel: "Acné calmée, puis taches estompées",
+      milestones: [{ week: 8, label: 'Acné calmée' }, { week: 12, label: 'Teint unifié' }],
+    },
   },
   faq: [
     {

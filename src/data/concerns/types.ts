@@ -194,6 +194,18 @@ export type Concern = {
     steps: { when: string; body: string }[];
     /** Small disclaimer line under the timeline (e.g. résultats non garantis). */
     footnote?: string;
+    /**
+     * Réglage de la courbe de suivi. 'slow' pour le pigment qui répond en
+     * plusieurs mois, 'fast' pour l'inflammatoire. Le libellé de la phase
+     * d'adaptation doit décrire les effets propres à la condition : dire
+     * "rougeurs" sur une page rosacée contredit la promesse.
+     */
+    curve?: {
+      pace?: 'slow' | 'fast';
+      sideEffectLabel?: string;
+      improveLabel?: string;
+      milestones?: { week: number; label: string }[];
+    };
   };
   /** Optional real before/after testimonial. Falls back to a cohort invite when absent. */
   proof?: Proof;

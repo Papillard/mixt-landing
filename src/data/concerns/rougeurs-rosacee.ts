@@ -118,6 +118,12 @@ export const rougeursRosacee: Concern = {
       { when: 'Au-delà', body: "On entretient. C'est la régularité, et l'évitement de vos déclencheurs, qui tiennent les résultats." },
     ],
     footnote: "Résultats individuels, non garantis. La rosacée est chronique : le traitement la contrôle, il ne la supprime pas.",
+    curve: {
+      pace: 'slow',
+      sideEffectLabel: "Phase d'adaptation : la peau reste réactive, sans nouvelle poussée",
+      improveLabel: "Rougeurs et poussées en recul",
+      milestones: [{ week: 8, label: 'Poussées espacées' }, { week: 12, label: 'Fond rouge atténué' }],
+    },
   },
   faq: [
     {

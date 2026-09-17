@@ -1,121 +1,138 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
+export type Milestone = { week: number; label: string };
+
 type Props = {
-  /** Libellé de la condition, ex. "MÉLASMA". */
   label: string;
-  /** Légende de la courbe d'amélioration. */
   improveLabel?: string;
-  /** Légende de la courbe d'effets indésirables. */
+  /** Décrit la phase d'adaptation propre à la condition. */
   sideEffectLabel?: string;
+  /** 'slow' pour le pigment (mélasma), 'fast' pour l'inflammatoire (acné). */
+  pace?: 'slow' | 'fast';
+  milestones?: Milestone[];
 };
 
-/**
- * Device signature "courbe de suivi" (charte Mixt) : progression de S.0 à S.12,
- * points ember, avec la courbe d'effets indésirables qui monte puis retombe.
- * C'est ce second tracé qui désamorce la première cause d'abandon : la phase
- * d'adaptation, que personne n'explique avant de commencer.
- */
+/** Catmull-Rom converti en bézier cubique : courbe lissée qui passe par chaque point. */
+function smooth(pts: [number, number][]): string {
+  if (pts.length < 2) return '';
+  let d = `M ${pts[0][0]},${pts[0][1]}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] ?? pts[i];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[i + 2] ?? p2;
+    const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+    const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+    const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+    const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+    d += ` C ${c1x},${c1y} ${c2x},${c2y} ${p2[0]},${p2[1]}`;
+  }
+  return d;
+}
+
 export default function ProgressCurve({
   label,
   improveLabel = 'Amélioration de votre peau',
-  sideEffectLabel = "Phase d'adaptation (rougeurs, desquamation)",
+  sideEffectLabel = "Phase d'adaptation",
+  pace = 'fast',
+  milestones = [],
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
-  const W = 620;
-  const H = 260;
-  const padL = 44;
-  const padR = 24;
-  const padT = 28;
-  const padB = 46;
+  const W = 660;
+  const H = 300;
+  const padL = 46;
+  const padR = 34;
+  const padT = 54;
+  const padB = 56;
   const weeks = [0, 2, 4, 6, 8, 10, 12];
   const x = (w: number) => padL + (w / 12) * (W - padL - padR);
   const y = (v: number) => H - padB - (v / 100) * (H - padT - padB);
 
-  // Amélioration : plateau initial, puis montée franche, puis consolidation.
-  const improve = 'M ' + [
-    [0, 2], [2, 5], [4, 16], [6, 38], [8, 60], [10, 76], [12, 86],
-  ].map(([w, v], i) => `${i ? 'L' : ''}${x(w)},${y(v)}`).join(' ');
+  // Le pigment répond plus tard que l'inflammatoire : deux rythmes distincts.
+  const improveRaw: [number, number][] =
+    pace === 'slow'
+      ? [[0, 1], [2, 3], [4, 9], [6, 24], [8, 45], [10, 66], [12, 80]]
+      : [[0, 2], [2, 8], [4, 24], [6, 46], [8, 65], [10, 78], [12, 88]];
+  const sideRaw: [number, number][] = [
+    [0, 3], [1, 24], [2, 32], [3, 28], [4, 18], [6, 8], [8, 3], [10, 1], [12, 1],
+  ];
 
-  // Effets indésirables : pic autour de S.2-S.3, retour à zéro vers S.8.
-  const side = 'M ' + [
-    [0, 4], [1, 26], [2, 34], [3, 30], [4, 20], [6, 9], [8, 3], [10, 1], [12, 1],
-  ].map(([w, v], i) => `${i ? 'L' : ''}${x(w)},${y(v)}`).join(' ');
+  const improvePts = improveRaw.map(([w, v]) => [x(w), y(v)] as [number, number]);
+  const sidePts = sideRaw.map(([w, v]) => [x(w), y(v)] as [number, number]);
+  const improveD = smooth(improvePts);
 
-  const dots = [0, 4, 8, 12];
-  const dotVal: Record<number, number> = { 0: 2, 4: 16, 8: 60, 12: 86 };
+  const valAt = (w: number) => improveRaw.find(([k]) => k === w)?.[1] ?? 0;
+  const marks = milestones.length ? milestones : [{ week: 12, label: '' }];
 
   return (
-    <div ref={ref} className="w-full">
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label={`Courbe de progression sur 12 semaines pour ${label}`}>
-        {/* grille verticale */}
-        {weeks.map((w) => (
-          <line key={w} x1={x(w)} y1={padT} x2={x(w)} y2={H - padB} stroke="currentColor" strokeOpacity="0.12" strokeWidth="1" />
-        ))}
-        <line x1={padL} y1={H - padB} x2={W - padR} y2={H - padB} stroke="currentColor" strokeOpacity="0.28" strokeWidth="1" />
+    <div ref={ref} className="w-full text-white">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img"
+        aria-label={`Progression sur 12 semaines pour ${label}`}>
 
-        {/* zone d'adaptation */}
-        <rect x={x(0)} y={padT} width={x(4) - x(0)} height={H - padT - padB} fill="currentColor" fillOpacity="0.05" />
-        <text x={x(2)} y={padT - 10} textAnchor="middle" className="fill-current" fontSize="10" opacity="0.55" style={{ letterSpacing: '0.12em' }}>
+        {weeks.map((w) => (
+          <line key={w} x1={x(w)} y1={padT} x2={x(w)} y2={H - padB}
+            stroke="#ffffff" strokeOpacity="0.10" strokeWidth="1" />
+        ))}
+        <line x1={padL} y1={H - padB} x2={W - padR} y2={H - padB}
+          stroke="#ffffff" strokeOpacity="0.26" strokeWidth="1" />
+
+        {/* bornes de phase */}
+        <line x1={x(0)} y1={padT - 20} x2={x(4)} y2={padT - 20} stroke="#7FE0A5" strokeOpacity="0.5" strokeWidth="1" />
+        <line x1={x(4)} y1={padT - 20} x2={x(12)} y2={padT - 20} stroke="#E8664B" strokeOpacity="0.6" strokeWidth="1" />
+        <text x={x(2)} y={padT - 28} textAnchor="middle" fill="#7FE0A5" fontSize="9.5"
+          style={{ letterSpacing: '0.16em', fontFamily: 'ui-monospace, monospace' }} opacity="0.9">
           ADAPTATION
         </text>
-        <text x={x(8)} y={padT - 10} textAnchor="middle" className="fill-current" fontSize="10" opacity="0.55" style={{ letterSpacing: '0.12em' }}>
+        <text x={x(8)} y={padT - 28} textAnchor="middle" fill="#E8664B" fontSize="9.5"
+          style={{ letterSpacing: '0.16em', fontFamily: 'ui-monospace, monospace' }}>
           AMÉLIORATION
         </text>
 
-        {/* effets indésirables */}
-        <motion.path
-          d={side}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeDasharray="5 4"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 0.45 } : {}}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }}
-        />
 
-        {/* amélioration */}
-        <motion.path
-          d={improve}
-          fill="none"
-          stroke="#E8664B"
-          strokeWidth="3"
-          strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          animate={inView ? { pathLength: 1 } : {}}
-          transition={{ duration: 1.4, ease: 'easeOut' }}
-        />
+        <motion.path d={smooth(sidePts)} fill="none" stroke="#7FE0A5" strokeWidth="2"
+          strokeDasharray="4 5" strokeLinecap="round"
+          initial={{ opacity: 0 }} animate={inView ? { opacity: 0.7 } : {}}
+          transition={{ duration: 0.8, delay: 0.55 }} />
 
-        {dots.map((w, i) => (
-          <motion.circle
-            key={w}
-            cx={x(w)}
-            cy={y(dotVal[w])}
-            r="5"
-            fill="#E8664B"
-            initial={{ scale: 0 }}
-            animate={inView ? { scale: 1 } : {}}
-            transition={{ duration: 0.3, delay: 0.5 + i * 0.22 }}
-          />
+        <motion.path d={improveD} fill="none" stroke="#E8664B" strokeWidth="3.5" strokeLinecap="round"
+          initial={{ pathLength: 0 }} animate={inView ? { pathLength: 1 } : {}}
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }} />
+
+        {marks.map((m, i) => (
+          <g key={m.week}>
+            <motion.circle cx={x(m.week)} cy={y(valAt(m.week))} r="5.5" fill="#E8664B"
+              stroke="#2D4239" strokeWidth="2.5"
+              initial={{ scale: 0 }} animate={inView ? { scale: 1 } : {}}
+              transition={{ duration: 0.35, delay: 0.75 + i * 0.2 }} />
+            {m.label && (
+              <motion.text x={x(m.week)} y={y(valAt(m.week)) - 18} textAnchor={m.week === 12 ? 'end' : 'middle'}
+                fill="#ffffff" fontSize="11" opacity="0.92"
+                initial={{ opacity: 0 }} animate={inView ? { opacity: 0.92 } : {}}
+                transition={{ duration: 0.4, delay: 0.95 + i * 0.2 }}>
+                {m.label}
+              </motion.text>
+            )}
+          </g>
         ))}
 
         {weeks.map((w) => (
-          <text key={w} x={x(w)} y={H - padB + 20} textAnchor="middle" className="fill-current" fontSize="11" opacity="0.6">
+          <text key={w} x={x(w)} y={H - padB + 22} textAnchor="middle" fill="#ffffff" fontSize="10.5"
+            opacity="0.55" style={{ fontFamily: 'ui-monospace, monospace', letterSpacing: '0.06em' }}>
             S.{w}
           </text>
         ))}
       </svg>
 
-      <div className="mt-5 flex flex-col sm:flex-row gap-x-7 gap-y-2 text-[12.5px]">
-        <span className="inline-flex items-center gap-2">
-          <span className="inline-block w-5 h-[3px] rounded-full" style={{ background: '#E8664B' }} />
+      <div className="mt-6 pt-5 border-t border-white/12 flex flex-col sm:flex-row gap-x-8 gap-y-2.5 text-[12.5px]">
+        <span className="inline-flex items-center gap-2.5 text-white/90">
+          <span className="inline-block w-6 h-[3px] rounded-full" style={{ background: '#E8664B' }} />
           {improveLabel}
         </span>
-        <span className="inline-flex items-center gap-2 opacity-70">
-          <span className="inline-block w-5 h-0 border-t-2 border-dashed border-current" />
+        <span className="inline-flex items-center gap-2.5 text-white/60">
+          <span className="inline-block w-6 h-0 border-t-2 border-dashed" style={{ borderColor: '#7FE0A5' }} />
           {sideEffectLabel}
         </span>
       </div>

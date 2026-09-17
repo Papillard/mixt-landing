@@ -92,6 +92,12 @@ export const antiAge: Concern = {
       { when: 'Au-delà', body: "L'entretien, sur le long terme. C'est la régularité qui construit et protège les résultats, année après année." },
     ],
     footnote: "Résultats individuels, non garantis. La protection solaire quotidienne conditionne l'efficacité de tout protocole anti-âge.",
+    curve: {
+      pace: 'fast',
+      sideEffectLabel: "Phase d'adaptation à la trétinoïne : rougeurs et desquamation légères",
+      improveLabel: "Grain de peau et fermeté",
+      milestones: [{ week: 8, label: 'Grain affiné' }, { week: 12, label: 'Peau plus ferme' }],
+    },
   },
   treatment: {
     kicker: 'Votre traitement',

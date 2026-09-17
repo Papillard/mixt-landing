@@ -109,6 +109,12 @@ export const monAcne: Concern = {
       { when: 'Au-delà', body: "On stabilise. L'acné se contrôle dans la durée : on allège quand la peau tient, on renforce si ça repart." },
     ],
     footnote: "Résultats individuels, non garantis. La régularité des premières semaines conditionne tout le reste.",
+    curve: {
+      pace: 'fast',
+      sideEffectLabel: "Phase d'adaptation : sécheresse, tiraillements, parfois une poussée",
+      improveLabel: "Moins de nouvelles lésions",
+      milestones: [{ week: 8, label: 'Moins de lésions' }, { week: 12, label: 'Peau stabilisée' }],
+    },
   },
   faq: [
     {

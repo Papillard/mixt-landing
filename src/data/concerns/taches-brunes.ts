@@ -104,6 +104,12 @@ export const tachesBrunes: Concern = {
       { when: 'Au-delà', body: "L'entretien. Certaines taches, comme le mélasma, reviennent si l'on baisse la garde : on passe en mode entretien pour tenir les résultats." },
     ],
     footnote: "Résultats individuels, non garantis. La protection solaire conditionne tout le traitement.",
+    curve: {
+      pace: 'slow',
+      sideEffectLabel: "Phase d'adaptation : picotements et légère desquamation",
+      improveLabel: "Taches estompées",
+      milestones: [{ week: 8, label: 'Premiers signes' }, { week: 12, label: 'Teint plus uniforme' }],
+    },
   },
   proof: {
     name: 'Laetitia, 41 ans',
