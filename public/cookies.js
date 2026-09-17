@@ -136,7 +136,7 @@
     el.setAttribute('data-visible', 'false');
     el.innerHTML = [
       '<h2 id="mixt-cookie-title">Cookies &amp; confidentialit&eacute;</h2>',
-      '<p id="mixt-cookie-desc">Nous pouvons utiliser des cookies pour mesurer l\'audience et am&eacute;liorer votre exp&eacute;rience. Aucun d&eacute;p&ocirc;t sans votre accord. ',
+      '<p id="mixt-cookie-desc">Nous utilisons des cookies pour mesurer l\'audience et l\'efficacit&eacute; de nos campagnes publicitaires, uniquement apr&egrave;s votre accord. Aucun d&eacute;p&ocirc;t sans votre choix. ',
       '<a class="mixt-cookie-link" href="', POLICY_HREF, '">En savoir plus</a>.</p>',
       '<div class="mixt-cookie-actions">',
       '<button type="button" class="mixt-cookie-btn mixt-cookie-btn--refuse" data-action="refuse">Refuser</button>',
