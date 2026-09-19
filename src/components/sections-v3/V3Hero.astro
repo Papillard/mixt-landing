@@ -8,44 +8,51 @@ const startHref = 'https://app.mixt.care/start';
 const whatsappHref =
   'https://wa.me/33756948494?text=' +
   encodeURIComponent("Bonjour Laetitia, j'aimerais échanger à propos de Mixt et de ma peau.");
+
+// Verbatims réels, avis 5★ publiés sur Trustpilot (repris de la section avis,
+// resserrés en citations courtes et complètes pour le bandeau).
+const reviews = [
+  { quote: "Résultats visibles en moins d'un mois : peau plus uniforme, rougeurs nettement diminuées.", name: 'Marie D.' },
+  { quote: "Enfin suivie par des gens qui regardent vraiment et savent quoi faire.", name: 'Amandine B.' },
+  { quote: "J'ai appris plus sur ma peau en quelques mois qu'en des années à tester seule.", name: 'Marie G.' },
+  { quote: "La crème la plus efficace que j'ai testée, et une équipe toujours disponible.", name: 'Sadie B.' },
+];
 ---
 
-<section class="relative px-6 md:px-10 pt-[calc(56px+80px)] pb-20 md:pb-28 bg-base">
+<section class="relative px-6 md:px-10 pt-[calc(56px+44px)] pb-8 md:pb-10 bg-base">
   <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
     <div>
       <HeroReveal
         client:load
         title="Votre peau mérite"
         highlight="un vrai traitement"
-        subtitle="Un médecin expert de votre peau en téléconsultation sous 7 jours. Repartez avec un plan de traitement personnalisé."
+        subtitle="Un médecin expert de votre peau en téléconsultation. Repartez avec un plan de traitement personnalisé."
       >
-        <div class="flex flex-wrap items-center gap-3">
-          <Button href={startHref} variant="ember-pill">Consulter un médecin →</Button>
-          <Button href={startHref} variant="ghost">Démarrer mon diagnostic →</Button>
+        <div class="flex flex-col gap-4 items-start">
+          <div class="flex flex-wrap items-center gap-3">
+            <Button href={startHref} variant="ember-pill">Démarrer ma consultation →</Button>
+            <Button href={startHref} variant="ghost">Faire un diagnostic gratuit</Button>
+          </div>
+          <p class="text-[13.5px] text-ink-3">Consultation en ligne à <span class="text-ink-2">49 €, intégralement reversés au médecin</span></p>
         </div>
       </HeroReveal>
 
-      <FadeInSection client:load delay={0.55} y={14} className="mt-12 pt-6 border-t border-ink/10">
-        <div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-3 items-start">
-          <div class="flex items-baseline justify-between gap-4 sm:block py-3 sm:py-0 sm:pr-3 border-b sm:border-b-0 sm:border-r border-ink/10">
-            <div class="font-mono text-[14px] md:text-[16px] font-medium text-ink leading-tight sm:mb-1.5 tracking-[-0.01em]">Sous 7 jours</div>
-            <div class="font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-3">Consultation en ligne</div>
-          </div>
-          <div class="flex items-baseline justify-between gap-4 sm:block py-3 sm:py-0 sm:pr-3 border-b sm:border-b-0 sm:border-r border-ink/10">
-            <div class="font-mono text-[14px] md:text-[16px] font-medium text-ink leading-tight sm:mb-1.5 tracking-[-0.01em]">Médecin expert</div>
-            <div class="font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-3">Formé en dermatologie</div>
-          </div>
-          <div class="flex items-baseline justify-between gap-4 sm:block py-3 sm:py-0">
-            <div class="font-mono text-[14px] md:text-[16px] font-medium text-ink leading-tight sm:mb-1.5 tracking-[-0.01em]">Bilan gratuit</div>
-            <div class="font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-3">Sans engagement</div>
-          </div>
+      {/* Chips — proposition de valeur */}
+      <FadeInSection client:load delay={0.5} y={12} className="mt-8">
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-3.5">
+          <span class="inline-flex items-center gap-3 whitespace-nowrap text-[18px] font-medium text-ink">
+            <svg viewBox="0 0 24 24" class="h-[22px] w-[22px] shrink-0 text-[#12A150]" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg>Un médecin sous 15 jours
+          </span>
+          <span class="inline-flex items-center gap-3 whitespace-nowrap text-[18px] font-medium text-ink">
+            <svg viewBox="0 0 24 24" class="h-[22px] w-[22px] shrink-0 text-[#12A150]" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/></svg>Votre formule préparée en pharmacie
+          </span>
         </div>
       </FadeInSection>
 
     </div>
 
     <FadeInSection client:load delay={0.25} y={24}>
-      <div class="relative aspect-[4/5] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-20px_rgba(54,24,34,0.35)]">
+      <div class="relative aspect-[4/5] lg:aspect-auto lg:h-[500px] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-20px_rgba(54,24,34,0.35)]">
         <img
           src="/images/hero-new.jpg"
           alt="Portrait d'une patiente Mixt"
@@ -66,3 +73,42 @@ const whatsappHref =
     </FadeInSection>
   </div>
 </section>
+
+{/* Bandeau d'avis Trustpilot défilant, sous la hero */}
+<section class="relative overflow-hidden bg-base pb-12 md:pb-16" aria-label="Avis de patientes sur Trustpilot">
+  <div class="hero-marquee flex w-max gap-4 pr-4">
+    {[...reviews, ...reviews].map((r) => (
+      <figure class="flex w-[340px] shrink-0 flex-col rounded-2xl border border-black/[0.06] bg-white px-5 py-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+        <div class="mb-2.5 flex items-center gap-2">
+          <span class="inline-flex items-center gap-[2px]">
+            {[0, 1, 2, 3, 4].map(() => (
+              <span class="inline-flex h-[15px] w-[15px] items-center justify-center rounded-[2px]" style="background:#00b67a">
+                <span class="text-[9px] leading-none text-white">★</span>
+              </span>
+            ))}
+          </span>
+          <span class="text-[11px] font-medium text-ink-3">Trustpilot</span>
+        </div>
+        <p class="text-[13.5px] leading-[1.5] text-ink-2">« {r.quote} »</p>
+        <p class="mt-auto pt-2 text-[12px] font-semibold text-ink">{r.name}</p>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<style is:global>
+  @keyframes hero-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .hero-marquee {
+    animation: hero-marquee-scroll 45s linear infinite;
+    will-change: transform;
+  }
+  .hero-marquee:hover {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-marquee { animation: none; }
+  }
+</style>
