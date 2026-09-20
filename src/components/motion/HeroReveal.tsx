@@ -62,7 +62,7 @@ export default function HeroReveal({
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
-        className="text-[18px] md:text-[19px] leading-[1.6] text-ink-2 max-w-xl"
+        className="text-[18px] md:text-[19px] leading-[1.6] text-ink-2 max-w-xl text-balance"
       >
         {subtitle}
       </motion.p>
