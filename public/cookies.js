@@ -17,7 +17,7 @@
     '}',
     '.mixt-cookie-banner[data-visible="true"]{opacity:1;transform:translateY(0);}',
     '.mixt-cookie-banner h2{',
-    '  font-family:"Fraunces",serif;font-size:16px;font-weight:500;margin:0 0 6px;',
+    '  font-family:"Geist",system-ui,sans-serif;font-size:16px;font-weight:700;margin:0 0 6px;',
     '  color:var(--deep,#361822);letter-spacing:-0.01em;',
     '}',
     '.mixt-cookie-banner p{',

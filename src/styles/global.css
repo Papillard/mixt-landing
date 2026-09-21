@@ -46,9 +46,12 @@
   --color-rich: #6B3D32;
   --color-violet: #5E3A6E;
 
-  /* Familles typographiques */
-  --font-serif: 'Fraunces', Georgia, serif;
-  --font-italic: 'Newsreader', Georgia, serif;
+  /* Familles typographiques.
+     Variante "moderne" : les tokens serif/italic pointent vers Geist bold
+     (sans-serif, sobre, tech) pour tester la direction sans toucher
+     aux 40+ usages de font-serif dans les composants. */
+  --font-serif: 'Geist', -apple-system, system-ui, sans-serif;
+  --font-italic: 'Geist', -apple-system, system-ui, sans-serif;
   --font-sans: 'Geist', -apple-system, system-ui, sans-serif;
   --font-mono: 'DM Mono', ui-monospace, monospace;
 
@@ -57,7 +60,7 @@
   --text-display: clamp(2.5rem, 1.62rem + 2.75vw, 3.25rem); /* 40 > 52 */
   --text-display--line-height: 1.06;
   --text-display--letter-spacing: -0.035em;
-  --text-display--font-weight: 500;
+  --text-display--font-weight: 700;
 
   --text-stat: clamp(3rem, 2.25rem + 2.34vw, 3.75rem); /* 48 > 60 */
   --text-stat--line-height: 0.95;
@@ -67,12 +70,12 @@
   --text-h2: clamp(2rem, 1.69rem + 0.98vw, 2.25rem); /* 32 > 36 */
   --text-h2--line-height: 1.12;
   --text-h2--letter-spacing: -0.03em;
-  --text-h2--font-weight: 500;
+  --text-h2--font-weight: 700;
 
   --text-h3: clamp(1.375rem, 1.3rem + 0.39vw, 1.5rem); /* 22 > 24 */
   --text-h3--line-height: 1.25;
   --text-h3--letter-spacing: -0.02em;
-  --text-h3--font-weight: 500;
+  --text-h3--font-weight: 650;
 
   --text-lead: 1.25rem; /* 20 */
   --text-lead--line-height: 1.5;
@@ -136,25 +139,26 @@ body {
   overflow-x: hidden;
 }
 
-/* Combo serif italique utilisé dans les titres.
-   Sur mobile, le swap de police mid-titre crée des line-heights
-   asymétriques quand le titre wrap sur 2-3 lignes. On neutralise
-   donc l'effet à l'intérieur des headings sous 768px ; les
-   blockquotes/paragraphes en italic-serif restent intacts. */
-.italic-serif {
-  font-family: 'Newsreader', Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 1.08em;
+/* Variante moderne : tous les titres passent en Geist bold, y compris
+   ceux qui portent font-medium/font-normal en utilitaire
+   (règle non-layered, donc prioritaire sur @layer utilities). */
+h1, h2 {
+  font-family: 'Geist', -apple-system, system-ui, sans-serif;
+  font-weight: 700;
 }
 
-@media (max-width: 767.98px) {
-  :where(h1, h2, h3, h4) .italic-serif {
-    font-family: inherit;
-    font-style: inherit;
-    font-weight: inherit;
-    font-size: inherit;
-  }
+h3 {
+  font-family: 'Geist', -apple-system, system-ui, sans-serif;
+  font-weight: 650;
+}
+
+/* Variante moderne : plus d'accent italique serif. La classe reste
+   dans le markup (40+ usages) mais hérite tout du titre parent. */
+.italic-serif {
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  font-size: inherit;
 }
 
 /* ──────────────────────────────────────────

@@ -22,24 +22,23 @@ const conditions = [
 <nav class="fixed top-0 left-0 right-0 z-[100] h-14 px-10 flex items-center justify-between bg-base border-b border-black/[0.06]">
   <a
     href={homeHref}
-    class="group font-serif text-[28px] font-semibold text-ink no-underline leading-none tracking-[-0.025em] transition-colors"
-    style="font-optical-sizing: auto;"
+    class="font-serif text-[26px] font-bold text-ink no-underline leading-none tracking-[-0.03em] transition-colors"
     aria-label="Mixt, accueil"
-  >mixt<span class="text-ember transition-transform inline-block group-hover:translate-x-[2px]">.</span></a>
+  >mixt</a>
 
   <div class="flex items-center gap-1 md:gap-3">
     {/* Conditions dropdown masqué : pages concerns obsolètes, à réactiver une fois à jour */}
 
     <a
       href="https://app.mixt.care/login"
-      class="hidden md:inline-flex items-center whitespace-nowrap px-3 py-2 text-[13px] font-medium text-ink/60 no-underline transition-colors hover:text-ink"
+      class="hidden md:inline-flex items-center whitespace-nowrap px-3 py-2 text-[14px] font-medium text-ink/70 no-underline transition-colors hover:text-ink"
     >
       Se connecter
     </a>
 
     <a
       href={ctaHref}
-      class="inline-flex items-center gap-2 whitespace-nowrap px-4 md:px-5 py-2 text-[13px] font-semibold rounded-full bg-deep text-white no-underline transition-colors hover:bg-[#2B1018]"
+      class="inline-flex items-center gap-2 whitespace-nowrap px-5 md:px-6 py-2.5 text-[14px] font-semibold rounded-full bg-ember text-white no-underline transition-colors hover:bg-ember-dark shadow-[0_2px_14px_-2px_rgba(212,98,42,0.35)]"
     >
       {ctaLabel}
     </a>
