@@ -6,7 +6,7 @@
     .quiz-overlay.visible{opacity:1}
     /* Header */
     .quiz-header{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 40px;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--base);z-index:10}
-    .quiz-logo{font-family:'Fraunces',serif;font-size:28px;font-weight:500;font-variation-settings:'opsz' 144,'WONK' 0,'SOFT' 0;color:var(--deep);text-decoration:none}
+    .quiz-logo{font-family:'Geist',system-ui,sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.03em;color:var(--deep);text-decoration:none}
     .quiz-progress-wrap{flex:1;max-width:280px;margin:0 24px;display:flex;flex-direction:column;align-items:center;gap:4px}
     .quiz-progress-bar{width:100%;height:3px;background:var(--cream);border-radius:2px;overflow:hidden}
     .quiz-progress-fill{height:100%;background:var(--deep);border-radius:2px;transition:width .3s ease;width:0%}
@@ -58,7 +58,7 @@
     /* Bilan */
     .quiz-bilan-card{background:var(--cream);border-radius:16px;padding:32px;margin-bottom:20px;text-align:center}
     .quiz-bilan-card-emoji{font-size:48px;margin-bottom:12px}
-    .quiz-bilan-card-label{font-family:'Fraunces',serif;font-size:28px;font-weight:500;font-variation-settings:'opsz' 144;color:var(--deep);line-height:1.2;margin-bottom:12px}
+    .quiz-bilan-card-label{font-family:'Geist',system-ui,sans-serif;font-size:28px;font-weight:700;color:var(--deep);line-height:1.2;margin-bottom:12px}
     .quiz-bilan-card-summary{font-size:16px;line-height:1.6;color:var(--text-2);font-style:italic;margin-bottom:12px}
     .quiz-bilan-card-education{font-size:15px;line-height:1.6;color:var(--text-2)}
     .quiz-bilan-secondary{font-size:14px;line-height:1.6;color:var(--text-3);margin-bottom:16px}

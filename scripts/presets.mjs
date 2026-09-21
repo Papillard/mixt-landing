@@ -64,7 +64,7 @@ export const PRESETS = {
 
   mockup: {
     suffix:
-      'clean minimalist medical app UI mockup, cream white background (#FFF8F2), serif display typography similar to Fraunces, soft amber accents (#FFAF2C), phone frame or laptop screen, professional and trustworthy, centered composition, flat shadows, no visible brand logos, no placeholder lorem ipsum',
+      'clean minimalist medical app UI mockup, cream white background (#FFF8F2), bold sans-serif display typography similar to Geist, soft amber accents (#FFAF2C), phone frame or laptop screen, professional and trustworthy, centered composition, flat shadows, no visible brand logos, no placeholder lorem ipsum',
     negative:
       'cluttered, 3d render, cartoon, low contrast, dark mode, neon, garish colors, stock photo feel',
     size: 'portrait_9_16',

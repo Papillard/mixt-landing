@@ -22,14 +22,6 @@ const UA =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
 const FAMILIES = [
-  {
-    slug: 'fraunces',
-    url: 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap',
-  },
-  {
-    slug: 'newsreader',
-    url: 'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap',
-  },
   { slug: 'geist', url: 'https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap' },
   { slug: 'dmmono', url: 'https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap' },
 ];

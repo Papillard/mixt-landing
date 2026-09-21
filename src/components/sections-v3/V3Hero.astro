@@ -20,7 +20,7 @@ const reviews = [
 ---
 
 <section class="relative px-6 md:px-10 pt-[calc(56px+44px)] pb-14 md:pb-8 bg-base">
-  <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
+  <div class="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
     <div>
       <HeroReveal
         client:load
@@ -33,7 +33,7 @@ const reviews = [
             <Button href={startHref} variant="ember-pill">Démarrer ma consultation →</Button>
             <Button href={startHref} variant="ghost">Faire un diagnostic gratuit</Button>
           </div>
-          <p class="text-[13.5px] text-ink-3">Consultation en ligne à <span class="text-ink-2">49 €, intégralement reversés au médecin</span></p>
+          <p class="text-[14px] text-ink-2">Consultation en ligne à 49 €, intégralement reversés au médecin</p>
         </div>
       </HeroReveal>
 
@@ -52,16 +52,13 @@ const reviews = [
     </div>
 
     <FadeInSection client:load delay={0.25} y={24}>
-      <div class="relative aspect-[4/5] lg:aspect-auto lg:h-[500px] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-20px_rgba(54,24,34,0.35)]">
+      <div class="relative aspect-[4/5] lg:aspect-auto lg:h-[560px] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-20px_rgba(54,24,34,0.35)]">
         <img
           src="/images/hero-new.jpg"
           alt="Portrait d'une patiente Mixt"
           class="absolute inset-0 h-full w-full object-cover object-[center_30%]"
           fetchpriority="high"
         />
-        {/* Gradient sombre ultra-léger bottom-left pour lisibilité du graph sans dénaturer la photo */}
-        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 65% 60% at 0% 100%, rgba(26,18,16,0.22) 0%, rgba(26,18,16,0.08) 35%, transparent 65%);"></div>
-
         {/* Chip marron top-left */}
         <div class="absolute left-5 top-5 z-[5] rounded-[6px] bg-deep/95 backdrop-blur px-3 py-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
           Mélasma

@@ -10,6 +10,7 @@ type Props = {
   children?: React.ReactNode;
   eyebrowMono?: boolean;
   serif?: boolean;
+  underline?: boolean;
 };
 
 export default function HeroReveal({
@@ -20,6 +21,7 @@ export default function HeroReveal({
   children,
   eyebrowMono = false,
   serif = false,
+  underline = false,
 }: Props) {
   const eyebrowClass = eyebrowMono
     ? 'font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep flex items-center gap-3'
@@ -28,8 +30,8 @@ export default function HeroReveal({
   const eyebrowBar = eyebrowMono ? 'bg-ember-deep' : 'bg-ink-2/60';
 
   const titleClass = serif
-    ? "font-serif text-[44px] md:text-[60px] font-normal leading-[1.12] tracking-[-0.035em] text-ink"
-    : 'text-[44px] md:text-[60px] font-medium leading-[1.12] tracking-[-0.035em] text-ink';
+    ? "font-serif text-[37px] md:text-[60px] font-normal leading-[1.12] tracking-[-0.035em] text-ink"
+    : 'text-[37px] md:text-[60px] font-medium leading-[1.12] tracking-[-0.035em] text-ink';
 
   return (
     <div className="flex flex-col gap-5">
@@ -53,7 +55,7 @@ export default function HeroReveal({
         style={serif ? { fontVariationSettings: "'opsz' 144" } : undefined}
       >
         {title}
-        <span className="italic-serif block">
+        <span className={`italic-serif block ${underline ? 'text-ember' : ''}`}>
           {highlight}
         </span>
       </motion.h1>
