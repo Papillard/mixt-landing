@@ -44,8 +44,9 @@ export default function HeroMasiChart() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
-          stroke="rgba(255,248,242,0.6)"
+          stroke="rgba(255,248,242,0.85)"
           strokeWidth="0.2"
+          style={{ filter: 'drop-shadow(0 0.4px 1px rgba(26,18,16,0.65))' }}
         >
           {/* Axe Y */}
           <line x1="10" y1="48" x2="10" y2="89" />
@@ -65,9 +66,10 @@ export default function HeroMasiChart() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.35 }}
-          fill="rgba(255,248,242,0.75)"
+          fill="rgba(255,248,242,0.95)"
           fontFamily="'DM Mono', monospace"
           fontSize="1.8"
+          style={{ filter: 'drop-shadow(0 0.4px 1.2px rgba(26,18,16,0.75))' }}
         >
           <text x="90" y="94" textAnchor="end">S.12</text>
           <text x="11" y="94" textAnchor="start">S.0</text>
@@ -100,7 +102,7 @@ export default function HeroMasiChart() {
           initial={{ pathLength: 0 }}
           animate={inView ? { pathLength: 1 } : {}}
           transition={{ duration: DRAW_DURATION, delay: DRAW_DELAY, ease: [0.22, 1, 0.36, 1] }}
-          style={{ filter: 'drop-shadow(0 0 0.8px rgba(0,0,0,0.22))' }}
+          style={{ filter: 'drop-shadow(0 0.5px 1.1px rgba(26,18,16,0.4))' }}
         />
 
       </svg>
