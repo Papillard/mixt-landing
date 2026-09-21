@@ -19,7 +19,7 @@ const reviews = [
 ];
 ---
 
-<section class="relative px-6 md:px-10 pt-[calc(56px+44px)] pb-14 md:pb-8 bg-base">
+<section class="relative px-6 md:px-10 pt-[calc(56px+44px)] pb-20 md:pb-16 bg-base">
   <div class="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
     <div>
       <HeroReveal
@@ -52,7 +52,7 @@ const reviews = [
     </div>
 
     <FadeInSection client:load delay={0.25} y={24}>
-      <div class="relative aspect-[4/5] lg:aspect-auto lg:h-[560px] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-20px_rgba(54,24,34,0.35)]">
+      <div class="relative aspect-[4/5] lg:aspect-auto lg:h-[560px] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_16px_40px_-24px_rgba(54,24,34,0.32)]">
         <img
           src="/images/hero-new.jpg"
           alt="Portrait d'une patiente Mixt"
@@ -72,7 +72,7 @@ const reviews = [
 </section>
 
 {/* Bandeau d'avis Trustpilot défilant, sous la hero */}
-<section class="relative overflow-hidden bg-base pb-14 md:pb-20" aria-label="Avis de patientes sur Trustpilot">
+<section class="relative overflow-hidden pb-14 md:pb-20" aria-label="Avis de patientes sur Trustpilot">
   <div class="hero-marquee-mask">
     <div class="hero-marquee flex w-max gap-4 md:gap-5 pr-4 md:pr-5">
       {[...reviews, ...reviews].map((r) => (
