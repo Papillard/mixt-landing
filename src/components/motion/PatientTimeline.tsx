@@ -91,7 +91,7 @@ function TimelineRow({ step, isLast }: { step: Step; isLast: boolean }) {
       <div className="hidden min-[481px]:flex items-center justify-center relative z-[3]">
         <motion.div
           className="w-2.5 h-2.5 rounded-full"
-          animate={{ backgroundColor: inView ? '#E8664B' : 'rgba(255,255,255,0.2)' }}
+          animate={{ backgroundColor: inView ? '#F0502A' : 'rgba(255,255,255,0.2)' }}
           transition={{ duration: 0.4, ease: EASE }}
           aria-hidden
         />

@@ -7,44 +7,44 @@
    ────────────────────────────────────────── */
 @theme {
   /* Encres (texte) */
-  --color-ink: #1A1210;
-  --color-ink-2: #6B5B52;
-  --color-ink-3: #9A8A80;
+  --color-ink: #15181C;
+  --color-ink-2: #5B6169;
+  --color-ink-3: #9BA1A8;
 
-  /* Canvas clair */
-  --color-base: #FFF8F2;
-  --color-cream: #F5E6DA;
+  /* Canvas clair : gris medical lumineux (aligne Instagram / app) */
+  --color-base: #F7F8F9;
+  --color-cream: #EFF1F2;
 
-  /* Bruns / ancrage (rampe deep > warm > blush) */
-  --color-deep: #361822;
-  --color-warm: #B07460;
-  --color-blush: #D4A08A;
+  /* Neutres sombres / ancrage (rampe deep > warm > blush) */
+  --color-deep: #321922;
+  --color-warm: #6E747B;
+  --color-blush: #D6D9DC;
 
   /* Action : registre chaud (base / hover / texte-sur-clair) */
-  --color-ember: #E8664B;
-  --color-ember-dark: #C4513A;
-  --color-ember-deep: #9E3E2B;
+  --color-ember: #F0502A;
+  --color-ember-dark: #D13F1C;
+  --color-ember-deep: #B0330F;
 
   /* Négatif / erreur (croix "don't", erreurs de formulaire) */
-  --color-danger: #C85A4A;
+  --color-danger: #C4432B;
 
   /* Froid : signal médical, sur fond clair */
-  --color-jade: #5FBFA3;
-  --color-jade-deep: #3A8A75;
+  --color-jade: #4FB39A;
+  --color-jade-deep: #2F7F6C;
 
   /* Froid : fonds sombres "science" + tints clairs */
-  --color-sage: #4A5F52;
-  --color-sage-deep: #2D4239;
-  --color-sage-light: #A8B5A7;
+  --color-sage: #4A565E;
+  --color-sage-deep: #232C33;
+  --color-sage-light: #A9B2B8;
 
   /* Froid : accent sur fond sombre */
-  --color-mint: #7FE0A5;
+  --color-mint: #6FDCA8;
 
   /* DEPRECATED, en cours de migration (voir DESIGN.md). Ne pas étendre :
      - rich   : 3 "text-rich" restants, à migrer vers ink-2.
      - violet : eyebrows des sections Conditions, à migrer vers ember-deep/jade. */
-  --color-rich: #6B3D32;
-  --color-violet: #5E3A6E;
+  --color-rich: #5B6169;
+  --color-violet: #B0330F;
 
   /* Familles typographiques.
      Variante "moderne" : les tokens serif/italic pointent vers Geist bold
@@ -108,20 +108,20 @@
    portés 1:1 comme le quiz)
    ────────────────────────────────────────── */
 :root {
-  --deep: #361822;
-  --rich: #6B3D32;
-  --violet: #5E3A6E;
-  --violet-dark: #462858;
-  --violet-light: #C0A8CC;
-  --violet-bg: #F0EAF4;
-  --warm: #B07460;
-  --blush: #D4A08A;
-  --cream: #F5E6DA;
-  --base: #FFF8F2;
-  --accent: #C85A4A;
-  --text: #1A1210;
-  --text-2: #6B5B52;
-  --text-3: #9A8A80;
+  --deep: #321922;
+  --rich: #5B6169;
+  --violet: #4A565E;
+  --violet-dark: #232C33;
+  --violet-light: #A9B2B8;
+  --violet-bg: #E8EAEC;
+  --warm: #6E747B;
+  --blush: #D6D9DC;
+  --cream: #EFF1F2;
+  --base: #F7F8F9;
+  --accent: #C4432B;
+  --text: #15181C;
+  --text-2: #5B6169;
+  --text-3: #9BA1A8;
   --border: rgba(0, 0, 0, 0.06);
   --r: 6px;
 }
@@ -133,8 +133,8 @@ html {
 
 body {
   font-family: 'Geist', -apple-system, system-ui, sans-serif;
-  background: #FFF8F2;
-  color: #1A1210;
+  background: #F7F8F9;
+  color: #15181C;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }

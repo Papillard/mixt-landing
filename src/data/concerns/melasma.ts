@@ -13,7 +13,7 @@ export const melasma: Concern = {
     title: 'Le mélasma se traite.',
     highlight: 'Avec méthode, et dans la durée.',
     lead: "Ces taches symétriques sur les joues, le front ou la lèvre supérieure, souvent apparues pendant une grossesse ou sous pilule, reviennent dès qu'on baisse la garde. Un médecin expert de votre peau, supervisé par un dermatologue, construit un plan adapté à votre phototype et vous accompagne mois après mois.",
-    image: '/images/woman-mirror-melasma.jpg',
+    image: '/images/shoot-persona-acne.webp',
     imageAlt: 'Femme observant son mélasma dans un miroir',
   },
   problem: {

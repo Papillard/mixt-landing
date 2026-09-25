@@ -30,7 +30,7 @@ function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedCha
   if (panel.kind === 'chat') {
     const nav = ['Messagerie', 'Assistant IA', 'Ta peau', 'Consultation', 'Traitement'];
     return (
-      <div className="flex overflow-hidden rounded-2xl border border-black/[0.08] bg-base shadow-[0_20px_60px_-30px_rgba(54,24,34,0.4)] h-[440px]">
+      <div className="flex overflow-hidden rounded-2xl border border-black/[0.08] bg-base shadow-[0_20px_60px_-30px_rgba(50,25,34,0.4)] h-[440px]">
         {/* Rail sombre */}
         <div className="hidden sm:flex flex-col w-[132px] shrink-0 bg-deep text-white/90 px-3.5 py-4">
           <div className="font-serif text-[19px] font-semibold leading-none" style={{ fontOpticalSizing: 'auto' }}>Mixt</div>
@@ -128,7 +128,7 @@ function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedCha
             loading="lazy"
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover"
-            style={panel.objectPosition ? { objectPosition: panel.objectPosition } : undefined}
+            style={{ objectPosition: panel.objectPosition ?? 'center 25%' }}
           />
         )}
         {panel.kind === 'image' && !panel.src && (
@@ -200,7 +200,7 @@ export default function StickySteps({ steps, panels }: Props) {
             >
               {p && <PanelMedia panel={p} animatedChart={false} />}
               <div>
-                <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-ember-deep mb-2.5">
+                <div className="font-mono text-[26px] font-bold leading-none tracking-[-0.03em] text-ember mb-3">
                   {s.number}
                 </div>
                 <div className="text-[22px] font-semibold text-ink leading-[1.2] mb-3 tracking-[-0.02em]">
@@ -254,8 +254,8 @@ export default function StickySteps({ steps, panels }: Props) {
                     <motion.span
                       className="absolute -left-[31px] top-1.5 w-[11px] h-[11px] rounded-full border-2"
                       animate={{
-                        backgroundColor: isActive ? '#361822' : '#FFF8F2',
-                        borderColor: isActive ? '#361822' : '#9A8A80',
+                        backgroundColor: isActive ? '#321922' : '#F4F5F6',
+                        borderColor: isActive ? '#321922' : '#9BA1A8',
                         scale: isActive ? 1.15 : 1,
                       }}
                       transition={{ duration: 0.3, ease: EASE }}
@@ -265,7 +265,7 @@ export default function StickySteps({ steps, panels }: Props) {
                       animate={{ opacity: isActive ? 1 : 0.55 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-ember-deep mb-2.5">
+                      <div className="font-mono text-[26px] font-bold leading-none tracking-[-0.03em] text-ember mb-3">
                         {s.number}
                       </div>
                       <div className="text-[21px] md:text-[23px] font-semibold text-ink leading-[1.2] mb-3 tracking-[-0.02em]">
@@ -301,16 +301,16 @@ function ProgressChart() {
       <svg viewBox="0 0 400 260" className="absolute inset-0 h-full w-full p-6">
         <defs>
           <linearGradient id="v3chart" x1="0" x2="1" y1="0" y2="0.4">
-            <stop offset="0%" stopColor="#361822" stopOpacity="0.85" />
-            <stop offset="40%" stopColor="#C4513A" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#E8664B" stopOpacity="1" />
+            <stop offset="0%" stopColor="#321922" stopOpacity="0.85" />
+            <stop offset="40%" stopColor="#D13F1C" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#F0502A" stopOpacity="1" />
           </linearGradient>
           <linearGradient id="v3chart-glow" x1="0" x2="1" y1="0" y2="0.4">
-            <stop offset="0%" stopColor="#361822" stopOpacity="0" />
-            <stop offset="100%" stopColor="#E8664B" stopOpacity="0.28" />
+            <stop offset="0%" stopColor="#321922" stopOpacity="0" />
+            <stop offset="100%" stopColor="#F0502A" stopOpacity="0.28" />
           </linearGradient>
         </defs>
-        <g stroke="#1A121014" strokeWidth="0.8" strokeDasharray="2 4">
+        <g stroke="#15181C14" strokeWidth="0.8" strokeDasharray="2 4">
           <line x1="30" y1="210" x2="370" y2="210" />
           <line x1="30" y1="140" x2="370" y2="140" />
           <line x1="30" y1="70" x2="370" y2="70" />
@@ -331,13 +331,13 @@ function ProgressChart() {
           strokeLinecap="round"
           style={{ pathLength }}
         />
-        <g fill="#E8664B">
+        <g fill="#F0502A">
           <circle cx="30" cy="210" r="3.5" />
           <circle cx="200" cy="145" r="3" />
           <circle cx="280" cy="95" r="3" />
           <circle cx="370" cy="50" r="4" />
         </g>
-        <g fill="#6B5B52" fontSize="10" fontFamily="'DM Mono', monospace" textAnchor="middle">
+        <g fill="#5B6169" fontSize="10" fontFamily="'DM Mono', monospace" textAnchor="middle">
           <text x="30" y="235">S.0</text>
           <text x="200" y="235">S.4</text>
           <text x="280" y="235">S.8</text>
@@ -354,16 +354,16 @@ function StaticChart() {
       <svg viewBox="0 0 400 260" className="absolute inset-0 h-full w-full p-6">
         <defs>
           <linearGradient id="v3chart-static" x1="0" x2="1" y1="0" y2="0.4">
-            <stop offset="0%" stopColor="#361822" stopOpacity="0.85" />
-            <stop offset="40%" stopColor="#C4513A" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#E8664B" stopOpacity="1" />
+            <stop offset="0%" stopColor="#321922" stopOpacity="0.85" />
+            <stop offset="40%" stopColor="#D13F1C" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#F0502A" stopOpacity="1" />
           </linearGradient>
           <linearGradient id="v3chart-glow-static" x1="0" x2="1" y1="0" y2="0.4">
-            <stop offset="0%" stopColor="#361822" stopOpacity="0" />
-            <stop offset="100%" stopColor="#E8664B" stopOpacity="0.28" />
+            <stop offset="0%" stopColor="#321922" stopOpacity="0" />
+            <stop offset="100%" stopColor="#F0502A" stopOpacity="0.28" />
           </linearGradient>
         </defs>
-        <g stroke="#1A121014" strokeWidth="0.8" strokeDasharray="2 4">
+        <g stroke="#15181C14" strokeWidth="0.8" strokeDasharray="2 4">
           <line x1="30" y1="210" x2="370" y2="210" />
           <line x1="30" y1="140" x2="370" y2="140" />
           <line x1="30" y1="70" x2="370" y2="70" />
@@ -382,13 +382,13 @@ function StaticChart() {
           strokeWidth="2"
           strokeLinecap="round"
         />
-        <g fill="#E8664B">
+        <g fill="#F0502A">
           <circle cx="30" cy="210" r="3.5" />
           <circle cx="200" cy="145" r="3" />
           <circle cx="280" cy="95" r="3" />
           <circle cx="370" cy="50" r="4" />
         </g>
-        <g fill="#6B5B52" fontSize="10" fontFamily="'DM Mono', monospace" textAnchor="middle">
+        <g fill="#5B6169" fontSize="10" fontFamily="'DM Mono', monospace" textAnchor="middle">
           <text x="30" y="235">S.0</text>
           <text x="200" y="235">S.4</text>
           <text x="280" y="235">S.8</text>

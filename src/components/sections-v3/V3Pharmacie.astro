@@ -1,0 +1,99 @@
+---
+import FadeInSection from '../motion/FadeInSection.tsx';
+import Button from '../Button.astro';
+
+// Chaque carte dit ce que ça change pour la patiente, pas l'étape logistique.
+// Deux photos de labo au maximum : le reste doit rester humain.
+const steps = [
+  {
+    n: '01',
+    image: '/images/shoot-labo-conditionnement.webp',
+    objectPosition: 'center 42%',
+    alt: 'Tube de préparation magistrale contrôlé sur balance de précision',
+    title: 'À votre nom, pas en rayon',
+    detail: "Votre nom est imprimé sur le tube. Cette formule n'existe pas en deux exemplaires.",
+  },
+  {
+    n: '02',
+    image: '/images/shoot-labo-preparation.webp',
+    objectPosition: 'center 62%',
+    alt: 'Préparation au mortier dans le laboratoire de la pharmacie',
+    title: 'Les bons actifs, au bon dosage',
+    detail: "Choisis par un médecin pour votre peau, pas par un service marketing pour une moyenne.",
+  },
+  {
+    n: '03',
+    image: '/images/shoot-tubes.webp',
+    objectPosition: 'center 50%',
+    alt: 'Tubes de formule magistrale Mixt',
+    title: 'Préparée à la main, en pharmacie française',
+    detail: "Comme une vraie ordonnance, pas comme un cosmétique produit à la chaîne.",
+  },
+  {
+    n: '04',
+    image: '/images/shoot-persona-acne-pih.webp',
+    objectPosition: 'center 18%',
+    alt: 'Portrait de femme souriante',
+    title: 'Elle évolue avec votre peau',
+    detail: "Réajustée à chaque suivi : ce qui marche, on garde ; ce qui coince, on change.",
+  },
+];
+---
+
+<section id="preparation" class="bg-base px-6 md:px-10 py-24 md:py-32">
+  <div class="max-w-[1200px] mx-auto">
+
+    <FadeInSection client:load>
+      <div class="flex items-center gap-3 font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-ember-deep mb-5">
+        <span class="inline-block h-[2px] w-12 bg-ember-deep/70"></span>
+        Préparation magistrale
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] gap-6 lg:gap-16 items-end">
+        <h2 class="text-[40px] md:text-[52px] font-bold leading-[1.06] tracking-[-0.035em] text-ink max-w-[700px] m-0">
+          Votre formule n'existe pas en rayon.
+        </h2>
+        <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 m-0 lg:pb-2">
+          Elle est préparée à votre nom, dans une pharmacie française, à partir de
+          l'ordonnance de votre médecin. C'est ce qu'on appelle une préparation magistrale.
+        </p>
+      </div>
+    </FadeInSection>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 mt-14 md:mt-16">
+      {steps.map((s, i) => (
+        <FadeInSection client:load delay={0.08 * i}>
+          <article class="h-full">
+            <div class="aspect-[4/5] overflow-hidden rounded-[12px] bg-cream">
+              <img
+                src={s.image}
+                alt={s.alt}
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover"
+                style={`object-position: ${s.objectPosition}`}
+              />
+            </div>
+            <div class="mt-5">
+              <span class="block font-mono text-[30px] font-bold leading-none tracking-[-0.03em] text-ember">{s.n}</span>
+              <h3 class="mt-3 text-[18px] font-bold leading-[1.25] tracking-[-0.02em] text-ink m-0">{s.title}</h3>
+            </div>
+            <p class="mt-2 text-[14px] leading-[1.55] text-ink-2 m-0">{s.detail}</p>
+          </article>
+        </FadeInSection>
+      ))}
+    </div>
+
+    <FadeInSection client:load delay={0.2}>
+      <div class="mt-14 md:mt-16 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8 border-t border-black/[0.08] pt-8">
+        <p class="m-0 text-[15px] leading-[1.55] text-ink-2 max-w-[560px]">
+          Une préparation magistrale est prescrite : la pharmacie vous remet une facture, et la
+          plupart des mutuelles en remboursent une partie. Un cosmétique de parapharmacie, jamais.
+        </p>
+        <div class="shrink-0">
+          <Button href="https://app.mixt.care/start">Démarrer ma consultation →</Button>
+        </div>
+      </div>
+    </FadeInSection>
+
+  </div>
+</section>

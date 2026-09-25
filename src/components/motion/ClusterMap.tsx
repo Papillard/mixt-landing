@@ -27,7 +27,7 @@ const CLUSTERS: Cluster[] = [
     cy: 30,
     count: 26,
     spread: 11,
-    color: '#7FE0A5',
+    color: '#6FDCA8',
     label: 'Dépigmentation',
     countLabel: 'Littérature dermatologique',
     anchorOffset: { dx: -5, dy: -22 },
@@ -37,7 +37,7 @@ const CLUSTERS: Cluster[] = [
     cy: 38,
     count: 22,
     spread: 10,
-    color: '#D4A08A',
+    color: '#D6D9DC',
     label: 'Régulation séborrhéique',
     countLabel: 'Littérature dermatologique',
     anchorOffset: { dx: -3, dy: -22 },
@@ -47,13 +47,13 @@ const CLUSTERS: Cluster[] = [
     cy: 70,
     count: 18,
     spread: 8,
-    color: '#E8664B',
+    color: '#F0502A',
     label: 'Anti-inflammatoires topiques',
     countLabel: 'Littérature dermatologique',
     anchorOffset: { dx: -12, dy: 10 },
   },
   { cx: 35, cy: 72, count: 14, spread: 7, color: '#B4E8C5' },
-  { cx: 50, cy: 52, count: 10, spread: 6, color: '#A8B5A7' },
+  { cx: 50, cy: 52, count: 10, spread: 6, color: '#A9B2B8' },
 ];
 
 type Point = { x: number; y: number; r: number; color: string; delay: number };
@@ -89,16 +89,16 @@ export default function ClusterMap() {
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
         <defs>
           <radialGradient id="cluster-halo-mint" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#7FE0A5" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#7FE0A5" stopOpacity="0" />
+            <stop offset="0%" stopColor="#6FDCA8" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="#6FDCA8" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="cluster-halo-blush" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#D4A08A" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#D4A08A" stopOpacity="0" />
+            <stop offset="0%" stopColor="#D6D9DC" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#D6D9DC" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="cluster-halo-ember" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#E8664B" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#E8664B" stopOpacity="0" />
+            <stop offset="0%" stopColor="#F0502A" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#F0502A" stopOpacity="0" />
           </radialGradient>
         </defs>
 
