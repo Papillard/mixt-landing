@@ -18,10 +18,19 @@ const proof = [
 
     <div>
       <FadeInSection client:load y={10}>
-        <div class="inline-flex items-center gap-2.5 rounded-full bg-white border border-black/[0.06] px-4 py-2 shadow-[0_1px_3px_rgba(0,0,0,0.04)] mb-7">
-          <span class="h-[7px] w-[7px] rounded-full bg-ember shrink-0"></span>
-          <span class="font-mono text-[11px] md:text-[12px] tracking-[0.02em] text-ink-2">
-            Médecins formés en dermatologie · Consultation sous 7 jours
+        {/* Deux pastilles distinctes : en mobile elles s'empilent proprement
+            au lieu de faire casser une seule pastille sur deux lignes. */}
+        <div class="flex flex-wrap items-center gap-2 mb-7">
+          <span class="inline-flex items-center gap-2 rounded-full bg-white border border-black/[0.06] px-3.5 py-2 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+            <span class="h-[7px] w-[7px] rounded-full bg-ember shrink-0"></span>
+            <span class="font-mono text-[10.5px] md:text-[11.5px] tracking-[0.02em] text-ink-2 whitespace-nowrap">
+              Médecins formés en dermatologie
+            </span>
+          </span>
+          <span class="inline-flex items-center rounded-full bg-white border border-black/[0.06] px-3.5 py-2 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+            <span class="font-mono text-[10.5px] md:text-[11.5px] tracking-[0.02em] text-ink-2 whitespace-nowrap">
+              Consultation sous 7 jours
+            </span>
           </span>
         </div>
       </FadeInSection>
