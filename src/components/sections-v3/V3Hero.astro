@@ -7,7 +7,8 @@ const startHref = 'https://app.mixt.care/start';
 // Barre de réassurance sous les CTA : une preuve par colonne, pas de verbatim.
 const proof = [
   { top: 'stars' as const, label: 'Avis vérifiés Trustpilot' },
-  { top: 'Sur ordonnance', label: 'Préparée en pharmacie' },
+  { top: 'Une seule formule', label: 'Au lieu de 4 produits' },
+  { top: 'Sur ordonnance', label: 'Remboursable en partie' },
   { top: 'Suivi inclus', label: 'Sans surcoût' },
 ];
 ---
@@ -52,7 +53,7 @@ const proof = [
       </FadeInSection>
 
       <FadeInSection client:load delay={0.3} y={12}>
-        <div class="mt-9 pt-7 border-t border-black/[0.09] flex flex-wrap gap-x-12 gap-y-5">
+        <div class="mt-9 pt-7 border-t border-black/[0.09] flex flex-wrap gap-x-9 gap-y-5">
           {proof.map((p) => (
             <div>
               {p.top === 'stars' ? (
