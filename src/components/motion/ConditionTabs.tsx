@@ -113,7 +113,7 @@ function MobileSwipeCards({ tabs }: Props) {
         >
           {tabs.map((t) => (
             <div key={t.id} className="shrink-0 w-full px-1">
-              <article className="rounded-[16px] bg-base border border-black/[0.05] overflow-hidden shadow-[0_8px_28px_-18px_rgba(54,24,34,0.18)]">
+              <article className="rounded-[16px] bg-base border border-black/[0.05] overflow-hidden shadow-[0_8px_28px_-18px_rgba(25,28,33,0.18)]">
                 <div className="relative aspect-[16/11] bg-blush/30">
                   <img
                     src={t.image}

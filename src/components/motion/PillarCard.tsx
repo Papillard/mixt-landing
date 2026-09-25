@@ -31,6 +31,7 @@ type Overlay = FormulaOverlay | ChatOverlay | ScoreOverlay;
 type Props = {
   image: string;
   alt: string;
+  objectPosition?: string;
   title: string;
   description: string;
   overlay: Overlay;
@@ -125,6 +126,7 @@ function renderOverlay(o: Overlay) {
 export default function PillarCard({
   image,
   alt,
+  objectPosition = 'center 40%',
   title,
   description,
   overlay,
@@ -159,14 +161,14 @@ export default function PillarCard({
           loading="lazy"
           decoding="async"
           className="film-grade absolute inset-0 h-[112%] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-          style={{ y: bgY, top: '-6%' }}
+          style={{ y: bgY, top: '-6%', objectPosition }}
         />
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: EASE, delay: index * 0.12 + 0.35 }}
-          className={`absolute bottom-4 rounded-[12px] bg-base/85 backdrop-blur-md p-5 shadow-[0_10px_30px_-12px_rgba(54,24,34,0.25)] ${
+          className={`absolute bottom-4 rounded-[12px] bg-base/85 backdrop-blur-md p-5 shadow-[0_10px_30px_-12px_rgba(25,28,33,0.25)] ${
             overlay.kind === 'chat'
               ? 'right-4 w-[62%]'
               : 'left-4 right-4'

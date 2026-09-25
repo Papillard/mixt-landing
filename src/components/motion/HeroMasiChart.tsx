@@ -34,8 +34,8 @@ export default function HeroMasiChart() {
         <defs>
           {/* Courbe en cream pointillé élégant */}
           <linearGradient id="masi-glow" x1="0" y1="0" x2="1" y2="0.3">
-            <stop offset="0%" stopColor="#FFF8F2" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#FFF8F2" stopOpacity="0.18" />
+            <stop offset="0%" stopColor="#F4F5F6" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#F4F5F6" stopOpacity="0.18" />
           </linearGradient>
         </defs>
 
@@ -46,7 +46,7 @@ export default function HeroMasiChart() {
           transition={{ duration: 0.5, delay: 0.2 }}
           stroke="rgba(255,248,242,0.85)"
           strokeWidth="0.2"
-          style={{ filter: 'drop-shadow(0 0.4px 1px rgba(26,18,16,0.65))' }}
+          style={{ filter: 'drop-shadow(0 0.4px 1px rgba(21,24,28,0.65))' }}
         >
           {/* Axe Y */}
           <line x1="10" y1="48" x2="10" y2="89" />
@@ -69,7 +69,7 @@ export default function HeroMasiChart() {
           fill="rgba(255,248,242,0.95)"
           fontFamily="'DM Mono', monospace"
           fontSize="1.8"
-          style={{ filter: 'drop-shadow(0 0.4px 1.2px rgba(26,18,16,0.75))' }}
+          style={{ filter: 'drop-shadow(0 0.4px 1.2px rgba(21,24,28,0.75))' }}
         >
           <text x="90" y="94" textAnchor="end">S.12</text>
           <text x="11" y="94" textAnchor="start">S.0</text>
@@ -95,14 +95,14 @@ export default function HeroMasiChart() {
           ref={pathRef}
           d={CURVE_D}
           fill="none"
-          stroke="#FFF8F2"
+          stroke="#F4F5F6"
           strokeWidth="0.22"
           strokeLinecap="round"
           strokeDasharray="1.2 1.6"
           initial={{ pathLength: 0 }}
           animate={inView ? { pathLength: 1 } : {}}
           transition={{ duration: DRAW_DURATION, delay: DRAW_DELAY, ease: [0.22, 1, 0.36, 1] }}
-          style={{ filter: 'drop-shadow(0 0.5px 1.1px rgba(26,18,16,0.4))' }}
+          style={{ filter: 'drop-shadow(0 0.5px 1.1px rgba(21,24,28,0.4))' }}
         />
 
       </svg>
@@ -121,7 +121,7 @@ export default function HeroMasiChart() {
               top: `${p.y}%`,
               width: size,
               height: size,
-              background: '#E8664B',
+              background: '#F0502A',
             }}
             initial={{ scale: 0, opacity: 0 }}
             animate={inView ? { scale: 1, opacity: 1 } : {}}
@@ -135,7 +135,7 @@ export default function HeroMasiChart() {
           >
             <motion.span
               className="absolute inset-0 rounded-full"
-              style={{ background: '#E8664B' }}
+              style={{ background: '#F0502A' }}
               initial={{ opacity: 0 }}
               animate={
                 inView
@@ -154,7 +154,7 @@ export default function HeroMasiChart() {
             />
             <span
               className="absolute inset-0 rounded-full"
-              style={{ background: '#E8664B' }}
+              style={{ background: '#F0502A' }}
             />
           </motion.div>
         );

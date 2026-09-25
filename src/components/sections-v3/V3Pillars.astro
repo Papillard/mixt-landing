@@ -4,7 +4,8 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 
 const pillars = [
   {
-    image: '/images/lab-manipulation-vertical.jpg',
+    image: '/images/shoot-labo-preparation.webp',
+    objectPosition: 'center 55%',
     alt: 'Préparation magistrale en pharmacie',
     title: 'Une formule sur mesure',
     description: 'Si votre cas le justifie, votre médecin prescrit une formule magistrale qui traite votre problème principal et vos objectifs secondaires : tolérance, éclat, anti-âge.',
@@ -20,7 +21,8 @@ const pillars = [
     },
   },
   {
-    image: '/images/closeup-eyebrow.jpg',
+    image: '/images/shoot-persona-acne-pih.webp',
+    objectPosition: 'center 20%',
     alt: 'Macro peau',
     title: 'Un plan construit par étapes',
     description: "Votre médecin ne traite pas qu'un symptôme. Il construit un plan progressif : on attaque, on stabilise, puis on entretient les résultats.",
@@ -36,7 +38,8 @@ const pillars = [
     },
   },
   {
-    image: '/images/pillar-suivi-dermato.jpg',
+    image: '/images/agence-lifestyle-lit.webp',
+    objectPosition: 'center 40%',
     alt: 'Patiente lisant un message de suivi depuis son canapé',
     title: 'Un suivi inclus, à vos côtés',
     description: "Après la consultation, l'équipe Mixt reste à vos côtés et l'assistant IA suit votre peau au quotidien : vos questions, votre journal photo, vos doutes. Vous n'êtes jamais seul·e. Inclus, sans surcoût.",
@@ -72,6 +75,7 @@ const pillars = [
           client:load
           image={p.image}
           alt={p.alt}
+          objectPosition={p.objectPosition}
           tag={p.tag}
           title={p.title}
           description={p.description}
