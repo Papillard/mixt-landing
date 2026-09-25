@@ -10,7 +10,7 @@ type Step = {
 
 type Panel = {
   label: string;
-  kind: 'image' | 'chart' | 'journal' | 'chat';
+  kind: 'image' | 'chart' | 'journal' | 'chat' | 'visio';
   src?: string;
   alt?: string;
   objectPosition?: string;
@@ -27,6 +27,46 @@ type Props = {
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedChart?: boolean }) {
+  // Panneau visio : on montre l'interface de consultation, pas un visage de
+  // medecin. Aucun praticien n'est identifiable, aucune photo stock.
+  if (panel.kind === 'visio') {
+    return (
+      <div className="overflow-hidden rounded-2xl bg-deep shadow-[0_20px_60px_-30px_rgba(50,25,34,0.4)] h-[440px] flex flex-col">
+        <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/10">
+          <span className="flex items-center gap-2 text-[11px] text-white/70">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-ember"></span>
+            Téléconsultation en cours
+          </span>
+          <span className="font-mono text-[11px] text-white/45">14:06</span>
+        </div>
+
+        <div className="flex-1 flex items-center justify-center px-6">
+          <div className="w-full max-w-[300px] rounded-[14px] bg-white/[0.06] border border-white/10 p-5">
+            <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45 mb-4">
+              Votre dossier, déjà lu
+            </div>
+            {[
+              { k: 'Antécédents', v: 'Rosacée, 4 ans' },
+              { k: 'Traitements essayés', v: '3, dont 2 arrêtés' },
+              { k: 'Photos transmises', v: '6' },
+            ].map((r) => (
+              <div key={r.k} className="flex items-baseline justify-between gap-4 py-2 border-b border-white/[0.08] last:border-0">
+                <span className="text-[12px] text-white/50">{r.k}</span>
+                <span className="text-[12.5px] font-medium text-white text-right">{r.v}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="px-5 pb-5">
+          <div className="rounded-[10px] bg-white/[0.06] px-4 py-3 text-[12.5px] leading-snug text-white/80">
+            « J'ai lu votre dossier avant qu'on se parle. On attaque directement le plan. »
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (panel.kind === 'chat') {
     const nav = ['Messagerie', 'Assistant IA', 'Ta peau', 'Consultation', 'Traitement'];
     return (
@@ -128,7 +168,7 @@ function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedCha
             loading="lazy"
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover"
-            style={panel.objectPosition ? { objectPosition: panel.objectPosition } : undefined}
+            style={{ objectPosition: panel.objectPosition ?? 'center 25%' }}
           />
         )}
         {panel.kind === 'image' && !panel.src && (
@@ -200,7 +240,7 @@ export default function StickySteps({ steps, panels }: Props) {
             >
               {p && <PanelMedia panel={p} animatedChart={false} />}
               <div>
-                <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-ember-deep mb-2.5">
+                <div className="font-mono text-[26px] font-bold leading-none tracking-[-0.03em] text-ember mb-3">
                   {s.number}
                 </div>
                 <div className="text-[22px] font-semibold text-ink leading-[1.2] mb-3 tracking-[-0.02em]">
@@ -265,7 +305,7 @@ export default function StickySteps({ steps, panels }: Props) {
                       animate={{ opacity: isActive ? 1 : 0.55 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-ember-deep mb-2.5">
+                      <div className="font-mono text-[26px] font-bold leading-none tracking-[-0.03em] text-ember mb-3">
                         {s.number}
                       </div>
                       <div className="text-[21px] md:text-[23px] font-semibold text-ink leading-[1.2] mb-3 tracking-[-0.02em]">

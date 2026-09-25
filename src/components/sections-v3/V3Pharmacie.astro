@@ -44,8 +44,8 @@ const steps = [
   <div class="max-w-[1200px] mx-auto">
 
     <FadeInSection client:load>
-      <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-5">
-        <span class="inline-block h-px w-10 bg-ember-deep/70"></span>
+      <div class="flex items-center gap-3 font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-ember-deep mb-5">
+        <span class="inline-block h-[2px] w-12 bg-ember-deep/70"></span>
         Préparation magistrale
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] gap-6 lg:gap-16 items-end">
@@ -73,9 +73,9 @@ const steps = [
                 style={`object-position: ${s.objectPosition}`}
               />
             </div>
-            <div class="mt-4 flex items-baseline gap-2.5">
-              <span class="font-mono text-[11px] tracking-[0.16em] text-ember">{s.n}</span>
-              <h3 class="text-[17px] font-semibold tracking-[-0.015em] text-ink m-0">{s.title}</h3>
+            <div class="mt-5">
+              <span class="block font-mono text-[30px] font-bold leading-none tracking-[-0.03em] text-ember">{s.n}</span>
+              <h3 class="mt-3 text-[18px] font-bold leading-[1.25] tracking-[-0.02em] text-ink m-0">{s.title}</h3>
             </div>
             <p class="mt-2 text-[14px] leading-[1.55] text-ink-2 m-0">{s.detail}</p>
           </article>
