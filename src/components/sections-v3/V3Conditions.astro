@@ -4,26 +4,9 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 
 const tabs = [
   {
-    id: 'hyperpigmentation',
-    label: 'Hyperpigmentation',
-    chip: 'Hyperpigmentation',
-    pedagogy: {
-      lede: "Une tache brune, c'est de la mélanine qui s'accumule dans la peau.",
-      body: "Fabriquée en profondeur, elle remonte à la surface puis s'évacue. Quand le cycle se dérègle (UV, hormones, inflammation), elle s'installe. La dermatologie agit sur ces trois temps : freiner, ralentir, évacuer.",
-    },
-    actifs: [
-      { name: 'Acide azélaïque', bold: 'Agit sur la production de mélanine', rest: "et l'inflammation." },
-      { name: 'Acide kojique', bold: 'Agit sur la production de mélanine.' },
-      { name: 'Acide tranexamique', bold: 'Agit sur le transfert', rest: 'vers la surface.' },
-      { name: 'Niacinamide', bold: 'Agit sur le transfert', rest: 'vers la surface.' },
-      { name: 'Acide rétinoïque', bold: 'Agit sur le renouvellement', rest: 'cellulaire.' },
-    ],
-    footer:
-      "Le médecin choisit les actifs et dosages adaptés à chaque patient, selon son évaluation clinique.",
-    disclaimer: '',
-  },
-  {
     id: 'acne',
+    image: '/images/shoot-condition-acne.webp',
+    imageAlt: "Peau foncée avec lésions d'acné et marques",
     label: 'Acné',
     chip: 'Acné',
     pedagogy: {
@@ -42,6 +25,8 @@ const tabs = [
   },
   {
     id: 'rosacea',
+    image: '/images/shoot-persona-rosacee.webp',
+    imageAlt: 'Peau avec rougeurs diffuses sur la joue',
     label: 'Rosacée',
     chip: 'Rosacée',
     pedagogy: {
@@ -55,6 +40,27 @@ const tabs = [
       { name: 'Niacinamide', bold: 'Renforce la barrière', rest: 'et apaise les rougeurs.' },
     ],
     footer: 'Le médecin choisit les actifs et dosages adaptés à chaque patient, selon son évaluation clinique.',
+    disclaimer: '',
+  },
+  {
+    id: 'hyperpigmentation',
+    image: '/images/shoot-condition-taches.webp',
+    imageAlt: 'Peau avec taches brunes sur la joue',
+    label: 'Hyperpigmentation',
+    chip: 'Hyperpigmentation',
+    pedagogy: {
+      lede: "Une tache brune, c'est de la mélanine qui s'accumule dans la peau.",
+      body: "Fabriquée en profondeur, elle remonte à la surface puis s'évacue. Quand le cycle se dérègle (UV, hormones, inflammation), elle s'installe. La dermatologie agit sur ces trois temps : freiner, ralentir, évacuer.",
+    },
+    actifs: [
+      { name: 'Acide azélaïque', bold: 'Agit sur la production de mélanine', rest: "et l'inflammation." },
+      { name: 'Acide kojique', bold: 'Agit sur la production de mélanine.' },
+      { name: 'Acide tranexamique', bold: 'Agit sur le transfert', rest: 'vers la surface.' },
+      { name: 'Niacinamide', bold: 'Agit sur le transfert', rest: 'vers la surface.' },
+      { name: 'Acide rétinoïque', bold: 'Agit sur le renouvellement', rest: 'cellulaire.' },
+    ],
+    footer:
+      "Le médecin choisit les actifs et dosages adaptés à chaque patient, selon son évaluation clinique.",
     disclaimer: '',
   },
   {

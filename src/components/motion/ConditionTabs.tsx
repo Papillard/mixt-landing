@@ -11,6 +11,8 @@ type Tab = {
   id: string;
   label: string;
   chip: string;
+  image?: string;
+  imageAlt?: string;
   pedagogy: {
     lede: string;
     body: string;
@@ -112,14 +114,30 @@ function MobileSwipeCards({ tabs }: Props) {
           {tabs.map((t) => (
             <div key={t.id} className="shrink-0 w-full px-1">
               <article className="rounded-[16px] bg-base border border-black/[0.05] overflow-hidden shadow-[0_8px_28px_-18px_rgba(50,25,34,0.18)]">
-                <div className="bg-deep px-5 py-6">
-                  <div className="font-mono text-[9.5px] font-semibold tracking-[0.2em] uppercase text-white/50 mb-3">
-                    {t.chip}
+                {t.image ? (
+                  <div className="relative aspect-[16/11] bg-deep">
+                    <img
+                      src={t.image}
+                      alt={t.imageAlt ?? ''}
+                      loading="lazy"
+                      decoding="async"
+                      draggable={false}
+                      className="absolute inset-0 h-full w-full object-cover object-[center_25%] select-none pointer-events-none"
+                    />
+                    <div className="absolute left-3 top-3 rounded-[6px] bg-deep/95 backdrop-blur px-2.5 py-[5px] font-mono text-[9.5px] font-semibold tracking-[0.16em] uppercase text-white">
+                      {t.chip}
+                    </div>
                   </div>
-                  <p className="text-[21px] font-bold leading-[1.15] tracking-[-0.025em] text-white m-0">
-                    {t.pedagogy.lede}
-                  </p>
-                </div>
+                ) : (
+                  <div className="bg-deep px-5 py-6">
+                    <div className="font-mono text-[9.5px] font-semibold tracking-[0.2em] uppercase text-white/50 mb-3">
+                      {t.chip}
+                    </div>
+                    <p className="text-[21px] font-bold leading-[1.15] tracking-[-0.025em] text-white m-0">
+                      {t.pedagogy.lede}
+                    </p>
+                  </div>
+                )}
                 <div className="px-5 pt-5 pb-6">
                   <p className="text-[14.5px] leading-[1.6] text-ink-2">{t.pedagogy.body}</p>
                 </div>
@@ -190,22 +208,39 @@ function DesktopTabs({ tabs }: Props) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.35fr] gap-10 lg:gap-14 items-start">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-deep lg:sticky lg:top-28 lg:self-start flex flex-col justify-between p-8">
-          <div className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-white/50">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-deep lg:sticky lg:top-28 lg:self-start">
+          <AnimatePresence mode="wait">
+            {active.image ? (
+              <motion.img
+                key={active.image}
+                src={active.image}
+                alt={active.imageAlt ?? ''}
+                loading="lazy"
+                decoding="async"
+                initial={{ opacity: 0, scale: 1.02 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: EASE }}
+                className="absolute inset-0 h-full w-full object-cover object-[center_25%]"
+              />
+            ) : (
+              <motion.div
+                key={active.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: EASE }}
+                className="absolute inset-0 flex items-end p-8"
+              >
+                <p className="text-[26px] md:text-[32px] font-bold leading-[1.12] tracking-[-0.03em] text-white m-0">
+                  {active.pedagogy.lede}
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <div className="absolute left-[18px] top-[18px] rounded-[6px] bg-deep/95 backdrop-blur px-3 py-[7px] font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
             {active.chip}
           </div>
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={active.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: EASE }}
-              className="text-[26px] md:text-[32px] font-bold leading-[1.12] tracking-[-0.03em] text-white m-0"
-            >
-              {active.pedagogy.lede}
-            </motion.p>
-          </AnimatePresence>
         </div>
 
         <AnimatePresence mode="wait">
