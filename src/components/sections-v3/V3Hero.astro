@@ -41,17 +41,13 @@ const proof = [
       </FadeInSection>
 
       <FadeInSection client:load delay={0.22} y={14}>
-        <div class="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
-          <Button href={startHref} variant="ember-pill">Commencer ma consultation</Button>
-          <a
-            href="#preparation"
-            class="text-[15px] font-medium text-ink underline underline-offset-[5px] decoration-ink/25 hover:decoration-ink transition-colors"
-          >
-            Voir comment ça marche
-          </a>
+        <div class="mt-9 flex flex-wrap items-center gap-3">
+          <Button href={startHref} variant="ember-pill">Faire mon bilan gratuit</Button>
+          <Button href={startHref} variant="ghost">Commencer ma consultation</Button>
         </div>
-        <p class="mt-4 text-[13.5px] text-ink-3">
-          Bilan gratuit · Consultation à 49 €, intégralement reversés au médecin
+        <p class="mt-4 text-[13.5px] text-ink-3 max-w-[480px] leading-[1.5]">
+          Le bilan est gratuit et sans engagement. La consultation, à 49 € intégralement
+          reversés au médecin, ne se réserve qu'ensuite, si vous le décidez.
         </p>
       </FadeInSection>
 
