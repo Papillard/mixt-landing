@@ -30,7 +30,7 @@ function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedCha
   if (panel.kind === 'chat') {
     const nav = ['Messagerie', 'Assistant IA', 'Ta peau', 'Consultation', 'Traitement'];
     return (
-      <div className="flex overflow-hidden rounded-2xl border border-black/[0.08] bg-base shadow-[0_20px_60px_-30px_rgba(25,28,33,0.4)] h-[440px]">
+      <div className="flex overflow-hidden rounded-2xl border border-black/[0.08] bg-base shadow-[0_20px_60px_-30px_rgba(50,25,34,0.4)] h-[440px]">
         {/* Rail sombre */}
         <div className="hidden sm:flex flex-col w-[132px] shrink-0 bg-deep text-white/90 px-3.5 py-4">
           <div className="font-serif text-[19px] font-semibold leading-none" style={{ fontOpticalSizing: 'auto' }}>Mixt</div>
@@ -254,8 +254,8 @@ export default function StickySteps({ steps, panels }: Props) {
                     <motion.span
                       className="absolute -left-[31px] top-1.5 w-[11px] h-[11px] rounded-full border-2"
                       animate={{
-                        backgroundColor: isActive ? '#191C21' : '#F4F5F6',
-                        borderColor: isActive ? '#191C21' : '#9BA1A8',
+                        backgroundColor: isActive ? '#321922' : '#F4F5F6',
+                        borderColor: isActive ? '#321922' : '#9BA1A8',
                         scale: isActive ? 1.15 : 1,
                       }}
                       transition={{ duration: 0.3, ease: EASE }}
@@ -301,12 +301,12 @@ function ProgressChart() {
       <svg viewBox="0 0 400 260" className="absolute inset-0 h-full w-full p-6">
         <defs>
           <linearGradient id="v3chart" x1="0" x2="1" y1="0" y2="0.4">
-            <stop offset="0%" stopColor="#191C21" stopOpacity="0.85" />
+            <stop offset="0%" stopColor="#321922" stopOpacity="0.85" />
             <stop offset="40%" stopColor="#D13F1C" stopOpacity="0.9" />
             <stop offset="100%" stopColor="#F0502A" stopOpacity="1" />
           </linearGradient>
           <linearGradient id="v3chart-glow" x1="0" x2="1" y1="0" y2="0.4">
-            <stop offset="0%" stopColor="#191C21" stopOpacity="0" />
+            <stop offset="0%" stopColor="#321922" stopOpacity="0" />
             <stop offset="100%" stopColor="#F0502A" stopOpacity="0.28" />
           </linearGradient>
         </defs>
@@ -354,12 +354,12 @@ function StaticChart() {
       <svg viewBox="0 0 400 260" className="absolute inset-0 h-full w-full p-6">
         <defs>
           <linearGradient id="v3chart-static" x1="0" x2="1" y1="0" y2="0.4">
-            <stop offset="0%" stopColor="#191C21" stopOpacity="0.85" />
+            <stop offset="0%" stopColor="#321922" stopOpacity="0.85" />
             <stop offset="40%" stopColor="#D13F1C" stopOpacity="0.9" />
             <stop offset="100%" stopColor="#F0502A" stopOpacity="1" />
           </linearGradient>
           <linearGradient id="v3chart-glow-static" x1="0" x2="1" y1="0" y2="0.4">
-            <stop offset="0%" stopColor="#191C21" stopOpacity="0" />
+            <stop offset="0%" stopColor="#321922" stopOpacity="0" />
             <stop offset="100%" stopColor="#F0502A" stopOpacity="0.28" />
           </linearGradient>
         </defs>

@@ -168,7 +168,7 @@ export default function PillarCard({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: EASE, delay: index * 0.12 + 0.35 }}
-          className={`absolute bottom-4 rounded-[12px] bg-base/85 backdrop-blur-md p-5 shadow-[0_10px_30px_-12px_rgba(25,28,33,0.25)] ${
+          className={`absolute bottom-4 rounded-[12px] bg-base/85 backdrop-blur-md p-5 shadow-[0_10px_30px_-12px_rgba(50,25,34,0.25)] ${
             overlay.kind === 'chat'
               ? 'right-4 w-[62%]'
               : 'left-4 right-4'

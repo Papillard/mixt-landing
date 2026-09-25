@@ -2,38 +2,40 @@
 import FadeInSection from '../motion/FadeInSection.tsx';
 import Button from '../Button.astro';
 
+// Chaque carte dit ce que ça change pour la patiente, pas l'étape logistique.
+// Deux photos de labo au maximum : le reste doit rester humain.
 const steps = [
   {
     n: '01',
-    image: '/images/shoot-labo-flacons.webp',
-    objectPosition: 'center 40%',
-    alt: 'Matières premières pharmaceutiques en flacons ambrés, pharmacie préparatrice',
-    title: 'Les actifs de votre ordonnance',
-    detail: "Des matières premières à usage pharmaceutique, pas des cosmétiques reconditionnés.",
+    image: '/images/shoot-labo-conditionnement.webp',
+    objectPosition: 'center 42%',
+    alt: 'Tube de formule magistrale étiqueté au nom de la patiente',
+    title: 'À votre nom, pas en rayon',
+    detail: "Votre nom est imprimé sur le tube. Cette formule n'existe pas en deux exemplaires.",
   },
   {
     n: '02',
     image: '/images/shoot-labo-preparation.webp',
     objectPosition: 'center 62%',
     alt: 'Préparation au mortier dans le laboratoire de la pharmacie',
-    title: 'Pesées et incorporées',
-    detail: "Le préparateur suit la formule écrite par votre médecin, dosage par dosage.",
+    title: 'Les bons actifs, au bon dosage',
+    detail: "Choisis par un médecin pour votre peau, pas par un service marketing pour une moyenne.",
   },
   {
     n: '03',
-    image: '/images/shoot-labo-conditionnement.webp',
-    objectPosition: 'center 45%',
-    alt: 'Contrôle du poids du tube sur balance de précision',
-    title: 'Contrôlées, puis étiquetées',
-    detail: "Chaque tube est pesé, tracé et porte votre nom. Il n'en existe pas deux identiques.",
-  },
-  {
-    n: '04',
     image: '/images/shoot-tubes.webp',
     objectPosition: 'center 50%',
     alt: 'Tubes de formule magistrale Mixt',
-    title: 'Livrées chez vous',
-    detail: "Une seule formule à appliquer, matin ou soir, selon votre plan.",
+    title: 'Préparée à la main, en pharmacie française',
+    detail: "Comme une vraie ordonnance, pas comme un cosmétique produit à la chaîne.",
+  },
+  {
+    n: '04',
+    image: '/images/shoot-medecin-consultation.webp',
+    objectPosition: 'center 22%',
+    alt: 'Médecin Mixt, en téléconsultation de suivi',
+    title: 'Elle évolue avec votre peau',
+    detail: "Réajustée à chaque suivi : ce qui marche, on garde ; ce qui coince, on change.",
   },
 ];
 ---
