@@ -17,13 +17,6 @@ const founders = [
     role: 'CPO · Co-fondateur',
     bio: "Cofondateur du Wagon (40 000 alumni). Conçoit le produit Mixt avec la même exigence : simplicité, fiabilité, détail.",
   },
-  {
-    image: '/images/shoot-dermatologue.webp',
-    alt: 'Dr Bethsabée Levy Garel, dermatologue fondatrice de Mixt',
-    name: 'Dr Bethsabée Levy Garel',
-    role: 'Dermatologue · Fondatrice',
-    bio: "Dermatologue formée à la Sorbonne, ex-Cochin. Pilote la rigueur médicale de Mixt.",
-  },
 ];
 ---
 
@@ -42,7 +35,7 @@ const founders = [
       </p>
     </FadeInSection>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-14 md:mt-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-[760px] mt-14 md:mt-16">
       {founders.map((f, i) => (
         <TeamCard
           client:load

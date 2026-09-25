@@ -1,124 +1,115 @@
 ---
 import Button from '../Button.astro';
-import HeroReveal from '../motion/HeroReveal.tsx';
 import FadeInSection from '../motion/FadeInSection.tsx';
-import HeroMasiChart from '../motion/HeroMasiChart.tsx';
 
 const startHref = 'https://app.mixt.care/start';
-const whatsappHref =
-  'https://wa.me/33756948494?text=' +
-  encodeURIComponent("Bonjour Laetitia, j'aimerais échanger à propos de Mixt et de ma peau.");
 
-// Verbatims réels, avis 5★ publiés sur Trustpilot (repris de la section avis,
-// resserrés en citations courtes et complètes pour le bandeau).
-const reviews = [
-  { quote: "Résultats visibles en moins d'un mois : peau plus uniforme, rougeurs nettement diminuées.", name: 'Marie D.' },
-  { quote: "Enfin suivie par des gens qui regardent vraiment et savent quoi faire.", name: 'Amandine B.' },
-  { quote: "J'ai appris plus sur ma peau en quelques mois qu'en des années à tester seule.", name: 'Marie G.' },
-  { quote: "La crème la plus efficace que j'ai testée, et une équipe toujours disponible.", name: 'Sadie B.' },
+// Barre de réassurance sous les CTA : une preuve par colonne, pas de verbatim.
+const proof = [
+  { top: 'stars' as const, label: 'Avis vérifiés Trustpilot' },
+  { top: 'Sur ordonnance', label: 'Préparée en pharmacie' },
+  { top: 'Suivi inclus', label: 'Sans surcoût' },
 ];
 ---
 
-<section class="relative px-6 md:px-10 pt-[calc(56px+44px)] pb-20 md:pb-16 bg-base">
-  <div class="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
-    <div>
-      <HeroReveal
-        client:load
-        title="Votre peau mérite"
-        highlight="un vrai traitement"
-        subtitle="Un médecin expert de la peau vous reçoit en téléconsultation et vous prescrit votre traitement sur mesure."
-      >
-        <div class="flex flex-col gap-4 items-start">
-          <div class="flex flex-wrap items-center gap-3">
-            <Button href={startHref} variant="ember-pill">Démarrer ma consultation →</Button>
-            <Button href={startHref} variant="ghost">Faire un diagnostic gratuit</Button>
-          </div>
-          <p class="text-[14px] text-ink-2">Consultation en ligne à 49 €, intégralement reversés au médecin</p>
-        </div>
-      </HeroReveal>
+<section class="relative px-6 md:px-10 pt-[calc(56px+40px)] pb-20 md:pb-24 bg-base">
+  <div class="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-[1.08fr_1fr] gap-12 lg:gap-16 items-center">
 
-      {/* Chips — proposition de valeur */}
-      <FadeInSection client:load delay={0.5} y={12} className="mt-8">
-        <div class="flex flex-wrap items-center gap-x-8 gap-y-3.5">
-          <span class="inline-flex items-center gap-3 whitespace-nowrap text-[18px] font-medium text-ink">
-            <svg viewBox="0 0 24 24" class="h-[22px] w-[22px] shrink-0 text-[#12A150]" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg>Un médecin sous 15 jours
-          </span>
-          <span class="inline-flex items-center gap-3 whitespace-nowrap text-[18px] font-medium text-ink">
-            <svg viewBox="0 0 24 24" class="h-[22px] w-[22px] shrink-0 text-[#12A150]" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/></svg>Votre formule préparée en pharmacie
+    <div>
+      <FadeInSection client:load y={10}>
+        <div class="inline-flex items-center gap-2.5 rounded-full bg-white border border-black/[0.06] px-4 py-2 shadow-[0_1px_3px_rgba(0,0,0,0.04)] mb-7">
+          <span class="h-[7px] w-[7px] rounded-full bg-ember shrink-0"></span>
+          <span class="font-mono text-[11px] md:text-[12px] tracking-[0.02em] text-ink-2">
+            Médecins formés en dermatologie · Consultation sous 7 jours
           </span>
         </div>
       </FadeInSection>
 
+      <FadeInSection client:load delay={0.06} y={14}>
+        <h1 class="text-[42px] md:text-[60px] leading-[1.02] tracking-[-0.04em] text-ink m-0">
+          <span class="font-medium">Votre peau mérite</span><br />
+          <span class="font-medium">une skincare</span><br />
+          <span class="font-bold">qui agit vraiment<span class="text-ember">.</span></span>
+        </h1>
+      </FadeInSection>
+
+      <FadeInSection client:load delay={0.14} y={14}>
+        <p class="mt-7 text-[17px] md:text-[18px] leading-[1.6] text-ink-2 max-w-[520px]">
+          Un médecin formé à la dermatologie vous prescrit une formule sur mesure, avec les
+          actifs dont votre peau a réellement besoin. Préparée en pharmacie, livrée chez vous,
+          ajustée dans la durée.
+        </p>
+      </FadeInSection>
+
+      <FadeInSection client:load delay={0.22} y={14}>
+        <div class="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+          <Button href={startHref} variant="ember-pill">Commencer ma consultation</Button>
+          <a
+            href="#preparation"
+            class="text-[15px] font-medium text-ink underline underline-offset-[5px] decoration-ink/25 hover:decoration-ink transition-colors"
+          >
+            Voir comment ça marche
+          </a>
+        </div>
+        <p class="mt-4 text-[13.5px] text-ink-3">
+          Bilan gratuit · Consultation à 49 €, intégralement reversés au médecin
+        </p>
+      </FadeInSection>
+
+      <FadeInSection client:load delay={0.3} y={12}>
+        <div class="mt-9 pt-7 border-t border-black/[0.09] flex flex-wrap gap-x-12 gap-y-5">
+          {proof.map((p) => (
+            <div>
+              {p.top === 'stars' ? (
+                <span class="flex items-center gap-[3px] h-[18px]">
+                  {[0, 1, 2, 3, 4].map(() => (
+                    <span class="inline-flex h-[15px] w-[15px] items-center justify-center rounded-[2px]" style="background:#00b67a">
+                      <span class="text-[9px] leading-none text-white">★</span>
+                    </span>
+                  ))}
+                </span>
+              ) : (
+                <span class="block h-[18px] text-[14px] font-semibold text-ink leading-[18px]">{p.top}</span>
+              )}
+              <span class="block mt-1.5 text-[13px] text-ink-3">{p.label}</span>
+            </div>
+          ))}
+        </div>
+      </FadeInSection>
     </div>
 
-    <FadeInSection client:load delay={0.25} y={24}>
-      <div class="relative aspect-[4/5] lg:aspect-auto lg:h-[560px] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_16px_40px_-24px_rgba(25,28,33,0.32)]">
-        <img
-          src="/images/shoot-persona-melasma.webp"
-          alt="Portrait d'une patiente Mixt"
-          class="absolute inset-0 h-full w-full object-cover object-[center_30%]"
-          fetchpriority="high"
-        />
-        {/* Chip marron top-left */}
-        <div class="absolute left-5 top-5 z-[5] rounded-[6px] bg-deep/95 backdrop-blur px-3 py-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
-          Mélasma
+    <FadeInSection client:load delay={0.18} y={24}>
+      <div class="relative">
+        <div class="relative aspect-[4/5] lg:aspect-auto lg:h-[600px] overflow-hidden rounded-[20px] bg-cream">
+          <img
+            src="/images/shoot-persona-melasma.webp"
+            alt="Patiente Mixt suivie pour des taches pigmentaires"
+            class="absolute inset-0 h-full w-full object-cover object-[center_28%]"
+            fetchpriority="high"
+          />
         </div>
 
-        {/* Graph MASI overlay */}
-        <HeroMasiChart client:load />
+        {/* Carte flottante haute : le médecin a rendu son plan */}
+        <div class="absolute -left-3 top-8 md:-left-6 md:top-10 z-[5] flex items-center gap-3 rounded-[12px] bg-white px-4 py-3 shadow-[0_8px_28px_-10px_rgba(36,26,29,0.28)]">
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cream font-mono text-[11px] font-semibold text-ink">Dr</span>
+          <span>
+            <span class="block text-[13.5px] font-semibold leading-tight text-ink">Plan de traitement prêt</span>
+            <span class="block mt-0.5 text-[12px] leading-tight text-ink-3">Validé par votre médecin</span>
+          </span>
+        </div>
+
+        {/* Carte flottante basse : ce que contient la formule */}
+        <div class="absolute -right-2 bottom-6 md:-right-6 md:bottom-8 z-[5] max-w-[268px] rounded-[12px] bg-white px-4 py-3.5 shadow-[0_8px_28px_-10px_rgba(36,26,29,0.28)]">
+          <span class="block font-mono text-[10px] uppercase tracking-[0.14em] text-ink-3">
+            Votre formule · Semaine 6
+          </span>
+          <span class="mt-1.5 block text-[15px] font-semibold leading-tight text-ink">Crème sur mesure</span>
+          <span class="mt-1.5 block text-[12.5px] leading-[1.45] text-ink-2">
+            Acide tranexamique, niacinamide.<br />Taches en nette baisse.
+          </span>
+        </div>
       </div>
     </FadeInSection>
+
   </div>
 </section>
-
-{/* Bandeau d'avis Trustpilot défilant, sous la hero */}
-<section class="relative overflow-hidden pb-14 md:pb-20" aria-label="Avis de patientes sur Trustpilot">
-  <div class="hero-marquee-mask">
-    <div class="hero-marquee flex w-max gap-4 md:gap-5 pr-4 md:pr-5">
-      {[...reviews, ...reviews].map((r) => (
-        <figure class="flex w-[330px] md:w-[400px] shrink-0 flex-col rounded-2xl border border-black/[0.06] bg-white px-6 py-[18px] shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-          <div class="mb-2.5 flex items-center gap-2">
-            <span class="inline-flex items-center gap-[2px]">
-              {[0, 1, 2, 3, 4].map(() => (
-                <span class="inline-flex h-[17px] w-[17px] items-center justify-center rounded-[2px]" style="background:#00b67a">
-                  <span class="text-[10px] leading-none text-white">★</span>
-                </span>
-              ))}
-            </span>
-            <span class="text-[12px] font-medium text-ink-3">Trustpilot</span>
-          </div>
-          <p class="text-[15px] leading-[1.55] text-ink-2">« {r.quote} »</p>
-          <p class="mt-auto pt-2.5 text-[13px] font-semibold text-ink">{r.name}</p>
-        </figure>
-      ))}
-    </div>
-  </div>
-</section>
-
-<style is:global>
-  @keyframes hero-marquee-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  .hero-marquee {
-    animation: hero-marquee-scroll 45s linear infinite;
-    will-change: transform;
-  }
-  .hero-marquee:hover {
-    animation-play-state: paused;
-  }
-  /* Les cartes entrent et sortent du champ sans coupure franche sur les bords. */
-  .hero-marquee-mask {
-    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
-  }
-  @media (min-width: 768px) {
-    .hero-marquee-mask {
-      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-marquee { animation: none; }
-  }
-</style>

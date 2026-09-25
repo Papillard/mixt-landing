@@ -1,0 +1,97 @@
+---
+import FadeInSection from '../motion/FadeInSection.tsx';
+import Button from '../Button.astro';
+
+const steps = [
+  {
+    n: '01',
+    image: '/images/shoot-labo-flacons.webp',
+    objectPosition: 'center 40%',
+    alt: 'Matières premières pharmaceutiques en flacons ambrés, pharmacie préparatrice',
+    title: 'Les actifs de votre ordonnance',
+    detail: "Des matières premières à usage pharmaceutique, pas des cosmétiques reconditionnés.",
+  },
+  {
+    n: '02',
+    image: '/images/shoot-labo-preparation.webp',
+    objectPosition: 'center 62%',
+    alt: 'Préparation au mortier dans le laboratoire de la pharmacie',
+    title: 'Pesées et incorporées',
+    detail: "Le préparateur suit la formule écrite par votre médecin, dosage par dosage.",
+  },
+  {
+    n: '03',
+    image: '/images/shoot-labo-conditionnement.webp',
+    objectPosition: 'center 45%',
+    alt: 'Contrôle du poids du tube sur balance de précision',
+    title: 'Contrôlées, puis étiquetées',
+    detail: "Chaque tube est pesé, tracé et porte votre nom. Il n'en existe pas deux identiques.",
+  },
+  {
+    n: '04',
+    image: '/images/shoot-tubes.webp',
+    objectPosition: 'center 50%',
+    alt: 'Tubes de formule magistrale Mixt',
+    title: 'Livrées chez vous',
+    detail: "Une seule formule à appliquer, matin ou soir, selon votre plan.",
+  },
+];
+---
+
+<section id="preparation" class="bg-base px-6 md:px-10 py-24 md:py-32">
+  <div class="max-w-[1200px] mx-auto">
+
+    <FadeInSection client:load>
+      <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ember-deep mb-5">
+        <span class="inline-block h-px w-10 bg-ember-deep/70"></span>
+        Préparation magistrale
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] gap-6 lg:gap-16 items-end">
+        <h2 class="text-[40px] md:text-[52px] font-bold leading-[1.06] tracking-[-0.035em] text-ink max-w-[700px] m-0">
+          Votre formule n'existe pas en rayon.
+        </h2>
+        <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 m-0 lg:pb-2">
+          Elle est préparée à votre nom, dans une pharmacie française, à partir de
+          l'ordonnance de votre médecin. C'est ce qu'on appelle une préparation magistrale.
+        </p>
+      </div>
+    </FadeInSection>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 mt-14 md:mt-16">
+      {steps.map((s, i) => (
+        <FadeInSection client:load delay={0.08 * i}>
+          <article class="h-full">
+            <div class="aspect-[4/5] overflow-hidden rounded-[12px] bg-cream">
+              <img
+                src={s.image}
+                alt={s.alt}
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover"
+                style={`object-position: ${s.objectPosition}`}
+              />
+            </div>
+            <div class="mt-4 flex items-baseline gap-2.5">
+              <span class="font-mono text-[11px] tracking-[0.16em] text-ember">{s.n}</span>
+              <h3 class="text-[17px] font-semibold tracking-[-0.015em] text-ink m-0">{s.title}</h3>
+            </div>
+            <p class="mt-2 text-[14px] leading-[1.55] text-ink-2 m-0">{s.detail}</p>
+          </article>
+        </FadeInSection>
+      ))}
+    </div>
+
+    <FadeInSection client:load delay={0.2}>
+      <div class="mt-14 md:mt-16 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8 border-t border-black/[0.08] pt-8">
+        <p class="m-0 text-[15px] leading-[1.55] text-ink-2 max-w-[560px]">
+          La préparation est prescrite : elle est facturée par la pharmacie, et la plupart
+          des mutuelles en remboursent une partie sur présentation de la facture.
+        </p>
+        <div class="shrink-0">
+          <Button href="https://app.mixt.care/start">Démarrer ma consultation →</Button>
+        </div>
+      </div>
+    </FadeInSection>
+
+  </div>
+</section>

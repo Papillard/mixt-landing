@@ -4,23 +4,6 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 
 const pillars = [
   {
-    image: '/images/shoot-labo-preparation.webp',
-    objectPosition: 'center 55%',
-    alt: 'Préparation magistrale en pharmacie',
-    title: 'Une formule sur mesure',
-    description: 'Si votre cas le justifie, votre médecin prescrit une formule magistrale qui traite votre problème principal et vos objectifs secondaires : tolérance, éclat, anti-âge.',
-    overlay: {
-      kind: 'formula' as const,
-      patientLabel: 'Composition type',
-      rows: [
-        { name: 'Acide tranexamique', dose: 'Dépigmentant' },
-        { name: 'Acide azélaïque', dose: 'Anti-inflammatoire' },
-        { name: 'Rétinoïde', dose: 'Kératolytique' },
-      ],
-      footer: 'Actifs et dosages choisis par votre médecin, préparés en pharmacie sur ordonnance.',
-    },
-  },
-  {
     image: '/images/shoot-persona-acne-pih.webp',
     objectPosition: 'center 20%',
     alt: 'Macro peau',
@@ -69,7 +52,7 @@ const pillars = [
       </p>
     </FadeInSection>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7 mt-14 md:mt-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7 max-w-[820px] mt-14 md:mt-16">
       {pillars.map((p, i) => (
         <PillarCard
           client:load

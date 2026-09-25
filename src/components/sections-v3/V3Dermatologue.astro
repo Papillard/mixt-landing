@@ -1,0 +1,87 @@
+---
+import FadeInSection from '../motion/FadeInSection.tsx';
+
+// Registre volontairement sobre : pas de titres hospitaliers, pas de superlatif,
+// pas de comparaison avec d'autres praticiens (code de déontologie, art. R.4127-19/20).
+const facts = [
+  {
+    label: 'Dermatologue',
+    detail: "Inscrite à l'Ordre des médecins, RPPS vérifiable.",
+  },
+  {
+    label: 'Protocoles',
+    detail: "Revus à chaque évolution des recommandations françaises.",
+  },
+  {
+    label: 'Dossiers complexes',
+    detail: "Relus avec le médecin qui vous suit, quand le cas le demande.",
+  },
+];
+---
+
+<section id="dermatologue" class="bg-deep text-white">
+  <div class="max-w-[1200px] mx-auto px-6 md:px-10 py-20 md:py-28">
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] gap-10 lg:gap-16 items-start">
+
+      <FadeInSection client:load>
+        <figure class="m-0">
+          <div class="aspect-[4/5] overflow-hidden rounded-[14px] bg-white/10">
+            <img
+              src="/images/shoot-dermatologue.webp"
+              alt="Dr Bethsabée Levy Garel, dermatologue, fondatrice de Mixt"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover object-[center_22%]"
+            />
+          </div>
+          <figcaption class="mt-4">
+            <div class="text-[17px] font-semibold tracking-[-0.01em]">Dr Bethsabée Levy Garel</div>
+            <div class="font-mono text-[11px] uppercase tracking-[0.16em] text-white/55 mt-1.5">
+              Dermatologue · Fondatrice de Mixt
+            </div>
+          </figcaption>
+        </figure>
+      </FadeInSection>
+
+      <FadeInSection client:load delay={0.12}>
+        <div class="lg:pt-2">
+          <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55 mb-6">
+            <span class="inline-block h-px w-10 bg-white/35"></span>
+            Qui écrit votre traitement
+          </div>
+
+          <h2 class="text-[34px] md:text-[46px] font-bold leading-[1.07] tracking-[-0.035em] max-w-[620px] mb-7">
+            Une dermatologue<br class="hidden md:inline" /> derrière chaque protocole.
+          </h2>
+
+          <div class="space-y-5 text-[16px] md:text-[17px] leading-[1.65] text-white/75 max-w-[580px]">
+            <p>
+              Bethsabée est dermatologue. C'est elle qui a écrit les protocoles de traitement
+              sur lesquels Mixt s'appuie : quels actifs, à quel dosage, dans quel ordre, pour
+              quelle peau. Elle les fait évoluer au fil des recommandations.
+            </p>
+            <p>
+              Le médecin que vous consultez travaille avec ces protocoles, et elle l'a formé à
+              la prise en charge de la peau. Sur un dossier qui sort du cadre, elle le relit
+              avec lui avant l'ordonnance.
+            </p>
+            <p class="text-white">
+              Et si votre situation demande un examen en cabinet, on vous le dit. C'est aussi
+              le rôle d'un médecin de vous orienter ailleurs.
+            </p>
+          </div>
+
+          <dl class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.12] rounded-[12px] overflow-hidden">
+            {facts.map((f) => (
+              <div class="bg-deep p-5">
+                <dt class="font-mono text-[10px] uppercase tracking-[0.16em] text-white/50 mb-2">{f.label}</dt>
+                <dd class="m-0 text-[14px] leading-[1.5] text-white/85">{f.detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </FadeInSection>
+
+    </div>
+  </div>
+</section>

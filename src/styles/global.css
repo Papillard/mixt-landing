@@ -12,11 +12,11 @@
   --color-ink-3: #9BA1A8;
 
   /* Canvas clair : gris medical lumineux (aligne Instagram / app) */
-  --color-base: #F4F5F6;
-  --color-cream: #E8EAEC;
+  --color-base: #F7F8F9;
+  --color-cream: #EFF1F2;
 
   /* Neutres sombres / ancrage (rampe deep > warm > blush) */
-  --color-deep: #191C21;
+  --color-deep: #241A1D;
   --color-warm: #6E747B;
   --color-blush: #D6D9DC;
 
@@ -108,7 +108,7 @@
    portés 1:1 comme le quiz)
    ────────────────────────────────────────── */
 :root {
-  --deep: #191C21;
+  --deep: #241A1D;
   --rich: #5B6169;
   --violet: #4A565E;
   --violet-dark: #232C33;
@@ -116,8 +116,8 @@
   --violet-bg: #E8EAEC;
   --warm: #6E747B;
   --blush: #D6D9DC;
-  --cream: #E8EAEC;
-  --base: #F4F5F6;
+  --cream: #EFF1F2;
+  --base: #F7F8F9;
   --accent: #C4432B;
   --text: #15181C;
   --text-2: #5B6169;
@@ -133,7 +133,7 @@ html {
 
 body {
   font-family: 'Geist', -apple-system, system-ui, sans-serif;
-  background: #F4F5F6;
+  background: #F7F8F9;
   color: #15181C;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
