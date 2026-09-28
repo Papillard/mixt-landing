@@ -8,16 +8,16 @@ import Button from '../Button.astro';
 // remboursable. Chaque ligne doit tenir devant un dermatologue.
 const rows = [
   {
-    left: "Actifs à concentration cosmétique, plafonnée par la réglementation.",
+    left: "Actifs faiblement dosés.",
     right: "Actifs sur ordonnance, à dose thérapeutique.",
   },
   {
-    left: "Choisis en rayon, sans diagnostic.",
-    right: "Prescrits après un diagnostic médical.",
+    left: "Choisis en rayon, ou au hasard.",
+    right: "Prescrits par un médecin, après un diagnostic médical.",
   },
   {
-    left: "Nettoyant, hydratante, crème traitante, soin ciblé : la routine s'empile.",
-    right: "Plusieurs actifs et une base hydratante, combinés dans un seul tube.",
+    left: "Toner, sérum, soin ciblé, crème hydratante : les produits s'empilent.",
+    right: "Vos actifs traitants dans une base apaisante, hydratante et relipidante, combinés dans un seul tube.",
   },
   {
     left: "Si ça irrite ou si ça ne marche pas, vous changez de marque.",
@@ -25,7 +25,7 @@ const rows = [
   },
   {
     left: "Trois ou quatre produits à 25-50 € pièce, à racheter, jamais remboursés.",
-    right: "Un seul tube à 30-60 €, pour deux à trois mois, remboursable en partie selon votre mutuelle.",
+    right: "Un seul tube à 30-60 €, pour deux à trois mois, remboursable par votre mutuelle*.",
   },
 ];
 ---
@@ -108,6 +108,11 @@ const rows = [
           </div>
         ))}
       </div>
+
+      {/* Renvoi de l'asterisque : le remboursement depend du contrat */}
+      <p class="mt-4 px-1 m-0 text-[11px] md:text-[12px] leading-[1.5] text-ink-3">
+        * Le remboursement dépend de votre contrat : vérifiez votre plan de mutuelle.
+      </p>
     </div>
 
     {/* ── Pied : la nuance prix, puis le CTA ───────────────── */}
