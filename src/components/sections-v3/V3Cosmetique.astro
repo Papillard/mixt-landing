@@ -1,0 +1,121 @@
+---
+import FadeInSection from '../motion/FadeInSection.tsx';
+import Button from '../Button.astro';
+
+// Objection prix des crèmes. Format Skin+Me : cinq lignes, une par différence
+// réelle. Arguments réglementaires et médicaux uniquement, pas de promesse
+// marketing : concentration d'actifs, diagnostic, ajustement, suivi, statut
+// remboursable. Chaque ligne doit tenir devant un dermatologue.
+const rows = [
+  {
+    left: "Actifs à concentration cosmétique, plafonnée par la réglementation.",
+    right: "Actifs sur ordonnance, à dose thérapeutique.",
+  },
+  {
+    left: "Choisis en rayon, sans diagnostic.",
+    right: "Prescrits après un diagnostic médical.",
+  },
+  {
+    left: "Un nettoyant, une hydratante, une crème traitante, un soin ciblé : la routine s'empile.",
+    right: "Plusieurs actifs et une base hydratante, combinés dans un seul tube.",
+  },
+  {
+    left: "Si ça irrite ou si ça ne marche pas, vous changez de marque.",
+    right: "Un médecin ajuste le dosage, ou change la formule.",
+  },
+  {
+    left: "Trois ou quatre produits à 25-50 € pièce, à racheter, jamais remboursés.",
+    right: "Un seul tube à 30-60 €, pour deux à trois mois, remboursable en partie selon votre mutuelle.",
+  },
+];
+---
+
+<section id="cosmetique" class="bg-base px-6 md:px-10 py-24 md:py-32">
+  <div class="max-w-[1080px] mx-auto">
+
+    {/* ── En-tête deux colonnes : titre à gauche, photo à droite ── */}
+    <FadeInSection client:load>
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] gap-8 lg:gap-14 items-center">
+        <div>
+          <div class="flex items-center gap-3 font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-ember-deep mb-5">
+            <span class="inline-block h-[2px] w-12 bg-ember-deep/70"></span>
+            Ce que ça remplace
+          </div>
+          <h2 class="text-[40px] md:text-[52px] font-bold leading-[1.06] tracking-[-0.035em] text-ink max-w-[560px] m-0">
+            Pourquoi ce n'est pas<br class="hidden sm:block" /> une crème de plus.
+          </h2>
+        </div>
+        <div class="overflow-hidden rounded-[12px] bg-cream">
+          <img
+            src="/images/shoot-vs-cosmetique.webp"
+            alt="Quatre produits cosmétiques d'un côté, un tube de préparation magistrale de l'autre"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+            class="block w-full aspect-[3/2] object-cover object-center"
+          />
+        </div>
+      </div>
+    </FadeInSection>
+
+    {/* ── Le tableau ───────────────────────────────────────── */}
+    <div class="mt-14 md:mt-20">
+
+      {/* En-têtes de colonnes : label à gauche, marque à droite */}
+      <FadeInSection client:load>
+        <div class="grid grid-cols-2 items-baseline pb-6">
+          <div class="text-center md:text-right md:pr-20">
+            <span class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.2em] text-ink-3">
+              Routine cosmétique
+            </span>
+          </div>
+          <div class="text-center md:text-left md:pl-20">
+            <span class="font-serif text-[28px] md:text-[34px] font-bold leading-none tracking-[-0.045em] text-ink">mixt</span>
+          </div>
+        </div>
+      </FadeInSection>
+
+      {/* Surface unique, lignes séparées par un filet : pas de bandes alternées */}
+      <div class="relative rounded-[14px] bg-cream/70 overflow-hidden">
+
+        {/* Colonne vertébrale centrale, sur laquelle se pose le « vs » */}
+        <div class="hidden md:block absolute inset-y-0 left-1/2 w-px bg-black/[0.07] -translate-x-1/2 pointer-events-none"></div>
+
+        {rows.map((r, i) => (
+          <div class={`relative grid grid-cols-1 md:grid-cols-2 items-center ${i > 0 ? 'border-t border-black/[0.07]' : ''}`}>
+            <div class="px-6 md:pl-12 md:pr-20 pt-8 pb-4 md:py-11">
+              <p class="m-0 text-center md:text-right text-[16px] md:text-[17px] leading-[1.6] text-ink-2 md:max-w-[330px] md:ml-auto">
+                {r.left}
+              </p>
+            </div>
+            <div class="px-6 md:pl-20 md:pr-12 pb-8 pt-4 md:py-11 border-t border-black/[0.06] md:border-t-0">
+              <p class="m-0 text-center md:text-left text-[16.5px] md:text-[17.5px] leading-[1.6] font-medium text-ink md:max-w-[330px] md:mr-auto">
+                {r.right}
+              </p>
+            </div>
+            {/* Pastille « vs », posée sur la colonne vertébrale */}
+            <span class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-11 w-11 items-center justify-center rounded-full bg-white ring-1 ring-black/[0.06] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.12)] font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-ink">
+              vs
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* ── Pied : la nuance prix, puis le CTA ───────────────── */}
+    <FadeInSection client:load delay={0.1}>
+      <div class="mt-12 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8 border-t border-black/[0.08] pt-8">
+        <p class="m-0 text-[15px] leading-[1.55] text-ink-2 max-w-[620px]">
+          On cherche à réduire le nombre de produits, pas à en ajouter un. La formule regroupe
+          les actifs traitants dans un seul tube. Le nettoyant et l'écran solaire, eux, restent
+          nécessaires.
+        </p>
+        <div class="shrink-0">
+          <Button href="https://app.mixt.care/start">Démarrer mon bilan gratuit →</Button>
+        </div>
+      </div>
+    </FadeInSection>
+
+  </div>
+</section>
