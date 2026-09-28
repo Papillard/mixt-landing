@@ -16,7 +16,7 @@ const rows = [
     right: "Prescrits après un diagnostic médical.",
   },
   {
-    left: "Un nettoyant, une hydratante, une crème traitante, un soin ciblé : la routine s'empile.",
+    left: "Nettoyant, hydratante, crème traitante, soin ciblé : la routine s'empile.",
     right: "Plusieurs actifs et une base hydratante, combinés dans un seul tube.",
   },
   {
@@ -24,13 +24,13 @@ const rows = [
     right: "Un médecin ajuste le dosage, ou change la formule.",
   },
   {
-    left: "Trois ou quatre produits à 25-50 € pièce, à racheter, jamais remboursés.",
-    right: "Un seul tube à 30-60 €, pour deux à trois mois, remboursable en partie selon votre mutuelle.",
+    left: "Trois ou quatre produits à 25-50 € pièce, à racheter, jamais remboursés.",
+    right: "Un seul tube à 30-60 €, pour deux à trois mois, remboursable en partie selon votre mutuelle.",
   },
 ];
 ---
 
-<section id="cosmetique" class="bg-base px-6 md:px-10 py-24 md:py-32">
+<section id="cosmetique" class="bg-base px-4 sm:px-6 md:px-10 py-24 md:py-32">
   <div class="max-w-[1080px] mx-auto">
 
     {/* ── En-tête deux colonnes : titre à gauche, photo à droite ── */}
@@ -60,18 +60,23 @@ const rows = [
     </FadeInSection>
 
     {/* ── Le tableau ───────────────────────────────────────── */}
+    {/* Deux colonnes à toutes les tailles : sur mobile on réduit la typo,
+        on ne casse jamais la comparaison en lignes empilées. */}
     <div class="mt-14 md:mt-20">
 
-      {/* En-têtes de colonnes : label à gauche, marque à droite */}
+      {/* En-têtes de colonnes, alignés sur la grille des lignes */}
       <FadeInSection client:load>
-        <div class="grid grid-cols-2 items-baseline pb-6">
-          <div class="text-center md:text-right md:pr-20">
-            <span class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.2em] text-ink-3">
+        <div class="grid grid-cols-[1fr_auto_1fr] items-end pb-4 md:pb-6">
+          <div class="px-1 md:pr-20 text-center md:text-right">
+            <span class="font-mono text-[10px] md:text-[12px] font-medium uppercase tracking-[0.12em] md:tracking-[0.2em] text-ink-3">
               Routine cosmétique
             </span>
           </div>
-          <div class="text-center md:text-left md:pl-20">
-            <span class="font-serif text-[28px] md:text-[34px] font-bold leading-none tracking-[-0.045em] text-ink">mixt</span>
+          <div class="px-2 md:px-6">
+            <span class="block h-9 w-9 md:h-11 md:w-11"></span>
+          </div>
+          <div class="px-1 md:pl-20 text-center md:text-left">
+            <span class="font-serif text-[24px] md:text-[34px] font-bold leading-none tracking-[-0.045em] text-ink">mixt</span>
           </div>
         </div>
       </FadeInSection>
@@ -80,24 +85,26 @@ const rows = [
       <div class="relative rounded-[14px] bg-cream/70 overflow-hidden">
 
         {/* Colonne vertébrale centrale, sur laquelle se pose le « vs » */}
-        <div class="hidden md:block absolute inset-y-0 left-1/2 w-px bg-black/[0.07] -translate-x-1/2 pointer-events-none"></div>
+        <div class="absolute inset-y-0 left-1/2 w-px bg-black/[0.07] -translate-x-1/2 pointer-events-none"></div>
 
         {rows.map((r, i) => (
-          <div class={`relative grid grid-cols-1 md:grid-cols-2 items-center ${i > 0 ? 'border-t border-black/[0.07]' : ''}`}>
-            <div class="px-6 md:pl-12 md:pr-20 pt-8 pb-4 md:py-11">
-              <p class="m-0 text-center md:text-right text-[16px] md:text-[17px] leading-[1.6] text-ink-2 md:max-w-[330px] md:ml-auto">
+          <div class={`relative grid grid-cols-[1fr_auto_1fr] items-center ${i > 0 ? 'border-t border-black/[0.07]' : ''}`}>
+            <div class="pl-3 pr-1 md:pl-12 md:pr-20 py-6 md:py-11">
+              <p class="m-0 text-center md:text-right text-[13px] md:text-[17px] leading-[1.45] md:leading-[1.6] text-ink-2 md:max-w-[330px] md:ml-auto text-balance">
                 {r.left}
               </p>
             </div>
-            <div class="px-6 md:pl-20 md:pr-12 pb-8 pt-4 md:py-11 border-t border-black/[0.06] md:border-t-0">
-              <p class="m-0 text-center md:text-left text-[16.5px] md:text-[17.5px] leading-[1.6] font-medium text-ink md:max-w-[330px] md:mr-auto">
+            {/* Pastille « vs », posée sur la colonne vertébrale */}
+            <div class="px-2 md:px-6 flex justify-center">
+              <span class="flex h-9 w-9 md:h-11 md:w-11 shrink-0 items-center justify-center rounded-full bg-white ring-1 ring-black/[0.06] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.12)] font-mono text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.1em] md:tracking-[0.12em] text-ink">
+                vs
+              </span>
+            </div>
+            <div class="pr-3 pl-1 md:pr-12 md:pl-20 py-6 md:py-11">
+              <p class="m-0 text-center md:text-left text-[13.5px] md:text-[17.5px] leading-[1.45] md:leading-[1.6] font-medium text-ink md:max-w-[330px] md:mr-auto text-balance">
                 {r.right}
               </p>
             </div>
-            {/* Pastille « vs », posée sur la colonne vertébrale */}
-            <span class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-11 w-11 items-center justify-center rounded-full bg-white ring-1 ring-black/[0.06] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.12)] font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-ink">
-              vs
-            </span>
           </div>
         ))}
       </div>
