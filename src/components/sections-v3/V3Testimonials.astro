@@ -1,31 +1,27 @@
 ---
-import BeforeAfterReveal from '../motion/BeforeAfterReveal.tsx';
 import FadeInSection from '../motion/FadeInSection.tsx';
 
 // TODO: valider copy patientes + accords publication
 const cases = [
   {
     name: 'Elodie, 30 ans',
-    meta: 'Acné · 1 mois',
-    before: { src: '/images/elodie-before.webp', alt: 'Elodie avant le protocole', objectPosition: 'center' },
-    after: { src: '/images/elodie-after.webp', alt: 'Elodie après 1 mois', objectPosition: 'center' },
-    afterLabel: 'Après · 1 mois',
+    meta: 'Acné · 2 mois',
+    image: '/images/temoignage-elodie.webp',
+    alt: "Elodie, avant et après deux mois de protocole Mixt sur son acné",
     quote: "Des années d'acné, j'avais tout essayé, dermato, routines, produits en pharmacie. En quelques semaines ma peau était visiblement plus lisse, mon entourage l'a remarqué.",
-    context: "Acné adulte prise en charge par un médecin Mixt, supervisé par un dermatologue. Parcours d'un mois et formule magistrale prescrite sur-mesure.",
-    legal: 'Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d\'une garantie.',
+    context: "Acné adulte prise en charge par un médecin Mixt, supervisé par un dermatologue. Formule magistrale prescrite sur-mesure.",
+    legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
   },
   {
     name: 'Marie, 45 ans',
-    meta: 'Rosacée · 3 mois',
-    before: { src: '/images/melanie-before.webp', alt: 'Marie avant le protocole', objectPosition: 'center' },
-    after: { src: '/images/melanie-after.webp', alt: 'Marie après 3 mois', objectPosition: 'center' },
-    afterLabel: 'Après · 3 mois',
+    meta: 'Rosacée · 2 mois',
+    image: '/images/temoignage-marie.webp',
+    alt: "Marie, avant et après deux mois de protocole Mixt sur sa rosacée",
     quote: "Je ne sortais plus sans fond de teint. Maintenant j'ose le visage nu.",
-    context: "Rosacée diagnostiquée par sa dermatologue. Parcours de 3 mois avec l'équipe Mixt et formule magistrale prescrite.",
-    legal: 'Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d\'une garantie.',
+    context: "Rosacée diagnostiquée par sa dermatologue. Parcours avec l'équipe Mixt et formule magistrale prescrite.",
+    legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
   },
 ];
-
 ---
 
 <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
@@ -40,20 +36,25 @@ const cases = [
       </h2>
     </FadeInSection>
 
-    <div class="flex flex-col gap-14 md:gap-16">
+    <div class="flex flex-col gap-16 md:gap-24">
       {cases.map((c, i) => (
-        <div class={`grid grid-cols-1 lg:grid-cols-[55%_45%] gap-10 lg:gap-14 items-center ${i < cases.length - 1 ? 'pb-14 border-b border-black/[0.08]' : ''}`}>
-          <BeforeAfterReveal
-            client:load
-            before={c.before}
-            after={c.after}
-            afterLabel={c.afterLabel}
-          />
-          <FadeInSection client:load delay={0.15}>
+        <div class={`grid grid-cols-1 ${i % 2 === 1 ? 'lg:grid-cols-[42%_58%]' : 'lg:grid-cols-[58%_42%]'} gap-8 lg:gap-14 items-center ${i < cases.length - 1 ? 'pb-16 md:pb-24 border-b border-black/[0.08]' : ''}`}>
+          <FadeInSection client:load className={i % 2 === 1 ? 'lg:order-2' : ''}>
+            <img
+              src={c.image}
+              alt={c.alt}
+              width="1080"
+              height="950"
+              loading="lazy"
+              decoding="async"
+              class="block h-auto -mx-6 w-[calc(100%+3rem)] md:mx-0 md:w-full"
+            />
+          </FadeInSection>
+          <FadeInSection client:load delay={0.15} className={i % 2 === 1 ? 'lg:order-1' : ''}>
             <h3 class="text-[22px] md:text-[24px] font-semibold text-ink mb-1 tracking-[-0.02em]">{c.name}</h3>
             <div class="text-[13px] uppercase tracking-[0.12em] text-ink-3 font-semibold mb-6">{c.meta}</div>
             <blockquote class="italic-serif text-[24px] md:text-[30px] leading-[1.45] text-ink mb-6 pb-6 border-b border-black/[0.08]">
-              « {c.quote} »
+              {`\u00AB\u00A0${c.quote}\u00A0\u00BB`}
             </blockquote>
             <p class="text-[14.5px] text-ink-2 leading-relaxed max-w-[480px]">{c.context}</p>
             {c.legal && <p class="mt-4 text-[11px] text-ink-3 italic leading-snug">{c.legal}</p>}
