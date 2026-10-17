@@ -4,11 +4,6 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 // Verbatims réels, avis 5★ publiés sur Trustpilot (juillet 2026).
 const reviews = [
   {
-    quote: "Les premiers résultats sont arrivés très rapidement, en même pas 1 mois, ma peau était plus uniforme et les rougeurs avaient nettement diminué.",
-    name: 'Marie D.',
-    tag: 'Acné',
-  },
-  {
     quote: "J'ai enfin l'impression d'être suivie par des gens qui regardent vraiment, réagissent vite et savent exactement quoi faire.",
     name: 'Amandine B.',
     tag: 'Rosacée',
@@ -19,7 +14,7 @@ const reviews = [
     tag: 'Masque de grossesse',
   },
   {
-    quote: "La crème est plus efficace que tout ce que j'ai pu tester pour l'instant, et l'équipe Mixt est super disponible.",
+    quote: "L'équipe Mixt est super disponible.",
     name: 'Sadie B.',
     tag: 'Formule sur-mesure',
   },
@@ -50,7 +45,7 @@ const reviews = [
       </div>
     </FadeInSection>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
       {reviews.map((r, i) => (
         <FadeInSection client:load delay={0.08 + i * 0.06} className="h-full">
           <figure class="h-full flex flex-col rounded-2xl bg-base border border-black/[0.06] p-6">

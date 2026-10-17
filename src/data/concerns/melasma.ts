@@ -37,7 +37,7 @@ export const melasma: Concern = {
       { name: 'Acide rétinoïque', bold: 'Accélère le renouvellement', rest: 'cellulaire pour évacuer le pigment déjà installé.' },
     ],
     footer:
-      "Le médecin choisit les actifs et dosages adaptés à votre phototype et à votre cas, selon son évaluation clinique. La protection solaire, elle, n'est jamais optionnelle : c'est le socle du traitement.",
+      "Votre médecin personnalise actifs et dosages selon votre phototype et à votre cas, selon son évaluation clinique. La protection solaire, elle, n'est jamais optionnelle : c'est le socle du traitement.",
   },
   expectations: {
     title: 'À quoi vous pouvez',

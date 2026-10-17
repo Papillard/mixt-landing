@@ -36,7 +36,7 @@ export const hyperpigmentation: Concern = {
       { name: 'Acide rétinoïque', bold: 'Accélère le renouvellement', rest: 'cellulaire pour évacuer le pigment.' },
     ],
     footer:
-      'Le médecin choisit les actifs et dosages adaptés à votre phototype et à votre cas, selon son évaluation clinique.',
+      'Votre médecin personnalise actifs et dosages selon votre phototype et à votre cas, selon son évaluation clinique.',
   },
   proof: {
     name: 'Laetitia, 41 ans',

@@ -46,7 +46,7 @@ const steps = [
     number: '01',
     icon: 'fileText',
     title: 'Votre dossier en ligne',
-    body: "Construit en quelques minutes avec notre assistant. Vos antécédents, vos photos, ce que vous avez déjà essayé : tout est prêt pour votre médecin.",
+    body: "Construit en ligne, en quelques minutes. Vos antécédents, vos photos, ce que vous avez déjà essayé : tout est prêt pour votre médecin.",
   },
   {
     number: '02',
@@ -64,11 +64,11 @@ const steps = [
 
 // Tarification transparente, reprise de la home.
 const ledger = [
-  { label: 'Bilan dermato', price: 'Gratuit', who: 'Avec notre assistant', get: 'Un dossier structuré, à vous' },
+  { label: 'Bilan dermato', price: 'Gratuit', who: 'En ligne, en 5 minutes', get: 'Un dossier structuré, à vous' },
   { label: 'Consultation médicale', price: '49 €', who: 'Reversés intégralement au médecin', get: 'Un plan personnalisé, ordonnance si besoin', highlight: true },
-  { label: "Suivi avec l'assistant IA Mixt", price: 'Inclus', who: 'Au quotidien, avec votre plan', get: "Questions pratiques sur le plan de traitement, journaling photo toutes les deux semaines, conseils cosméto. Pas de diagnostic ni d'avis médical." },
+  { label: "Suivi par l'équipe Mixt", price: 'Inclus', who: 'Au quotidien, avec votre plan', get: "Une équipe joignable pour vos questions pratiques sur le plan de traitement, un journal photo toutes les deux semaines, des conseils cosméto. Pas de diagnostic ni d'avis médical." },
   { label: 'Suivi par le médecin', price: '29 €/mois', who: 'Optionnel, sans engagement, résiliable', get: "Point mensuel sur 3 à 6 mois pour adapter ou renouveler le plan de traitement et l'ordonnance si besoin." },
-  { label: 'Préparation pharmacie', price: '30 à 60 €', who: 'Si prescrite, remboursement partiel', get: 'Formule magistrale sur-mesure' },
+  { label: 'Préparation pharmacie', price: '30 à 60 €', note: 'Prix indicatif', who: 'Si prescrite, prise en charge selon couverture', get: 'Formule magistrale sur-mesure' },
 ];
 
 // FAQ médicale partagée, commune à toutes les pages concern.
@@ -79,7 +79,7 @@ const sharedFaq = [
   },
   {
     q: 'Mes données et mes photos sont-elles protégées ?',
-    a: "Oui. Vos données et vos photos sont hébergées sur des serveurs certifiés HDS (Hébergeur de Données de Santé) en France, et soumises au secret médical. Vos photos ne sont jamais transmises à un tiers : seul le médecin qui vous consulte peut les ouvrir, une fois votre rendez-vous réservé.",
+    a: "Oui. Vos données et vos photos sont hébergées en France, dans un environnement certifié HDS (Hébergeur de Données de Santé), et soumises au secret médical. Leur accès est sécurisé et réservé aux personnes habilitées, dans le cadre de votre prise en charge.",
   },
   {
     q: 'Aurai-je forcément une ordonnance ?',
@@ -433,7 +433,7 @@ const structuredData = {
           Ce que vous payez, <span class="italic-serif whitespace-nowrap">et à qui.</span>
         </h2>
         <p class="text-center text-[15px] md:text-[16px] text-ink-2 max-w-[620px] mx-auto leading-relaxed">
-          La transparence, dès le premier jour. Les 49 € de la consultation reviennent intégralement au médecin : Mixt ne prélève rien dessus. Vous ne payez que si vous décidez de réserver.
+          La transparence, dès le premier jour. Les 49 € de la consultation rémunèrent intégralement le médecin. Mixt ne prélève aucune commission. Les 49 € ne sont débités qu'une fois la téléconsultation effectuée.
         </p>
       </FadeInSection>
       <FadeInSection client:load delay={0.1}>
@@ -445,7 +445,10 @@ const structuredData = {
                 <div class="text-[12px] text-ink-3 mt-0.5">{row.who}</div>
               </div>
               <div class="flex-1 text-[13.5px] text-ink-2 leading-snug order-3 sm:order-2">{row.get}</div>
-              <div class={`order-2 sm:order-3 sm:text-right font-semibold tracking-[-0.02em] ${row.highlight ? 'text-[28px] text-ink' : 'text-[20px] text-ink'}`}>{row.price}</div>
+              <div class="order-2 sm:order-3 sm:text-right">
+              <div class={`font-semibold tracking-[-0.02em] ${row.highlight ? 'text-[28px] text-ink' : 'text-[20px] text-ink'}`}>{row.price}</div>
+              {row.note && <div class="text-[11.5px] text-ink-3 mt-0.5">{row.note}</div>}
+            </div>
             </div>
           ))}
         </div>
