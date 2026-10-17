@@ -5,21 +5,21 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 const cases = [
   {
     name: 'Elodie, 30 ans',
-    meta: 'Acné · 2 mois',
+    meta: 'Acné adulte · Suivi médical personnalisé · 2 mois',
     image: '/images/temoignage-elodie.webp',
     alt: "Elodie, avant et après deux mois de protocole Mixt sur son acné",
     quote: "Des années d'acné, j'avais tout essayé, dermato, routines, produits en pharmacie. En quelques semaines ma peau était visiblement plus lisse, mon entourage l'a remarqué.",
     context: "Acné adulte prise en charge par un médecin Mixt, supervisé par un dermatologue. Formule magistrale prescrite sur-mesure.",
-    legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
+    legal: "Photos authentiques, patiente consentante. Résultats individuels, variables selon les personnes.",
   },
   {
     name: 'Marie, 45 ans',
-    meta: 'Rosacée · 2 mois',
+    meta: 'Rosacée · Suivi médical personnalisé · 2 mois',
     image: '/images/temoignage-marie.webp',
     alt: "Marie, avant et après deux mois de protocole Mixt sur sa rosacée",
     quote: "Je ne sortais plus sans fond de teint. Maintenant j'ose le visage nu.",
     context: "Rosacée diagnostiquée par sa dermatologue. Parcours avec l'équipe Mixt et formule magistrale prescrite.",
-    legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
+    legal: "Photos authentiques, patiente consentante. Résultats individuels, variables selon les personnes.",
   },
 ];
 ---
@@ -31,9 +31,12 @@ const cases = [
         <span class="inline-block h-[2px] w-12 bg-jade-deep/80"></span>
         Témoignages
       </div>
-      <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] mb-14 md:mb-16 text-ink">
+      <h2 class="text-[40px] md:text-[52px] font-medium leading-[1.06] tracking-[-0.035em] mb-5 text-ink">
         Elles ont <span class="italic-serif">suivi le parcours avant vous</span>
       </h2>
+      <p class="text-[17px] md:text-lg leading-relaxed text-ink-2 max-w-[600px] mb-14 md:mb-16">
+        Chaque peau est unique. Découvrez deux parcours de soins personnalisés.
+      </p>
     </FadeInSection>
 
     <div class="flex flex-col gap-16 md:gap-24">
@@ -57,7 +60,7 @@ const cases = [
               {`\u00AB\u00A0${c.quote}\u00A0\u00BB`}
             </blockquote>
             <p class="text-[14.5px] text-ink-2 leading-relaxed max-w-[480px]">{c.context}</p>
-            {c.legal && <p class="mt-4 text-[11px] text-ink-3 italic leading-snug">{c.legal}</p>}
+            {c.legal && <p class="mt-4 text-[13px] text-ink-3 leading-snug">{c.legal}</p>}
           </FadeInSection>
         </div>
       ))}

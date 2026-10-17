@@ -36,7 +36,7 @@ export const acne: Concern = {
       { name: 'Niacinamide', bold: "Calme l'inflammation", rest: 'et resserre le grain de peau.' },
     ],
     footer:
-      'Le médecin choisit les actifs et dosages adaptés à votre cas, selon son évaluation clinique.',
+      'Votre médecin personnalise actifs et dosages selon votre cas, selon son évaluation clinique.',
   },
   proof: {
     name: 'Elodie, 30 ans',

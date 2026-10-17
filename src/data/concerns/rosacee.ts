@@ -35,7 +35,7 @@ export const rosacee: Concern = {
       { name: 'Niacinamide', bold: 'Renforce la barrière', rest: 'et apaise les rougeurs.' },
     ],
     footer:
-      'Le médecin choisit les actifs et dosages adaptés à votre cas, selon son évaluation clinique.',
+      'Votre médecin personnalise actifs et dosages selon votre cas, selon son évaluation clinique.',
   },
   proof: {
     name: 'Marie, 45 ans',

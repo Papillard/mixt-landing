@@ -28,7 +28,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedChart?: boolean }) {
   if (panel.kind === 'chat') {
-    const nav = ['Messagerie', 'Assistant IA', 'Ta peau', 'Consultation', 'Traitement'];
+    const nav = ['Messagerie', 'Ta peau', 'Consultation', 'Traitement'];
     return (
       <div className="flex overflow-hidden rounded-2xl border border-black/[0.08] bg-base shadow-[0_20px_60px_-30px_rgba(50,25,34,0.4)] h-[440px]">
         {/* Rail sombre */}
