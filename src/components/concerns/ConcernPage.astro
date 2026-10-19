@@ -17,7 +17,7 @@ const { concern } = Astro.props;
 // CTA concern-aware : on transporte le concern jusqu'à la waitlist pour pré-remplir
 // le message WhatsApp / l'email et garder la continuité d'intention.
 const CTA_HREF = 'https://app.mixt.care/start';
-const CTA_LABEL = 'Rejoindre les premières patientes';
+const CTA_LABEL = 'Réserver ma place';
 
 // Jeu d'icônes minimal (tracés Lucide, stroke 1.5), inline pour éviter une dépendance.
 const icons: Record<string, string> = {
@@ -308,7 +308,7 @@ const structuredData = {
         <FadeInSection client:load>
           <div class="flex items-center gap-3 font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-jade-deep mb-12 md:mb-14">
             <span class="inline-block h-[2px] w-12 bg-jade-deep/80"></span>
-            Les premières patientes
+            Avant-première
           </div>
         </FadeInSection>
         <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-center">
@@ -322,7 +322,7 @@ const structuredData = {
                 loading="lazy"
               />
               <div class="absolute left-5 top-5 z-[5] rounded-[6px] bg-deep/95 backdrop-blur px-3 py-1.5 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
-                Première cohorte
+                Avant-première
               </div>
               <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/45 to-transparent pointer-events-none"></div>
               <div class="absolute left-5 bottom-5 z-[5] text-white">
@@ -339,7 +339,7 @@ const structuredData = {
               <span class="italic-serif">dès l'ouverture.</span>
             </h2>
             <p class="text-[16px] md:text-[18px] leading-[1.7] text-ink-2 mb-8 max-w-[520px]">
-              Mixt ouvre tout juste. Rejoignez la première cohorte de patientes suivies de près par un médecin expert de votre peau, et soyez parmi les premières à montrer ce que change un vrai suivi.
+              Mixt ouvre tout juste. Réservez votre place : un médecin expert de votre peau vous suit de près dès l'ouverture, et vous voyez vite ce que change un vrai suivi.
             </p>
             <Button href={CTA_HREF} variant="ember-pill">{CTA_LABEL} →</Button>
             <div class="flex flex-wrap gap-x-6 gap-y-2.5 mt-8 text-[12.5px] text-ink-2">
@@ -500,7 +500,7 @@ const structuredData = {
           {concern.chip} : et si on s'en occupait <span class="italic-serif whitespace-nowrap">vraiment ?</span>
         </h2>
         <p class="text-[16px] md:text-[18px] leading-[1.65] text-white/60 max-w-[520px] mx-auto mb-9">
-          Mixt ouvre très bientôt. Rejoignez les premières patientes : on vous prévient en priorité au lancement et on répond à toutes vos questions d'ici là.
+          Mixt ouvre très bientôt. Réservez votre place : on vous prévient en priorité au lancement et on répond à toutes vos questions d'ici là.
         </p>
         <Button href={CTA_HREF} variant="white">{CTA_LABEL} →</Button>
         <div class="mt-5 text-[13px] text-white/60">
