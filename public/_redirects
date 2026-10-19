@@ -3,3 +3,9 @@
 # préserver le lien entrant et sortir proprement de l'index Google.
 /premieres-patientes      /  301
 /premieres-patientes/*    /  301
+
+# QR codes des flyers A5 imprimés (ne pas supprimer : codes déjà en circulation).
+# 302 pour pouvoir changer la destination sans réimprimer. Cible /onboarding en direct :
+# /start et /rdv redirigent en perdant la query string, donc les UTM (PostHog).
+/p  https://app.mixt.care/onboarding?utm_source=pharmacie&utm_medium=flyer&utm_campaign=flyer-a5-2026-10  302
+/c  https://app.mixt.care/onboarding?utm_source=clinique-menopause&utm_medium=flyer&utm_campaign=flyer-a5-2026-10  302
