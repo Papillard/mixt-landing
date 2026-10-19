@@ -5,7 +5,21 @@ description: Règles de wording conforme pour toute copy Mixt (site mixt.care, f
 
 # Copy conforme Mixt
 
-Le cadre qu'on applique sur le site. Une règle par ligne, avec la formulation corrigée.
+## 0. D'abord les USP, le légal ensuite
+
+Le légal est un garde-fou de relecture, **pas le point de départ**. On écrit d'abord pour vendre, à partir des USP (source : Studio Mixt, outil `strategie`) :
+
+1. **Un médecin, vite.** Téléconsultation sous 7 jours, sans attendre des mois.
+2. **Un plan de traitement fait pour votre peau, pas pour tout le monde.** C'est le cœur : le rôle du médecin, c'est la **personnalisation du plan de traitement** (il reprend toute l'histoire de peau, construit le plan).
+3. **Un suivi continu, pas un rendez-vous isolé.** Le médecin revoit et ajuste le plan au fil des progrès.
+
+Verbatims à retourner : « Même formule pour tout le monde. » « C'est générique. » « Il voulait expédier. » « Ma peau a changé. »
+
+Ensuite seulement, on passe la copy dans les règles ci-dessous.
+
+## Le garde-fou
+
+Une règle par ligne, avec la formulation corrigée.
 Le test unique : **ce n'est pas Mixt qui soigne, c'est le médecin.** Mixt donne accès à un
 médecin et aide à suivre le plan de traitement.
 
