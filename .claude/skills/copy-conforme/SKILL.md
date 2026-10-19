@@ -1,6 +1,6 @@
 ---
 name: copy-conforme
-description: Règles de wording conforme pour toute copy Mixt (site mixt.care, flyers, print, pubs, emails). Tirées des corrections réellement appliquées au site (PR #43 formulations conformes, PR #44 copie dégenrée). Use AVANT d'écrire ou de relire une phrase qui parle du médecin, de la prescription, du traitement, des prix, des résultats, des avis ou du suivi.
+description: Copy Mixt (site mixt.care, flyers, print, pubs, emails). USP, personas, objections en format court, puis le garde-fou légal (règles avant/après tirées des PR #43 et #44). Use AVANT d'écrire ou de relire toute copy Mixt.
 ---
 
 # Copy conforme Mixt
@@ -9,13 +9,38 @@ description: Règles de wording conforme pour toute copy Mixt (site mixt.care, f
 
 Le légal est un garde-fou de relecture, **pas le point de départ**. On écrit d'abord pour vendre, à partir des USP (source : Studio Mixt, outil `strategie`) :
 
+**USP**
 1. **Un médecin, vite.** Téléconsultation sous 7 jours, sans attendre des mois.
-2. **Un plan de traitement fait pour votre peau, pas pour tout le monde.** C'est le cœur : le rôle du médecin, c'est la **personnalisation du plan de traitement** (il reprend toute l'histoire de peau, construit le plan).
+2. **Un plan de traitement fait pour votre peau, pas pour tout le monde.** Le cœur : le médecin **personnalise le plan de traitement** (reprend toute l'histoire de peau, construit le plan).
 3. **Un suivi continu, pas un rendez-vous isolé.** Le médecin revoit et ajuste le plan au fil des progrès.
+4. **Moins cher que ce que vous dépensez déjà.** Bilan gratuit, 49 € la consultation, suivi inclus. (Pas de comparatif chiffré avec des cosmétiques.)
 
-Verbatims à retourner : « Même formule pour tout le monde. » « C'est générique. » « Il voulait expédier. » « Ma peau a changé. »
+**Personas : une accroche chacune**
 
-Ensuite seulement, on passe la copy dans les règles ci-dessous.
+| Persona | Problème | Accroche | À éviter |
+|---|---|---|---|
+| Claire, 32 | Acné adulte | Encore des boutons à 30 ans ? | Ton ado/étudiante |
+| Sophie, 50 | Taches hormonales (ménopause, grossesse, pilule) | Vos taches ne partent plus ? Elles ont souvent une origine hormonale. | Taches post-boutons, angle soleil |
+| Nathalie, 40 | Peau qui change | Les crèmes anti-âge ne suffisent plus ? | 50+, ménopause sur les rides |
+| Julie, 44 | Rougeurs | Rosacée ou pas ? (organique, paid en pause) | Déjà diagnostiquées |
+| Toutes | | Un plan de traitement fait pour votre peau, pas pour tout le monde. | |
+
+**Objections : la réponse**
+
+| Objection | Réponse |
+|---|---|
+| « 49 €, c'est cher » | Le prix d'un médecin, sans l'attente, débité seulement après la consultation. |
+| « Mieux que mes crèmes ? » | Un plan fait pour votre peau, pas une routine générique. |
+| « Je veux un vrai dermato » | Un comité de dermatologues appuie le médecin. |
+| « Un médecin en visio ? » | Photos et dossier complet, étudiés avant la consultation. |
+| « C'est quoi, un bilan ? » | 5 minutes en ligne : questions + photos. Gratuit. |
+| « Pas le temps » | Depuis chez vous, au créneau qui vous arrange. |
+
+**Verbatims à retourner :** « Même formule pour tout le monde. » « C'est générique. » « Il voulait expédier. » « Ma peau a changé. »
+
+**Par support :** flyer/print = problem aware → accroche persona en haut + USP 2 + bilan gratuit. Pub = une USP par créa.
+
+Source complète : Studio Mixt, outil `strategie`. Ensuite seulement, on relit avec les règles ci-dessous.
 
 ## Le garde-fou
 
