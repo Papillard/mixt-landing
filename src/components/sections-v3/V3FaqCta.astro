@@ -2,11 +2,10 @@
 import Accordion from '../motion/Accordion.tsx';
 import Button from '../Button.astro';
 import FadeInSection from '../motion/FadeInSection.tsx';
+import { whatsappHref as waLink } from '../../lib/contact';
 
 const startHref = 'https://app.mixt.care/start';
-const whatsappHref =
-  'https://wa.me/33756948494?text=' +
-  encodeURIComponent("Bonjour Laetitia, j'aimerais échanger à propos de Mixt et de ma peau.");
+const whatsappHref = waLink("Bonjour Laetitia, j'aimerais échanger à propos de Mixt et de ma peau.");
 
 const faq = [
   {
