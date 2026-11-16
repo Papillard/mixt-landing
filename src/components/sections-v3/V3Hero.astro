@@ -1,10 +1,8 @@
 ---
 import Button from '../Button.astro';
 import FadeInSection from '../motion/FadeInSection.tsx';
-import { phoneDisplay, phoneHref, whatsappHref } from '../../lib/contact';
 
 const startHref = 'https://app.mixt.care/start';
-const heroWhatsapp = whatsappHref("Bonjour Laetitia, j'ai une question sur Mixt.");
 
 // Barre de réassurance sous les CTA : une preuve par colonne, pas de verbatim.
 const proof = [
@@ -59,11 +57,6 @@ const proof = [
         </div>
         <p class="mt-4 text-[13.5px] text-ink-3 leading-[1.5]">
           Bilan gratuit. Consultation à 49 €, seulement si vous la réservez.
-        </p>
-        <p class="mt-1.5 text-[13.5px] text-ink-3 leading-[1.5]">
-          Une question ?
-          <a href={phoneHref} class="font-semibold text-ink underline underline-offset-2 decoration-black/20 hover:decoration-ember whitespace-nowrap">{phoneDisplay}</a>
-          ou <a href={heroWhatsapp} target="_blank" rel="noopener" class="font-semibold text-ink underline underline-offset-2 decoration-black/20 hover:decoration-ember">WhatsApp</a>
         </p>
       </FadeInSection>
 
