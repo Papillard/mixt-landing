@@ -13,9 +13,9 @@ export const hyperpigmentation: Concern = {
     title: "Taches brunes : le bon traitement",
     highlight: "commence par un diagnostic",
     lead: "Marques après l'acné, taches de soleil, pigmentation qui s'installe : faites le point avec un médecin pour comprendre l'origine de vos taches et les options adaptées à votre peau.",
-    image: "/images/real/patiente-leonixia-taches-portrait-face-01.webp",
-    imageAlt: "Portrait de femme à la peau foncée avec des taches diffuses",
-    imagePosition: "center 52%",
+    image: "/images/real/patiente-leonixia-taches-portrait-main-joue-01.webp",
+    imageAlt: "Femme à la peau foncée montrant des taches sur sa joue",
+    imagePosition: "center 66%",
   },
   band: {
     image: "/images/real/texture-brun-nature-morte-bois-01.webp",

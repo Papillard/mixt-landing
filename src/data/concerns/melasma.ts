@@ -15,7 +15,7 @@ export const melasma: Concern = {
     lead: "Masque de grossesse, taches sur les joues, le front ou au-dessus de la lèvre : faites le point avec un médecin pour comprendre votre peau et les options adaptées à votre situation.",
     image: "/images/real/patiente-leonixia-taches-portrait-main-joue-01.webp",
     imageAlt: "Femme à la peau foncée montrant des taches sur sa joue",
-    imagePosition: "center 62%",
+    imagePosition: "center 66%",
   },
   band: {
     image: "/images/real/texture-ambre-bulles-01.webp",
