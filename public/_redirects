@@ -9,3 +9,9 @@
 # /start et /rdv redirigent en perdant la query string, donc les UTM (PostHog).
 /p  https://app.mixt.care/onboarding?utm_source=pharmacie&utm_medium=flyer&utm_campaign=flyer-a5-2026-10  302
 /c  https://app.mixt.care/onboarding?utm_source=clinique-menopause&utm_medium=flyer&utm_campaign=flyer-a5-2026-10  302
+
+# Pages mélasma et hyperpigmentation fusionnées en /taches (11/2026).
+/melasma              /taches/  301
+/melasma/             /taches/  301
+/hyperpigmentation    /taches/  301
+/hyperpigmentation/   /taches/  301

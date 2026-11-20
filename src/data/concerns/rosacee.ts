@@ -9,13 +9,36 @@ export const rosacee: Concern = {
       "Rougeurs diffuses, sensations de chaleur, boutons : la rosacée se traite. Un médecin expert de votre peau, supervisé par un dermatologue, construit un plan sur-mesure et vous suit dans la durée.",
   },
   hero: {
-    kicker: 'Rosacée',
-    title: 'Apaiser la rosacée,',
-    highlight: 'durablement.',
-    lead: "Rougeurs diffuses, sensations de chaleur, parfois des boutons : la rosacée évolue par poussées et s'épuise à coups d'essais cosmétiques. Un médecin expert de votre peau, supervisé par un dermatologue, cible ses mécanismes et vous accompagne dans la durée.",
-    image: '/images/woman-rosacea-closeup-vertical.jpg',
-    imageAlt: 'Femme avec des rougeurs de rosacée sur les joues',
+    kicker: "Rougeurs · Rosacée",
+    title: "Rosacée : un protocole médical.",
+    highlight: "Pas un soin de plus",
+    lead: "Rougeurs, sensations de chaleur, boutons : faites le point avec un médecin pour comprendre ces symptômes et construire une prise en charge adaptée.",
+    image: "/images/real/patiente-elise-rosacee-portrait-face-01.webp",
+    imageAlt: "Femme avec des rougeurs sur les joues et le nez",
+    imagePosition: "center 30%",
   },
+  band: {
+    image: "/images/real/texture-rouge-goutte-gel-01.webp",
+    slogan: "Un diagnostic avant les actifs",
+    imagePosition: "center 50%",
+  },
+  interstitial: {
+    color: "#292627",
+    eyebrow: "Le protocole part du diagnostic",
+    slogan: "Traiter les symptômes. Respecter la tolérance",
+    image: "/images/real/gros-plan-rosacee-joue-01.webp",
+    imageAlt: "Gros plan de rougeurs diffuses sur la joue",
+    imagePosition: "center",
+  },
+  voices: {
+    title: "Rougeurs qui vont et viennent, peau qui chauffe",
+    quotes: ["Les joues rougissent et chauffent sans prévenir", "La peau tiraille et réagit à presque tous les produits", "Vous ne savez pas si c'est une rosacée ou une simple irritation"],
+    outro: "Avant les actifs, un médecin pose le diagnostic et construit un plan qui respecte votre tolérance.",
+    image: "/images/real/texture-gel-transparent-doigt-01.webp",
+    imageAlt: "Gel apaisant transparent sur le bout du doigt",
+    imagePosition: "center",
+  },
+  formulaImage: "/images/real/produit-tube-main-fond-brun-01.webp",
   problem: {
     title: 'Pourquoi la rosacée',
     highlight: 'est si déroutante.',
@@ -37,16 +60,6 @@ export const rosacee: Concern = {
     footer:
       'Votre médecin personnalise actifs et dosages selon votre cas, selon son évaluation clinique.',
   },
-  proof: {
-    name: 'Marie, 45 ans',
-    meta: 'Rosacée · 3 mois',
-    before: { src: '/images/melanie-before.webp', alt: 'Marie avant le protocole', objectPosition: 'center' },
-    after: { src: '/images/melanie-after.webp', alt: 'Marie après 3 mois', objectPosition: 'center' },
-    afterLabel: 'Après · 3 mois',
-    quote: "Je ne sortais plus sans fond de teint. Maintenant j'ose le visage nu.",
-    context: "Rosacée diagnostiquée par sa dermatologue. Parcours de 3 mois avec l'équipe Mixt et formule magistrale prescrite.",
-    legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
-  },
   faq: [
     {
       q: 'Rosacée ou simple sensibilité, comment faire la différence ?',
@@ -63,6 +76,6 @@ export const rosacee: Concern = {
   ],
   related: [
     { href: '/acne/', label: 'Acné', teaser: 'Boutons, points noirs et inflammation.' },
-    { href: '/hyperpigmentation/', label: 'Hyperpigmentation', teaser: 'Taches brunes, marques et taches solaires.' },
+    { href: '/taches/', label: 'Taches et mélasma', teaser: 'Masque de grossesse, taches brunes et marques.' },
   ],
 };

@@ -1,0 +1,46 @@
+---
+// Navigation vers les pages condition (vraie peau + aplat). Désactivée tant que les landings ne sont pas finalisées : seul le footer y mène.
+// Mobile : défilement horizontal.
+const cards = [
+  { href: '/acne', label: 'Acné adulte', hint: 'Boutons qui reviennent', img: '/images/real/patiente-laetitia-acne-portrait-trois-quarts-01.webp', pos: 'center 30%', color: '#481B27' },
+  { href: '/rosacee', label: 'Rosacée', hint: 'Rougeurs, peau qui chauffe', img: '/images/real/patiente-elise-rosacee-portrait-trois-quarts-01.webp', pos: 'center 30%', color: '#292627' },
+  { href: '/taches', label: 'Taches et mélasma', hint: 'Masque de grossesse, taches brunes', img: '/images/real/gros-plan-taches-phototype-mat-01.webp', pos: 'center', color: '#321E2D' },
+];
+---
+
+<section class="bg-base pb-16 md:pb-24">
+  <div class="max-w-[1200px] mx-auto px-6 md:px-10">
+    <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-5">
+      Quel est votre problème de peau ?
+    </div>
+  </div>
+  <div class="max-w-[1200px] mx-auto md:px-10">
+    <div class="flex md:grid md:grid-cols-3 gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory px-6 md:px-0 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      {cards.map((c) => (
+        <a
+          href={c.href}
+          class="group shrink-0 w-[70vw] max-w-[300px] md:w-auto md:max-w-none overflow-hidden rounded-2xl snap-start no-underline flex flex-col"
+          style={`background-color: ${c.color};`}
+        >
+          <div class="relative aspect-[4/5] overflow-hidden bg-cream">
+            <img
+              src={c.img}
+              alt={`${c.label} : ${c.hint}`}
+              loading="lazy"
+              decoding="async"
+              class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              style={`object-position: ${c.pos};`}
+            />
+          </div>
+          <div class="px-5 py-4 flex items-center justify-between gap-3 text-white">
+            <div>
+              <div class="text-[17px] md:text-[19px] font-bold tracking-[-0.025em] leading-tight">{c.label}</div>
+              <div class="text-[12.5px] text-white/70 mt-0.5">{c.hint}</div>
+            </div>
+            <span class="text-[18px] transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -9,13 +9,36 @@ export const acne: Concern = {
       "Boutons, points noirs, acné qui résiste : un médecin expert de votre peau, supervisé par un dermatologue, construit un plan de soin sur-mesure et vous suit dans la durée.",
   },
   hero: {
-    kicker: 'Acné',
-    title: "Sortir de l'acné,",
-    highlight: 'sans tâtonner.',
-    lead: "L'acné qui persiste à l'âge adulte épuise autant qu'elle marque la peau. Un médecin expert de votre peau, supervisé par un dermatologue, construit un protocole adapté à votre type d'acné et vous suit jusqu'à ce que la peau se stabilise.",
-    image: '/images/woman-mirror-acne.jpg',
-    imageAlt: "Femme observant son acné dans un miroir",
+    kicker: "Acné adulte",
+    title: "Acné adulte :",
+    highlight: "trouvez votre protocole de traitement",
+    lead: "À 25, 35 ou 45 ans, l'acné mérite mieux qu'une succession d'essais. Faites le point avec un médecin sur vos boutons, vos marques et les traitements déjà utilisés.",
+    image: "/images/real/patiente-laetitia-acne-portrait-face-01.webp",
+    imageAlt: "Jeune femme avec de l'acné, sans maquillage",
+    imagePosition: "center 30%",
   },
+  band: {
+    image: "/images/real/texture-rouge-creme-nacree-01.webp",
+    slogan: "Un traitement. Une méthode",
+    imagePosition: "center 40%",
+  },
+  interstitial: {
+    color: "#481B27",
+    eyebrow: "Le protocole part du diagnostic",
+    slogan: "Les bons actifs commencent par les bonnes questions",
+    image: "/images/real/gros-plan-acne-inflammatoire-01.webp",
+    imageAlt: "Gros plan d'une joue avec des boutons d'acné",
+    imagePosition: "center",
+  },
+  voices: {
+    title: "Encore des boutons à 30 ans",
+    quotes: ["Les boutons reviennent sur le bas du visage, souvent au même moment du cycle", "Un traitement a marché quelques mois, puis plus rien", "Un rendez-vous de cinq minutes, sans que personne ne reprenne votre histoire"],
+    outro: "Chez Mixt, un médecin reprend toute votre histoire de peau avant de choisir un traitement.",
+    image: "/images/real/gros-plan-acne-front-01.webp",
+    imageAlt: "Gros plan de boutons d'acné sur le front",
+    imagePosition: "center",
+  },
+  formulaImage: "/images/real/produit-tube-mains-fond-brun-02.webp",
   problem: {
     title: "Pourquoi l'acné",
     highlight: 'continue de revenir.',
@@ -38,16 +61,6 @@ export const acne: Concern = {
     footer:
       'Votre médecin personnalise actifs et dosages selon votre cas, selon son évaluation clinique.',
   },
-  proof: {
-    name: 'Elodie, 30 ans',
-    meta: 'Acné · 1 mois',
-    before: { src: '/images/elodie-before.webp', alt: 'Elodie avant le protocole', objectPosition: 'center' },
-    after: { src: '/images/elodie-after.webp', alt: 'Elodie après 1 mois', objectPosition: 'center' },
-    afterLabel: 'Après · 1 mois',
-    quote: "Des années d'acné, j'avais tout essayé, dermato, routines, produits en pharmacie. En quelques semaines ma peau était visiblement plus lisse, mon entourage l'a remarqué.",
-    context: "Acné adulte prise en charge par un médecin Mixt, supervisé par un dermatologue. Parcours d'un mois et formule magistrale prescrite sur-mesure.",
-    legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
-  },
   faq: [
     {
       q: "J'ai de l'acné à 30 ans, est-ce normal ?",
@@ -63,7 +76,7 @@ export const acne: Concern = {
     },
   ],
   related: [
-    { href: '/hyperpigmentation/', label: 'Hyperpigmentation', teaser: "Les marques brunes laissées par l'acné." },
+    { href: '/taches/', label: 'Taches', teaser: "Les marques brunes laissées par l'acné." },
     { href: '/rosacee/', label: 'Rosacée', teaser: 'Rougeurs et boutons qui se confondent avec l\'acné.' },
   ],
 };
