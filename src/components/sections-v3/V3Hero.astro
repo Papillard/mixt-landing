@@ -12,7 +12,7 @@ const subFirst = 'Un médecin vous voit en visio, construit votre plan de traite
 // Barre de réassurance sous les CTA : une preuve par colonne, pas de verbatim.
 const proof = [
   { top: 'Sous 7 jours', label: 'Consultation en visio' },
-  { top: 'Une seule formule', label: 'Au lieu de 4 produits' },
+  { top: 'Une dermatologue', label: 'Supervise chaque protocole' },
   { top: 'Suivi inclus', label: 'Sans surcoût' },
 ];
 
@@ -66,11 +66,16 @@ const proofMobile = [
       </FadeInSection>
 
       <FadeInSection client:load delay={0.3} y={12} className="hidden lg:block">
-        <div class="mt-9 pt-7 border-t border-black/[0.09] flex flex-wrap gap-x-9 gap-y-5">
+        <div class="mt-9 pt-7 border-t border-black/[0.09] grid grid-cols-3 gap-6">
           {proof.map((p) => (
-            <div>
-              <span class="block h-[18px] text-[14px] font-semibold text-ink leading-[18px]">{p.top}</span>
-              <span class="block mt-1.5 text-[13px] text-ink-3">{p.label}</span>
+            <div class="flex items-start gap-2.5">
+              <span class="mt-[1px] inline-flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-jade/15 text-jade-deep" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="h-[13px] w-[13px]"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <div>
+                <span class="block text-[15px] font-semibold text-ink leading-tight">{p.top}</span>
+                <span class="block mt-1 text-[13px] text-ink-2 leading-snug">{p.label}</span>
+              </div>
             </div>
           ))}
         </div>
