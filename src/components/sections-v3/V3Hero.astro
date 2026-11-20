@@ -11,9 +11,8 @@ const subFirst = 'Un médecin vous voit en visio, construit votre plan de traite
 
 // Barre de réassurance sous les CTA : une preuve par colonne, pas de verbatim.
 const proof = [
-  { top: 'stars' as const, label: 'Avis vérifiés Trustpilot' },
+  { top: 'Sous 7 jours', label: 'Consultation en visio' },
   { top: 'Une seule formule', label: 'Au lieu de 4 produits' },
-  { top: 'Sur ordonnance', label: 'Remboursable en partie' },
   { top: 'Suivi inclus', label: 'Sans surcoût' },
 ];
 
@@ -30,9 +29,8 @@ const proofMobile = [
 
     <div>
       <FadeInSection client:load y={10}>
-        {/* Deux pastilles distinctes : en mobile elles s'empilent proprement
-            au lieu de faire casser une seule pastille sur deux lignes. */}
-        <div class="flex items-center gap-2 mb-4 lg:hidden">
+        {/* Preuve sociale en premier : étoiles Trustpilot seules, sans note. */}
+        <div class="flex items-center gap-2 mb-4 lg:mb-6">
           <span class="flex items-center gap-[3px]">
             {[0, 1, 2, 3, 4].map(() => (
               <span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[2px]" style="background:#00b67a">
@@ -42,23 +40,10 @@ const proofMobile = [
           </span>
           <span class="text-[13px] font-medium text-ink-2">Avis vérifiés Trustpilot</span>
         </div>
-        <div class="hidden lg:flex flex-wrap items-center gap-2 mb-7">
-          <span class="inline-flex items-center gap-2 rounded-full bg-white border border-black/[0.06] px-3.5 py-2 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-            <span class="h-[7px] w-[7px] rounded-full bg-ember shrink-0"></span>
-            <span class="font-mono text-[10.5px] md:text-[11.5px] tracking-[0.02em] text-ink-2 whitespace-nowrap">
-              Médecins formés en dermatologie
-            </span>
-          </span>
-          <span class="inline-flex items-center rounded-full bg-white border border-black/[0.06] px-3.5 py-2 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-            <span class="font-mono text-[10.5px] md:text-[11.5px] tracking-[0.02em] text-ink-2 whitespace-nowrap">
-              Consultation sous 7 jours
-            </span>
-          </span>
-        </div>
       </FadeInSection>
 
       <FadeInSection client:load delay={0.06} y={14}>
-        <h1 class="text-[min(27px,6.9vw)] md:text-[48px] lg:text-[min(48px,3.6vw)] leading-[1.14] lg:leading-[1.08] tracking-[-0.04em] text-ink m-0">
+        <h1 class="text-[min(27px,6.9vw)] md:text-[48px] lg:text-[min(48px,3.6vw)] leading-[1.14] tracking-[-0.04em] text-ink m-0">
           <span class="font-semibold">{h1Lead}</span><br />
           <span class="font-semibold">{h1Main}<span class="text-ember">.</span></span>
         </h1>
@@ -84,17 +69,7 @@ const proofMobile = [
         <div class="mt-9 pt-7 border-t border-black/[0.09] flex flex-wrap gap-x-9 gap-y-5">
           {proof.map((p) => (
             <div>
-              {p.top === 'stars' ? (
-                <span class="flex items-center gap-[3px] h-[18px]">
-                  {[0, 1, 2, 3, 4].map(() => (
-                    <span class="inline-flex h-[15px] w-[15px] items-center justify-center rounded-[2px]" style="background:#00b67a">
-                      <span class="text-[9px] leading-none text-white">★</span>
-                    </span>
-                  ))}
-                </span>
-              ) : (
-                <span class="block h-[18px] text-[14px] font-semibold text-ink leading-[18px]">{p.top}</span>
-              )}
+              <span class="block h-[18px] text-[14px] font-semibold text-ink leading-[18px]">{p.top}</span>
               <span class="block mt-1.5 text-[13px] text-ink-3">{p.label}</span>
             </div>
           ))}
