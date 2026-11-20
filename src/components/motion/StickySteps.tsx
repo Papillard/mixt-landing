@@ -120,7 +120,7 @@ function PanelMedia({ panel, animatedChart = true }: { panel: Panel; animatedCha
 
   return (
     <>
-      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-cream">
+      <div className="relative aspect-[1/1] overflow-hidden rounded-2xl bg-cream">
         {panel.kind === 'image' && panel.src && (
           <img
             src={panel.src}
