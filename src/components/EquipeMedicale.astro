@@ -7,13 +7,8 @@ interface Props {
   bg?: string;
 }
 const { bg = 'bg-base' } = Astro.props;
+// La dermatologue a sa propre carte marron (V3Dermatologue) juste au-dessus : ici, l'équipe qui vous suit au quotidien.
 
-const lead = {
-  img: '/images/real/medecin-bethsabee-levy-garel-portrait-01.webp',
-  name: 'Dr Bethsabée Levy Garel',
-  role: 'Dermatologue · Co-fondatrice',
-  body: 'Conçoit et supervise les protocoles. Relit les dossiers qui le demandent avec le médecin qui vous suit.',
-};
 const doctors = [
   {
     img: '/images/real/medecin-anais-drouet-portrait-01.webp',
@@ -36,32 +31,20 @@ const pharma = {
 };
 ---
 
-<section id="equipe-medicale" class={`px-6 md:px-10 py-24 md:py-32 ${bg}`}>
+<section id="equipe-medicale" class={`px-6 md:px-10 pt-4 pb-24 md:pt-6 md:pb-32 ${bg}`}>
   <div class="max-w-[1180px] mx-auto">
     <FadeInSection client:load>
       <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-5">
-        L'équipe médicale
+        L'équipe pluridisciplinaire
       </div>
       <h2 class="text-balance text-[32px] md:text-[46px] font-bold leading-[1.06] tracking-[-0.035em] text-ink max-w-[760px] mb-12 md:mb-16">
-        Des médecins, une dermatologue et un pharmacien derrière chaque traitement
+        Autour d'elle, une équipe qui vous suit au quotidien
       </h2>
     </FadeInSection>
 
-    <div class="grid grid-cols-1 md:grid-cols-[1.35fr_1fr_1fr] gap-6 md:gap-7">
-      <FadeInSection client:load>
-        <figure class="m-0">
-          <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-cream">
-            <img src={lead.img} alt={`${lead.name}, ${lead.role}`} loading="lazy" decoding="async" class="h-full w-full object-cover object-[center_22%]" />
-          </div>
-          <figcaption class="mt-5">
-            <div class="text-[20px] font-semibold tracking-[-0.02em] text-ink">{lead.name}</div>
-            <div class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-2 mt-1.5 mb-3">{lead.role}</div>
-            <p class="text-[15px] leading-[1.6] text-ink-2 m-0 max-w-[420px]">{lead.body}</p>
-          </figcaption>
-        </figure>
-      </FadeInSection>
-      {doctors.map((d, i) => (
-        <FadeInSection client:load delay={0.08 * (i + 1)}>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-7">
+      {[...doctors, pharma].map((d, i) => (
+        <FadeInSection client:load delay={0.08 * i}>
           <figure class="m-0">
             <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-cream">
               <img src={d.img} alt={`${d.name}, ${d.role}`} loading="lazy" decoding="async" class="h-full w-full object-cover object-[center_20%]" />
@@ -75,19 +58,6 @@ const pharma = {
         </FadeInSection>
       ))}
     </div>
-
-    <FadeInSection client:load delay={0.1}>
-      <div class="mt-10 md:mt-12 flex items-center gap-5 md:gap-7 rounded-2xl bg-white border border-black/[0.06] p-4 md:p-5">
-        <div class="h-24 w-20 md:h-28 md:w-24 shrink-0 overflow-hidden rounded-xl bg-cream">
-          <img src={pharma.img} alt={`${pharma.name}, ${pharma.role}`} loading="lazy" decoding="async" class="h-full w-full object-cover object-[center_20%]" />
-        </div>
-        <div>
-          <div class="text-[17px] font-semibold tracking-[-0.02em] text-ink">{pharma.name}</div>
-          <div class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-2 mt-1 mb-2">{pharma.role}</div>
-          <p class="text-[14.5px] leading-[1.55] text-ink-2 m-0 max-w-[640px]">{pharma.body}</p>
-        </div>
-      </div>
-    </FadeInSection>
 
     <p class="mt-6 text-[12.5px] text-ink-3">
       Médecins inscrits à l'Ordre, RPPS vérifiables · Préparation en pharmacie française
