@@ -51,16 +51,6 @@ export const rosacee: Concern = {
     footer:
       'Votre médecin personnalise actifs et dosages selon votre cas, selon son évaluation clinique.',
   },
-  proof: {
-    name: 'Marie, 45 ans',
-    meta: 'Rosacée · 3 mois',
-    before: { src: '/images/melanie-before.webp', alt: 'Marie avant le protocole', objectPosition: 'center' },
-    after: { src: '/images/melanie-after.webp', alt: 'Marie après 3 mois', objectPosition: 'center' },
-    afterLabel: 'Après · 3 mois',
-    quote: "Je ne sortais plus sans fond de teint. Maintenant j'ose le visage nu.",
-    context: "Rosacée diagnostiquée par sa dermatologue. Parcours de 3 mois avec l'équipe Mixt et formule magistrale prescrite.",
-    legal: "Photos authentiques, patiente consentante. Résultats individuels, non représentatifs d'une garantie.",
-  },
   faq: [
     {
       q: 'Rosacée ou simple sensibilité, comment faire la différence ?',
