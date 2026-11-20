@@ -30,6 +30,15 @@ export const rosacee: Concern = {
     imageAlt: "Gros plan de rougeurs diffuses sur la joue",
     imagePosition: "center",
   },
+  voices: {
+    title: "Rougeurs qui vont et viennent, peau qui chauffe",
+    quotes: ["Mes rougeurs, ma couperose", "Ma peau tiraille", "Que ça soit adapté dans le temps"],
+    outro: "Avant les actifs, un médecin pose le diagnostic et construit un plan qui respecte votre tolérance.",
+    image: "/images/real/patiente-elise-rosacee-routine-miroir-01.webp",
+    imageAlt: "Femme appliquant une crème sur sa joue devant le miroir",
+    imagePosition: "center 40%",
+  },
+  formulaImage: "/images/real/produit-tube-main-fond-brun-01.webp",
   problem: {
     title: 'Pourquoi la rosacée',
     highlight: 'est si déroutante.',

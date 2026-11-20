@@ -30,6 +30,15 @@ export const hyperpigmentation: Concern = {
     imageAlt: "Gros plan de taches brunes sur une peau mate",
     imagePosition: "center",
   },
+  voices: {
+    title: "Des taches qui s'installent",
+    quotes: ["Stabiliser les taches", "C'est générique", "Même formule pour tout le monde"],
+    outro: "Toutes les taches ne se traitent pas pareil : un médecin en cherche la cause avant de prescrire.",
+    image: "/images/real/patiente-marie-routine-miroir-01.webp",
+    imageAlt: "Femme observant sa peau dans le miroir",
+    imagePosition: "center 40%",
+  },
+  formulaImage: "/images/real/produit-tube-tenu-bouchon-01.webp",
   problem: {
     title: 'Pourquoi les taches',
     highlight: 'reviennent toujours.',

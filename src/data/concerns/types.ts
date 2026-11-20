@@ -72,6 +72,17 @@ export type Concern = {
     imageAlt: string;
     imagePosition?: string;
   };
+  /** Vous vous reconnaissez ? : verbatims patientes (Studio Mixt) + photo de situation. */
+  voices: {
+    title: string;
+    quotes: string[];
+    outro: string;
+    image: string;
+    imageAlt: string;
+    imagePosition?: string;
+  };
+  /** Photo du bloc formule / actifs. */
+  formulaImage: string;
   /** Empathy / why generic routines fail for this concern. */
   problem: {
     title: string;

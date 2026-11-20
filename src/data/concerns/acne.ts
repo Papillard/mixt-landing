@@ -30,6 +30,15 @@ export const acne: Concern = {
     imageAlt: "Gros plan d'une joue avec des boutons d'acné",
     imagePosition: "center",
   },
+  voices: {
+    title: "Encore des boutons à 30 ans",
+    quotes: ["J'avais l'impression d'être une énième patiente", "Il voulait expédier", "Quand on regarde juste la peau, on manque une grosse partie du problème"],
+    outro: "Chez Mixt, un médecin reprend toute votre histoire de peau avant de choisir un traitement.",
+    image: "/images/real/patiente-laetitia-acne-routine-salle-de-bain-02.webp",
+    imageAlt: "Jeune femme appliquant son soin dans sa salle de bain",
+    imagePosition: "center 35%",
+  },
+  formulaImage: "/images/real/produit-tube-mains-fond-brun-02.webp",
   problem: {
     title: "Pourquoi l'acné",
     highlight: 'continue de revenir.',

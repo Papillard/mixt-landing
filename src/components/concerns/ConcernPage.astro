@@ -6,6 +6,8 @@ import Button from '../Button.astro';
 import Accordion from '../motion/Accordion.tsx';
 import FadeInSection from '../motion/FadeInSection.tsx';
 import BeforeAfterReveal from '../motion/BeforeAfterReveal.tsx';
+import EquipeMedicale from '../EquipeMedicale.astro';
+import MotFondatrice from '../MotFondatrice.astro';
 import type { Concern } from '../../data/concerns/types';
 
 interface Props {
@@ -41,26 +43,15 @@ const trust = [
   { icon: 'shieldCheck', label: 'Données hébergées en France (HDS)' },
 ];
 
-// Parcours, identique pour chaque concern.
-const steps = [
-  {
-    number: '01',
-    icon: 'fileText',
-    title: 'Votre dossier en ligne',
-    body: "Construit en ligne, en quelques minutes. Vos antécédents, vos photos, ce que vous avez déjà essayé : tout est prêt pour votre médecin.",
-  },
-  {
-    number: '02',
-    icon: 'stethoscope',
-    title: 'Votre consultation',
-    body: 'Une consultation en ligne avec un médecin expert de votre peau, supervisé par un dermatologue. Il arrive avec votre dossier en main et repart avec un plan de soin clair.',
-  },
-  {
-    number: '03',
-    icon: 'calendarCheck',
-    title: 'Votre suivi',
-    body: 'Un point chaque mois pour ajuster votre traitement, et un suivi au quotidien entre les rendez-vous. Une peau suivie, pas juste traitée. Sans engagement.',
-  },
+
+// Bloc « dossier » : ce que le médecin prend en compte (plateforme de marque, 11/2026).
+const dossier = [
+  { label: 'Votre historique', when: 'Avant' },
+  { label: 'Vos photos', when: 'Avant' },
+  { label: 'Ce que vous avez déjà essayé', when: 'Avant' },
+  { label: 'Une décision médicale', when: 'En visio', key: true },
+  { label: 'Votre protocole', when: 'Après' },
+  { label: 'Votre suivi', when: 'Dans la durée' },
 ];
 
 // Tarification transparente, reprise de la home.
@@ -184,19 +175,58 @@ const structuredData = {
     </div>
   </section>
 
-  {/* ── PROBLEM ── */}
+  {/* ── VOUS VOUS RECONNAISSEZ ? verbatims réels (persona Studio Mixt) + photo de situation ── */}
   <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
-    <div class="max-w-[760px] mx-auto">
+    <div class="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-center">
+      <div>
+        <FadeInSection client:load>
+          <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-5">Vous vous reconnaissez ?</div>
+          <h2 class="text-balance text-[32px] md:text-[44px] font-bold leading-[1.08] tracking-[-0.035em] text-ink mb-10">{concern.voices.title}</h2>
+        </FadeInSection>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {concern.voices.quotes.map((q, i) => (
+            <FadeInSection client:load delay={0.08 * i}>
+              <blockquote class="m-0 h-full rounded-2xl bg-white border border-black/[0.06] p-5 md:p-6 text-[17px] md:text-[18px] font-semibold leading-[1.35] tracking-[-0.01em] text-ink">
+                « {q} »
+              </blockquote>
+            </FadeInSection>
+          ))}
+        </div>
+        <FadeInSection client:load delay={0.2}>
+          <p class="mt-8 text-[17px] md:text-[18px] leading-[1.6] text-ink-2 max-w-[620px]">{concern.voices.outro}</p>
+          <p class="mt-2 text-[12px] text-ink-3">Paroles de patientes recueillies lors de nos entretiens.</p>
+        </FadeInSection>
+      </div>
+      <FadeInSection client:load delay={0.1} y={20}>
+        <div class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-blush/30">
+          <img src={concern.voices.image} alt={concern.voices.imageAlt} loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" style={`object-position: ${concern.voices.imagePosition ?? 'center 30%'};`} />
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  {/* ── CE QUE LE MÉDECIN REGARDE : bloc « dossier » de la plateforme de marque ── */}
+  <section id="parcours" class="px-6 md:px-10 py-24 md:py-32 bg-base scroll-mt-20">
+    <div class="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <FadeInSection client:load>
-        <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.12] tracking-[-0.035em] text-ink mb-10">
-          {concern.problem.title}<br />
-          <span class="italic-serif">{concern.problem.highlight}</span>
+        <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-5">Ce que le médecin regarde</div>
+        <h2 class="text-balance text-[32px] md:text-[44px] font-bold leading-[1.08] tracking-[-0.035em] text-ink mb-6">
+          Votre peau a une histoire. Votre traitement doit en tenir compte
         </h2>
+        <p class="text-[17px] md:text-[18px] leading-[1.65] text-ink-2 mb-8 max-w-[520px]">
+          Vos photos et votre dossier arrivent avant la visio : le médecin sait déjà où vous en êtes. Il choisit les actifs, le dosage et le rythme, puis ajuste avec vous au fil des semaines.
+        </p>
+        <Button href={CTA_HREF} variant="ember-pill">{CTA_LABEL} →</Button>
       </FadeInSection>
       <FadeInSection client:load delay={0.1}>
-        <div class="flex flex-col gap-6 text-[17px] md:text-[18px] leading-[1.75] text-rich">
-          {concern.problem.paras.map((p) => <p>{p}</p>)}
-        </div>
+        <ol class="m-0 p-0 list-none flex flex-col gap-2.5">
+          {dossier.map((d) => (
+            <li class={`flex items-center justify-between rounded-xl px-5 py-4 text-[16px] md:text-[17px] ${d.key ? 'bg-deep text-white font-semibold' : 'bg-white border border-black/[0.08] text-ink'}`}>
+              <span>{d.label}</span>
+              <span class={`font-mono text-[11px] uppercase tracking-[0.14em] ${d.key ? 'text-white/70' : 'text-ink-3'}`}>{d.when}</span>
+            </li>
+          ))}
+        </ol>
       </FadeInSection>
     </div>
   </section>
@@ -240,8 +270,8 @@ const structuredData = {
         <FadeInSection client:load delay={0.1} y={20}>
           <div class="relative aspect-[3/2] lg:aspect-[4/5] overflow-hidden rounded-2xl bg-blush/30 shadow-[0_20px_60px_-22px_rgba(50,25,34,0.32)] lg:sticky lg:top-28">
             <img
-              src="/images/real/produit-tube-mains-fond-brun-02.webp"
-              alt="Tube de préparation magistrale tenu dans les mains"
+              src={concern.formulaImage}
+              alt="Préparation magistrale prescrite par le médecin, préparée en pharmacie"
               class="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
             />
@@ -289,8 +319,10 @@ const structuredData = {
     </div>
   </section>
 
+  <EquipeMedicale />
+
   {/* ── PROOF ── */}
-  {concern.proof ? (
+  {concern.proof && (
     <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
       <div class="max-w-[1100px] mx-auto">
         <FadeInSection client:load>
@@ -324,59 +356,9 @@ const structuredData = {
         </div>
       </div>
     </section>
-  ) : (
-    <section class="px-6 md:px-10 py-24 md:py-32 bg-cream">
-      <div class="max-w-[1100px] mx-auto">
-        <FadeInSection client:load>
-          <div class="flex items-center gap-3 font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-jade-deep mb-12 md:mb-14">
-            <span class="inline-block h-[2px] w-12 bg-jade-deep/80"></span>
-            Avant-première
-          </div>
-        </FadeInSection>
-        <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-center">
-          {/* Portrait fondatrice */}
-          <FadeInSection client:load delay={0.1} y={20}>
-            <div class="relative aspect-[4/5] overflow-hidden rounded-3xl bg-blush/30 shadow-[0_20px_60px_-22px_rgba(50,25,34,0.32)]">
-              <img
-                src="/images/tuto-laeti-face.webp"
-                alt="Laetitia, co-fondatrice de Mixt"
-                class="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
-              />
-              <div class="absolute left-5 top-5 z-[5] rounded-[6px] bg-deep/95 backdrop-blur px-3 py-1.5 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase text-white">
-                Avant-première
-              </div>
-              <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/45 to-transparent pointer-events-none"></div>
-              <div class="absolute left-5 bottom-5 z-[5] text-white">
-                <div class="text-[15px] font-semibold leading-tight">Laetitia</div>
-                <div class="text-[12px] text-white/85">Co-fondatrice de Mixt</div>
-              </div>
-            </div>
-          </FadeInSection>
-
-          {/* Invitation cohorte */}
-          <FadeInSection client:load delay={0.15}>
-            <h2 class="text-balance text-[30px] md:text-[42px] font-medium leading-[1.1] tracking-[-0.03em] text-ink mb-5">
-              Reprenez la main sur votre {concern.chip.toLowerCase()},<br />
-              <span class="italic-serif">dès l'ouverture.</span>
-            </h2>
-            <p class="text-[16px] md:text-[18px] leading-[1.7] text-ink-2 mb-8 max-w-[520px]">
-              Mixt ouvre tout juste. Réservez votre place : un médecin expert de votre peau vous suit de près dès l'ouverture, et vous voyez vite ce que change un vrai suivi.
-            </p>
-            <Button href={CTA_HREF} variant="ember-pill">{CTA_LABEL} →</Button>
-            <div class="flex flex-wrap gap-x-6 gap-y-2.5 mt-8 text-[12.5px] text-ink-2">
-              {trust.map((t) => (
-                <span class="inline-flex items-center gap-1.5">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[15px] h-[15px] text-jade-deep shrink-0"><Fragment set:html={icons[t.icon]} /></svg>
-                  {t.label}
-                </span>
-              ))}
-            </div>
-          </FadeInSection>
-        </div>
-      </div>
-    </section>
   )}
+
+  <MotFondatrice ctaHref={CTA_HREF} ctaLabel={CTA_LABEL} />
 
   {/* ── EXPECTATIONS (optional) ── */}
   {concern.expectations && (
@@ -417,35 +399,6 @@ const structuredData = {
       </div>
     </section>
   )}
-
-  {/* ── HOW IT WORKS ── */}
-  <section id="parcours" class="relative overflow-hidden px-6 md:px-10 py-24 md:py-32 bg-deep text-white scroll-mt-20">
-    <div class="relative z-[2] max-w-[1200px] mx-auto">
-      <FadeInSection client:load>
-        <div class="flex items-center gap-3 font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-ember mb-5">
-          <span class="inline-block h-[2px] w-12 bg-ember/80"></span>
-          Le parcours
-        </div>
-        <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.1] tracking-[-0.035em] text-white mb-16 max-w-[640px]">
-          De votre dossier à votre suivi, <span class="italic-serif whitespace-nowrap">en trois temps.</span>
-        </h2>
-      </FadeInSection>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-        {steps.map((s, i) => (
-          <FadeInSection client:load delay={i * 0.1} y={18}>
-            <div class="border-t border-white/15 pt-5">
-              <div class="flex items-center gap-2.5 mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[20px] h-[20px] text-ember shrink-0"><Fragment set:html={icons[s.icon]} /></svg>
-                <span class="font-mono text-[12px] tracking-[0.16em] uppercase text-ember">{s.number}</span>
-              </div>
-              <h3 class="text-[20px] md:text-[22px] font-semibold text-white leading-tight mb-2.5 tracking-[-0.01em]">{s.title}</h3>
-              <p class="text-[15px] leading-[1.6] text-white/70">{s.body}</p>
-            </div>
-          </FadeInSection>
-        ))}
-      </div>
-    </div>
-  </section>
 
   {/* ── PRICING ── */}
   <section class="px-6 md:px-10 py-24 md:py-32 bg-base">
@@ -522,11 +475,11 @@ const structuredData = {
           {concern.chip} : et si on s'en occupait <span class="italic-serif whitespace-nowrap">vraiment ?</span>
         </h2>
         <p class="text-[16px] md:text-[18px] leading-[1.65] text-white/60 max-w-[520px] mx-auto mb-9">
-          Mixt ouvre très bientôt. Réservez votre place : on vous prévient en priorité au lancement et on répond à toutes vos questions d'ici là.
+          Répondez à quelques questions et ajoutez vos photos : c'est gratuit. Un médecin vous reçoit en visio sous 7 jours si vous réservez.
         </p>
         <Button href={CTA_HREF} variant="white">{CTA_LABEL} →</Button>
         <div class="mt-5 text-[13px] text-white/60">
-          Échange sans engagement. Rien de médical ne passe par message.
+          Bilan gratuit et sans engagement. Consultation à 49 €, seulement si vous la réservez.
         </div>
       </FadeInSection>
     </div>

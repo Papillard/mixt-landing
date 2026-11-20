@@ -30,6 +30,15 @@ export const melasma: Concern = {
     imageAlt: "Gros plan de taches de mélasma sur la joue",
     imagePosition: "center",
   },
+  voices: {
+    title: "Des taches qui reviennent malgré les sérums",
+    quotes: ["Mes taches de grossesse", "Stabiliser les taches", "Même formule pour tout le monde"],
+    outro: "Un médecin identifie l'origine de vos taches et adapte le traitement à votre phototype.",
+    image: "/images/real/patiente-leonixia-taches-portrait-sourire-01.webp",
+    imageAlt: "Femme souriante à la peau foncée",
+    imagePosition: "center 45%",
+  },
+  formulaImage: "/images/real/produit-creme-doigt-fond-beige-01.webp",
   problem: {
     title: 'Pourquoi le mélasma',
     highlight: 'résiste autant.',

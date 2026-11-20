@@ -7,7 +7,8 @@ import V3Hero from '../components/sections-v3/V3Hero.astro';
 import V3Problem from '../components/sections-v3/V3Problem.astro';
 import V3Steps from '../components/sections-v3/V3Steps.astro';
 import V3Reviews from '../components/sections-v3/V3Reviews.astro';
-import V3Dermatologue from '../components/sections-v3/V3Dermatologue.astro';
+import EquipeMedicale from '../components/EquipeMedicale.astro';
+import MotFondatrice from '../components/MotFondatrice.astro';
 import V3Pharmacie from '../components/sections-v3/V3Pharmacie.astro';
 // Section comparatif tout-en-un : en attente de validation des wordings avec Laetitia.
 // Pour la reactiver : decommenter cet import et <V3Cout /> plus bas.
@@ -175,7 +176,7 @@ const structuredData = {
 
   <V3Hero />
   <V3Steps />
-  <V3Dermatologue />
+  <EquipeMedicale />
   <V3Reviews />
   <V3Problem />
   <V3Pharmacie />
@@ -184,6 +185,7 @@ const structuredData = {
   <V3Conditions />
   <V3InlineCta />
   <V3Testimonials />
+  <MotFondatrice ctaHref="https://app.mixt.care/start" ctaLabel="Faire mon bilan gratuit" />
   <V3Pricing />
   <V3FaqCta />
 

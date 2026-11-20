@@ -1,0 +1,44 @@
+---
+// Mot de la fondatrice : remplace l'ancien bloc « Avant-première » (obsolète).
+// Citation reprise de la pub CP42 (« 10 ans de taches »), validée par Boris.
+import FadeInSection from './motion/FadeInSection.tsx';
+import Button from './Button.astro';
+
+interface Props {
+  ctaHref: string;
+  ctaLabel: string;
+  bg?: string;
+}
+const { ctaHref, ctaLabel, bg = 'bg-cream' } = Astro.props;
+---
+
+<section class={`px-6 md:px-10 py-24 md:py-32 ${bg}`}>
+  <div class="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-16 items-center">
+    <FadeInSection client:load y={20}>
+      <figure class="m-0">
+        <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-blush/30">
+          <img
+            src="/images/real/fondatrice-laetitia-payan-selfie-01.webp"
+            alt="Laetitia Payan, fondatrice de Mixt"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover object-[center_30%]"
+          />
+        </div>
+      </figure>
+    </FadeInSection>
+    <FadeInSection client:load delay={0.1}>
+      <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-6">
+        Le mot de la fondatrice
+      </div>
+      <blockquote class="m-0 text-balance text-[26px] md:text-[34px] font-bold leading-[1.15] tracking-[-0.03em] text-ink mb-7">
+        « Mes taches sont arrivées avec ma première grossesse. Dix ans de crèmes au hasard, puis j'ai voulu un vrai avis médical »
+      </blockquote>
+      <p class="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 mb-4 max-w-[560px]">
+        J'ai cherché des solutions qui reposent sur la science, pas sur la promesse d'un flacon. J'ai créé Mixt pour que chaque personne qui vit avec un problème de peau au quotidien ait accès à des médecins, des dermatologues et des pharmaciens qui construisent son traitement dans la durée.
+      </p>
+      <p class="text-[14px] font-semibold text-ink mb-8">Laetitia Payan, fondatrice de Mixt</p>
+      <Button href={ctaHref} variant="ember-pill">{ctaLabel} →</Button>
+    </FadeInSection>
+  </div>
+</section>
