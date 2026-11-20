@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import MobileStickyCta from '../components/MobileStickyCta.astro';
 import V3Hero from '../components/sections-v3/V3Hero.astro';
 import V3Problem from '../components/sections-v3/V3Problem.astro';
 import V3Steps from '../components/sections-v3/V3Steps.astro';
@@ -170,7 +171,7 @@ const structuredData = {
   description="Un médecin expert de votre peau, supervisé par un dermatologue, construit un plan de soin sur-mesure et vous suit dans la durée. Mélasma, rosacée, acné."
   structuredData={structuredData}
 >
-  <Nav ctaLabel="Démarrer ma consultation" ctaHref="https://app.mixt.care/start" />
+  <Nav ctaLabel="Démarrer ma consultation" ctaHref="https://app.mixt.care/start" stickyCtaMobile />
 
   <V3Hero />
   <V3Steps />
@@ -187,4 +188,5 @@ const structuredData = {
   <V3FaqCta />
 
   <Footer />
+  <MobileStickyCta />
 </BaseLayout>
