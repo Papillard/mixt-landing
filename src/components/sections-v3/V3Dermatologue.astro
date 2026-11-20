@@ -26,7 +26,8 @@ const facts = [
     <div class="rounded-[20px] bg-deep text-white overflow-hidden">
       <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] gap-8 lg:gap-14 p-7 md:p-10 lg:p-12 items-center">
 
-        <FadeInSection client:load>
+        {/* Desktop : grand portrait. Mobile : avatar compact (voir plus bas). */}
+        <FadeInSection client:load className="hidden lg:block">
           <figure class="m-0">
             <div class="aspect-[4/5] overflow-hidden rounded-[14px] bg-white/10">
               <img
@@ -48,25 +49,46 @@ const facts = [
 
         <FadeInSection client:load delay={0.12}>
           <div>
-            <div class="flex items-center gap-3 font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-6">
+            <div class="lg:hidden flex items-center gap-4 mb-6">
+              <img
+                src="/images/shoot-dermatologue-avatar.webp"
+                alt="Dr Bethsabée Levy Garel, dermatologue, co-fondatrice de Mixt"
+                loading="lazy"
+                decoding="async"
+                width="64"
+                height="64"
+                class="h-16 w-16 shrink-0 rounded-full object-cover border border-white/15"
+              />
+              <div>
+                <div class="text-[16px] font-semibold tracking-[-0.01em]">Dr Bethsabée Levy Garel</div>
+                <div class="text-[13px] text-white/60 mt-0.5">Dermatologue, co-fondatrice</div>
+              </div>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-3 font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-6">
               <span class="inline-block h-[2px] w-12 bg-white/30"></span>
               Qui écrit votre traitement
             </div>
 
-            <h2 class="text-[32px] md:text-[44px] font-bold leading-[1.08] tracking-[-0.035em] max-w-[640px] mb-7">
+            <h2 class="text-[26px] md:text-[44px] font-bold leading-[1.12] lg:leading-[1.08] tracking-[-0.035em] max-w-[640px] mb-4 lg:mb-7">
               Des protocoles conçus avec des dermatologues
             </h2>
 
-            <p class="text-[16.5px] md:text-[17.5px] leading-[1.65] text-white/75 max-w-[600px] m-0">
+            <p class="lg:hidden text-[16px] leading-[1.6] text-white/75 m-0">
+              Elle écrit nos protocoles : quels actifs, quel dosage, pour quelle peau. Votre médecin s'en sert
+              comme base et reste libre de sa prescription.
+            </p>
+
+            <p class="hidden lg:block text-[16.5px] md:text-[17.5px] leading-[1.65] text-white/75 max-w-[600px] m-0">
               C'est le docteur Levy Garel qui écrit les protocoles Mixt : quels actifs, quel dosage, pour
               quelle peau. Le médecin que vous consultez s'en sert comme base et reste libre de sa prescription. Elle relit avec lui
               chaque dossier qui sort du cadre.
               <span class="text-white"> Si votre peau demande un examen en cabinet, on vous le dit.</span>
             </p>
 
-            <dl class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-x-7 gap-y-6">
+            <dl class="hidden lg:grid mt-10 grid-cols-3 gap-x-7 gap-y-6">
               {facts.map((f, i) => (
-                <div class={i > 0 ? 'sm:pl-7 sm:border-l sm:border-white/15' : ''}>
+                <div class={i > 0 ? 'pl-7 border-l border-white/15' : ''}>
                   <dt class="font-mono text-[10px] uppercase tracking-[0.16em] text-white/45 mb-2">{f.label}</dt>
                   <dd class="m-0 text-[13.5px] leading-[1.5] text-white/80">{f.detail}</dd>
                 </div>
