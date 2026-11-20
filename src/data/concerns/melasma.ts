@@ -13,9 +13,9 @@ export const melasma: Concern = {
     title: "Mélasma : le bon traitement",
     highlight: "commence par un diagnostic",
     lead: "Masque de grossesse, taches sur les joues, le front ou au-dessus de la lèvre : faites le point avec un médecin pour comprendre votre peau et les options adaptées à votre situation.",
-    image: "/images/real/gros-plan-melasma-joue-01.webp",
-    imageAlt: "Gros plan de taches de mélasma sur la joue",
-    imagePosition: "center",
+    image: "/images/real/patiente-leonixia-taches-portrait-main-joue-01.webp",
+    imageAlt: "Femme à la peau foncée montrant des taches sur sa joue",
+    imagePosition: "center 62%",
   },
   band: {
     image: "/images/real/texture-ambre-bulles-01.webp",
@@ -26,8 +26,8 @@ export const melasma: Concern = {
     color: "#321E2D",
     eyebrow: "Le protocole part du diagnostic",
     slogan: "Avant les actifs, identifier la pigmentation",
-    image: "/images/real/gros-plan-taches-phototype-mat-01.webp",
-    imageAlt: "Gros plan de taches brunes sur une peau mate",
+    image: "/images/real/gros-plan-melasma-joue-01.webp",
+    imageAlt: "Gros plan de taches de mélasma sur la joue",
     imagePosition: "center",
   },
   problem: {
