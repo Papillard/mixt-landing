@@ -4,6 +4,11 @@ import FadeInSection from '../motion/FadeInSection.tsx';
 
 const startHref = 'https://app.mixt.care/start';
 
+// Copy du hero isolée ici : en cours de test, à remplacer facilement.
+const h1Lines = ['Votre peau mérite', 'une skincare', 'qui agit vraiment'];
+const subFirst = 'Un médecin formé à la dermatologie personnalise votre traitement, avec les actifs dont votre peau a réellement besoin.';
+const subRest = 'Préparé en pharmacie, ajusté dans la durée.';
+
 // Barre de réassurance sous les CTA : une preuve par colonne, pas de verbatim.
 const proof = [
   { top: 'stars' as const, label: 'Avis vérifiés Trustpilot' },
@@ -11,16 +16,33 @@ const proof = [
   { top: 'Sur ordonnance', label: 'Remboursable en partie' },
   { top: 'Suivi inclus', label: 'Sans surcoût' },
 ];
+
+// Mobile : 3 preuves seulement (les étoiles sont déjà en haut).
+const proofMobile = [
+  { top: 'Une seule formule', label: 'Au lieu de 4 produits' },
+  { top: 'Sur ordonnance', label: 'Remboursable en partie' },
+  { top: 'Suivi inclus', label: 'Sans surcoût' },
+];
 ---
 
-<section class="relative px-6 md:px-10 pt-[calc(56px+40px)] pb-20 md:pb-24 bg-base">
-  <div class="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-[1.08fr_1fr] gap-12 lg:gap-16 items-center">
+<section class="relative px-6 md:px-10 pt-[calc(56px+20px)] lg:pt-[calc(56px+40px)] pb-12 md:pb-24 bg-base">
+  <div class="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-[1.08fr_1fr] gap-5 lg:gap-16 items-center">
 
     <div>
       <FadeInSection client:load y={10}>
         {/* Deux pastilles distinctes : en mobile elles s'empilent proprement
             au lieu de faire casser une seule pastille sur deux lignes. */}
-        <div class="flex flex-wrap items-center gap-2 mb-7">
+        <div class="flex items-center gap-2 mb-4 lg:hidden">
+          <span class="flex items-center gap-[3px]">
+            {[0, 1, 2, 3, 4].map(() => (
+              <span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[2px]" style="background:#00b67a">
+                <span class="text-[10px] leading-none text-white">★</span>
+              </span>
+            ))}
+          </span>
+          <span class="text-[13px] font-medium text-ink-2">Avis vérifiés Trustpilot</span>
+        </div>
+        <div class="hidden lg:flex flex-wrap items-center gap-2 mb-7">
           <span class="inline-flex items-center gap-2 rounded-full bg-white border border-black/[0.06] px-3.5 py-2 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
             <span class="h-[7px] w-[7px] rounded-full bg-ember shrink-0"></span>
             <span class="font-mono text-[10.5px] md:text-[11.5px] tracking-[0.02em] text-ink-2 whitespace-nowrap">
@@ -36,21 +58,20 @@ const proof = [
       </FadeInSection>
 
       <FadeInSection client:load delay={0.06} y={14}>
-        <h1 class="text-[42px] md:text-[60px] leading-[1.02] tracking-[-0.04em] text-ink m-0">
-          <span class="font-semibold">Votre peau mérite</span><br />
-          <span class="font-semibold">une skincare</span><br />
-          <span class="font-bold">qui agit vraiment<span class="text-ember">.</span></span>
+        <h1 class="text-[34px] md:text-[60px] leading-[1.04] lg:leading-[1.02] tracking-[-0.04em] text-ink m-0">
+          <span class="font-semibold">{h1Lines[0]}</span><br />
+          <span class="font-semibold">{h1Lines[1]}</span><br />
+          <span class="font-bold">{h1Lines[2]}<span class="text-ember">.</span></span>
         </h1>
       </FadeInSection>
 
       <FadeInSection client:load delay={0.14} y={14}>
-        <p class="mt-7 text-[17px] md:text-[18px] leading-[1.6] text-ink-2 max-w-[520px]">
-          Un médecin formé à la dermatologie personnalise votre traitement, avec les
-          actifs dont votre peau a réellement besoin. Préparé en pharmacie, ajusté dans la durée.
+        <p class="mt-3 lg:mt-7 text-[15.5px] md:text-[18px] leading-[1.5] lg:leading-[1.6] text-ink-2 max-w-[520px]">
+          {subFirst}<span class="hidden lg:inline"> {subRest}</span>
         </p>
       </FadeInSection>
 
-      <FadeInSection client:load delay={0.22} y={14}>
+      <FadeInSection client:load delay={0.22} y={14} className="hidden lg:block">
         <div class="mt-9 flex flex-wrap items-center gap-3">
           <Button href={startHref} variant="ember-pill">Démarrer ma consultation</Button>
           <Button href={startHref} variant="ghost">Faire mon bilan gratuit</Button>
@@ -60,7 +81,7 @@ const proof = [
         </p>
       </FadeInSection>
 
-      <FadeInSection client:load delay={0.3} y={12}>
+      <FadeInSection client:load delay={0.3} y={12} className="hidden lg:block">
         <div class="mt-9 pt-7 border-t border-black/[0.09] flex flex-wrap gap-x-9 gap-y-5">
           {proof.map((p) => (
             <div>
@@ -84,7 +105,7 @@ const proof = [
 
     <FadeInSection client:load delay={0.18} y={24}>
       <div class="relative">
-        <div class="relative aspect-[4/5] lg:aspect-auto lg:h-[600px] overflow-hidden rounded-[20px] bg-cream">
+        <div class="relative aspect-[5/4] lg:aspect-auto lg:h-[600px] overflow-hidden rounded-[20px] bg-cream">
           <img
             src="/images/shoot-persona-melasma.webp"
             alt="Portrait de femme, peau avec taches pigmentaires"
@@ -94,7 +115,7 @@ const proof = [
         </div>
 
         {/* Carte flottante haute : le médecin a rendu son plan */}
-        <div class="absolute -left-3 top-8 md:-left-6 md:top-10 z-[5] flex items-center gap-3 rounded-[12px] bg-white px-4 py-3 shadow-[0_8px_28px_-10px_rgba(50,25,34,0.28)]">
+        <div class="absolute left-3 bottom-3 lg:bottom-auto lg:-left-6 lg:top-10 z-[5] flex items-center gap-3 rounded-[12px] bg-white px-4 py-3 shadow-[0_8px_28px_-10px_rgba(50,25,34,0.28)]">
           <img
             src="/images/shoot-dermatologue-avatar.webp"
             alt=""
@@ -110,7 +131,7 @@ const proof = [
         </div>
 
         {/* Carte flottante basse : ce que contient la formule */}
-        <div class="absolute -right-2 bottom-6 md:-right-6 md:bottom-8 z-[5] max-w-[268px] rounded-[12px] bg-white px-4 py-3.5 shadow-[0_8px_28px_-10px_rgba(50,25,34,0.28)]">
+        <div class="hidden lg:block absolute -right-6 bottom-8 z-[5] max-w-[268px] rounded-[12px] bg-white px-4 py-3.5 shadow-[0_8px_28px_-10px_rgba(50,25,34,0.28)]">
           <span class="block font-mono text-[10px] uppercase tracking-[0.14em] text-ink-3">
             Votre formule
           </span>
@@ -121,6 +142,16 @@ const proof = [
         </div>
       </div>
     </FadeInSection>
+
+    {/* Mobile : réassurance sous la photo, 3 preuves */}
+    <div class="lg:hidden grid grid-cols-3 gap-3">
+      {proofMobile.map((p) => (
+        <div>
+          <span class="block text-[13px] font-semibold text-ink leading-tight">{p.top}</span>
+          <span class="block mt-1 text-[12px] text-ink-3 leading-tight">{p.label}</span>
+        </div>
+      ))}
+    </div>
 
   </div>
 </section>

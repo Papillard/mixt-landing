@@ -1,0 +1,19 @@
+---
+// CTA collé en bas d'écran, mobile uniquement : le bilan reste à portée de pouce.
+const href = 'https://app.mixt.care/start';
+---
+
+<div
+  class="lg:hidden fixed inset-x-0 bottom-0 z-40 bg-white border-t border-black/[0.08] px-4 pt-3"
+  style="padding-bottom: calc(10px + env(safe-area-inset-bottom));"
+>
+  <a
+    href={href}
+    class="flex w-full items-center justify-center gap-2 rounded-full bg-ember border border-ember px-6 py-[14px] text-[16px] font-semibold text-white no-underline shadow-[0_2px_14px_-2px_rgba(240,80,42,0.35)] active:bg-ember-dark"
+  >
+    Faire mon bilan gratuit →
+  </a>
+  <p class="mt-1.5 text-center text-[12px] text-ink-3 leading-tight">Gratuit et sans engagement</p>
+</div>
+{/* Réserve la place du CTA pour que le footer ne soit pas masqué */}
+<div class="lg:hidden h-[96px]" aria-hidden="true"></div>
