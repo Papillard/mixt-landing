@@ -20,20 +20,38 @@ const href = 'https://app.mixt.care/start';
 <div class="lg:hidden h-[96px]" aria-hidden="true"></div>
 
 <script>
-  // iOS Safari : pendant un défilement inertiel, le premier tap ne fait qu'arrêter le scroll
-  // et le « click » n'est jamais émis. On déclenche donc le lien au relâcher du doigt,
-  // si le doigt n'a quasiment pas bougé (un vrai tap, pas un swipe).
+  // iOS (Safari et Chrome, même moteur) : pendant un défilement inertiel, le premier tap sert
+  // à stopper le scroll. Le navigateur n'émet alors ni « click » ni même « touchend » :
+  // il envoie « touchcancel ». On traite donc touchend ET touchcancel comme un tap,
+  // tant que le doigt n'a quasiment pas bougé (un swipe reste ignoré).
   const link = document.querySelector<HTMLAnchorElement>('[data-sticky-cta]');
   if (link) {
-    let x = 0, y = 0, t = 0;
+    let x0 = 0, y0 = 0, x = 0, y = 0, t = 0, active = false, fired = false;
+    const go = () => {
+      if (fired) return;
+      fired = true;
+      link.click(); // navigation + autocapture PostHog
+      setTimeout(() => { fired = false; }, 1500);
+    };
+    const isTap = () => Math.abs(x - x0) < 12 && Math.abs(y - y0) < 12 && Date.now() - t < 900;
     link.addEventListener('touchstart', (e) => {
-      const p = e.touches[0]; x = p.clientX; y = p.clientY; t = Date.now();
+      const p = e.touches[0];
+      x0 = x = p.clientX; y0 = y = p.clientY; t = Date.now(); active = true;
+    }, { passive: true });
+    link.addEventListener('touchmove', (e) => {
+      const p = e.touches[0]; x = p.clientX; y = p.clientY;
     }, { passive: true });
     link.addEventListener('touchend', (e) => {
-      const p = e.changedTouches[0];
-      if (Math.abs(p.clientX - x) > 10 || Math.abs(p.clientY - y) > 10 || Date.now() - t > 800) return;
+      if (!active) return; active = false;
+      if (!isTap()) return;
       e.preventDefault(); // évite le clic natif en double
-      link.click();       // navigation + autocapture PostHog conservés
+      go();
     });
+    link.addEventListener('touchcancel', () => {
+      if (!active) return; active = false;
+      if (isTap()) go();
+    });
+    // Filet de sécurité : si le clic natif arrive quand même juste après, on ne navigue pas deux fois.
+    link.addEventListener('click', (e) => { if (fired && e.isTrusted) e.preventDefault(); });
   }
 </script>
