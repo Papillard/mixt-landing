@@ -53,6 +53,24 @@ export type Concern = {
     lead: string;
     image: string;
     imageAlt: string;
+    /** Cadrage de la photo hero (object-position CSS). */
+    imagePosition?: string;
+  };
+  /** Bande texture pleine largeur sous le hero, slogan blanc posé dessus. */
+  band: {
+    image: string;
+    slogan: string;
+    imagePosition?: string;
+  };
+  /** Interstitiel : aplat de couleur + gros plan de peau + CTA blanc. */
+  interstitial: {
+    /** Couleur de l'aplat (bordeaux, prune ou encre de la charte). */
+    color: string;
+    eyebrow: string;
+    slogan: string;
+    image: string;
+    imageAlt: string;
+    imagePosition?: string;
   };
   /** Empathy / why generic routines fail for this concern. */
   problem: {
