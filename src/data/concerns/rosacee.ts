@@ -26,7 +26,7 @@ export const rosacee: Concern = {
     color: "#292627",
     eyebrow: "Le protocole part du diagnostic",
     slogan: "Traiter les symptômes. Respecter la tolérance",
-    image: "/images/real/patiente-elise-rosacee-gros-plan-joue-01.webp",
+    image: "/images/real/gros-plan-rosacee-joue-01.webp",
     imageAlt: "Gros plan de rougeurs diffuses sur la joue",
     imagePosition: "center",
   },

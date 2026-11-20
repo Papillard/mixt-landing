@@ -26,7 +26,7 @@ export const hyperpigmentation: Concern = {
     color: "#321E2D",
     eyebrow: "Le protocole part du diagnostic",
     slogan: "Avant les actifs, identifier la pigmentation",
-    image: "/images/real/gros-plan-taches-joue-01.webp",
+    image: "/images/real/gros-plan-melasma-joue-01.webp",
     imageAlt: "Gros plan de taches pigmentaires sur la joue",
     imagePosition: "center",
   },

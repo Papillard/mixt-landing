@@ -26,7 +26,7 @@ export const acne: Concern = {
     color: "#481B27",
     eyebrow: "Le protocole part du diagnostic",
     slogan: "Les bons actifs commencent par les bonnes questions",
-    image: "/images/real/gros-plan-acne-joue-01.webp",
+    image: "/images/real/gros-plan-acne-inflammatoire-01.webp",
     imageAlt: "Gros plan d'une joue avec des boutons d'acné",
     imagePosition: "center",
   },
