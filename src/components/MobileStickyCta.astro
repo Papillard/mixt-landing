@@ -9,6 +9,7 @@ const href = 'https://app.mixt.care/start';
 >
   <a
     href={href}
+    data-sticky-cta
     class="flex w-full items-center justify-center gap-2 rounded-full bg-ember border border-ember px-6 py-[14px] text-[16px] font-semibold text-white no-underline shadow-[0_2px_14px_-2px_rgba(240,80,42,0.35)] active:bg-ember-dark"
   >
     Démarrer ma consultation →
@@ -17,3 +18,22 @@ const href = 'https://app.mixt.care/start';
 </div>
 {/* Réserve la place du CTA pour que le footer ne soit pas masqué */}
 <div class="lg:hidden h-[96px]" aria-hidden="true"></div>
+
+<script>
+  // iOS Safari : pendant un défilement inertiel, le premier tap ne fait qu'arrêter le scroll
+  // et le « click » n'est jamais émis. On déclenche donc le lien au relâcher du doigt,
+  // si le doigt n'a quasiment pas bougé (un vrai tap, pas un swipe).
+  const link = document.querySelector<HTMLAnchorElement>('[data-sticky-cta]');
+  if (link) {
+    let x = 0, y = 0, t = 0;
+    link.addEventListener('touchstart', (e) => {
+      const p = e.touches[0]; x = p.clientX; y = p.clientY; t = Date.now();
+    }, { passive: true });
+    link.addEventListener('touchend', (e) => {
+      const p = e.changedTouches[0];
+      if (Math.abs(p.clientX - x) > 10 || Math.abs(p.clientY - y) > 10 || Date.now() - t > 800) return;
+      e.preventDefault(); // évite le clic natif en double
+      link.click();       // navigation + autocapture PostHog conservés
+    });
+  }
+</script>
