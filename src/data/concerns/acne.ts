@@ -32,11 +32,11 @@ export const acne: Concern = {
   },
   voices: {
     title: "Encore des boutons à 30 ans",
-    quotes: ["J'avais l'impression d'être une énième patiente", "Il voulait expédier", "Quand on regarde juste la peau, on manque une grosse partie du problème"],
+    quotes: ["Les boutons reviennent sur le bas du visage, souvent au même moment du cycle", "Un traitement a marché quelques mois, puis plus rien", "Un rendez-vous de cinq minutes, sans que personne ne reprenne votre histoire"],
     outro: "Chez Mixt, un médecin reprend toute votre histoire de peau avant de choisir un traitement.",
-    image: "/images/real/patiente-laetitia-acne-routine-salle-de-bain-02.webp",
-    imageAlt: "Jeune femme appliquant son soin dans sa salle de bain",
-    imagePosition: "center 35%",
+    image: "/images/real/gros-plan-acne-front-01.webp",
+    imageAlt: "Gros plan de boutons d'acné sur le front",
+    imagePosition: "center",
   },
   formulaImage: "/images/real/produit-tube-mains-fond-brun-02.webp",
   problem: {
@@ -76,7 +76,7 @@ export const acne: Concern = {
     },
   ],
   related: [
-    { href: '/hyperpigmentation/', label: 'Hyperpigmentation', teaser: "Les marques brunes laissées par l'acné." },
+    { href: '/taches/', label: 'Taches', teaser: "Les marques brunes laissées par l'acné." },
     { href: '/rosacee/', label: 'Rosacée', teaser: 'Rougeurs et boutons qui se confondent avec l\'acné.' },
   ],
 };

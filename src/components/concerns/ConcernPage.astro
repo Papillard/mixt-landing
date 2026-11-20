@@ -7,6 +7,7 @@ import Accordion from '../motion/Accordion.tsx';
 import FadeInSection from '../motion/FadeInSection.tsx';
 import BeforeAfterReveal from '../motion/BeforeAfterReveal.tsx';
 import V3Dermatologue from '../sections-v3/V3Dermatologue.astro';
+import DossierTimeline from '../motion/DossierTimeline.tsx';
 import EquipeMedicale from '../EquipeMedicale.astro';
 import MotFondatrice from '../MotFondatrice.astro';
 import type { Concern } from '../../data/concerns/types';
@@ -39,7 +40,7 @@ const icons: Record<string, string> = {
 
 // Bandeau de réassurance du hero.
 const trust = [
-  { icon: 'stethoscope', label: 'Médecin expert de votre peau' },
+  { icon: 'stethoscope', label: 'Médecin partenaire' },
   { icon: 'badgeCheck', label: 'Supervisé par un dermatologue' },
   { icon: 'shieldCheck', label: 'Données hébergées en France (HDS)' },
 ];
@@ -187,15 +188,14 @@ const structuredData = {
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {concern.voices.quotes.map((q, i) => (
             <FadeInSection client:load delay={0.08 * i}>
-              <blockquote class="m-0 h-full rounded-2xl bg-white border border-black/[0.06] p-5 md:p-6 text-[17px] md:text-[18px] font-semibold leading-[1.35] tracking-[-0.01em] text-ink">
-                « {q} »
-              </blockquote>
+              <div class="h-full rounded-2xl bg-white border border-black/[0.06] p-5 md:p-6 text-[16px] md:text-[17px] font-medium leading-[1.45] tracking-[-0.01em] text-ink">
+                {q}
+              </div>
             </FadeInSection>
           ))}
         </div>
         <FadeInSection client:load delay={0.2}>
           <p class="mt-8 text-[17px] md:text-[18px] leading-[1.6] text-ink-2 max-w-[620px]">{concern.voices.outro}</p>
-          <p class="mt-2 text-[12px] text-ink-3">Paroles de patientes recueillies lors de nos entretiens.</p>
         </FadeInSection>
       </div>
       <FadeInSection client:load delay={0.1} y={20}>
@@ -219,16 +219,7 @@ const structuredData = {
         </p>
         <Button href={CTA_HREF} variant="ember-pill">{CTA_LABEL} →</Button>
       </FadeInSection>
-      <FadeInSection client:load delay={0.1}>
-        <ol class="m-0 p-0 list-none flex flex-col gap-2.5">
-          {dossier.map((d) => (
-            <li class={`flex items-center justify-between rounded-xl px-5 py-4 text-[16px] md:text-[17px] ${d.key ? 'bg-deep text-white font-semibold' : 'bg-white border border-black/[0.08] text-ink'}`}>
-              <span>{d.label}</span>
-              <span class={`font-mono text-[11px] uppercase tracking-[0.14em] ${d.key ? 'text-white/70' : 'text-ink-3'}`}>{d.when}</span>
-            </li>
-          ))}
-        </ol>
-      </FadeInSection>
+      <DossierTimeline client:visible items={dossier} />
     </div>
   </section>
 

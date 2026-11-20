@@ -32,11 +32,11 @@ export const rosacee: Concern = {
   },
   voices: {
     title: "Rougeurs qui vont et viennent, peau qui chauffe",
-    quotes: ["Mes rougeurs, ma couperose", "Ma peau tiraille", "Que ça soit adapté dans le temps"],
+    quotes: ["Les joues rougissent et chauffent sans prévenir", "La peau tiraille et réagit à presque tous les produits", "Vous ne savez pas si c'est une rosacée ou une simple irritation"],
     outro: "Avant les actifs, un médecin pose le diagnostic et construit un plan qui respecte votre tolérance.",
-    image: "/images/real/patiente-elise-rosacee-routine-miroir-01.webp",
-    imageAlt: "Femme appliquant une crème sur sa joue devant le miroir",
-    imagePosition: "center 40%",
+    image: "/images/real/texture-gel-transparent-doigt-01.webp",
+    imageAlt: "Gel apaisant transparent sur le bout du doigt",
+    imagePosition: "center",
   },
   formulaImage: "/images/real/produit-tube-main-fond-brun-01.webp",
   problem: {
@@ -76,6 +76,6 @@ export const rosacee: Concern = {
   ],
   related: [
     { href: '/acne/', label: 'Acné', teaser: 'Boutons, points noirs et inflammation.' },
-    { href: '/hyperpigmentation/', label: 'Hyperpigmentation', teaser: 'Taches brunes, marques et taches solaires.' },
+    { href: '/taches/', label: 'Taches et mélasma', teaser: 'Masque de grossesse, taches brunes et marques.' },
   ],
 };
