@@ -17,11 +17,11 @@ const proof = [
   { top: 'Suivi inclus', label: 'Sans surcoût' },
 ];
 
-// Mobile : 3 preuves seulement (les étoiles sont déjà en haut).
+// Mobile : les arguments de vente empilés, un par ligne (USP vitesse, prix, suivi).
 const proofMobile = [
-  { top: 'Une seule formule', label: 'Au lieu de 4 produits' },
-  { top: 'Sur ordonnance', label: 'Remboursable en partie' },
-  { top: 'Suivi inclus', label: 'Sans surcoût' },
+  'Un médecin en visio sous 7 jours',
+  'Bilan gratuit, consultation à 49 €',
+  'Suivi inclus, sans abonnement',
 ];
 ---
 
@@ -143,15 +143,15 @@ const proofMobile = [
       </div>
     </FadeInSection>
 
-    {/* Mobile : réassurance sous la photo, 3 preuves */}
-    <div class="lg:hidden grid grid-cols-3 gap-3">
-      {proofMobile.map((p) => (
-        <div>
-          <span class="block text-[13px] font-semibold text-ink leading-tight">{p.top}</span>
-          <span class="block mt-1 text-[12px] text-ink-3 leading-tight">{p.label}</span>
-        </div>
+    {/* Mobile : réassurance sous la photo, une ligne par argument */}
+    <ul class="lg:hidden list-none m-0 rounded-[14px] bg-white border border-black/[0.06] px-4 py-3.5 flex flex-col gap-2.5">
+      {proofMobile.map((t) => (
+        <li class="flex items-center gap-2.5 text-[15px] leading-snug text-ink">
+          <svg class="h-[18px] w-[18px] shrink-0" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#4a8f5e"/><path d="M5.5 10.5 L8.5 13.5 L14.5 7.5" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          {t}
+        </li>
       ))}
-    </div>
+    </ul>
 
   </div>
 </section>
