@@ -6,31 +6,14 @@ import Button from '../Button.astro';
 // réelle. Arguments réglementaires et médicaux uniquement, pas de promesse
 // marketing : concentration d'actifs, diagnostic, ajustement, suivi, statut
 // remboursable. Chaque ligne doit tenir devant un dermatologue.
+// Chaque case tient sur deux lignes, des deux côtés (retour à la ligne forcé sur desktop).
 const rows = [
-  {
-    left: "Actifs faiblement dosés.",
-    right: "Actifs dermatologiques, dosages personnalisés.",
-  },
-  {
-    left: "Choisis en rayon, ou au hasard.",
-    right: "Prescrits par un médecin, après un diagnostic médical.",
-  },
-  {
-    left: "Toner, sérum, soin ciblé, crème hydratante : les produits s'empilent.",
-    right: "Vos actifs traitants dans une base apaisante, hydratante et relipidante, combinés dans un seul tube.",
-  },
-  {
-    left: "Conservateurs, parfums, perturbateurs endocriniens présumés.",
-    right: "Une formule propre : vos actifs, une base, rien d'autre.",
-  },
-  {
-    left: "Si ça irrite ou si ça ne marche pas, vous changez de marque.",
-    right: "Un médecin ajuste le dosage, ou change la formule.",
-  },
-  {
-    left: "Trois ou quatre produits à 25-50 € pièce, à racheter, jamais remboursés.",
-    right: "Un seul tube à 30-60 €, pour deux à trois mois, remboursable par votre mutuelle*.",
-  },
+  { left: ['Des actifs', 'faiblement dosés.'], right: ['Actifs dermatologiques,', 'dosages personnalisés.'] },
+  { left: ['Choisis en rayon,', 'ou au hasard.'], right: ['Choisis par votre médecin,', 'après un diagnostic.'] },
+  { left: ['Toner, sérum, crème :', "les produits s'empilent."], right: ['Vos actifs traitants réunis', 'dans un seul tube.'] },
+  { left: ['Conservateurs, parfums', 'et ingrédients en plus.'], right: ['Une formule simple : vos actifs,', "une base, rien d'autre."] },
+  { left: ['Si ça irrite ou ne marche pas,', 'vous changez de marque.'], right: ['Votre médecin ajuste le dosage', 'ou change la formule.'] },
+  { left: ['3 ou 4 produits à 25-50 € pièce,', 'à racheter sans cesse.'], right: ['Un tube à 30-60 € (indicatif),', 'si prescrite, pour 2 à 3 mois.'] },
 ];
 ---
 
@@ -69,7 +52,7 @@ const rows = [
       {/* En-têtes de colonnes, alignés sur la grille des lignes */}
       <FadeInSection client:load>
         <div class="grid grid-cols-[1fr_auto_1fr] items-end pb-4 md:pb-6">
-          <div class="px-1 md:pr-20 text-center md:text-right">
+          <div class="px-1 md:pl-20 text-center md:text-left">
             <span class="font-mono text-[10px] md:text-[12px] font-medium uppercase tracking-[0.12em] md:tracking-[0.2em] text-ink-3">
               Routine cosmétique
             </span>
@@ -84,16 +67,18 @@ const rows = [
       </FadeInSection>
 
       {/* Surface unique, lignes séparées par un filet : pas de bandes alternées */}
-      <div class="relative rounded-[14px] bg-cream/70 overflow-hidden">
-
-        {/* Colonne vertébrale centrale, sur laquelle se pose le « vs » */}
+      <div class="relative rounded-[16px] overflow-hidden border border-black/[0.06]" style="background: linear-gradient(to right, #EFF1F2 50%, #FFFFFF 50%);">
+        {/* Deux aplats nets côte à côte (pas de fondu) : gris pour la routine, blanc pour Mixt. */}
         <div class="absolute inset-y-0 left-1/2 w-px bg-black/[0.07] -translate-x-1/2 pointer-events-none"></div>
 
         {rows.map((r, i) => (
-          <div class={`relative grid grid-cols-[1fr_auto_1fr] items-center ${i > 0 ? 'border-t border-black/[0.07]' : ''}`}>
-            <div class="pl-3 pr-1 md:pl-12 md:pr-20 py-6 md:py-11">
-              <p class="m-0 text-center md:text-right text-[13px] md:text-[17px] leading-[1.45] md:leading-[1.6] text-ink-2 md:max-w-[330px] md:ml-auto text-balance">
-                {r.left}
+          <div class={`relative grid grid-cols-[1fr_auto_1fr] items-center ${i > 0 ? 'border-t border-black/[0.06]' : ''}`}>
+            <div class="pl-3 pr-1 md:pl-20 md:pr-12 py-6 md:py-11">
+              <p class="m-0 flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 text-center md:text-left text-[13px] md:text-[17px] leading-[1.45] md:leading-[1.6] text-ink-2 md:max-w-[380px] md:mr-auto">
+                <span class="mt-[2px] inline-flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-danger/10 text-danger" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" class="h-[11px] w-[11px]"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </span>
+                <span>{r.left[0]}<br class="hidden md:inline" /> {r.left[1]}</span>
               </p>
             </div>
             {/* Pastille « vs », posée sur la colonne vertébrale */}
@@ -103,18 +88,17 @@ const rows = [
               </span>
             </div>
             <div class="pr-3 pl-1 md:pr-12 md:pl-20 py-6 md:py-11">
-              <p class="m-0 text-center md:text-left text-[13.5px] md:text-[17.5px] leading-[1.45] md:leading-[1.6] font-medium text-ink md:max-w-[330px] md:mr-auto text-balance">
-                {r.right}
+              <p class="m-0 flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 text-center md:text-left text-[13.5px] md:text-[17.5px] leading-[1.45] md:leading-[1.6] font-semibold text-ink md:max-w-[380px] md:mr-auto">
+                <span class="mt-[2px] inline-flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-jade/15 text-jade-deep" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="h-[12px] w-[12px]"><path d="M20 6 9 17l-5-5"/></svg>
+                </span>
+                <span>{r.right[0]}<br class="hidden md:inline" /> {r.right[1]}</span>
               </p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Renvoi de l'asterisque : le remboursement depend du contrat */}
-      <p class="mt-4 px-1 m-0 text-[11px] md:text-[12px] leading-[1.5] text-ink-3">
-        * Le remboursement dépend de votre contrat : vérifiez votre plan de mutuelle.
-      </p>
     </div>
 
     {/* ── Pied : la nuance prix, puis le CTA ───────────────── */}
