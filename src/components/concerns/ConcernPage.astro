@@ -277,8 +277,11 @@ const structuredData = {
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {concern.voices.quotes.map((q, i) => (
             <FadeInSection client:load delay={0.08 * i}>
-              <div class="h-full rounded-2xl bg-white border border-black/[0.06] p-5 md:p-6 text-[16px] md:text-[17px] font-medium leading-[1.45] tracking-[-0.01em] text-ink">
-                {q}
+              <div class="h-full flex sm:flex-col gap-3 rounded-2xl bg-white border border-black/[0.06] p-5 md:p-6 text-[16px] md:text-[17px] font-medium leading-[1.45] tracking-[-0.01em] text-ink">
+                <span class="inline-flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-danger/10 text-danger" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" class="h-[13px] w-[13px]"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </span>
+                <span>{q}</span>
               </div>
             </FadeInSection>
           ))}
