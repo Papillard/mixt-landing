@@ -158,8 +158,7 @@ const structuredData = {
       {concern.hero.title}<br />
       {concern.hero.highlight}
     </h1>
-    <p class="mt-3 text-[15.5px] leading-[1.5] text-ink-2">{concern.hero.leadShort}</p>
-    <div class="relative mt-5 aspect-[4/5] overflow-hidden rounded-[20px] bg-cream">
+    <div class="relative mt-4 aspect-[4/5] overflow-hidden rounded-[20px] bg-cream">
       <img
         src={concern.hero.image}
         alt={concern.hero.imageAlt}
@@ -175,6 +174,7 @@ const structuredData = {
         </span>
       </div>
     </div>
+    <p class="mt-4 text-[15.5px] leading-[1.5] text-ink-2">{concern.hero.leadShort}</p>
     <ul class="list-none m-0 mt-5 rounded-[14px] bg-white border border-black/[0.06] px-4 py-3.5 flex flex-col gap-2.5">
       {proofMobile.map((t) => (
         <li class="flex items-center gap-2.5 text-[15px] leading-snug text-ink">
@@ -301,11 +301,12 @@ const structuredData = {
   <section class="px-6 md:px-10 pb-24 md:pb-32 bg-base">
     <div class="max-w-[1180px] mx-auto">
       <FadeInSection client:load>
-        <div class="rounded-2xl bg-white border-l-[3px] border-ink px-6 py-6 md:px-9 md:py-8">
-          <h2 class="text-balance text-[22px] md:text-[28px] font-bold leading-[1.2] tracking-[-0.03em] text-ink m-0">Pourquoi pas une ordonnance express ou une crème de pharmacie&nbsp;?</h2>
-          <p class="mt-3 text-[16px] md:text-[17px] leading-[1.65] text-ink-2 max-w-[820px]">
+        <div class="rounded-2xl bg-deep text-white px-6 py-8 md:px-12 md:py-12">
+          <h2 class="text-balance text-[24px] md:text-[34px] font-bold leading-[1.15] tracking-[-0.035em] text-white m-0 max-w-[760px]">Pourquoi pas une ordonnance express ou une crème de pharmacie&nbsp;?</h2>
+          <p class="mt-4 text-[16px] md:text-[18px] leading-[1.65] text-white/80 max-w-[760px]">
             Parce que vous les avez sûrement déjà essayées. Une ordonnance express répond à une demande, une crème de pharmacie est la même pour tout le monde. Ici, un médecin prend le temps de regarder votre peau, vos photos et tout ce que vous avez testé, construit un plan pour vous, puis l'ajuste avec vous au fil des semaines. Et si votre peau demande un examen en cabinet, on vous le dit.
           </p>
+          <div class="mt-7"><Button href={CTA_HREF} variant="white">{CTA_LABEL} →</Button></div>
         </div>
       </FadeInSection>
     </div>
