@@ -46,6 +46,8 @@ export type Concern = {
   seo: {
     title: string;
     description: string;
+    /** Autres noms de la condition (données structurées MedicalCondition). */
+    alternateNames?: string[];
   };
   hero: {
     kicker: string;

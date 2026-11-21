@@ -5,9 +5,10 @@ export const acne: Concern = {
   chip: 'Acné',
   condition: { name: 'Acné adulte' },
   seo: {
-    title: "Traitement de l'acné adulte : un plan de soin sur-mesure | Mixt",
+    title: "Traitement de l'acné adulte avec un médecin en ligne | Mixt",
     description:
-      "Boutons, points noirs, acné qui résiste : un médecin expert de votre peau, supervisé par un dermatologue, construit un plan de soin sur-mesure et vous suit dans la durée.",
+      "Acné adulte qui revient malgré les soins : un médecin personnalise votre traitement et vous suit. Bilan gratuit, visio sous 7 jours.",
+    alternateNames: ["Acné adulte", "Acné hormonale"],
   },
   hero: {
     kicker: "Acné adulte",
@@ -65,6 +66,10 @@ export const acne: Concern = {
   },
   faq: [
     {
+      q: "L'acné adulte est-elle différente de celle de l'adolescence ?",
+      a: "Souvent, oui. Chez l'adulte, les boutons se situent plus souvent sur le bas du visage, la mâchoire et le cou, et les variations hormonales jouent un rôle fréquent. Le médecin en tient compte pour construire votre plan de traitement.",
+    },
+    {
       q: "J'ai de l'acné à 30 ans, est-ce normal ?",
       a: "Oui, l'acné adulte est très fréquente, en particulier chez les femmes, avec souvent une composante hormonale. Elle se traite, mais le protocole diffère de celui d'une acné d'adolescent.",
     },
@@ -78,7 +83,7 @@ export const acne: Concern = {
     },
   ],
   related: [
-    { href: '/taches/', label: 'Taches', teaser: "Les marques brunes laissées par l'acné." },
-    { href: '/rosacee/', label: 'Rosacée', teaser: 'Rougeurs et boutons qui se confondent avec l\'acné.' },
+    { href: '/taches/', label: 'Taches brunes et mélasma', teaser: "Les marques brunes laissées par l'acné." },
+    { href: '/rosacee/', label: 'Rosacée et rougeurs', teaser: 'Rougeurs et boutons qui se confondent avec l\'acné.' },
   ],
 };
