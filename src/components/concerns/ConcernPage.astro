@@ -208,7 +208,18 @@ const structuredData = {
       <div class="flex flex-1 items-center px-6 md:px-10 lg:px-16 xl:px-24 py-12 lg:py-16">
         <div class="max-w-[560px]">
           <FadeInSection client:load y={14}>
-            <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-6">
+            {/* Preuve sociale en premier, comme sur la home */}
+            <div class="flex items-center gap-2 mb-6">
+              <span class="flex items-center gap-[3px]">
+                {[0, 1, 2, 3, 4].map(() => (
+                  <span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[2px]" style="background:#00b67a">
+                    <span class="text-[10px] leading-none text-white">★</span>
+                  </span>
+                ))}
+              </span>
+              <span class="text-[13px] font-medium text-ink-2">Avis vérifiés Trustpilot</span>
+            </div>
+            <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-4">
               {concern.hero.kicker}
             </div>
             <h1 class="text-balance text-[36px] md:text-[46px] lg:text-[52px] font-bold leading-[1.05] tracking-[-0.035em] text-ink mb-6">
