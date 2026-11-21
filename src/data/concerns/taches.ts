@@ -10,7 +10,6 @@ export const taches: Concern = {
     title: "Traitement du mélasma et des taches brunes en ligne | Mixt",
     description:
       "Mélasma, masque de grossesse, taches brunes : un médecin cherche leur origine et personnalise votre traitement. Bilan gratuit, visio sous 7 jours.",
-    alternateNames: ["Mélasma", "Masque de grossesse", "Hyperpigmentation", "Taches brunes"],
   },
   hero: {
     kicker: 'Taches · Mélasma · Masque de grossesse',

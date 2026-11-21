@@ -8,7 +8,6 @@ export const acne: Concern = {
     title: "Traitement de l'acné adulte avec un médecin en ligne | Mixt",
     description:
       "Acné adulte qui revient malgré les soins : un médecin personnalise votre traitement et vous suit. Bilan gratuit, visio sous 7 jours.",
-    alternateNames: ["Acné adulte", "Acné hormonale"],
   },
   hero: {
     kicker: "Acné adulte",

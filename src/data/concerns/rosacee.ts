@@ -8,7 +8,6 @@ export const rosacee: Concern = {
     title: "Traitement de la rosacée et des rougeurs en ligne | Mixt",
     description:
       "Rougeurs, couperose, chaleur : un médecin cherche ce qui déclenche votre rosacée et personnalise votre traitement. Bilan gratuit, visio sous 7 jours.",
-    alternateNames: ["Couperose", "Rougeurs du visage"],
   },
   hero: {
     kicker: "Rougeurs · Rosacée",
