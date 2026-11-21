@@ -51,6 +51,8 @@ export type Concern = {
     title: string;
     highlight: string;
     lead: string;
+    /** Version mobile du lead : une phrase, lisible au-dessus de la ligne de flottaison. */
+    leadShort: string;
     image: string;
     imageAlt: string;
     /** Cadrage de la photo hero (object-position CSS). */

@@ -13,6 +13,7 @@ export const rosacee: Concern = {
     title: "Rosacée : un protocole médical.",
     highlight: "Pas un soin de plus",
     lead: "Rougeurs, sensations de chaleur, boutons : faites le point avec un médecin pour comprendre ces symptômes et construire une prise en charge adaptée.",
+    leadShort: "Un médecin vous voit en visio, cherche ce qui déclenche vos rougeurs et construit un plan de traitement adapté à votre peau.",
     image: "/images/real/patiente-elise-rosacee-portrait-face-01.webp",
     imageAlt: "Femme avec des rougeurs sur les joues et le nez",
     imagePosition: "center 30%",

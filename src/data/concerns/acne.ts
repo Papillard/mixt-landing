@@ -13,6 +13,7 @@ export const acne: Concern = {
     title: "Acné adulte :",
     highlight: "trouvez votre protocole de traitement",
     lead: "À 25, 35 ou 45 ans, l'acné mérite mieux qu'une succession d'essais. Faites le point avec un médecin sur vos boutons, vos marques et les traitements déjà utilisés.",
+    leadShort: "Un médecin vous voit en visio, reprend tout ce que vous avez déjà essayé et construit un plan de traitement fait pour votre peau.",
     image: "/images/real/patiente-laetitia-acne-portrait-face-01.webp",
     imageAlt: "Jeune femme avec de l'acné, sans maquillage",
     imagePosition: "center 30%",

@@ -15,6 +15,7 @@ export const taches: Concern = {
     title: 'Vos taches ne partent plus ?',
     highlight: "Un médecin cherche d'abord leur cause",
     lead: "Masque de grossesse, taches apparues avec la pilule ou la ménopause, marques qui s'installent : faites le point avec un médecin partenaire pour comprendre d'où viennent vos taches et construire un traitement adapté à votre peau.",
+    leadShort: "Un médecin vous voit en visio, cherche l'origine de vos taches et construit un plan de traitement adapté à votre peau.",
     image: '/images/real/patiente-leonixia-taches-portrait-main-joue-01.webp',
     imageAlt: 'Femme à la peau foncée montrant des taches sur sa joue',
     imagePosition: 'center 66%',
