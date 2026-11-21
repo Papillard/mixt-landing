@@ -34,3 +34,4 @@ CLAUDE.md
 # AI image generation — archive locale, pas pushée
 public/images/generated/*
 !public/images/generated/.gitkeep
+.wrangler/

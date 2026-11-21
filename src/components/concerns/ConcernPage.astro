@@ -11,6 +11,7 @@ import DossierTimeline from '../motion/DossierTimeline.tsx';
 import EquipeMedicale from '../EquipeMedicale.astro';
 import MotFondatrice from '../MotFondatrice.astro';
 import type { Concern } from '../../data/concerns/types';
+import { breadcrumb, ORG_ID, WEBSITE_ID, DERMATO_ID, dermatologist } from '../../data/schema';
 
 interface Props {
   concern: Concern;
@@ -83,19 +84,31 @@ const sharedFaq = [
 
 const allFaq = [...concern.faq, ...sharedFaq];
 
+const pageUrl = `https://mixt.care/${concern.slug}/`;
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'MedicalWebPage',
-      '@id': `https://mixt.care/${concern.slug}/#webpage`,
-      url: `https://mixt.care/${concern.slug}/`,
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
       name: concern.seo.title,
       description: concern.seo.description,
       inLanguage: 'fr-FR',
-      about: { '@type': 'MedicalCondition', name: concern.chip },
-      isPartOf: { '@id': 'https://mixt.care/#organization' },
+      isPartOf: { '@id': WEBSITE_ID },
+      publisher: { '@id': ORG_ID },
+      breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
+      about: { '@id': `${pageUrl}#condition` },
+      mentions: { '@id': DERMATO_ID },
     },
+    {
+      '@type': 'MedicalCondition',
+      '@id': `${pageUrl}#condition`,
+      name: concern.condition.name,
+      ...(concern.condition.alternateName && { alternateName: concern.condition.alternateName }),
+    },
+    breadcrumb(pageUrl, concern.chip),
+    dermatologist,
     {
       '@type': 'FAQPage',
       '@id': `https://mixt.care/${concern.slug}/#faq`,

@@ -5,6 +5,7 @@ import type { Concern } from './types';
 export const taches: Concern = {
   slug: 'taches',
   chip: 'Taches',
+  condition: { name: 'Taches brunes', alternateName: ['Mélasma', 'Masque de grossesse'] },
   seo: {
     title: 'Taches brunes et masque de grossesse : un avis médical | Mixt',
     description:

@@ -1,5 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { breadcrumb, ORG_ID, WEBSITE_ID } from '../data/schema';
+
+const pageUrl = 'https://mixt.care/comment-prendre-une-photo/';
+const structuredData = {
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: 'Comment prendre une bonne photo de votre peau',
+      inLanguage: 'fr-FR',
+      isPartOf: { '@id': WEBSITE_ID },
+      publisher: { '@id': ORG_ID },
+      breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
+    },
+    breadcrumb(pageUrl, 'Comment prendre une photo'),
+  ],
+};
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import FadeInSection from '../components/motion/FadeInSection.tsx';
@@ -52,7 +70,8 @@ const verifyChecks = [
 ---
 
 <BaseLayout
-  title="Comment prendre une bonne photo de votre peau — Mixt"
+  structuredData={structuredData}
+  title="Comment prendre une bonne photo de votre peau | Mixt"
   description="Guide photo pour une peau bien évaluée : netteté, lumière, cadrage, et conseils par zone (visage, profil, zoom)."
 >
   <Nav ctaLabel="Faire mon bilan" ctaHref="https://app.mixt.care/rdv" />

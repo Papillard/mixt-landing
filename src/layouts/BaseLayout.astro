@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
+import { siteGraph } from '../data/schema';
 
 interface Props {
   title: string;
@@ -27,6 +28,14 @@ const {
 } = Astro.props;
 
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
+// JSON-LD : graphe commun (site, organisation, dermatologue) + nœuds propres à la page,
+// dans un seul bloc pour que les références @id se résolvent.
+const pageNodes = (() => {
+  if (!structuredData) return [];
+  const { '@context': _ctx, ...rest } = structuredData as Record<string, unknown>;
+  return Array.isArray(rest['@graph']) ? (rest['@graph'] as unknown[]) : [rest];
+})();
+const jsonLd = { '@context': 'https://schema.org', '@graph': [...siteGraph, ...pageNodes] };
 const ogTitleFinal = ogTitle ?? title;
 const ogDescFinal = ogDescription ?? description;
 ---
@@ -60,9 +69,7 @@ const ogDescFinal = ogDescription ?? description;
   <meta name="twitter:description" content={ogDescFinal} />
   <meta name="twitter:image" content={ogImage} />
 
-  {structuredData && (
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-  )}
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />

@@ -3,6 +3,7 @@ import type { Concern } from './types';
 export const rosacee: Concern = {
   slug: 'rosacee',
   chip: 'Rosacée',
+  condition: { name: 'Rosacée', alternateName: ['Rougeurs du visage'] },
   seo: {
     title: 'Traitement de la rosacée et des rougeurs du visage | Mixt',
     description:
