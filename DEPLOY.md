@@ -14,6 +14,9 @@ déploie tout seul**. Rien d'autre à faire.
 - Servi par le **Cloudflare Worker `mixt-landing`** (voir `wrangler.toml`,
   `[assets] directory = "./dist"`). C'est un site statique : Astro build → `dist/`,
   le Worker sert `dist/` en edge.
+- `worker/index.js` passe devant les pages (`run_worker_first`) : 301 de http:// et
+  www vers https://mixt.care (chemin et query conservés), slash final en 301. Les
+  redirections de chemins restent dans `public/_redirects`.
 - **Ce n'est PAS GitHub Pages.** GitHub Pages a été retiré (workflow supprimé,
   site Pages désactivé) parce qu'il n'était pas la prod et créait de la confusion.
 

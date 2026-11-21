@@ -41,6 +41,8 @@ export type Concern = {
   slug: string;
   /** Short label used in chips and nav. */
   chip: string;
+  /** Pathologie décrite par la page (JSON-LD MedicalCondition). */
+  condition: { name: string; alternateName?: string[] };
   seo: {
     title: string;
     description: string;

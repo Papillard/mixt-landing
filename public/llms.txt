@@ -1,46 +1,38 @@
 # Mixt
 
-> Mixt est un service médical français de dermatologie en ligne. Un médecin évalue votre peau en téléconsultation, prescrit une formulation magistrale personnalisée préparée en pharmacie sur ordonnance, et assure un suivi mensuel avec ajustement du traitement. Spécialisé dans les conditions chroniques : rosacée, hyperpigmentation, acné adulte, eczéma.
+> Mixt (mixt.care) est un service français de soin de la peau en ligne. Après un bilan gratuit en ligne, vous consultez en visio un médecin partenaire, supervisé par un dermatologue, qui peut prescrire un traitement personnalisé, souvent une formule magistrale préparée en pharmacie. L'équipe Mixt vous suit ensuite dans la durée. Pour l'acné adulte, la rosacée et les taches (mélasma, masque de grossesse).
 
-## Ce que fait Mixt
+## Parcours
 
-Mixt s'adresse aux personnes confrontées à des problèmes de peau chroniques que les cosmétiques ne résolvent pas. Le service combine trois éléments qui n'existent pas séparément en France :
+1. **Bilan en ligne, gratuit** : en 5 minutes, quelques questions et vos photos. Vous repartez avec un dossier dermatologique structuré, à vous.
+2. **Consultation en visio** avec un médecin partenaire qui a étudié votre dossier en amont. Inscrit à l'Ordre des médecins, RPPS vérifiable.
+3. **Plan de traitement personnalisé** : la prescription relève de la seule décision du médecin (formule magistrale sur mesure, traitement classique ou approche cosmétique).
+4. **Suivi** : l'équipe Mixt répond à vos questions pratiques et tient votre journal photo. Accompagnement inclus, non médical.
 
-1. **Téléconsultation avec un médecin** dédié à votre peau (pas un chatbot, pas un algorithme).
-2. **Formulation magistrale personnalisée** : principes actifs choisis et dosés pour votre cas, préparée en pharmacie sur ordonnance médicale.
-3. **Suivi mensuel** : vous documentez votre peau, votre médecin ajuste le protocole.
+## Tarifs
 
-## Conditions prises en charge
+- Bilan en ligne : gratuit.
+- Consultation médicale : 49 €, reversés intégralement au médecin. Mixt ne prélève aucune commission.
+- Suivi par l'équipe Mixt : inclus, sans abonnement.
+- Suivi par le médecin : 29 €/mois, optionnel, sans engagement.
+- Préparation en pharmacie, si prescrite : 30 à 60 € (prix indicatif), prise en charge selon votre couverture.
 
-- **Rosacée** (rougeurs, flush, couperose, sensibilité) — protocole à base d'ivermectine 1%, 72% de réduction des lésions en 16 semaines.
-- **Hyperpigmentation** (mélasma, taches solaires, post-inflammatoire) — triple combinaison agissant sur la cause, 61% de réduction du score MASI en 8 à 12 semaines.
-- **Acné adulte** (hormonale, inflammatoire, kystique, tardive) — adapalène et peroxyde de benzoyle, 63% de réduction des lésions en 12 semaines.
-- **Eczéma** (atopique, de contact, séborrhéique) — restauration de la barrière cutanée et réduction de l'inflammation chronique.
+## Équipe
 
-## Parcours patient
-
-1. **Décrivez votre peau** : photos, symptômes, antécédents, traitements essayés.
-2. **Téléconsultation** vidéo avec un médecin Mixt qui pose le diagnostic et prescrit le protocole.
-3. **Préparation en pharmacie** sur ordonnance, livrée chez vous.
-4. **Suivi mensuel** : vous documentez l'évolution, le médecin ajuste la formulation tant qu'il le faut.
-
-## Équipe fondatrice
-
-- **Laetitia Payan** — CEO & co-fondatrice. Trois ans à étudier les modèles de soin en ligne, dont une clinique en ligne aux États-Unis. Patiente elle-même depuis dix ans (hyperpigmentation chronique).
-- **Boris Paillard** — CPO & co-fondateur. Co-fondateur du Wagon (école de code, 40 000+ alumni). Conçoit le produit et l'infrastructure technique.
-- **Dr Bethsabée Levy Garel** — Dermatologue fondatrice. Formée à la Sorbonne, internat à Paris, exercice à l'Hôpital Cochin puis cabinet libéral. Spécialisée en dermatologie générale et pédiatrique, dermoscopie, oncodermatologie, maladies inflammatoires et auto-immunes.
+- **Dr Bethsabée Levy Garel** : dermatologue, co-fondatrice. Elle écrit les protocoles Mixt ; le médecin que vous consultez s'en sert comme base et reste libre de sa prescription.
+- **Laetitia Payan** : CEO, co-fondatrice.
+- **Boris Paillard** : CPO, co-fondateur.
 
 ## Données de santé
 
-Vos données de santé sont protégées et soumises au secret médical.
+Données et photos hébergées en France chez un hébergeur certifié HDS (Hébergeur de Données de Santé), soumises au secret médical.
 
 ## Pages
 
-- [Accueil](https://mixt.care/) : présentation complète du service, conditions, parcours, équipe.
-- [Comment prendre une photo de votre peau](https://mixt.care/comment-prendre-une-photo/) : guide pratique pour la téléconsultation.
-- [Conditions générales](https://mixt.care/conditions-generales.html)
-- [Politique de confidentialité](https://mixt.care/politique-de-confidentialite.html)
-
-## Contact
-
-Site : https://mixt.care
+- [Accueil](https://mixt.care/) : le service, le parcours, l'équipe médicale, les tarifs, la FAQ.
+- [Acné adulte](https://mixt.care/acne/)
+- [Rosacée et rougeurs du visage](https://mixt.care/rosacee/)
+- [Taches brunes et masque de grossesse](https://mixt.care/taches/)
+- [Comment prendre une photo de votre peau](https://mixt.care/comment-prendre-une-photo/)
+- [Conditions générales](https://mixt.care/conditions-generales/)
+- [Politique de confidentialité](https://mixt.care/politique-de-confidentialite/)

@@ -3,6 +3,7 @@ import type { Concern } from './types';
 export const acne: Concern = {
   slug: 'acne',
   chip: 'Acné',
+  condition: { name: 'Acné adulte' },
   seo: {
     title: "Traitement de l'acné adulte : un plan de soin sur-mesure | Mixt",
     description:
