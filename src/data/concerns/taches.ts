@@ -7,9 +7,9 @@ export const taches: Concern = {
   chip: 'Taches',
   condition: { name: 'Taches brunes', alternateName: ['Mélasma', 'Masque de grossesse'] },
   seo: {
-    title: 'Taches brunes et masque de grossesse : un avis médical | Mixt',
+    title: "Traitement du mélasma et des taches brunes en ligne | Mixt",
     description:
-      "Taches brunes, masque de grossesse, taches qui reviennent malgré les sérums : un médecin partenaire cherche leur origine et personnalise votre traitement, avec un suivi dans la durée.",
+      "Mélasma, masque de grossesse, taches brunes : un médecin cherche leur origine et personnalise votre traitement. Bilan gratuit, visio sous 7 jours.",
   },
   hero: {
     kicker: 'Taches · Mélasma · Masque de grossesse',
@@ -37,7 +37,7 @@ export const taches: Concern = {
   },
   voices: {
     title: 'Des taches qui reviennent malgré les sérums',
-    quotes: ["Des taches apparues avec une grossesse ou la pilule, qui ne partent plus", "Des sérums qui éclaircissent un peu, puis tout revient", "Des conseils génériques, la même crème pour tout le monde"],
+    quotes: ["Des sérums éclaircissants : ça s'estompe un peu, puis tout revient", "La même crème que tout le monde, sans regarder votre type de peau", "Des conseils généraux, sans que personne ne cherche la cause"],
     outro: "Un médecin partenaire cherche l'origine de vos taches et personnalise le traitement selon votre peau et votre phototype.",
     image: "/images/real/gros-plan-melasma-joue-01.webp",
     imageAlt: "Gros plan de taches brunes sur la joue",
@@ -77,6 +77,10 @@ export const taches: Concern = {
   },
   faq: [
     {
+      q: "Mélasma et masque de grossesse : quelle différence ?",
+      a: "C'est la même chose. On parle de masque de grossesse quand le mélasma apparaît pendant une grossesse. Il peut aussi apparaître avec une contraception hormonale, un traitement hormonal, ou sans cause évidente. Le médecin confirme le diagnostic à partir de vos photos et de la visio.",
+    },
+    {
       q: "Comment savoir d'où vient ma tache ?",
       a: "C'est l'objet de la consultation. À partir de votre dossier et de vos photos, le médecin distingue un masque de grossesse, une tache solaire ou une marque laissée par un bouton, et adapte le traitement. Si une tache est nouvelle ou change d'aspect, il peut vous orienter vers un examen en cabinet.",
     },
@@ -102,7 +106,7 @@ export const taches: Concern = {
     },
   ],
   related: [
-    { href: '/acne/', label: 'Acné', teaser: 'Boutons qui reviennent à l’âge adulte.' },
-    { href: '/rosacee/', label: 'Rosacée', teaser: 'Rougeurs diffuses, sensations de chaleur et boutons.' },
+    { href: '/acne/', label: 'Acné adulte', teaser: 'Boutons qui reviennent à l’âge adulte.' },
+    { href: '/rosacee/', label: 'Rosacée et rougeurs', teaser: 'Rougeurs diffuses, sensations de chaleur et boutons.' },
   ],
 };

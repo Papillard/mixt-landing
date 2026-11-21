@@ -5,14 +5,14 @@ export const rosacee: Concern = {
   chip: 'Rosacée',
   condition: { name: 'Rosacée', alternateName: ['Rougeurs du visage'] },
   seo: {
-    title: 'Traitement de la rosacée et des rougeurs du visage | Mixt',
+    title: "Traitement de la rosacée et des rougeurs en ligne | Mixt",
     description:
-      "Rougeurs diffuses, sensations de chaleur, boutons : la rosacée se traite. Un médecin expert de votre peau, supervisé par un dermatologue, construit un plan sur-mesure et vous suit dans la durée.",
+      "Rougeurs, couperose, chaleur : un médecin cherche ce qui déclenche votre rosacée et personnalise votre traitement. Bilan gratuit, visio sous 7 jours.",
   },
   hero: {
     kicker: "Rougeurs · Rosacée",
-    title: "Rosacée : un protocole médical.",
-    highlight: "Pas un soin de plus",
+    title: "Rosacée : un protocole médical,",
+    highlight: "pas un soin de plus",
     lead: "Rougeurs, sensations de chaleur, boutons : faites le point avec un médecin pour comprendre ces symptômes et construire une prise en charge adaptée.",
     leadShort: "Un médecin vous voit en visio, cherche ce qui déclenche vos rougeurs et construit un plan de traitement adapté à votre peau.",
     image: "/images/real/patiente-elise-rosacee-portrait-face-01.webp",
@@ -34,7 +34,7 @@ export const rosacee: Concern = {
   },
   voices: {
     title: "Rougeurs qui vont et viennent, peau qui chauffe",
-    quotes: ["Les joues rougissent et chauffent sans prévenir", "La peau tiraille et réagit à presque tous les produits", "Vous ne savez pas si c'est une rosacée ou une simple irritation"],
+    quotes: ["Des crèmes apaisantes, qui calment un jour et pas le lendemain", "Des produits qui piquent et font rougir encore plus", "Des avis contradictoires : rosacée, irritation, allergie ?"],
     outro: "Avant les actifs, un médecin pose le diagnostic et construit un plan qui respecte votre tolérance.",
     image: "/images/real/texture-gel-transparent-doigt-01.webp",
     imageAlt: "Gel apaisant transparent sur le bout du doigt",
@@ -64,6 +64,10 @@ export const rosacee: Concern = {
   },
   faq: [
     {
+      q: "Rosacée et couperose : quelle différence ?",
+      a: "La couperose désigne les petits vaisseaux visibles sur les joues et le nez. C'est souvent une des formes de la rosacée, qui peut aussi donner des rougeurs diffuses, des sensations de chaleur ou des boutons. Le médecin fait la différence à partir de vos photos et de la visio.",
+    },
+    {
       q: 'Rosacée ou simple sensibilité, comment faire la différence ?',
       a: "C'est l'un des rôles de la consultation. À partir de votre dossier et de vos photos, le médecin distingue une rosacée d'une peau réactive ou d'une autre condition, et propose le traitement adapté.",
     },
@@ -77,7 +81,7 @@ export const rosacee: Concern = {
     },
   ],
   related: [
-    { href: '/acne/', label: 'Acné', teaser: 'Boutons, points noirs et inflammation.' },
-    { href: '/taches/', label: 'Taches et mélasma', teaser: 'Masque de grossesse, taches brunes et marques.' },
+    { href: '/acne/', label: 'Acné adulte', teaser: 'Boutons, points noirs et inflammation.' },
+    { href: '/taches/', label: 'Taches brunes et mélasma', teaser: 'Masque de grossesse, taches brunes et marques.' },
   ],
 };
