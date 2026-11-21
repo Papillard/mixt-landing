@@ -47,14 +47,6 @@ const proofMobile = [
   'Suivi inclus, sans abonnement',
 ];
 
-// Bandeau de réassurance du hero.
-const trust = [
-  { icon: 'stethoscope', label: 'Médecin partenaire' },
-  { icon: 'badgeCheck', label: 'Supervisé par un dermatologue' },
-  { icon: 'shieldCheck', label: 'Données hébergées en France (HDS)' },
-];
-
-
 // Bloc « dossier » : ce que le médecin prend en compte (plateforme de marque, 11/2026).
 const dossier = [
   { label: 'Votre historique', when: 'Avant' },
@@ -219,15 +211,12 @@ const structuredData = {
               </span>
               <span class="text-[13px] font-medium text-ink-2">Avis vérifiés Trustpilot</span>
             </div>
-            <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-4">
-              {concern.hero.kicker}
-            </div>
             <h1 class="text-balance text-[36px] md:text-[46px] lg:text-[52px] font-bold leading-[1.05] tracking-[-0.035em] text-ink mb-6">
               {concern.hero.title}<br />
               {concern.hero.highlight}
             </h1>
             <p class="text-[17px] md:text-[19px] leading-[1.6] text-ink-2 mb-8">
-              {concern.hero.lead}
+              {concern.hero.leadShort}
             </p>
           </FadeInSection>
           <FadeInSection client:load delay={0.2} y={10}>
@@ -236,14 +225,6 @@ const structuredData = {
               <Button href="#parcours" variant="ghost">Comment ça marche</Button>
             </div>
             <p class="mt-4 text-[13px] text-ink-3">{CTA_NOTE}</p>
-            <div class="flex flex-wrap gap-x-6 gap-y-2.5 mt-7 text-[12.5px] text-ink-2">
-              {trust.map((t) => (
-                <span class="inline-flex items-center gap-1.5">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[15px] h-[15px] text-jade-deep shrink-0"><Fragment set:html={icons[t.icon]} /></svg>
-                  {t.label}
-                </span>
-              ))}
-            </div>
           </FadeInSection>
         </div>
       </div>
