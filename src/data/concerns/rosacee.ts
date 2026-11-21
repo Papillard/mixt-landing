@@ -35,7 +35,7 @@ export const rosacee: Concern = {
   },
   voices: {
     title: "Rougeurs qui vont et viennent, peau qui chauffe",
-    quotes: ["Vos joues rougissent et chauffent sans prévenir", "Votre peau tiraille et réagit à presque tous les produits", "Vous ne savez pas si c'est une rosacée ou une simple irritation"],
+    quotes: ["Des crèmes apaisantes, qui calment un jour et pas le lendemain", "Des produits qui piquent et font rougir encore plus", "Des avis contradictoires : rosacée, irritation, allergie ?"],
     outro: "Avant les actifs, un médecin pose le diagnostic et construit un plan qui respecte votre tolérance.",
     image: "/images/real/texture-gel-transparent-doigt-01.webp",
     imageAlt: "Gel apaisant transparent sur le bout du doigt",

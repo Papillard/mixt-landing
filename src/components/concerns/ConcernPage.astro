@@ -255,18 +255,19 @@ const structuredData = {
           <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-5">Vous vous reconnaissez ?</div>
           <h2 class="text-balance text-[32px] md:text-[44px] font-bold leading-[1.08] tracking-[-0.035em] text-ink mb-10">{concern.voices.title}</h2>
         </FadeInSection>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {concern.voices.quotes.map((q, i) => (
-            <FadeInSection client:load delay={0.08 * i}>
-              <div class="h-full flex sm:flex-col gap-3 rounded-2xl bg-white border border-black/[0.06] p-5 md:p-6 text-[16px] md:text-[17px] font-medium leading-[1.45] tracking-[-0.01em] text-ink">
-                <span class="inline-flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-danger/10 text-danger" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" class="h-[13px] w-[13px]"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <FadeInSection client:load delay={0.08}>
+          <div class="text-[15px] md:text-[16px] font-semibold text-ink-2 mb-3">Vous avez déjà essayé :</div>
+          <ul class="list-none m-0 p-0 rounded-2xl bg-white border border-black/[0.06] divide-y divide-black/[0.06]">
+            {concern.voices.quotes.map((q) => (
+              <li class="flex items-start gap-3.5 px-5 py-4 md:px-6 md:py-5 text-[16px] md:text-[17px] font-medium leading-[1.45] tracking-[-0.01em] text-ink">
+                <span class="mt-[1px] inline-flex h-[24px] w-[24px] shrink-0 items-center justify-center rounded-full bg-danger/10 text-danger" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" class="h-[12px] w-[12px]"><path d="M6 6l12 12M18 6L6 18"/></svg>
                 </span>
                 <span>{q}</span>
-              </div>
-            </FadeInSection>
-          ))}
-        </div>
+              </li>
+            ))}
+          </ul>
+        </FadeInSection>
         <FadeInSection client:load delay={0.2}>
           <p class="mt-8 text-[17px] md:text-[18px] leading-[1.6] text-ink-2 max-w-[620px]">{concern.voices.outro}</p>
         </FadeInSection>

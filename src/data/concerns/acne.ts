@@ -35,7 +35,7 @@ export const acne: Concern = {
   },
   voices: {
     title: "Encore des boutons à 30 ans ?",
-    quotes: ["Vos boutons reviennent sur le bas du visage, souvent au même moment du cycle", "Un traitement a marché quelques mois, puis plus rien", "Vous avez eu un rendez-vous de cinq minutes, sans que personne ne reprenne votre histoire"],
+    quotes: ["Des produits anti-boutons, testés un par un sans vraie méthode", "Un traitement qui a marché quelques mois, puis plus rien", "Un rendez-vous de cinq minutes, sans que personne ne reprenne votre histoire"],
     outro: "Chez Mixt, un médecin reprend toute votre histoire de peau avant de choisir un traitement.",
     image: "/images/real/gros-plan-acne-front-01.webp",
     imageAlt: "Gros plan de boutons d'acné sur le front",

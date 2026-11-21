@@ -38,7 +38,7 @@ export const taches: Concern = {
   },
   voices: {
     title: 'Des taches qui reviennent malgré les sérums',
-    quotes: ["Vos taches sont apparues avec une grossesse ou la pilule, et elles ne partent plus", "Vous avez essayé des sérums : ça éclaircit un peu, puis tout revient", "On vous a donné des conseils génériques, la même crème que tout le monde"],
+    quotes: ["Des sérums éclaircissants : ça s'estompe un peu, puis tout revient", "La même crème que tout le monde, sans regarder votre type de peau", "Des conseils généraux, sans que personne ne cherche la cause"],
     outro: "Un médecin partenaire cherche l'origine de vos taches et personnalise le traitement selon votre peau et votre phototype.",
     image: "/images/real/gros-plan-melasma-joue-01.webp",
     imageAlt: "Gros plan de taches brunes sur la joue",
