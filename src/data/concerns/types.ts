@@ -53,10 +53,14 @@ export type Concern = {
     title: string;
     highlight: string;
     lead: string;
+    /** Version mobile du lead : une phrase, lisible au-dessus de la ligne de flottaison. */
+    leadShort: string;
     image: string;
     imageAlt: string;
     /** Cadrage de la photo hero (object-position CSS). */
     imagePosition?: string;
+    /** Cadrage mobile (photo au format 4/5), si différent du desktop. */
+    imagePositionMobile?: string;
   };
   /** Bande texture pleine largeur sous le hero, slogan blanc posé dessus. */
   band: {

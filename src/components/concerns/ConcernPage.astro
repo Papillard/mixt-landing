@@ -10,6 +10,7 @@ import V3Dermatologue from '../sections-v3/V3Dermatologue.astro';
 import DossierTimeline from '../motion/DossierTimeline.tsx';
 import EquipeMedicale from '../EquipeMedicale.astro';
 import MotFondatrice from '../MotFondatrice.astro';
+import MobileStickyCta from '../MobileStickyCta.astro';
 import type { Concern } from '../../data/concerns/types';
 import { breadcrumb, ORG_ID, WEBSITE_ID, DERMATO_ID, dermatologist } from '../../data/schema';
 
@@ -38,6 +39,13 @@ const icons: Record<string, string> = {
   shieldCheck:
     '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
 };
+
+// Mobile : mêmes arguments que la home, un par ligne.
+const proofMobile = [
+  'Un médecin en visio sous 7 jours',
+  'Formule en pharmacie, si prescrite',
+  'Suivi inclus, sans abonnement',
+];
 
 // Bandeau de réassurance du hero.
 const trust = [
@@ -127,11 +135,54 @@ const structuredData = {
   description={concern.seo.description}
   structuredData={structuredData}
 >
-  <Nav ctaLabel="Démarrer ma consultation" ctaHref={CTA_HREF} />
+  <Nav ctaLabel="Démarrer ma consultation" ctaHref={CTA_HREF} stickyCtaMobile />
+
+  {/* ── HERO MOBILE : même pattern que la home (Trustpilot, titre, photo, réassurance, CTA collé en bas) ── */}
+  <section class="lg:hidden bg-base px-6 pt-[calc(56px+20px)] pb-6">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="flex items-center gap-[3px]">
+        {[0, 1, 2, 3, 4].map(() => (
+          <span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[2px]" style="background:#00b67a">
+            <span class="text-[10px] leading-none text-white">★</span>
+          </span>
+        ))}
+      </span>
+      <span class="text-[13px] font-medium text-ink-2">Avis vérifiés Trustpilot</span>
+    </div>
+    <h1 class="text-balance text-[min(27px,6.9vw)] font-semibold leading-[1.14] tracking-[-0.04em] text-ink m-0">
+      {concern.hero.title}<br />
+      {concern.hero.highlight}
+    </h1>
+    <p class="mt-3 text-[15.5px] leading-[1.5] text-ink-2">{concern.hero.leadShort}</p>
+    <div class="relative mt-5 aspect-[4/5] overflow-hidden rounded-[20px] bg-cream">
+      <img
+        src={concern.hero.image}
+        alt={concern.hero.imageAlt}
+        class="absolute inset-0 h-full w-full object-cover"
+        style={`object-position: ${concern.hero.imagePositionMobile ?? concern.hero.imagePosition ?? 'center 30%'};`}
+        fetchpriority="high"
+      />
+      <div class="absolute left-3 top-3 z-[5] flex items-center gap-3 rounded-[12px] bg-white px-3.5 py-2.5 shadow-[0_8px_28px_-10px_rgba(50,25,34,0.28)]">
+        <img src="/images/shoot-dermatologue-avatar.webp" alt="" aria-hidden="true" width="36" height="36" class="h-9 w-9 shrink-0 rounded-full object-cover border border-black/[0.06]" />
+        <span>
+          <span class="block text-[13.5px] font-semibold leading-tight text-ink">Plan de traitement prêt</span>
+          <span class="block mt-0.5 text-[12px] leading-tight text-ink-3">Validé par votre médecin</span>
+        </span>
+      </div>
+    </div>
+    <ul class="list-none m-0 mt-5 rounded-[14px] bg-white border border-black/[0.06] px-4 py-3.5 flex flex-col gap-2.5">
+      {proofMobile.map((t) => (
+        <li class="flex items-center gap-2.5 text-[15px] leading-snug text-ink">
+          <svg class="h-[18px] w-[18px] shrink-0 text-jade" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 10.5 L8 15 L16.5 5.5" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          {t}
+        </li>
+      ))}
+    </ul>
+  </section>
 
   {/* ── HERO : vraie peau bord à bord à gauche, panneau texte à droite (DA marque 11/2026) ── */}
-  <section class="bg-base pt-14">
-    <div class="flex flex-col lg:flex-row">
+  <section class="bg-base lg:pt-14">
+    <div class="hidden lg:flex flex-col lg:flex-row">
       <div class="relative w-full aspect-[4/5] max-h-[600px] lg:max-h-none lg:w-auto lg:h-[min(calc(100vh-56px),900px)] lg:shrink-0 bg-blush/30 overflow-hidden">
         <img
           src={concern.hero.image}
@@ -492,4 +543,5 @@ const structuredData = {
   </section>
 
   <Footer />
+  <MobileStickyCta />
 </BaseLayout>
