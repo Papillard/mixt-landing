@@ -19,6 +19,7 @@ export const taches: Concern = {
     image: '/images/real/patiente-leonixia-taches-portrait-main-joue-01.webp',
     imageAlt: 'Femme à la peau foncée montrant des taches sur sa joue',
     imagePosition: 'center 66%',
+    imagePositionMobile: 'center 42%',
   },
   band: {
     image: '/images/real/texture-ambre-bulles-01.webp',

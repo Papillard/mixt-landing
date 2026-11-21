@@ -57,6 +57,8 @@ export type Concern = {
     imageAlt: string;
     /** Cadrage de la photo hero (object-position CSS). */
     imagePosition?: string;
+    /** Cadrage mobile (photo au format 4/5), si différent du desktop. */
+    imagePositionMobile?: string;
   };
   /** Bande texture pleine largeur sous le hero, slogan blanc posé dessus. */
   band: {
