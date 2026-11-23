@@ -3,15 +3,15 @@ import type { Concern } from './types';
 export const acne: Concern = {
   slug: 'acne',
   chip: 'Acné',
-  condition: { name: 'Acné adulte' },
+  condition: { name: 'Acné adulte', alternateName: ['Acné hormonale'] },
   seo: {
-    title: "Traitement de l'acné adulte avec un médecin en ligne | Mixt",
+    title: "Acné adulte et hormonale : un médecin en ligne | Mixt",
     description:
-      "Acné adulte qui revient malgré les soins : un médecin personnalise votre traitement et vous suit. Bilan gratuit, visio sous 7 jours.",
+      "Acné adulte, acné hormonale, boutons sur le menton et la mâchoire : un médecin partenaire personnalise votre traitement et vous suit. Bilan gratuit, visio sous 7 jours.",
   },
   hero: {
-    kicker: "Acné adulte",
-    title: "Acné adulte :",
+    kicker: "Acné adulte · Acné hormonale",
+    title: "Acné adulte et hormonale :",
     highlight: "un traitement fait pour votre peau",
     lead: "À 25, 35 ou 45 ans, l'acné mérite mieux qu'une succession d'essais. Faites le point avec un médecin sur vos boutons, vos marques et les traitements déjà utilisés.",
     leadShort: "Un médecin vous voit en visio, reprend tout ce que vous avez déjà essayé et construit un plan de traitement fait pour votre peau.",
@@ -73,6 +73,14 @@ export const acne: Concern = {
       a: "Oui, l'acné adulte est très fréquente, en particulier chez les femmes, avec souvent une composante hormonale. Elle se traite, mais le protocole diffère de celui d'une acné d'adolescent.",
     },
     {
+      q: 'Comment reconnaître une acné hormonale ?',
+      a: "Elle touche surtout le bas du visage : menton, mâchoire, cou. Les boutons sont souvent profonds, parfois douloureux, et reviennent avant les règles. Le médecin confirme à partir de vos photos et de votre histoire, et peut proposer un bilan si d'autres signes l'orientent.",
+    },
+    {
+      q: 'Zinc, compléments, probiotiques : est-ce que ça suffit ?',
+      a: "Sur une acné légère, certains soins sans ordonnance peuvent aider. Quand les boutons reviennent depuis des mois, laissent des marques ou sont profonds, ils suffisent rarement. C'est le bon moment pour en parler à un médecin.",
+    },
+    {
       q: "L'acné laisse des marques, peut-on les traiter aussi ?",
       a: "Oui. Les marques brunes laissées par les boutons sont une hyperpigmentation post-inflammatoire. Le médecin peut traiter l'acné active et ces marques en parallèle, dans un plan cohérent.",
     },
@@ -82,7 +90,7 @@ export const acne: Concern = {
     },
   ],
   related: [
-    { href: '/taches/', label: 'Taches brunes et mélasma', teaser: "Les marques brunes laissées par l'acné." },
-    { href: '/rosacee/', label: 'Rosacée et rougeurs', teaser: 'Rougeurs et boutons qui se confondent avec l\'acné.' },
+    { href: '/taches/', label: 'Masque de grossesse et taches brunes', teaser: "Les marques brunes laissées par l'acné." },
+    { href: '/rosacee/', label: 'Rosacée et couperose', teaser: 'Rougeurs et boutons qui se confondent avec l\'acné.' },
   ],
 };

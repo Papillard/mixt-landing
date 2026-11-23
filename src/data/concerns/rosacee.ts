@@ -3,16 +3,16 @@ import type { Concern } from './types';
 export const rosacee: Concern = {
   slug: 'rosacee',
   chip: 'Rosacée',
-  condition: { name: 'Rosacée', alternateName: ['Rougeurs du visage'] },
+  condition: { name: 'Rosacée', alternateName: ['Couperose', 'Acné rosacée', 'Rougeurs du visage'] },
   seo: {
-    title: "Traitement de la rosacée et des rougeurs en ligne | Mixt",
+    title: "Rosacée et couperose : un médecin en ligne pour vos rougeurs | Mixt",
     description:
-      "Rougeurs, couperose, chaleur : un médecin cherche ce qui déclenche votre rosacée et personnalise votre traitement. Bilan gratuit, visio sous 7 jours.",
+      "Rosacée, couperose, rougeurs du visage : un médecin partenaire cherche ce qui déclenche vos poussées et personnalise votre traitement. Bilan gratuit, visio sous 7 jours.",
   },
   hero: {
-    kicker: "Rougeurs · Rosacée",
-    title: "Rosacée : un protocole médical,",
-    highlight: "pas un soin de plus",
+    kicker: "Rosacée · Couperose · Rougeurs",
+    title: "Rosacée et couperose :",
+    highlight: "un protocole médical, pas un soin de plus",
     lead: "Rougeurs, sensations de chaleur, boutons : faites le point avec un médecin pour comprendre ces symptômes et construire une prise en charge adaptée.",
     leadShort: "Un médecin vous voit en visio, cherche ce qui déclenche vos rougeurs et construit un plan de traitement adapté à votre peau.",
     image: "/images/real/patiente-elise-rosacee-portrait-face-01.webp",
@@ -76,12 +76,28 @@ export const rosacee: Concern = {
       a: "La rosacée est une condition chronique : elle ne disparaît pas définitivement, mais elle se contrôle très bien. Avec le bon traitement et un suivi régulier, les rougeurs et les poussées s'espacent nettement.",
     },
     {
+      q: "Qu'est-ce qui déclenche une poussée de rosacée ?",
+      a: "Les déclencheurs varient d'une personne à l'autre : soleil, chaleur, effort, alcool, plats épicés, boissons chaudes, stress, certains cosmétiques. Repérer les vôtres fait partie du suivi, pour éviter ce qui vous fait réagir sans vous priver de tout.",
+    },
+    {
+      q: 'La rosacée peut-elle toucher les yeux ?',
+      a: "Oui, on parle de rosacée oculaire : yeux secs, rouges, qui piquent ou paupières irritées. Signalez-le pendant la consultation. En cas de douleur ou de baisse de la vision, consultez rapidement un ophtalmologiste.",
+    },
+    {
+      q: 'Crème contre la rosacée : avec ou sans ordonnance ?',
+      a: "Les soins apaisants vendus en pharmacie améliorent le confort, mais n'agissent pas sur l'inflammation de fond. Les traitements qui la ciblent sont délivrés sur prescription médicale. Après la consultation, votre médecin peut en prescrire un si c'est indiqué.",
+    },
+    {
+      q: 'Le laser, ça marche sur la couperose ?',
+      a: "Le laser vasculaire peut atténuer les petits vaisseaux visibles. Il ne traite pas l'inflammation, les boutons ni les poussées de la rosacée, et se pratique en cabinet. Le médecin peut vous dire si c'est pertinent dans votre cas, en complément d'un traitement local.",
+    },
+    {
       q: 'Mes rougeurs reviennent dès que je change de produit, est-ce normal ?',
       a: "Oui, la peau rosacée est très réactive. Une partie du travail consiste à identifier vos facteurs déclenchants et à construire une routine simple et tolérée, que le médecin ajuste dans le temps.",
     },
   ],
   related: [
     { href: '/acne/', label: 'Acné adulte', teaser: 'Boutons, points noirs et inflammation.' },
-    { href: '/taches/', label: 'Taches brunes et mélasma', teaser: 'Masque de grossesse, taches brunes et marques.' },
+    { href: '/taches/', label: 'Masque de grossesse et taches brunes', teaser: 'Mélasma, taches brunes et marques.' },
   ],
 };
