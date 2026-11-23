@@ -4,8 +4,8 @@ description: "Laser couperose : ce qu'il efface, ce qu'il ne traite pas, l'aprè
 h1: "Laser couperose : résultats, prix, après la séance, et quand il ne suffit pas"
 kicker: "Rosacée et couperose"
 intro: "Le laser vasculaire atténue les petits vaisseaux rouges des joues et du nez. Il ne calme pas une rosacée qui s'enflamme. Voici comment se passent les séances, ce qui est normal après, ce que coûte le laser et les cas où il faut un traitement de fond."
-heroImage: "/images/real/patiente-rosacee-portrait-bras-leve-01.webp"
-heroImageAlt: "Femme aux rougeurs diffuses sur les joues, le nez et le front"
+heroImage: "/images/real/laser-vasculaire-joue-01.webp"
+heroImageAlt: "Séance de laser vasculaire sur la joue, yeux protégés par des coques"
 pillar: "rosacee"
 ctaTopic: "couperose"
 datePublished: 2026-11-23
