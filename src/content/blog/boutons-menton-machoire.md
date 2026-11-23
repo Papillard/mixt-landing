@@ -4,8 +4,8 @@ description: "Boutons sur le menton et la mâchoire, souvent avant les règles :
 h1: "Boutons sur le menton et la mâchoire : acné hormonale, que faire"
 kicker: "Acné adulte et hormonale"
 intro: "Ils reviennent au même endroit, chaque mois ou presque : sur le menton, le long de la mâchoire, parfois dans le cou. Des boutons profonds, qui font mal et laissent des marques. Voici pourquoi le bas du visage est la zone de l'acné hormonale, ce qui l'aggrave sans qu'on s'en rende compte, et ce qui peut aider."
-heroImage: "/images/real/gros-plan-acne-inflammatoire-01.webp"
-heroImageAlt: "Gros plan de boutons rouges et inflammatoires sur la peau"
+heroImage: "/images/real/patiente-acne-portrait-blonde-01.webp"
+heroImageAlt: "Femme aux boutons d'acné sur la joue et le front"
 pillar: acne
 ctaTopic: "acné"
 datePublished: 2026-11-23
