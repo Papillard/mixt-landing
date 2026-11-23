@@ -39,18 +39,22 @@ const proofMobile = [
 const honesty = [
   {
     label: 'Qui vous reçoit en visio',
+    avatars: ['/images/real/medecin-anais-drouet-portrait-01.webp', '/images/real/medecin-estelle-grimonet-portrait-01.webp'],
     body: "Un médecin généraliste partenaire, inscrit à l'Ordre, expérimenté dans la prise en charge des problèmes de peau. Il étudie votre dossier et vos photos avant la consultation, puis vous suit dans la durée.",
   },
   {
     label: 'Le rôle de la dermatologue',
+    avatars: ['/images/shoot-dermatologue-avatar.webp'],
     body: "Dr Bethsabée Levy Garel, dermatologue et co-fondatrice de Mixt, conçoit les protocoles avec l'équipe médicale. Quand un cas le demande, elle relit le dossier avec le médecin qui vous suit.",
   },
   {
     label: 'Quand le cabinet reste nécessaire',
+    icon: '<path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M12 8v4M10 10h4"/>',
     body: "Grain de beauté ou tache qui change, lésion qui saigne, acné sévère qui relève d'un traitement réservé au dermatologue, examen au dermatoscope : le médecin vous le dit et vous oriente.",
   },
   {
     label: 'Ce que vous y gagnez',
+    icon: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     body: "Une visio sous 7 jours, là où les délais en cabinet sont parfois de plusieurs mois. Un plan de traitement fait pour votre peau, et un suivi inclus entre les consultations.",
   },
 ];
@@ -248,13 +252,40 @@ const structuredData = {
         <p class="text-[17px] md:text-[18px] leading-[1.65] text-ink-2 max-w-[460px]">
           La visio se fait avec un médecin généraliste partenaire, pas avec un dermatologue. Nous préférons le dire dès maintenant, pour que vous sachiez exactement qui vous allez voir.
         </p>
+        <div class="mt-10 grid grid-cols-2 gap-3 max-w-[460px]">
+          <div class="rounded-2xl bg-white border border-black/[0.06] p-5">
+            <div class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-3 mb-3">En cabinet</div>
+            <div class="text-[26px] md:text-[30px] font-bold leading-[1.05] tracking-[-0.035em] text-ink-3">Plusieurs mois</div>
+            <div class="mt-2 text-[13.5px] leading-[1.45] text-ink-3">de délai, parfois</div>
+          </div>
+          <div class="rounded-2xl bg-deep p-5 text-white">
+            <div class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-white/60 mb-3">Avec Mixt</div>
+            <div class="text-[26px] md:text-[30px] font-bold leading-[1.05] tracking-[-0.035em]">7 jours</div>
+            <div class="mt-2 text-[13.5px] leading-[1.45] text-white/70">pour la visio, suivi inclus</div>
+          </div>
+        </div>
       </FadeInSection>
       <FadeInSection client:load delay={0.1}>
         <dl class="m-0 rounded-2xl bg-white border border-black/[0.06] divide-y divide-black/[0.06]">
           {honesty.map((h) => (
-            <div class="px-6 py-6 md:px-8 md:py-7">
-              <dt class="text-[17px] md:text-[19px] font-bold tracking-[-0.02em] text-ink mb-2">{h.label}</dt>
-              <dd class="m-0 text-[15.5px] md:text-[16px] leading-[1.6] text-ink-2">{h.body}</dd>
+            <div class="px-6 py-6 md:px-8 md:py-7 flex gap-5">
+              <div class="shrink-0 w-[60px] md:w-[76px] pt-0.5">
+                {h.avatars ? (
+                  <div class="flex -space-x-3">
+                    {h.avatars.map((a) => (
+                      <img src={a} alt="" aria-hidden="true" width="48" height="48" loading="lazy" class="h-12 w-12 rounded-full object-cover border-2 border-white shadow-sm" />
+                    ))}
+                  </div>
+                ) : (
+                  <span class="flex h-12 w-12 items-center justify-center rounded-full bg-blush/40 text-ember-deep">
+                    <svg class="h-[22px] w-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={h.icon} />
+                  </span>
+                )}
+              </div>
+              <div>
+                <dt class="text-[17px] md:text-[19px] font-bold tracking-[-0.02em] text-ink mb-2">{h.label}</dt>
+                <dd class="m-0 text-[15.5px] md:text-[16px] leading-[1.6] text-ink-2">{h.body}</dd>
+              </div>
             </div>
           ))}
         </dl>
