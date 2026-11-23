@@ -79,7 +79,7 @@ Les recherches « rosacée oculaire photo » sont nombreuses, et c'est logique :
 </figure>
 
 <figure class="my-8">
-<div class="relative w-full bg-blush flex items-center justify-center rounded-[20px]" style="aspect-ratio: 16/9;" role="img" aria-label="Photo à venir : œil rouge et sec, coins rosés" data-placeholder="PH-rosacee-oculaire-oeil-rouge"><span class="px-4 text-center font-mono text-[12px] md:text-[13px] uppercase tracking-[0.12em] text-ink-2 break-all">PH-rosacee-oculaire-oeil-rouge</span></div>
+<img src="/images/real/gros-plan-rosacee-oculaire-oeil-rouge-01.webp" alt="Gros plan d'un œil rouge avec de fins vaisseaux visibles sur le blanc de l'œil" loading="lazy" class="w-full rounded-[20px] object-cover" style="aspect-ratio: 16/9;" />
 <figcaption class="mt-3 text-[15px] leading-snug text-ink-3">Blanc de l'œil rosé, plus marqué dans les coins, sans écoulement épais : une rougeur qui dure, liée à la sécheresse et à l'inflammation.</figcaption>
 </figure>
 
