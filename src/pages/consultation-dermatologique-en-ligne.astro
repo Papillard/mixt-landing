@@ -39,12 +39,12 @@ const proofMobile = [
 const honesty = [
   {
     label: 'Qui vous reçoit en visio',
-    avatars: ['/images/real/medecin-anais-drouet-portrait-01.webp', '/images/real/medecin-estelle-grimonet-portrait-01.webp'],
+    icon: '<path d="M15 10l4.55-2.28A1 1 0 0 1 21 8.62v6.76a1 1 0 0 1-1.45.9L15 14"/><rect x="3" y="6" width="12" height="12" rx="2"/>',
     body: "Un médecin généraliste partenaire, inscrit à l'Ordre, expérimenté dans la prise en charge des problèmes de peau. Il étudie votre dossier et vos photos avant la consultation, puis vous suit dans la durée.",
   },
   {
     label: 'Le rôle de la dermatologue',
-    avatars: ['/images/shoot-dermatologue-avatar.webp'],
+    icon: '<path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/>',
     body: "Dr Bethsabée Levy Garel, dermatologue et co-fondatrice de Mixt, conçoit les protocoles avec l'équipe médicale. Quand un cas le demande, elle relit le dossier avec le médecin qui vous suit.",
   },
   {
@@ -269,7 +269,7 @@ const structuredData = {
         <dl class="m-0 rounded-2xl bg-white border border-black/[0.06] divide-y divide-black/[0.06]">
           {honesty.map((h) => (
             <div class="px-6 py-6 md:px-8 md:py-7 flex gap-5">
-              <div class="shrink-0 w-[60px] md:w-[76px] pt-0.5">
+              <div class="shrink-0 pt-0.5">
                 {h.avatars ? (
                   <div class="flex -space-x-3">
                     {h.avatars.map((a) => (
