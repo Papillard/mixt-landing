@@ -4,8 +4,8 @@ description: "Ma rosacée a disparu, est-ce fini ? La rosacée est chronique mai
 h1: "Une rosacée peut-elle disparaître ?"
 kicker: "Rosacée · Évolution"
 intro: "Une rosacée peut s'effacer pendant des semaines ou des mois, puis revenir. C'est une maladie chronique qui évolue par poussées. On ne sait pas la guérir définitivement, mais on peut la contrôler et espacer les poussées."
-heroImage: "/images/real/patiente-elise-rosacee-portrait-trois-quarts-01.webp"
-heroImageAlt: "Portrait de trois quarts d'une femme aux joues légèrement rouges"
+heroImage: "/images/real/patiente-rosacee-portrait-bras-leve-02.webp"
+heroImageAlt: "Femme aux rougeurs diffuses sur les joues, le nez et le front"
 pillar: "rosacee"
 datePublished: 2026-11-23
 dateModified: 2026-11-23
