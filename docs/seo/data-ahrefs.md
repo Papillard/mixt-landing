@@ -514,3 +514,245 @@ Téléconsultation sans RDV, médecin en ligne 24/7.
 | Google Ads | 326 mots-clés, ~20,9K clics/mois, ~37,5K $/mois | 0 |
 
 Lecture : Feeli passe de 5K à 9K mots-clés en 1 mois avec un DR de 26 seulement, via des pages par symptôme (feeli.io/symptome/...). Preuve qu'un DR modeste suffit en santé si le volume de pages est là. Benchmark direct pour Mixt.
+
+---
+
+# Rosacée : Matching terms (Ahrefs, 23/11/2026)
+4 393 requêtes, 90K/mois cumulés. Top 40 par volume :
+
+| Requête | SV | KD | Parent topic |
+|---|---|---|---|
+| rosacée | 21K | 10 | rosacée |
+| rosacée visage | 6,5K | 15 | rosacée visage |
+| acné rosacée | 3,8K | 8 | rosacée visage |
+| rosacée traitement | 2,0K | 19 | rosacée traitement |
+| ma rosacée a disparu | 1,9K | 0 | ma rosacée a disparu |
+| **rosacée oculaire** | **1,8K** | 0 | rosacée oculaire |
+| **rosacée papulo-pustuleuse** | **1,7K** | 1 | rosacée visage |
+| rosacée nez | 1,4K | 6 | symptomes rosacée visage |
+| symptomes rosacée visage | 1,4K | 3 | symptomes rosacée visage |
+| la rosacée | 1,2K | 14 | rosacée visage |
+| crème rosacée | 1,0K | 0 | rosacée traitement |
+| traitement rosacée | 800 | 16 | rosacée traitement |
+| rosacée photo | 800 | 0 | couperose visage photo |
+| **crème rosacée sans ordonnance** | **700** | 0 | crème pour rosacée sans ordonnance |
+| rosacée peau | 700 | 14 | rosacée visage |
+| rosacée cause | 600 | 10 | rosacée visage |
+| rosacée traitement naturel | 600 | 0 | acné rosacée traitement naturel |
+| rosacée visage traitement | 600 | 13 | rosacée traitement |
+| rosacée visage cause | 600 | 13 | rosacée |
+| rosacée oculaire photo | 450 | 0 | symptomes rosacée oculaire photo |
+| couperose rosacée | 450 | 11 | couperose |
+| banane et rosacée | 450 | 0 | banane et rosacée |
+| acné rosacée traitement naturel | 450 | 0 | traitement naturel rosacée papulo-pustuleuse |
+| laser rosacée | 450 | 1 | laser rosacée |
+| rosacée joue | 400 | 15 | rosacée |
+| creme pour rosacée | 400 | 0 | rosacée traitement |
+| rosacée nez femme | 350 | n.d. | |
+| traitement efficace rosacée papulo-pustuleuse | 350 | 15 | idem |
+| rosacée legere visage | 350 | n.d. | |
+| acné rosacée traitement | 350 | 14 | traitement efficace rosacée papulo-pustuleuse |
+| peau rosacée | 350 | 12 | rosacée visage |
+| rosacée et intestin | 300 | 0 | rosacée et intestin |
+| rosacée nez photo | 300 | 0 | couperose visage photo |
+| traitement rosacée visage | 300 | 14 | rosacée traitement |
+| rosacée visage photos | 300 | 0 | rosacée photo |
+| acne rosacée | 300 | 16 | rosacée |
+| **crème rosacée avec ordonnance** | 300 | 12 | rosacée traitement |
+| couperose ou rosacée | 250 | 4 | couperose visage |
+| rosacée traitement antibiotique | 250 | 6 | rosacée traitement |
+| meilleure crème rosacée | 200 | 0 | |
+
+## Lecture Matching terms rosacée
+- **Sous-types très cherchés** : rosacée oculaire (1,8K + photo 450), rosacée papulo-pustuleuse (1,7K + traitement efficace 350). Chacun mérite un H2 fort, voire un article dédié.
+- **Photos : ~1,85K cumulés** (rosacée photo 800, oculaire photo 450, nez photo 300, visage photos 300). Une galerie de photos réelles annotées (stades, zones) dans la page pilier capte cette intention.
+- **Sans ordonnance contre avec ordonnance** : crème rosacée sans ordonnance 700, avec ordonnance 300. L'angle Mixt (« ce que la pharmacie ne peut pas faire ») a une vraie requête derrière.
+- **Causes et alimentation** : rosacée cause 600 + visage cause 600, banane et rosacée 450, rosacée et intestin 300. Article blog « rosacée : causes, alimentation, intestin ».
+- **Traitement naturel** : 600 + 450 (acné rosacée). Plus que « remède naturel » (lot 4). Article blog « traitements naturels : ce qui marche, ce qui ne marche pas ».
+- « ma rosacée a disparu » (1,9K, KD 0) : article « une rosacée peut-elle disparaître ? » (attentes réalistes, rémissions, poussées).
+
+---
+
+# Masque de grossesse : Matching terms (Ahrefs, 23/11/2026)
+585 requêtes, 20K/mois cumulés. KD 0 sur quasiment tout.
+
+| Requête | SV | Parent topic |
+|---|---|---|
+| masque de grossesse | 12K | masque de grossesse |
+| masque de grossesse visage | 3,1K | masque de grossesse |
+| masque de grossesse visage photo | 450 | idem |
+| masque de grossesse soleil | 400 | masque de grossesse avant apres |
+| le masque de grossesse | 200 | masque de grossesse |
+| creme masque de grossesse | 200 | masque de grossesse visage |
+| c'est quoi le masque de grossesse | 200 | masque de grossesse |
+| comment enlever le masque de grossesse | 150 | enlever masque de grossesse |
+| masque de grossesse traitement | 150 | comment enlever le masque de grossesse |
+| masque de grossesse 1er mois | 150 | masque de grossesse rouge |
+| masque de grossesse avant apres | 150 | melasma grossesse |
+| comment éviter le masque de grossesse | 150 | masque de grossesse visage |
+| qu'est ce que le masque de grossesse | 150 | masque de grossesse |
+| masque de grossesse peau noire | 150 | idem (CPC 1,40 $) |
+| soleil masque de grossesse | 150 | masque grossesse soleil |
+| masque de grossesse visage fille ou garçon | 150 | idem |
+| enlever le masque de grossesse naturellement | 100 | comment éviter le masque de grossesse |
+| debut masque de grossesse | 100 | |
+| masque de grossesse + mélasma | 100 | |
+| creme anti masque de grossesse | 80 | |
+| masque de grossesse 1er trimestre / visage rouge / rouge / visage peau noire | 70 chacun | |
+| masque de grossesse front / c'est quoi / nez / mélasma / ventre | 60 chacun | |
+| enlever masque de grossesse / quel mois / corps | 50 chacun | |
+
+## Lecture Matching terms masque de grossesse
+- Longue traîne mince : 12K + 3,1K sur 2 requêtes, le reste < 500. **Un pilier très complet suffit**, les sous-thèmes en H2.
+- H2 à prévoir : c'est quoi (et lien avec le mélasma) ; quand il apparaît (1er mois, 1er trimestre, quel mois, début : ~370 cumulés) ; soleil (~550) ; comment l'éviter ; comment l'enlever (+ naturellement) ; crème (~280) ; peau noire et mate (~220) ; zones (front, nez, ventre, corps) ; photos et avant/après (~600) ; idée reçue « fille ou garçon » (150).
+- Articles de blog possibles : « Masque de grossesse et soleil » (~550) ; « Masque de grossesse sur peau noire ou mate » (~220, à coupler avec hyperpigmentation peau noire 600).
+
+---
+
+# Acné hormonale : Matching terms (Ahrefs, 23/11/2026)
+484 requêtes, 8,5K/mois cumulés.
+
+| Requête | SV | KD | Parent topic |
+|---|---|---|---|
+| acné hormonale | 2,6K | 11 | acné hormonale |
+| acné hormonale traitement | 600 | 18 | acné hormonal |
+| **zinc acné hormonale** | **350** | 0 | zinc acne hormonal |
+| comment reconnaitre acné hormonale | 200 | 21 | acné microkyste visage |
+| acné hormonale que faire | 150 | 23 | acné hormonale traitement |
+| pilule acné hormonale | 150 | 0 | pilule anti acné |
+| acné kystique hormonale | 150 | 0 | acné kystique (TP 1K) |
+| huile essentielle acné hormonale | 150 | 0 | acné ménopause huile essentielle |
+| dermatologue spécialiste acné hormonale | 150 | 0 | dermatologue acné |
+| complément alimentaire acné hormonale | 150 | 0 | complément alimentaire acné |
+| acné hormonale microkyste | 150 | 4 | microkyste acné |
+| acné hormonale traitement naturel | 150 | 10 | acné hormonale que faire |
+| acné hormonale traitement efficace | 100 | 15 | acné hormonal que faire (CPC 0,90 $) |
+| probiotique acné hormonale | 100 | 0 | probiotique acné |
+| creme acné hormonale | 90 | 6 | anti acné |
+| acné hormonale menton | 90 | 13 | acné hormonale |
+| magnésium acné hormonale | 80 | 0 | |
+| alimentation anti-acné hormonale | 80 | 0 | aliments à éviter acné hormonal (TP 500) |
+| antibiotique acné hormonale | 80 | 7 | doxycycline acné avis |
+| meilleur complément alimentaire acné hormonale | 80 | n.d. | |
+| routine acné hormonale | 80 | 3 | |
+| argile verte acné hormonale | 80 | 0 | argile verte acné |
+
+## Lecture Matching terms acné hormonale
+- **Demande « compléments et naturel » ≈ 1,2K cumulés** : zinc 350, compléments 150 + 80, probiotiques 100, magnésium 80, huiles essentielles 150, argile verte 80, traitement naturel 150, alimentation 80. Les femmes cherchent des solutions sans ordonnance avant de consulter. Article de blog fort : « Zinc, compléments, probiotiques : ce qui marche vraiment contre l'acné hormonale », puis « quand passer à un traitement médical ».
+- H2 du pilier : la reconnaître (200), menton et mâchoire, kystes et microkystes (150 + 150 + microkystes visage 300), pilule (150), traitements (600 + efficace 100 + que faire 150), antibiotiques (80), quand consulter (150).
+
+---
+
+# Hyperpigmentation : Matching terms (Ahrefs, 23/11/2026)
+9 123 requêtes, 24K/mois cumulés. KD 0 à 5 partout.
+
+| Requête | SV | Parent topic |
+|---|---|---|
+| hyperpigmentation | 6,9K | hyperpigmentation |
+| hyperpigmentation de la peau | 1,0K | pigmentation de la peau |
+| **hyperpigmentation peau noire** | **600** | idem |
+| tache hyperpigmentation | 450 | hyperpigmentation |
+| hyperpigmentation visage | 450 | idem |
+| **hyperpigmentation post-inflammatoire** | **400** (+ 250 sans tiret) | idem |
+| creme hyperpigmentation | 300 | creme anti pigmentation |
+| hyperpigmentation aisselle | 250 (+ aisselles 150) | aisselle noir |
+| tache hyperpigmentation visage | 250 | pigmentation de la peau |
+| hyperpigmentation après peeling | 200 | idem |
+| serum hyperpigmentation | 200 | sérum anti tache |
+| hyperpigmentation causes | 200 | hyperpigmentation traitement |
+| taches hyperpigmentation | 200 | hyperpigmentation |
+| hyperpigmentation maillot | 150 | |
+| crème hyperpigmentation peau noire | 150 | nuhanciam anti tache |
+| niacinamide hyperpigmentation | 150 | |
+| anti hyperpigmentation | 150 | pigmentation de la peau |
+| hyperpigmentation levre | 150 | |
+| hyperpigmentation autour de la bouche | 150 | tache brune levre |
+| hyperpigmentation post inflammatoire durée | 150 | |
+| eucerin hyperpigmentation | 150 | |
+| hyperpigmentation traitement | 150 | chloasma |
+| hyperpigmentation cou | 150 | taches brunes dans le cou |
+| laser hyperpigmentation | 150 | laser pigmentaire |
+| tache hyperpigmentation peau noir | 150 | hyperpigmentation peau noire |
+| savon hyperpigmentation | 150 | savon hyperpigmentation peau noire |
+| hyperpigmentation peau | 150 | hyperpigmentation |
+| hyperpigmentation autour des yeux peau noire | 100 | |
+
+## Lecture Matching terms hyperpigmentation
+- **Peau noire et mate ≈ 1,15K cumulés** (600 + crème 150 + tache 150 + savon 150 + autour des yeux 100), + mélasma peau noire et masque de grossesse peau noire. Article de blog fort, cohérent avec la data prod (1 075 patientes phototype 4 à 6).
+- **Post-inflammatoire ≈ 800** (400 + 250 + durée 150) : article « marques après les boutons : combien de temps, comment les traiter », pont entre acné et taches.
+- Zones visage : lèvre et autour de la bouche (300, lien avec la « moustache » du mélasma), autour des yeux. Zones corps (aisselles 400, maillot 150, cou 150) : hors offre visage, à ne pas viser.
+- Actifs cherchés : crème 300, sérum 200, niacinamide 150, laser 150 ; « après peeling » 200 (hyperpigmentation provoquée par un soin : angle prudence).
+
+---
+
+# Acné adulte : Matching terms (Ahrefs, 23/11/2026)
+750 requêtes, 4,6K/mois cumulés.
+
+| Requête | SV | KD | Parent topic |
+|---|---|---|---|
+| acné adulte | 1,1K | 7 | acné adulte |
+| traitement acné adulte | 350 | 19 | traitement acné |
+| nettoyant visage pour acné adulte lequel choisir | 200 | n.d. | |
+| acné adulte homme | 200 | 6 | spironolactone acné |
+| acné dos adulte | 150 | 0 | acne dos |
+| acné adulte traitement efficace | 150 | 16 | traitement acné (CPC 0,70 $) |
+| crème acné adulte | 100 | 5 | crème anti acné (CPC 0,80 $) |
+| acné femme adulte / acné adulte femme | 90 / 80 | 5 / 2 | |
+| traitement acné hormonal adulte | 80 | 13 | acné hormonal que faire |
+| acné inflammatoire adulte | 80 | 2 | acné inflammatoire |
+| dermatologue spécialiste acné adulte | 70 | 0 | dermatologue acné |
+| acné hormonale adulte | 70 | 28 | acné hormonale |
+| complément alimentaire acné adulte | 70 | 0 | |
+| meilleure crème anti-acné adulte | 50 | 0 | creme anti bouton |
+| acné microkystique adulte | 50 | 0 | microkyste acné |
+| homeopathie acné adulte / traitement acné dos adulte / acné hormonal adulte | 50 chacun | | |
+| acné adulte traitement naturel, traitement acné adulte femme, quelle crème pour acné adulte, maladie acné adulte, acné visage adulte, cause acné adulte | 40 chacun | | |
+| acné adulte que faire, acné sévère adulte, acné femme adulte traitement, poussée acné adulte, bouton acné adulte | 30 chacun | | |
+
+## Lecture Matching terms acné adulte
+- Longue traîne mince (4,6K au total) : « acné adulte » est un terme secondaire. Confirme **un seul pilier acné** porté par « acné hormonale », avec « acné adulte » en title secondaire et H2.
+- Article de blog : « Nettoyant, crème, compléments : quoi choisir pour une acné adulte, et quand ça ne suffit plus » (~400 cumulés), à fusionner avec l'article compléments de l'acné hormonale.
+- Acné homme (200), dos (150 + 50), fessier : hors cible (Mixt = femmes, visage).
+
+---
+
+# Couperose : Matching terms (Ahrefs, 23/11/2026)
+5 023 requêtes, 41K/mois cumulés.
+
+| Requête | SV | KD | Parent topic |
+|---|---|---|---|
+| couperose | 11K | 10 | couperose |
+| couperose visage | 3,1K | 4 | couperose visage |
+| couperose nez | 1,6K | 1 | couperose visage |
+| **laser couperose** | **1,0K** | 0 | couperose laser |
+| couperose traitement | 700 | 0 | rosacée traitement |
+| **laser couperose apres seance** | **600** | 0 | laser rougeur visage |
+| **laser couperose avant après** | **500** | 0 | idem (CPC 0,80 $) |
+| couperose laser | 450 | 1 | laser couperose apres seance |
+| traitement couperose | 450 | 8 | rosacée traitement |
+| couperose rosacée | 450 | 11 | couperose |
+| creme couperose | 400 | 0 | crème rosacée |
+| couperose du visage | 350 | 1 | couperose visage |
+| couperose visage photo | 350 | 0 | rosacée photo |
+| **laser couperose raté** | **350** | 0 | laser à colorant pulsé (CPC 1,60 $) |
+| couperose ou rosacée | 250 | 4 | couperose visage |
+| la couperose | 250 | 8 | couperose visage |
+| traitement couperose efficace | 250 | n.d. | |
+| couperose visage traitement naturel | 250 | 0 | rosacée traitement naturel |
+| couperose visage traitement | 250 | 3 | rosacée traitement |
+| couperose traitement naturel | 200 | 0 | rosacée traitement naturel |
+| traitement couperose laser prix | 200 | 0 | traitement laser couperose tarif |
+| couperose legere | 200 | 5 | |
+| traitement laser couperose remboursé mutuelle | 200 | 0 | |
+| rosacée ou couperose | 200 | 2 | couperose visage |
+| crème couperose efficace | 200 | 0 | quelle est la meilleure crème pour la couperose |
+| laser couperose lyon | 200 | 0 | prix laser couperose |
+| rosacée couperose | 150 | 6 | couperose |
+| laser vasculaire couperose | 150 | 0 | laser couperose apres seance |
+| crème couperose | 150 | 0 | creme couperose |
+| couperose cause | 150 | 1 | couperose visage |
+
+## Lecture Matching terms couperose
+- **Laser ≈ 3,65K cumulés** : laser couperose 1K, après séance 600, avant/après 500, couperose laser 450, **raté 350 (CPC 1,60 $)**, prix 200, remboursé mutuelle 200, Lyon 200, vasculaire 150. Mixt ne fait pas de laser, mais ces personnes cherchent une solution et une partie est en échec. Article de blog fort : « Laser couperose : résultats, prix, après la séance, et quand il ne suffit pas » (le laser traite les vaisseaux, pas l'inflammation de la rosacée).
+- Crème ≈ 750 (400 + 150 + efficace 200) ; traitement naturel ≈ 450 ; couperose nez 1,6K (H2) ; photos 350 ; couperose légère 200.
+- « couperose ou rosacée » / « rosacée ou couperose » / « couperose rosacée » ≈ 1,1K cumulés : H2 « Couperose ou rosacée : quelle différence ? » en haut du pilier.
