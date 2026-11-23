@@ -65,16 +65,6 @@ export const taches: Concern = {
     footer:
       "Votre médecin personnalise actifs et dosages selon votre phototype et votre situation, selon son évaluation clinique. Certains actifs ne s'utilisent pas pendant la grossesse ou l'allaitement.",
   },
-  proof: {
-    name: 'Laetitia, 41 ans',
-    meta: 'Taches brunes · 4 mois',
-    before: { src: '/images/laetitia-before.webp', alt: 'Laetitia avant le protocole', objectPosition: 'center 15%' },
-    after: { src: '/images/laetitia-after.webp', alt: 'Laetitia après 4 mois', objectPosition: 'center 15%' },
-    afterLabel: 'Après · 4 mois',
-    quote: "Pendant 10 ans j'ai cherché une solution pour ma peau. Aujourd'hui quand je vois les photos d'avant, je n'en reviens pas.",
-    context: "Taches diagnostiquées par sa dermatologue. Parcours de 4 mois avec un médecin partenaire et l'équipe Mixt, formule magistrale prescrite.",
-    legal: 'Photos authentiques, patiente consentante. Résultats individuels, variables selon les personnes.',
-  },
   faq: [
     {
       q: "Mélasma et masque de grossesse : quelle différence ?",
