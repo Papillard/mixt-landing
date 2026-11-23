@@ -124,7 +124,7 @@ const structuredData = {
 };
 ---
 
-<BaseLayout title={d.title} description={d.description} structuredData={structuredData} ogImage={heroImageUrl}>
+<BaseLayout title={d.title} description={d.description} structuredData={structuredData} ogImage={d.heroImage ? `${SITE}/images/og-blog-${entry.id}.jpg` : undefined}>
   <Nav ctaLabel="Démarrer ma consultation" ctaHref={CTA_HREF} stickyCtaMobile />
 
   {/* ── HERO éditorial centré (à la Medium) : pas de bouton, pas de split photo ── */}
