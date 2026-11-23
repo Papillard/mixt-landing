@@ -10,3 +10,4 @@
 8. Copy : `.claude/skills/copy-conforme/SKILL.md` puis `~/.claude/skills/anti-ia-copy/SKILL.md`. Zéro tiret cadratin ou demi-cadratin, aucune marque de médicament (DCI seulement), « peut prescrire », « médecin partenaire », jamais « consultez un dermatologue », titres sans point final.
 9. Build : `export PATH=$HOME/.nvm/versions/node/v22.22.2/bin:$PATH && npm run build && npx astro preview`, captures dans `.context/screenshots/<sprint>/`.
 10. Un article = un fichier .md + des lignes dans `photos-a-generer.md` : ne touche ni au layout ni au schéma sans le dire dans la PR (les autres articles en dépendent).
+11. Image de partage : `public/images/og-blog-<slug>.jpg` en 1200 × 630 (recadrage du hero, haut du visage gardé). Sans ce fichier, le partage social n'a pas d'image.
