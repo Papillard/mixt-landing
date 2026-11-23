@@ -91,7 +91,6 @@ C'est la question la plus cherchée après le laser lui-même, et pour cause : l
 | Marques violacées (purpura), avec certaines techniques au colorant pulsé | 10 à 15 jours en moyenne |
 | Tache brune, rare, surtout sur peau mate ou foncée | quelques semaines, réversible |
 
-<div class="ph">PH-laser-couperose-apres-seance</div>
 
 Les gestes qui aident les jours suivants :
 
