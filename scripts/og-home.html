@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'Geist';font-weight:100 900;src:url(../public/fonts/geist-4.woff2) format('woff2');}
+@font-face{font-family:'Geist';font-weight:100 900;src:url(../public/fonts/geist-3.woff2) format('woff2');unicode-range:U+0100-02BA;}
+*{box-sizing:border-box;margin:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{background:#F7F8F9;font-family:'Geist',system-ui,sans-serif;color:#15181C;-webkit-font-smoothing:antialiased}
+.wrap{display:grid;grid-template-columns:640px 1fr;height:630px;padding:28px 28px 28px 0}
+.l{padding:56px 40px 52px 72px;display:flex;flex-direction:column}
+.logo{font-size:40px;font-weight:700;letter-spacing:-0.045em;line-height:1}
+.stars{display:flex;align-items:center;gap:10px;margin-top:auto}
+.stars .s{display:flex;gap:3px}
+.stars .s span{width:22px;height:22px;border-radius:2px;background:#00b67a;color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center}
+.stars b{font-size:17px;font-weight:500;color:#5B6169}
+h1{margin-top:20px;font-size:47px;line-height:1.12;letter-spacing:-0.04em;font-weight:600}
+.proof{margin-top:auto;display:flex;gap:26px;padding-top:24px;border-top:1px solid rgba(0,0,0,.09)}
+.proof div{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:600;white-space:nowrap}
+.proof i{width:24px;height:24px;border-radius:50%;background:rgba(79,179,154,.15);color:#2F7F6C;display:flex;align-items:center;justify-content:center}
+.r{position:relative;border-radius:20px;overflow:hidden;background:#EFF1F2}
+.r img.p{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.card{position:absolute;left:22px;bottom:22px;display:flex;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:13px 18px 13px 14px;box-shadow:0 8px 28px -10px rgba(50,25,34,.28)}
+.card img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.card b{display:block;font-size:17px;font-weight:600;line-height:1.2}
+.card span{display:block;font-size:14px;color:#9BA1A8;margin-top:3px}
+</style></head><body><div class="wrap">
+<div class="l">
+  <div class="logo">mixt</div>
+  <div class="stars"><div class="s"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><b>Avis vérifiés Trustpilot</b></div>
+  <h1>Acné, taches, rougeurs :<br>un traitement fait<br>pour votre peau,<br>par un médecin</h1>
+  <div class="proof">
+    <div><i><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Visio sous 7 jours</div>
+    <div><i><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Suivi inclus</div>
+  </div>
+</div>
+<div class="r">
+  <img class="p" src="../public/images/real/patiente-marie-portrait-face-04.webp">
+  <div class="card"><img src="../public/images/shoot-dermatologue-avatar.webp"><div><b>Plan de traitement prêt</b><span>Validé par votre médecin</span></div></div>
+</div>
+</div></body></html>

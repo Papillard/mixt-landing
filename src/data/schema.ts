@@ -21,7 +21,7 @@ export const siteGraph = [
     name: 'Mixt',
     url: `${SITE}/`,
     logo: { '@type': 'ImageObject', url: `${SITE}/favicons/android-chrome-512x512.png` },
-    image: `${SITE}/images/og-mixt-2026.png`,
+    image: `${SITE}/images/og-home.png`,
     description:
       'Service français de soin de la peau en ligne : bilan gratuit, téléconsultation avec un médecin partenaire supervisé par un dermatologue, formule magistrale préparée en pharmacie si prescrite, et suivi dans la durée.',
     medicalSpecialty: 'Dermatology',
