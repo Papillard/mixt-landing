@@ -64,6 +64,8 @@ export type Concern = {
   };
   /** Bande texture pleine largeur sous le hero, slogan blanc posé dessus. */
   band: {
+    /** Slogan en encre sombre, pour une texture claire. */
+    textDark?: boolean;
     image: string;
     slogan: string;
     imagePosition?: string;

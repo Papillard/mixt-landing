@@ -106,5 +106,6 @@ export const taches: Concern = {
   related: [
     { href: '/acne/', label: 'Acné adulte', teaser: 'Boutons qui reviennent à l’âge adulte.' },
     { href: '/rosacee/', label: 'Rosacée et couperose', teaser: 'Rougeurs diffuses, petits vaisseaux, sensations de chaleur.' },
+    { href: '/hyperpigmentation/', label: 'Hyperpigmentation et taches solaires', teaser: 'Lentigo, marques d’acné, peaux mates à foncées.' },
   ],
 };

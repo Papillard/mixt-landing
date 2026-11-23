@@ -92,5 +92,6 @@ export const acne: Concern = {
   related: [
     { href: '/taches/', label: 'Masque de grossesse et taches brunes', teaser: "Les marques brunes laissées par l'acné." },
     { href: '/rosacee/', label: 'Rosacée et couperose', teaser: 'Rougeurs et boutons qui se confondent avec l\'acné.' },
+    { href: '/hyperpigmentation/', label: 'Hyperpigmentation et marques d’acné', teaser: 'Les taches brunes laissées par les boutons.' },
   ],
 };

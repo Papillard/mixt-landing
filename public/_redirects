@@ -10,8 +10,8 @@
 /p  https://app.mixt.care/onboarding?utm_source=pharmacie&utm_medium=flyer&utm_campaign=flyer-a5-2026-10  302
 /c  https://app.mixt.care/onboarding?utm_source=clinique-menopause&utm_medium=flyer&utm_campaign=flyer-a5-2026-10  302
 
-# Pages mélasma et hyperpigmentation fusionnées en /taches (11/2026).
+# Page mélasma fusionnée en /taches (11/2026).
+# /hyperpigmentation redevient une page à part (sprint SEO S2, 11/2026) : SERP distincte
+# du masque de grossesse, ~20K recherches/mois (docs/seo/sprints/s2-brief.md).
 /melasma              /taches/  301
 /melasma/             /taches/  301
-/hyperpigmentation    /taches/  301
-/hyperpigmentation/   /taches/  301

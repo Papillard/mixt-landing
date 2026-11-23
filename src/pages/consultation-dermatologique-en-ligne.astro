@@ -1,0 +1,409 @@
+---
+// Landing SEO « Consultation dermatologique en ligne » (sprint S2).
+// Cibles Ahrefs : dermatologue rdv en ligne 1,6K, dermatologue en ligne 1,4K (KD 1, aucune pub),
+// consultation dermatologue en ligne 400, téléconsultation dermatologue 200.
+// Garde-fou : la visio se fait avec un médecin généraliste partenaire. Jamais de promesse
+// de dermatologue : le mot n'apparaît que pour répondre franchement (H2 + FAQ).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import MobileStickyCta from '../components/MobileStickyCta.astro';
+import Accordion from '../components/motion/Accordion.tsx';
+import FadeInSection from '../components/motion/FadeInSection.tsx';
+import V3Steps from '../components/sections-v3/V3Steps.astro';
+import V3Dermatologue from '../components/sections-v3/V3Dermatologue.astro';
+import EquipeMedicale from '../components/EquipeMedicale.astro';
+import V3Reviews from '../components/sections-v3/V3Reviews.astro';
+import V3Pricing from '../components/sections-v3/V3Pricing.astro';
+import { breadcrumb, ORG_ID, WEBSITE_ID, DERMATO_ID, dermatologist } from '../data/schema';
+
+const CTA_HREF = 'https://app.mixt.care/rdv';
+const CTA_LABEL = 'Faire mon bilan gratuit';
+const CTA_NOTE = 'Bilan gratuit et sans engagement. Consultation à 49 €, seulement si vous la réservez.';
+
+const seo = {
+  title: 'Consultation dermatologique en ligne, sous 7 jours | Mixt',
+  description:
+    "Téléconsultation pour l'acné, la rosacée et les taches : un médecin partenaire étudie vos photos, construit votre plan de traitement et vous suit. Bilan gratuit, 49 € la visio.",
+};
+const pageUrl = 'https://mixt.care/consultation-dermatologique-en-ligne/';
+
+const proofMobile = [
+  'Un médecin en visio sous 7 jours',
+  'Dossier et photos étudiés avant la visio',
+  'Suivi inclus, sans abonnement',
+];
+
+// Réponse franche à « dermatologue en ligne ».
+const honesty = [
+  {
+    label: 'Qui vous reçoit en visio',
+    icon: '<path d="M15 10l4.55-2.28A1 1 0 0 1 21 8.62v6.76a1 1 0 0 1-1.45.9L15 14"/><rect x="3" y="6" width="12" height="12" rx="2"/>',
+    body: "Un médecin généraliste partenaire, inscrit à l'Ordre, expérimenté dans la prise en charge des problèmes de peau. Il étudie votre dossier et vos photos avant la consultation, puis vous suit dans la durée.",
+  },
+  {
+    label: 'Le rôle de la dermatologue',
+    icon: '<path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/>',
+    body: "Dr Bethsabée Levy Garel, dermatologue et co-fondatrice de Mixt, conçoit les protocoles avec l'équipe médicale. Quand un cas le demande, elle relit le dossier avec le médecin qui vous suit.",
+  },
+  {
+    label: 'Quand le cabinet reste nécessaire',
+    icon: '<path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M12 8v4M10 10h4"/>',
+    body: "Grain de beauté ou tache qui change, lésion qui saigne, acné sévère qui relève d'un traitement réservé au dermatologue, examen au dermatoscope : le médecin vous le dit et vous oriente.",
+  },
+  {
+    label: 'Ce que vous y gagnez',
+    icon: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    body: "Une visio sous 7 jours, là où les délais en cabinet sont parfois de plusieurs mois. Un plan de traitement fait pour votre peau, et un suivi inclus entre les consultations.",
+  },
+];
+
+const conditions = [
+  { href: '/acne/', label: 'Acné adulte', hint: 'Boutons qui reviennent, acné hormonale', img: '/images/real/patiente-laetitia-acne-portrait-trois-quarts-01.webp', pos: 'center 30%', color: '#481B27' },
+  { href: '/rosacee/', label: 'Rosacée et couperose', hint: 'Rougeurs, peau qui chauffe', img: '/images/real/patiente-elise-rosacee-portrait-trois-quarts-01.webp', pos: 'center 30%', color: '#292627' },
+  { href: '/taches/', label: 'Masque de grossesse', hint: 'Mélasma, taches hormonales', img: '/images/real/patiente-leonixia-taches-portrait-main-joue-01.webp', pos: 'center 55%', color: '#321E2D' },
+  { href: '/hyperpigmentation/', label: 'Hyperpigmentation', hint: "Taches solaires, marques d'acné", img: '/images/real/gros-plan-taches-joue-01.webp', pos: 'center 40%', color: '#3A2A22' },
+];
+
+const differences = [
+  {
+    title: 'Un bilan pensé pour la peau',
+    body: "Depuis quand, où, ce que vous avez déjà essayé, le lien avec votre cycle, une grossesse, le soleil : le bilan en ligne pose les questions qu'un médecin se pose sur une peau.",
+  },
+  {
+    title: 'Le dossier arrive avant la visio',
+    body: "Vos réponses et vos photos sont chez le médecin avant la consultation. Le temps de la visio sert à décider avec vous, pas à tout raconter depuis le début.",
+  },
+  {
+    title: 'Un plan pour votre peau',
+    body: "Le médecin personnalise le traitement selon son évaluation clinique. Si c'est indiqué, il peut prescrire une préparation sur mesure, faite en pharmacie.",
+  },
+  {
+    title: 'Un suivi qui continue',
+    body: "Journal photo toutes les deux semaines, questions pratiques à l'équipe Mixt, plan revu par le médecin selon vos progrès. Inclus, sans abonnement.",
+  },
+];
+
+const faq = [
+  {
+    q: 'Sous quel délai puis-je consulter ?',
+    a: "Le bilan en ligne prend 5 minutes. Vous réservez ensuite une visio avec un médecin partenaire, sous 7 jours, au créneau qui vous arrange. Le médecin étudie votre dossier et vos photos avant la consultation.",
+  },
+  {
+    q: 'Combien coûte la consultation ? Est-elle prise en charge ?',
+    a: "Le bilan est gratuit. La téléconsultation coûte 49 €, qui rémunèrent intégralement le médecin et ne sont débités qu'une fois la téléconsultation effectuée. Si le médecin prescrit une préparation en pharmacie, comptez 30 à 60 € (prix indicatif), avec une prise en charge éventuelle selon votre couverture santé. Le suivi par l'équipe Mixt est inclus, sans abonnement.",
+  },
+  {
+    q: 'Le médecin peut-il me faire une ordonnance ?',
+    a: "Oui, si c'est indiqué. La prescription relève de la seule décision du médecin : selon votre cas, il peut prescrire une préparation magistrale, un traitement dermatologique classique, ou recommander une approche cosmétique. Dans tous les cas, vous repartez avec un avis médical et un plan clair.",
+  },
+  {
+    q: 'Comment le médecin voit-il ma peau à distance ?',
+    a: "Avec les photos que vous ajoutez pendant le bilan, prises en lumière naturelle, de face et de profil, puis pendant la visio. Un guide vous montre comment bien les prendre. Vos photos sont hébergées en France, dans un environnement certifié HDS, et soumises au secret médical.",
+  },
+  {
+    q: 'Quelle différence avec un dermatologue en cabinet ?',
+    a: "Le dermatologue est un médecin spécialiste. Chez Mixt, vous consultez un médecin généraliste partenaire, expérimenté dans les problèmes de peau, qui applique des protocoles conçus avec une dermatologue. Le cabinet permet un examen physique et des actes (dermatoscope, biopsie, laser). Mixt apporte un rendez-vous rapide, un plan personnalisé et un suivi entre les consultations. Si votre cas demande un spécialiste, le médecin vous oriente.",
+  },
+  {
+    q: 'Dans quels cas consulter plutôt en cabinet ?',
+    a: "Un grain de beauté ou une tache qui change d'aspect, une lésion qui saigne ou ne cicatrise pas, une éruption étendue avec de la fièvre, une acné sévère qui pourrait relever de l'isotrétinoïne (sa première prescription est réservée au dermatologue), ou tout besoin d'examen au dermatoscope ou de biopsie. En cas d'urgence, appelez le 15.",
+  },
+  {
+    q: 'Quels problèmes de peau sont pris en charge ?',
+    a: "L'acné adulte et hormonale, la rosacée et la couperose, le masque de grossesse (mélasma) et l'hyperpigmentation : taches solaires, marques laissées par l'acné. Si votre situation ne relève pas d'une téléconsultation, le médecin vous le dit.",
+  },
+  {
+    q: 'Y a-t-il un abonnement ?',
+    a: "Non. Vous payez la téléconsultation, et la préparation en pharmacie si elle est prescrite. Le suivi par l'équipe Mixt est inclus, sans surcoût. Ce suivi est un accompagnement pratique, pas un acte médical.",
+  },
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'MedicalWebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: seo.title,
+      description: seo.description,
+      inLanguage: 'fr-FR',
+      isPartOf: { '@id': WEBSITE_ID },
+      publisher: { '@id': ORG_ID },
+      breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
+      mentions: { '@id': DERMATO_ID },
+    },
+    breadcrumb(pageUrl, 'Consultation dermatologique en ligne'),
+    dermatologist,
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      mainEntity: faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  structuredData={structuredData}
+  ogImage="https://mixt.care/images/og-consultation-dermatologique-en-ligne.jpg"
+>
+  <Nav ctaLabel="Démarrer ma consultation" ctaHref={CTA_HREF} stickyCtaMobile />
+
+  {/* ── HERO MOBILE ── */}
+  <section class="lg:hidden bg-base px-6 pt-[calc(56px+20px)] pb-6">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="flex items-center gap-[3px]">
+        {[0, 1, 2, 3, 4].map(() => (
+          <span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[2px]" style="background:#00b67a">
+            <span class="text-[10px] leading-none text-white">★</span>
+          </span>
+        ))}
+      </span>
+      <span class="text-[13px] font-medium text-ink-2">Avis vérifiés Trustpilot</span>
+    </div>
+    <h1 class="text-balance text-[min(27px,6.9vw)] font-semibold leading-[1.14] tracking-[-0.04em] text-ink m-0">
+      Consultation dermatologique en ligne&nbsp;:<br />
+      un médecin pour votre peau, sous 7 jours
+    </h1>
+    <div class="relative mt-4 aspect-[4/5] overflow-hidden rounded-[20px] bg-cream">
+      <img
+        src="/images/real/patiente-elise-rosacee-teleconsultation-02.webp"
+        alt="Patiente en téléconsultation avec son médecin, devant son ordinateur"
+        class="absolute inset-0 h-full w-full object-cover"
+        style="object-position: center 55%;"
+        fetchpriority="high"
+      />
+    </div>
+    <p class="mt-4 text-[15.5px] leading-[1.5] text-ink-2">
+      Un médecin partenaire étudie vos photos avant la visio, construit votre plan de traitement et l'ajuste avec vous.
+    </p>
+    <ul class="list-none m-0 mt-5 rounded-[14px] bg-white border border-black/[0.06] px-4 py-3.5 flex flex-col gap-2.5">
+      {proofMobile.map((t) => (
+        <li class="flex items-center gap-2.5 text-[15px] leading-snug text-ink">
+          <svg class="h-[18px] w-[18px] shrink-0 text-jade" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 10.5 L8 15 L16.5 5.5" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          {t}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  {/* ── HERO DESKTOP : photo bord à bord à gauche, texte à droite ── */}
+  <section class="bg-base lg:pt-14">
+    <div class="hidden lg:flex flex-row">
+      <div class="relative w-auto h-[min(calc(100vh-56px),900px)] aspect-[4/5] shrink-0 bg-blush/30 overflow-hidden">
+        <img
+          src="/images/real/patiente-elise-rosacee-teleconsultation-02.webp"
+          alt="Patiente en téléconsultation avec son médecin, devant son ordinateur"
+          class="absolute inset-0 h-full w-full object-cover"
+          style="object-position: center 55%;"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="flex flex-1 items-center px-16 xl:px-24 py-16">
+        <div class="max-w-[580px]">
+          <FadeInSection client:load y={14}>
+            <div class="flex items-center gap-2 mb-6">
+              <span class="flex items-center gap-[3px]">
+                {[0, 1, 2, 3, 4].map(() => (
+                  <span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[2px]" style="background:#00b67a">
+                    <span class="text-[10px] leading-none text-white">★</span>
+                  </span>
+                ))}
+              </span>
+              <span class="text-[13px] font-medium text-ink-2">Avis vérifiés Trustpilot</span>
+            </div>
+            <h1 class="text-balance text-[46px] xl:text-[52px] font-bold leading-[1.05] tracking-[-0.035em] text-ink mb-6">
+              Consultation dermatologique en ligne&nbsp;:<br />
+              un médecin pour votre peau, sous 7 jours
+            </h1>
+            <p class="text-[19px] leading-[1.6] text-ink-2 mb-8">
+              Acné, rosacée, taches : un médecin partenaire étudie votre dossier et vos photos avant la visio, construit un plan de traitement pour votre peau et le revoit avec vous au fil des semaines.
+            </p>
+          </FadeInSection>
+          <FadeInSection client:load delay={0.2} y={10}>
+            <div class="flex flex-wrap items-center gap-3">
+              <Button href={CTA_HREF} variant="ember-pill">{CTA_LABEL} →</Button>
+              <Button href="#dermatologue-en-ligne" variant="ghost">Qui vous reçoit</Button>
+            </div>
+            <p class="mt-4 text-[13px] text-ink-3">{CTA_NOTE}</p>
+          </FadeInSection>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── DERMATOLOGUE EN LIGNE : réponse franche ── */}
+  <section id="dermatologue-en-ligne" class="px-6 md:px-10 py-24 md:py-32 bg-cream scroll-mt-20">
+    <div class="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-20 items-start">
+      <FadeInSection client:load>
+        <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-5">Avant de réserver</div>
+        <h2 class="text-balance text-[32px] md:text-[44px] font-bold leading-[1.08] tracking-[-0.035em] text-ink mb-6">
+          Dermatologue en ligne&nbsp;: ce que Mixt propose
+        </h2>
+        <p class="text-[17px] md:text-[18px] leading-[1.65] text-ink-2 max-w-[460px]">
+          La visio se fait avec un médecin généraliste partenaire, pas avec un dermatologue. Nous préférons le dire dès maintenant, pour que vous sachiez exactement qui vous allez voir.
+        </p>
+        <div class="mt-10 grid grid-cols-2 gap-3 max-w-[460px]">
+          <div class="rounded-2xl bg-white border border-black/[0.06] p-5">
+            <div class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-3 mb-3">En cabinet</div>
+            <div class="text-[26px] md:text-[30px] font-bold leading-[1.05] tracking-[-0.035em] text-ink-3">Plusieurs mois</div>
+            <div class="mt-2 text-[13.5px] leading-[1.45] text-ink-3">de délai, parfois</div>
+          </div>
+          <div class="rounded-2xl bg-deep p-5 text-white">
+            <div class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-white/60 mb-3">Avec Mixt</div>
+            <div class="text-[26px] md:text-[30px] font-bold leading-[1.05] tracking-[-0.035em]">7 jours</div>
+            <div class="mt-2 text-[13.5px] leading-[1.45] text-white/70">pour la visio, suivi inclus</div>
+          </div>
+        </div>
+      </FadeInSection>
+      <FadeInSection client:load delay={0.1}>
+        <dl class="m-0 rounded-2xl bg-white border border-black/[0.06] divide-y divide-black/[0.06]">
+          {honesty.map((h) => (
+            <div class="px-6 py-6 md:px-8 md:py-7 flex gap-5">
+              <div class="shrink-0 pt-0.5">
+                {h.avatars ? (
+                  <div class="flex -space-x-3">
+                    {h.avatars.map((a) => (
+                      <img src={a} alt="" aria-hidden="true" width="48" height="48" loading="lazy" class="h-12 w-12 rounded-full object-cover border-2 border-white shadow-sm" />
+                    ))}
+                  </div>
+                ) : (
+                  <span class="flex h-12 w-12 items-center justify-center rounded-full bg-blush/40 text-ember-deep">
+                    <svg class="h-[22px] w-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={h.icon} />
+                  </span>
+                )}
+              </div>
+              <div>
+                <dt class="text-[17px] md:text-[19px] font-bold tracking-[-0.02em] text-ink mb-2">{h.label}</dt>
+                <dd class="m-0 text-[15.5px] md:text-[16px] leading-[1.6] text-ink-2">{h.body}</dd>
+              </div>
+            </div>
+          ))}
+        </dl>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <V3Steps />
+
+  {/* ── POUR QUELS PROBLÈMES DE PEAU ── */}
+  <section class="bg-base px-6 md:px-10 py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto">
+      <FadeInSection client:load>
+        <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-ink mb-5">Spécialisé peau</div>
+        <h2 class="text-balance text-[32px] md:text-[44px] font-bold leading-[1.08] tracking-[-0.035em] text-ink mb-10 md:mb-12 max-w-[760px]">
+          Pour quels problèmes de peau
+        </h2>
+      </FadeInSection>
+      <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-4">
+        {conditions.map((c) => (
+          <a
+            href={c.href}
+            class="group flex md:flex-col items-stretch overflow-hidden rounded-2xl no-underline"
+            style={`background-color: ${c.color};`}
+          >
+            <div class="relative w-[84px] shrink-0 md:w-auto aspect-[4/5] overflow-hidden bg-cream">
+              <img
+                src={c.img}
+                alt={`${c.label} : ${c.hint}`}
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                style={`object-position: ${c.pos};`}
+              />
+            </div>
+            <div class="flex flex-1 items-center justify-between gap-3 px-4 md:px-5 py-3 md:py-4 text-white">
+              <div>
+                <div class="text-[17px] md:text-[19px] font-bold tracking-[-0.025em] leading-tight">{c.label}</div>
+                <div class="text-[12.5px] text-white/70 mt-0.5">{c.hint}</div>
+              </div>
+              <span class="text-[18px] transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── CE QUI CHANGE AVEC MIXT : aplat de marque + photo produit ── */}
+  <section class="grid grid-cols-1 lg:grid-cols-2 bg-deep text-white">
+    <div class="relative h-[70vw] max-h-[460px] lg:h-auto lg:max-h-none lg:min-h-[640px] overflow-hidden">
+      <img
+        src="/images/real/produit-tube-mains-fond-brun-02.webp"
+        alt="Tube de préparation magistrale tenu entre deux mains"
+        loading="lazy"
+        decoding="async"
+        class="absolute inset-0 h-full w-full object-cover"
+        style="object-position: center 40%;"
+      />
+    </div>
+    <div class="flex items-center px-6 md:px-10 lg:px-16 py-16 md:py-20">
+      <div class="max-w-[560px]">
+        <FadeInSection client:load>
+          <div class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] text-white/80 mb-5">Une téléconsultation pensée pour la peau</div>
+          <h2 class="text-balance text-[30px] md:text-[42px] font-bold leading-[1.06] tracking-[-0.04em] text-white mb-10">
+            Ce qui change avec Mixt
+          </h2>
+        </FadeInSection>
+        <FadeInSection client:load delay={0.1}>
+          <ul class="list-none m-0 p-0 flex flex-col gap-7">
+            {differences.map((d) => (
+              <li>
+                <div class="text-[18px] md:text-[20px] font-bold tracking-[-0.02em] text-white mb-1.5">{d.title}</div>
+                <p class="m-0 text-[15.5px] md:text-[16px] leading-[1.6] text-white/75">{d.body}</p>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-10"><Button href={CTA_HREF} variant="white">{CTA_LABEL} →</Button></div>
+        </FadeInSection>
+      </div>
+    </div>
+  </section>
+
+  <V3Dermatologue />
+  <EquipeMedicale />
+  <V3Reviews />
+  <V3Pricing />
+
+  {/* ── FAQ ── */}
+  <section class="px-6 md:px-10 pt-24 md:pt-32 pb-16 md:pb-24 bg-cream">
+    <div class="max-w-[1200px] mx-auto">
+      <FadeInSection client:load>
+        <h2 class="text-balance text-[32px] md:text-[44px] font-bold leading-[1.08] tracking-[-0.035em] text-center mb-12 md:mb-16 text-ink">
+          Consultation en ligne, vos questions
+        </h2>
+      </FadeInSection>
+      <div class="max-w-[760px] mx-auto">
+        <Accordion client:load items={faq} />
+      </div>
+    </div>
+  </section>
+
+  {/* ── FINAL CTA ── */}
+  <section class="px-6 md:px-10 py-24 md:py-32 bg-deep text-white text-center">
+    <div class="max-w-[780px] mx-auto">
+      <FadeInSection client:load>
+        <h2 class="text-balance text-[34px] md:text-[46px] font-bold leading-[1.1] tracking-[-0.035em] text-white mb-6 max-w-[680px] mx-auto">
+          Parlez de votre peau à un médecin
+        </h2>
+        <p class="text-[16px] md:text-[18px] leading-[1.65] text-white/70 max-w-[520px] mx-auto mb-9">
+          Répondez à quelques questions et ajoutez vos photos, c'est gratuit. Si vous réservez, un médecin vous reçoit en visio sous 7 jours.
+        </p>
+        <Button href={CTA_HREF} variant="white">{CTA_LABEL} →</Button>
+        <div class="mt-5 text-[13px] text-white/60">{CTA_NOTE}</div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <Footer />
+  <MobileStickyCta />
+</BaseLayout>
