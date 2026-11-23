@@ -119,4 +119,6 @@ export type Concern = {
   /** Concern specific FAQ. Shared medical FAQ is appended by the layout. */
   faq: FaqItem[];
   related: RelatedLink[];
+  /** Slugs d'articles du blog : rangée discrète « Pour aller plus loin » avant la FAQ (3 max affichés). */
+  articles?: string[];
 };

@@ -73,7 +73,7 @@ export const rosacee: Concern = {
     },
     {
       q: 'La rosacée se guérit-elle ?',
-      a: "La rosacée est une condition chronique : elle ne disparaît pas définitivement, mais elle se contrôle très bien. Avec le bon traitement et un suivi régulier, les rougeurs et les poussées s'espacent nettement.",
+      a: "La rosacée est une condition chronique : elle ne disparaît pas définitivement, mais elle se contrôle. Avec un traitement adapté et un suivi régulier, les rougeurs et les poussées peuvent s'espacer.",
     },
     {
       q: "Qu'est-ce qui déclenche une poussée de rosacée ?",
@@ -100,4 +100,5 @@ export const rosacee: Concern = {
     { href: '/acne/', label: 'Acné adulte', teaser: 'Boutons, points noirs et inflammation.' },
     { href: '/taches/', label: 'Masque de grossesse et taches brunes', teaser: 'Mélasma, taches brunes et marques.' },
   ],
+  articles: ['rosacee-couperose', 'couperose-nez-visage', 'laser-couperose', 'rosacee-oculaire', 'rosacee-papulo-pustuleuse', 'creme-rosacee-couperose', 'rosacee-disparaitre', 'rosacee-causes-alimentation'],
 };

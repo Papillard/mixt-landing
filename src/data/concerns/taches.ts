@@ -108,4 +108,5 @@ export const taches: Concern = {
     { href: '/rosacee/', label: 'Rosacée et couperose', teaser: 'Rougeurs diffuses, petits vaisseaux, sensations de chaleur.' },
     { href: '/hyperpigmentation/', label: 'Hyperpigmentation et taches solaires', teaser: 'Lentigo, marques d’acné, peaux mates à foncées.' },
   ],
+  articles: ['masque-de-grossesse-soleil', 'taches-peau-noire-mate', 'lentigo-taches-solaires'],
 };
