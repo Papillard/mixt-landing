@@ -32,6 +32,14 @@ const PILLARS: Record<string, { label: string; topic: string }> = {
   acne: { label: 'Acné adulte et acné hormonale', topic: 'acné' },
   hyperpigmentation: { label: 'Taches brunes et hyperpigmentation', topic: 'hyperpigmentation' },
 };
+// Bandeau de marque au milieu de l'article : texture et slogan de la landing pilier.
+const BANDS: Record<string, { image: string; slogan: string; position?: string; dark?: boolean }> = {
+  rosacee: { image: '/images/real/texture-rouge-goutte-gel-01.webp', slogan: 'Un diagnostic avant les actifs', position: 'center 50%' },
+  taches: { image: '/images/real/texture-ambre-bulles-01.webp', slogan: 'Avant les actifs, comprendre la tache', position: 'center 45%' },
+  acne: { image: '/images/real/texture-rouge-creme-nacree-01.webp', slogan: 'Les bons actifs commencent par les bonnes questions', position: 'center 40%' },
+  hyperpigmentation: { image: '/images/real/texture-gel-transparent-doigt-01.webp', slogan: 'Chaque tache a sa cause', position: 'center 55%', dark: true },
+};
+const band = BANDS[d.pillar];
 const pillar = PILLARS[d.pillar];
 const pillarHref = `/${d.pillar}/`;
 const topic = d.ctaTopic ?? pillar.topic;
@@ -99,7 +107,7 @@ const structuredData = {
 
   {/* ── HERO éditorial centré (à la Medium) : pas de bouton, pas de split photo ── */}
   <header class="bg-white px-6 md:px-10 pt-[calc(56px+40px)] lg:pt-[calc(56px+80px)] pb-10 md:pb-14">
-    <div class="max-w-[720px] mx-auto text-center">
+    <div class="max-w-[780px] mx-auto text-center">
       <nav aria-label="Fil d'Ariane" class="mb-8 text-[13px] text-ink-3">
         <a href="/blog/" class="text-ink-3 no-underline hover:text-ink">Blog</a>
         <span class="mx-1.5" aria-hidden="true">/</span>
@@ -116,7 +124,7 @@ const structuredData = {
         <span class="mx-1.5" aria-hidden="true">·</span>{d.reviewedBy}
       </p>
     </div>
-    <div class="max-w-[720px] mx-auto mt-10 md:mt-12">
+    <div class="max-w-[1000px] mx-auto mt-10 md:mt-14">
       {d.heroImage ? (
         <img
           src={d.heroImage}
@@ -131,8 +139,8 @@ const structuredData = {
   </header>
 
   {/* ── CORPS : même colonne étroite, sommaire sobre en tête ── */}
-  <section class="bg-white px-6 md:px-10 pb-16 md:pb-24">
-    <div class="max-w-[720px] mx-auto">
+  <section class="bg-white px-6 md:px-10 pb-16 md:pb-24 overflow-x-clip">
+    <div class="max-w-[780px] mx-auto">
       {toc.length > 0 && (
         <nav aria-label="Sommaire" class="mb-12 border-y border-black/[0.08] py-6">
           <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3 mb-4">Sommaire</p>
@@ -147,9 +155,25 @@ const structuredData = {
         </nav>
       )}
 
-      <article class="blog-prose">
+      <article class="blog-prose" id="article-body">
         <slot />
       </article>
+
+      {/* Bandeau de marque pleine largeur : placé après le 2e chapitre (script), sinon en fin d'article */}
+      <aside id="blog-band" class={`blog-band ${band.dark ? 'is-dark' : ''} relative my-16 md:my-20 h-[440px] md:h-[480px] overflow-hidden bg-deep`} aria-label="Parler à un médecin">
+        <img src={band.image} alt="" aria-hidden="true" loading="lazy" class="absolute inset-0 h-full w-full object-cover" style={`object-position: ${band.position ?? 'center'};`} />
+        <div class="absolute inset-x-0 bottom-0 px-6 md:px-10 lg:px-16 pb-9 md:pb-12 max-w-[1280px] mx-auto">
+          <p class={`max-w-[680px] text-balance text-[36px] md:text-[56px] lg:text-[64px] font-bold leading-[1.02] tracking-[-0.045em] mb-7 ${band.dark ? 'text-ink' : 'text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.25)]'}`}>{band.slogan}</p>
+          <Button href={CTA_HREF} variant={band.dark ? 'ember-pill' : 'white'} size="md">{ctaLabel} →</Button>
+        </div>
+      </aside>
+      <script is:inline>
+        (function () {
+          var band = document.getElementById('blog-band');
+          var h2s = document.querySelectorAll('#article-body > h2');
+          if (band && h2s.length >= 4) h2s[2].parentNode.insertBefore(band, h2s[2]);
+        })();
+      </script>
 
       {d.whenToConsult.length > 0 && (
         <aside class="mt-14 rounded-[20px] bg-deep text-white px-7 py-8 md:px-10 md:py-10" id="quand-consulter">
@@ -254,6 +278,12 @@ const structuredData = {
     font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-ink-2);
   }
   .blog-prose small { display: block; margin-top: 40px; font-size: 14px; line-height: 1.6; color: var(--color-ink-3); }
+  .blog-band { width: 100vw; margin-left: calc(50% - 50vw); }
+  .blog-prose .blog-band img { margin: 0; border-radius: 0; width: 100%; height: 100%; }
+  .blog-prose .blog-band p { margin: 0 0 28px; color: #fff; }
+  .blog-prose .blog-band.is-dark p { color: var(--color-ink); }
+  .blog-prose .blog-band a { text-decoration: none; color: var(--color-ink); }
+  .blog-prose .blog-band.is-dark a { color: #fff; }
   @media (max-width: 767px) {
     .blog-prose { font-size: 17.5px; }
     .blog-prose h2 { font-size: 25px; margin-top: 44px; }
