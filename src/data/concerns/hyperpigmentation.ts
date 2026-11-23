@@ -25,12 +25,13 @@ export const hyperpigmentation: Concern = {
       "Tache solaire, marque d'acné ou mélasma : en visio, un médecin identifie le type de tache et construit un plan adapté à votre peau et à votre phototype.",
     image: '/images/real/patiente-leonixia-taches-portrait-sourire-01.webp',
     imageAlt: 'Femme à la peau foncée, souriante, avec des taches brunes sur le front et les joues',
-    imagePosition: 'center 40%',
-    imagePositionMobile: 'center 35%',
+    imagePosition: 'center 78%',
+    imagePositionMobile: 'center 72%',
   },
   band: {
     image: '/images/real/texture-gel-transparent-doigt-01.webp',
     slogan: "Chaque tache a sa cause",
+    textDark: true,
     imagePosition: 'center 55%',
   },
   interstitial: {

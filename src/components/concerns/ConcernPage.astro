@@ -240,7 +240,7 @@ const structuredData = {
         style={`object-position: ${concern.band.imagePosition ?? 'center'};`}
         loading="eager"
       />
-      <p class="absolute left-6 md:left-10 lg:left-16 bottom-7 md:bottom-12 max-w-[640px] text-balance text-[38px] md:text-[60px] lg:text-[72px] font-bold leading-[1] tracking-[-0.045em] text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.25)]">
+      <p class={`absolute left-6 md:left-10 lg:left-16 bottom-7 md:bottom-12 max-w-[640px] text-balance text-[38px] md:text-[60px] lg:text-[72px] font-bold leading-[1] tracking-[-0.045em] ${concern.band.textDark ? 'text-ink' : 'text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.25)]'}`}>
         {concern.band.slogan}
       </p>
     </div>
@@ -297,7 +297,7 @@ const structuredData = {
         </p>
         <Button href={CTA_HREF} variant="ember-pill">{CTA_LABEL} →</Button>
       </FadeInSection>
-      <DossierTimeline client:visible items={dossier} />
+      <DossierTimeline client:load items={dossier} />
     </div>
   </section>
 
