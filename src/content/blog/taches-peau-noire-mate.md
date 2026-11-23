@@ -30,6 +30,8 @@ faq:
   - q: "Comment atténuer les cernes pigmentés sur peau noire ?"
     a: "Les cernes foncés sur peau noire sont souvent en partie constitutionnels, aggravés par le frottement, les allergies ou un eczéma des paupières. Arrêter de frotter, traiter l'allergie et protéger la zone du soleil aide. La peau y est fine : les actifs dépigmentants s'utilisent avec prudence, sur avis médical."
 related:
+  - href: "/blog/marques-apres-boutons/"
+    label: "Marques après les boutons : combien de temps, comment les traiter"
   - href: "/blog/masque-de-grossesse-soleil/"
     label: "Masque de grossesse : soleil, après l'accouchement, quand il part"
   - href: "/blog/acne-hormonale-zinc-complements/"

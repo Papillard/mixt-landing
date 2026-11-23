@@ -30,6 +30,8 @@ faq:
   - q: "Enceinte ou allaitante, que prendre contre l'acné ?"
     a: "Pendant la grossesse et l'allaitement, ne commencez aucun complément, aucune huile essentielle ni aucun actif sans en parler à votre médecin ou à votre sage-femme. Beaucoup de traitements de l'acné sont contre-indiqués à cette période, et certains compléments aussi."
 related:
+  - href: "/blog/boutons-menton-machoire/"
+    label: "Boutons sur le menton et la mâchoire : acné hormonale, que faire"
   - href: "/blog/marques-apres-boutons/"
     label: "Marques après les boutons : combien de temps, comment les traiter"
   - href: "/blog/rosacee-papulo-pustuleuse/"
