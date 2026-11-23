@@ -4,8 +4,8 @@ description: "Taches après un bouton, masque de grossesse, cernes pigmentés : 
 h1: "Taches et masque de grossesse sur peau noire ou mate"
 kicker: "Peaux foncées · Taches · Mélasma"
 intro: "Sur une peau noire ou mate, un bouton, une irritation ou une grossesse laissent plus facilement une tache, et elle met plus longtemps à partir. Voici d'où viennent ces taches, ce qui les aggrave et ce qu'un médecin peut proposer."
-heroImage: "/images/real/patiente-leonixia-taches-portrait-main-joue-01.webp"
-heroImageAlt: "Femme à la peau noire montrant du doigt des taches sur sa joue"
+heroImage: "/images/real/gros-plan-serie-hyperpigmentation-post-inflammatoire-01.webp"
+heroImageAlt: "Gros plan de taches brunes sur une joue de peau mate"
 pillar: hyperpigmentation
 datePublished: 2026-11-23
 dateModified: 2026-11-23
