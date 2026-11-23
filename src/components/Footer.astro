@@ -1,4 +1,6 @@
 ---
+import AskAi from './AskAi.astro';
+
 interface Props {
   basePath?: string; // '' for root pages, '../' for subdir pages
 }
@@ -49,6 +51,7 @@ const home = basePath === '' ? '/' : '/';
         </div>
       </div>
     </div>
+    <AskAi />
     <div class="flex justify-between pt-5 flex-col md:flex-row gap-1.5 items-start md:items-center">
       <span class="text-xs text-white/30">&copy; 2026 Mixt. Tous droits réservés.</span>
       <span class="text-xs text-white/30">Fait avec soin à Paris.</span>
