@@ -4,7 +4,8 @@ description: "Yeux secs, rouges, paupières gonflées : comment reconnaître une
 h1: "Rosacée oculaire : symptômes, photos, que faire"
 kicker: "Rosacée · Yeux et paupières"
 intro: "Des yeux qui piquent tous les matins, des paupières rouges, un orgelet qui revient. La rosacée ne touche pas que les joues : chez beaucoup de personnes, elle atteint aussi les yeux, parfois avant la peau. Voici comment la reconnaître et ce qui doit vous faire consulter vite."
-heroPlaceholder: "PH-rosacee-oculaire-hero"
+heroImage: "/images/real/gros-plan-rosacee-oculaire-oeil-rouge-01.webp"
+heroImageAlt: "Gros plan d'un œil rouge avec de fins vaisseaux visibles"
 pillar: rosacee
 datePublished: 2026-11-23
 dateModified: 2026-11-23
@@ -78,10 +79,6 @@ Les recherches « rosacée oculaire photo » sont nombreuses, et c'est logique :
 <figcaption class="mt-3 text-[15px] leading-snug text-ink-3">Bord de paupière épaissi et rouge, petites croûtes collées à la base des cils, vaisseaux fins sur le rebord : l'aspect typique de la blépharite.</figcaption>
 </figure>
 
-<figure class="my-8">
-<img src="/images/real/gros-plan-rosacee-oculaire-oeil-rouge-01.webp" alt="Gros plan d'un œil rouge avec de fins vaisseaux visibles sur le blanc de l'œil" loading="lazy" class="w-full rounded-[20px] object-cover" style="aspect-ratio: 16/9;" />
-<figcaption class="mt-3 text-[15px] leading-snug text-ink-3">Blanc de l'œil rosé, plus marqué dans les coins, sans écoulement épais : une rougeur qui dure, liée à la sécheresse et à l'inflammation.</figcaption>
-</figure>
 
 <figure class="my-8">
 <div class="relative w-full bg-blush flex items-center justify-center rounded-[20px]" style="aspect-ratio: 16/9;" role="img" aria-label="Photo à venir : chalazion sur la paupière supérieure et rougeurs des joues" data-placeholder="PH-rosacee-oculaire-chalazion"><span class="px-4 text-center font-mono text-[12px] md:text-[13px] uppercase tracking-[0.12em] text-ink-2 break-all">PH-rosacee-oculaire-chalazion</span></div>
