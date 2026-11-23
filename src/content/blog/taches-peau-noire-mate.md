@@ -53,6 +53,29 @@ Deux mécanismes expliquent la grande majorité des taches sur peau foncée :
 
 Les distinguer change tout, parce qu'ils ne se traitent pas de la même façon.
 
+### Reconnaître le type de tache
+
+<div class="grid grid-cols-2 gap-x-5 gap-y-8 my-8">
+<figure class="m-0">
+<img src="/images/real/gros-plan-serie-melasma-01.webp" alt="Gros plan : mélasma sur une peau mate" loading="lazy" class="w-full rounded-[16px] object-cover" style="aspect-ratio: 4/5; margin: 0;" />
+<figcaption class="mt-3 text-[15px] leading-snug text-ink-3"><strong class="block text-ink text-[16px] mb-1">Mélasma</strong>Plaques brunes en nappe, symétriques, sur les pommettes et le front. Souvent hormonal (grossesse, pilule).</figcaption>
+</figure>
+<figure class="m-0">
+<img src="/images/real/gros-plan-serie-hyperpigmentation-post-inflammatoire-01.webp" alt="Gros plan : taches post-inflammatoires sur une peau mate" loading="lazy" class="w-full rounded-[16px] object-cover" style="aspect-ratio: 4/5; margin: 0;" />
+<figcaption class="mt-3 text-[15px] leading-snug text-ink-3"><strong class="block text-ink text-[16px] mb-1">Taches post-inflammatoires</strong>Marques brunes laissées par un bouton, une irritation ou une épilation, à l'endroit exact de la lésion.</figcaption>
+</figure>
+<figure class="m-0">
+<img src="/images/real/gros-plan-serie-taches-solaires-01.webp" alt="Gros plan : taches solaires sur une peau mate" loading="lazy" class="w-full rounded-[16px] object-cover" style="aspect-ratio: 4/5; margin: 0;" />
+<figcaption class="mt-3 text-[15px] leading-snug text-ink-3"><strong class="block text-ink text-[16px] mb-1">Taches solaires</strong>Petites taches brunes aux contours nets sur les zones exposées, qui foncent après l'été.</figcaption>
+</figure>
+<figure class="m-0">
+<img src="/images/real/gros-plan-serie-taches-de-rousseur-01.webp" alt="Gros plan : taches de rousseur sur une peau mate" loading="lazy" class="w-full rounded-[16px] object-cover" style="aspect-ratio: 4/5; margin: 0;" />
+<figcaption class="mt-3 text-[15px] leading-snug text-ink-3"><strong class="block text-ink text-[16px] mb-1">Taches de rousseur</strong>Petits points clairs et réguliers, présents depuis l'enfance, qui s'accentuent au soleil.</figcaption>
+</figure>
+</div>
+
+Ces taches se ressemblent mais ne se traitent pas de la même façon : c'est pour ça que le médecin commence par identifier le type de tache sur vos photos.
+
 ## Taches après un bouton ou une irritation : l'hyperpigmentation post-inflammatoire
 
 C'est la cause la plus fréquente de taches sur peau noire. Les taches ont la forme et l'emplacement de ce qui les a provoquées : là où il y avait un bouton, une plaque d'eczéma, un poil incarné après le rasage ou une brûlure de produit.
@@ -72,8 +95,6 @@ Tant que la cause continue, de nouvelles taches s'ajoutent aux anciennes. Traite
 ## Masque de grossesse et mélasma sur peau noire ou mate
 
 Le mélasma forme des plaques brunes, assez symétriques, sur les pommettes, le front, la lèvre supérieure ou l'arête du nez. Il touche surtout les phototypes 3 à 5 : peaux mates d'origine maghrébine, méditerranéenne, asiatique ou latino-américaine, et peaux noires plus claires. Sur une peau très foncée, il est plus rare, mais pas exceptionnel.
-
-![Gros plan de taches brunes sur une joue à la peau mate](/images/real/gros-plan-taches-phototype-mat-01.webp)
 
 ### Pendant et après la grossesse
 
