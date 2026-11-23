@@ -6,7 +6,7 @@ Novembre 2026. Sources : Ahrefs Keywords Explorer et Site Explorer (France), Goo
 
 1. **Les gens tapent le nom du problème, pas « traitement + X ».** « rosacée » fait 21K recherches/mois contre 800 pour « traitement rosacée » ; « masque de grossesse » 12K contre 30 pour « traitement masque de grossesse ». Chaque page vise le nom nu en title et en H1.
 2. **Les places sont faciles à prendre.** Difficulté (KD Ahrefs) de 0 à 11 sur toutes les requêtes clés. Le top 10 est occupé par des marques cosmétiques (Avène, La Roche-Posay, Uriage, Caudalie…) et des sites institutionnels (Ameli, Vidal, sante.fr). Aucun acteur « médecin + suivi + soin sur mesure ».
-3. **Quatre grappes prioritaires, environ 110K recherches/mois cumulées** : rosacée et couperose (~55K), taches et hyperpigmentation (~20K), masque de grossesse (~17 à 20K), acné adulte et hormonale (~13K).
+3. **Quatre grappes prioritaires, environ 190K recherches/mois sur l'ensemble de leurs variantes** (rosacée 90K, couperose 41K, hyperpigmentation 24K, masque de grossesse 20K, acné hormonale 8,5K, acné adulte 4,6K). Têtes de grappe : rosacée et couperose (~55K), taches et hyperpigmentation (~20K), masque de grossesse (~17 à 20K), acné adulte et hormonale (~13K).
 4. **Le masque de grossesse est le gain le plus rapide** : 12K/mois, KD 0, aucun site médical dans le top 10, 0 à 3 domaines référents par page, aucune pub.
 5. **Google traite rosacée et couperose comme un seul sujet** : une seule page pilier « Rosacée et couperose ».
 6. **Le 2e gisement = les noms de traitements** (~81K/mois : roaccutane 14K, rozex 5K, soolantra 3,6K, epiduo 3K, spironolactone acné 2K…). Audience déjà traitée et souvent en échec, le profil n°1 de la prod. Contenu éducatif uniquement, jamais promotionnel.
@@ -14,6 +14,7 @@ Novembre 2026. Sources : Ahrefs Keywords Explorer et Site Explorer (France), Goo
 8. **Mixt part de zéro** : DR 0, aucun mot-clé positionné. Il faut 3 à 6 mois et 10 à 20 liens de qualité avant le top 10, même sur KD 0.
 9. **Le modèle téléconsultation peut ranker** : MedecinDirect est n°1 sur « acné hormonale » ; Feeli (DR 26 seulement) fait 54,6K visites SEO/mois grâce à beaucoup de pages ciblées.
 10. **« Dermatologue en ligne » : aucune pub sur la requête.** Première cible Google Ads (après certification santé Google). Les consultations Mixt sont faites par des généralistes : jamais « consultez un dermatologue ».
+11. **La longue traîne donne 11 articles de blog** (laser couperose, rosacée oculaire, rosacée papulo-pustuleuse, compléments acné, peau noire…), listés dans le plan d'action.
 
 ## Plan d'action
 
@@ -26,6 +27,22 @@ Novembre 2026. Sources : Ahrefs Keywords Explorer et Site Explorer (France), Goo
 | 5 | Consultation dermatologique en ligne | nouvelle | dermatologue en ligne, dermatologue rdv en ligne | ~3,5K | à créer |
 | 6 | Guide : traitements de la rosacée | nouvelle | rozex, soolantra, acide azélaïque, skinoren, finacea, mirvaso | ~14K | à créer, relecture avocat |
 | 7 | Guides traitements acné et mélasma | plus tard | roaccutane, epiduo, peroxyde de benzoyle, spironolactone, hydroquinone, acide tranexamique | ~35K | plus tard |
+
+**Articles de blog (issus des Matching terms), par priorité.**
+
+| # | Article | Volume cumulé/mois | Renvoie vers |
+|---|---|---|---|
+| 1 | Laser couperose : résultats, prix, après la séance, et quand il ne suffit pas | ~3,65K | rosacée et couperose |
+| 2 | Rosacée oculaire : symptômes, photos, que faire | ~2,2K | rosacée et couperose |
+| 3 | Rosacée papulo-pustuleuse : la reconnaître et la traiter | ~2K | rosacée et couperose |
+| 4 | Une rosacée peut-elle disparaître ? | ~1,9K | rosacée et couperose |
+| 5 | Rosacée : causes, alimentation, intestin | ~1,9K | rosacée et couperose |
+| 6 | Nettoyant, crème, zinc, compléments : quoi choisir contre l'acné hormonale, et quand ça ne suffit plus | ~1,6K | acné |
+| 7 | Crème rosacée et couperose : avec ou sans ordonnance | ~2,1K | rosacée et couperose |
+| 8 | Traitements naturels de la rosacée et de la couperose : ce qui marche | ~1,5K | rosacée et couperose |
+| 9 | Hyperpigmentation et masque de grossesse sur peau noire ou mate | ~1,4K | taches, masque de grossesse |
+| 10 | Marques après les boutons : combien de temps, comment les traiter | ~800 | taches, acné |
+| 11 | Masque de grossesse et soleil | ~550 | masque de grossesse |
 
 **Format de chaque page pilier.** Title et H1 = nom nu du problème. Guide long (3 000 à 6 000 mots ; le n°1 sur « rosacée » en fait 5 940). Sources HAS, SFD, ANSM. Relu ou signé par un médecin, date de mise à jour visible. Sous-thèmes en sections H2 et questions en FAQ (vise l'AI Overview, présent en tête de toutes les SERP étudiées). CTA : « Parler de votre [problème] à un médecin ».
 
@@ -44,6 +61,7 @@ Novembre 2026. Sources : Ahrefs Keywords Explorer et Site Explorer (France), Goo
 - Lot 3 : 40 noms de molécules et de marques. Volume total 81K/mois.
 - Lot 4 : 40 requêtes symptômes, remèdes naturels, routines. Faible.
 - 7 SERP analysées : rosacée, masque de grossesse, couperose, acné hormonale, hyperpigmentation, dermatologue en ligne, acné adulte.
+- Matching terms (longue traîne complète) : rosacée 4 393 requêtes, couperose 5 023, hyperpigmentation 9 123, masque de grossesse 585, acné adulte 750, acné hormonale 484.
 - Bilan mixt.care et concurrent Feeli (Site Explorer).
 - Google Keyword Planner : volumes en fourchettes, toute l'acné masquée par Google (politique santé). Ahrefs fait foi.
 
@@ -66,6 +84,8 @@ Questions : c'est quoi le masque de grossesse (200), comment l'enlever (150), co
 **SERP.** Aucune pub. Top 10 : Avène (n°1, DR 65, 3 domaines réf., 4,1K visites), Caudalie, Biolane (0 lien), gynea.fr (DR 21, 0 lien, 5e), Filorga, Maison des Maternelles (Facebook), La Roche-Posay, Nuhanciam. **Aucun site médical.** Contenus de 1 300 à 3 500 mots.
 
 **Page.** /taches retitrée « Masque de grossesse (mélasma) », angle « avis médical » contre « conseils de marque ». Lien vers la future page hyperpigmentation.
+
+**Longue traîne (Matching terms, 585 requêtes, 20K/mois).** Mince : 12K + 3,1K sur 2 requêtes, le reste sous 500. Un pilier complet suffit. H2 : c'est quoi et lien avec le mélasma ; quand il apparaît (1er mois, 1er trimestre, quel mois : ~370) ; soleil (~550) ; l'éviter ; l'enlever, y compris naturellement ; crème (~280) ; peau noire et mate (~220) ; zones (front, nez, ventre) ; photos et avant/après (~600) ; idée reçue « fille ou garçon » (150). Articles de blog : « Masque de grossesse et soleil » ; « Masque de grossesse sur peau noire ou mate » (avec hyperpigmentation peau noire 600).
 
 ### Grappe 2 : rosacée et couperose
 
@@ -92,6 +112,12 @@ Questions : couperose ou rosacée (250 + 200), rosacée oculaire peut-on devenir
 **SERP rosacée.** dermato-info.fr n°1 (DR 71, 19 domaines réf., 5 940 mots, 5,5K visites), Ameli, MSD Manuals, Revue Médicale Suisse, Uriage (DR 51, **0 lien**, 6e), Vidal, recomedicales.fr. Pubs : Avène, acne-severe.com.
 
 **SERP couperose.** sante.fr, Ameli, Vidal, SFLD laser, Bioderma ; katz-dermatologue.fr (DR 0, 0 lien) 11e. Plus institutionnel (15 à 33 domaines réf.). Pubs 100 % cosmétiques (Avène, Bioderma, La Roche-Posay, Paula's Choice, Rejence…). sante.fr, Vidal et Ameli ont une page unique « Rosacée et couperose », et les pages qui rankent sur couperose rankent aussi sur rosacée : **une seule page**.
+
+**Longue traîne (Matching terms, 4 393 requêtes, 90K/mois).** Sous-types : rosacée oculaire 1,8K (+ photo 450), rosacée papulo-pustuleuse 1,7K (+ traitement efficace 350). Symptômes rosacée visage 1,4K. Photos ~1,85K cumulés (rosacée photo 800, oculaire 450, nez 300, visage 300). Crème rosacée sans ordonnance 700, avec ordonnance 300. Causes 600 + 600, banane et rosacée 450, rosacée et intestin 300. Traitement naturel 600 + 450. « ma rosacée a disparu » 1,9K (KD 0). Antibiotique 250.
+
+**Articles de blog rosacée** (en plus du pilier) : 1) Rosacée oculaire (~2,2K) ; 2) Rosacée papulo-pustuleuse : la reconnaître et la traiter (~2K) ; 3) Une rosacée peut-elle disparaître ? (~1,9K) ; 4) Crème rosacée avec ou sans ordonnance (~1,4K) ; 5) Rosacée : causes, alimentation, intestin (~1,9K) ; 6) Traitements naturels de la rosacée : ce qui marche (~1K). Dans le pilier : galerie de photos réelles annotées (~1,85K).
+
+**Longue traîne couperose (Matching terms, 5 023 requêtes, 41K/mois).** **Laser ≈ 3,65K cumulés** : laser couperose 1K, après séance 600, avant/après 500, couperose laser 450, laser couperose raté 350 (CPC 1,60 $), prix 200, remboursé mutuelle 200, vasculaire 150. Crème ≈ 750, traitement naturel ≈ 450, couperose nez 1,6K, photos 350, couperose légère 200. « Couperose ou rosacée » et variantes ≈ 1,1K : H2 en haut du pilier.
 
 ### Grappe 3 : acné adulte et hormonale
 
@@ -120,6 +146,10 @@ Questions : comment reconnaître une acné hormonale (200), acné hormonale que 
 
 **Page.** /acne retitrée « Acné adulte et acné hormonale », H2 bouton menton, microkystes, ménopause, SOPK, section éducative spironolactone (hors AMM, relecture avocat).
 
+**Longue traîne (Matching terms acné hormonale, 484 requêtes, 8,5K/mois).** Traitement 600 (+ efficace 100, que faire 150), reconnaître 200, pilule 150, kystique 150, microkyste 150, dermatologue spécialiste 150, antibiotique 80. **Demande « compléments et naturel » ≈ 1,2K cumulés** : zinc 350, compléments alimentaires 230, huiles essentielles 150, traitement naturel 150, probiotiques 100, magnésium 80, argile verte 80, alimentation 80. Article de blog : « Zinc, compléments, probiotiques : ce qui marche vraiment contre l'acné hormonale » (puis « quand passer à un traitement médical »).
+
+**Longue traîne (Matching terms acné adulte, 750 requêtes, 4,6K/mois).** Mince : traitement 350, efficace 150, nettoyant visage « lequel choisir » 200, crème 100 + meilleure 50 + quelle 40, compléments 70. « Acné adulte » reste secondaire : un seul pilier acné porté par « acné hormonale ». Hors cible : acné homme (200), dos (200), fessier.
+
 ### Grappe 4 : taches et hyperpigmentation
 
 | Requête | Volume | KD |
@@ -137,6 +167,8 @@ Questions : comment reconnaître une acné hormonale (200), acné hormonale que 
 | hyperpigmentation post inflammatoire | 250 | 0 |
 
 **SERP.** Aucune pub. La Roche-Posay n°1, MSD Manuals, **Nubiance (marque peaux noires, DR 34, 0 lien, 5e)**, Eucerin, labo-acm, Caudalie (peau noire), celestetic. Un seul site médical. L'angle phototypes 4 à 6 colle à la data prod (1 075 patientes en phototype 4 à 6).
+
+**Longue traîne (Matching terms hyperpigmentation, 9 123 requêtes, 24K/mois).** Peau noire et mate ≈ 1,15K cumulés (600 + crème, tache, savon 150 chacun + autour des yeux 100). Post-inflammatoire ≈ 800 (400 + 250 + durée 150). Lèvre et autour de la bouche 300. Crème 300, sérum 200, niacinamide 150, laser 150, après peeling 200, causes 200. Zones corps (aisselles 400, maillot, cou) hors offre visage. Articles de blog : « Hyperpigmentation sur peau noire ou mate » ; « Marques après les boutons (hyperpigmentation post-inflammatoire) : combien de temps, comment les traiter ».
 
 ### Modificateurs testés
 
