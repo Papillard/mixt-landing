@@ -5,16 +5,16 @@ import type { Concern } from './types';
 export const taches: Concern = {
   slug: 'taches',
   chip: 'Taches',
-  condition: { name: 'Taches brunes', alternateName: ['Mélasma', 'Masque de grossesse'] },
+  condition: { name: 'Mélasma', alternateName: ['Masque de grossesse', 'Chloasma', 'Taches brunes'] },
   seo: {
-    title: "Traitement du mélasma et des taches brunes en ligne | Mixt",
+    title: "Masque de grossesse et taches brunes : un médecin en ligne | Mixt",
     description:
-      "Mélasma, masque de grossesse, taches brunes : un médecin cherche leur origine et personnalise votre traitement. Bilan gratuit, visio sous 7 jours.",
+      "Masque de grossesse (mélasma), taches brunes sur le visage : un médecin partenaire cherche leur origine et personnalise votre traitement. Bilan gratuit, visio sous 7 jours.",
   },
   hero: {
-    kicker: 'Taches · Mélasma · Masque de grossesse',
-    title: 'Vos taches ne partent plus ?',
-    highlight: "Un médecin cherche d'abord leur cause",
+    kicker: 'Masque de grossesse · Mélasma · Taches brunes',
+    title: 'Masque de grossesse et taches brunes :',
+    highlight: "un médecin cherche d'abord leur cause",
     lead: "Masque de grossesse, taches apparues avec la pilule ou la ménopause, marques qui s'installent : faites le point avec un médecin partenaire pour comprendre d'où viennent vos taches et construire un traitement adapté à votre peau.",
     leadShort: "Un médecin vous voit en visio, cherche l'origine de vos taches et construit un plan de traitement adapté à votre peau.",
     image: '/images/real/patiente-leonixia-taches-portrait-main-joue-01.webp',
@@ -39,8 +39,8 @@ export const taches: Concern = {
     title: 'Des taches qui reviennent malgré les sérums',
     quotes: ["Des sérums éclaircissants : ça s'estompe un peu, puis tout revient", "La même crème que tout le monde, sans regarder votre type de peau", "Des conseils généraux, sans que personne ne cherche la cause"],
     outro: "Un médecin partenaire cherche l'origine de vos taches et personnalise le traitement selon votre peau et votre phototype.",
-    image: "/images/real/gros-plan-melasma-joue-01.webp",
-    imageAlt: "Gros plan de taches brunes sur la joue",
+    image: "/images/real/gros-plan-serie-melasma-01.webp",
+    imageAlt: "Gros plan de mélasma sur la joue et la pommette",
     imagePosition: 'center',
   },
   formulaImage: '/images/real/produit-creme-doigt-fond-beige-01.webp',
@@ -65,16 +65,6 @@ export const taches: Concern = {
     footer:
       "Votre médecin personnalise actifs et dosages selon votre phototype et votre situation, selon son évaluation clinique. Certains actifs ne s'utilisent pas pendant la grossesse ou l'allaitement.",
   },
-  proof: {
-    name: 'Laetitia, 41 ans',
-    meta: 'Taches brunes · 4 mois',
-    before: { src: '/images/laetitia-before.webp', alt: 'Laetitia avant le protocole', objectPosition: 'center 15%' },
-    after: { src: '/images/laetitia-after.webp', alt: 'Laetitia après 4 mois', objectPosition: 'center 15%' },
-    afterLabel: 'Après · 4 mois',
-    quote: "Pendant 10 ans j'ai cherché une solution pour ma peau. Aujourd'hui quand je vois les photos d'avant, je n'en reviens pas.",
-    context: "Taches diagnostiquées par sa dermatologue. Parcours de 4 mois avec un médecin partenaire et l'équipe Mixt, formule magistrale prescrite.",
-    legal: 'Photos authentiques, patiente consentante. Résultats individuels, variables selon les personnes.',
-  },
   faq: [
     {
       q: "Mélasma et masque de grossesse : quelle différence ?",
@@ -87,6 +77,14 @@ export const taches: Concern = {
     {
       q: "J'ai un masque de grossesse, que faire ?",
       a: "C'est très fréquent. Signalez toute grossesse, tout projet de grossesse ou allaitement : certains actifs sont contre-indiqués. Le médecin adapte le plan à votre situation, en commençant par une protection solaire rigoureuse.",
+    },
+    {
+      q: 'Comment éviter le masque de grossesse ?',
+      a: "Le soleil est son premier déclencheur : une protection solaire quotidienne, teintée de préférence, et un chapeau dès les beaux jours limitent son apparition et son aggravation. Pendant la grossesse, demandez toujours un avis médical avant d'utiliser un actif dépigmentant.",
+    },
+    {
+      q: "Le masque de grossesse disparaît-il après l'accouchement ?",
+      a: "Il s'atténue souvent dans les mois qui suivent l'accouchement, mais pas toujours. Il peut persister ou revenir avec le soleil ou une contraception hormonale. S'il ne part pas, un médecin peut faire le point et proposer un plan adapté, en tenant compte de l'allaitement.",
     },
     {
       q: 'Mes taches vont-elles disparaître définitivement ?',
@@ -107,6 +105,6 @@ export const taches: Concern = {
   ],
   related: [
     { href: '/acne/', label: 'Acné adulte', teaser: 'Boutons qui reviennent à l’âge adulte.' },
-    { href: '/rosacee/', label: 'Rosacée et rougeurs', teaser: 'Rougeurs diffuses, sensations de chaleur et boutons.' },
+    { href: '/rosacee/', label: 'Rosacée et couperose', teaser: 'Rougeurs diffuses, petits vaisseaux, sensations de chaleur.' },
   ],
 };
