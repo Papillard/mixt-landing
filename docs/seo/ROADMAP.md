@@ -48,6 +48,11 @@ DR 0, aucun mot-clé positionné, liens existants sans valeur. Délai réaliste 
 | 10 | Article : Couperose du nez et du visage | ~4,7K | |
 | 11 | Article : Marques après les boutons | ~800 | Pont acné / taches |
 | 12 | Article : Masque de grossesse, soleil et après l'accouchement | ~900 | Avant le pic de printemps |
+| 8 | Article : Lentigo et taches solaires | ~5K, KD 0 | |
+| 9 | Article : Boutons sur le menton et la mâchoire | ~2,1K | Persona n°1 prod |
+| 10 | Article : Couperose du nez et du visage | ~4,7K | en PR (p1-h) : /blog/couperose-nez-visage/ |
+| 11 | Article : Marques après les boutons | ~800 | Pont acné / taches. En PR (p1-h) : /blog/marques-apres-boutons/ |
+| 12 | Article : Masque de grossesse, soleil et après l'accouchement | ~900 | Avant le pic de printemps. En PR (p1-h) : /blog/masque-de-grossesse-soleil/ |
 
 ### P2 : ensuite
 - Allonger /acne et /hyperpigmentation sur le même modèle.
