@@ -32,7 +32,7 @@ DR 0, aucun mot-clé positionné, liens existants sans valeur. Délai réaliste 
 ### P0 : cette semaine (débloque tout le reste)
 | # | Action | Qui | Durée |
 |---|---|---|---|
-| 1 | Brancher Google Search Console (propriété Domaine, TXT DNS Cloudflare) et soumettre le sitemap | Boris + Claude | 10 min |
+| 1 | ~~Search Console~~ fait le 23/11 : déjà branché (513 clics sur 3 mois, 6 pages indexées sur 14), sitemap renvoyé, indexation demandée pour 10 pages prioritaires. Vérifier le rapport Pages le 30/11 | Boris | fait |
 | 2 | Relecture médicale des 8 articles et des FAQ (liste dans les PR #68, #70, #72, #73) | Bethsabée | 2 h |
 | 3 | Afficher « Relu par Dr Bethsabée Levy Garel, dermatologue » + date sur les articles relus (champ `reviewedBy`) | Claude | 15 min |
 | 4 | ~~Retirer les 3 blocs gris en ligne~~ fait le 23/11 (description texte à la place) | Claude | fait |
