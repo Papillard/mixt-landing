@@ -12,6 +12,7 @@ import EquipeMedicale from '../EquipeMedicale.astro';
 import MotFondatrice from '../MotFondatrice.astro';
 import MobileStickyCta from '../MobileStickyCta.astro';
 import LandingPhotoPH from '../landing/LandingPhotoPH.astro';
+import ConcernArticles from './ConcernArticles.astro';
 import type { Concern } from '../../data/concerns/types';
 import { breadcrumb, ORG_ID, WEBSITE_ID, DERMATO_ID, dermatologist } from '../../data/schema';
 
@@ -517,9 +518,10 @@ const structuredData = {
     </div>
   </section>
 
-  {/* ── FAQ ── */}
+  {/* ── FAQ (précédée de la rangée discrète « Pour aller plus loin ») ── */}
   <section class="px-6 md:px-10 pt-24 md:pt-32 pb-16 md:pb-24 bg-cream">
     <div class="max-w-[1200px] mx-auto">
+      {concern.articles && concern.articles.length > 0 && <ConcernArticles slugs={concern.articles} />}
       <FadeInSection client:load>
         <h2 class="text-balance text-[32px] md:text-[44px] font-medium leading-[1.08] tracking-[-0.035em] text-center mb-12 md:mb-16 text-ink">
           {concern.chip}, <span class="italic-serif whitespace-nowrap">vos questions.</span>

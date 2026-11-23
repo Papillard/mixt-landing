@@ -36,12 +36,12 @@ DR 0, aucun mot-clé positionné, liens existants sans valeur. Délai réaliste 
 | 2 | Relecture médicale des 8 articles et des FAQ (liste dans les PR #68, #70, #72, #73) | Bethsabée | 2 h |
 | 3 | Afficher « Relu par Dr Bethsabée Levy Garel, dermatologue » + date sur les articles relus (champ `reviewedBy`) | Claude | 15 min |
 | 4 | ~~Retirer les 3 blocs gris en ligne~~ fait le 23/11 (description texte à la place) | Claude | fait |
-| 5 | Maillage : liens des landings vers leurs articles (bloc « Pour aller plus loin ») + lien Dossiers peau depuis la home | Claude | 30 min |
+| 5 | Maillage : ~~liens des landings vers leurs articles~~ en PR (rangée discrète « Pour aller plus loin » sur les 4 landings, champ `articles`) + lien Dossiers peau depuis la home | Claude | 30 min |
 
 ### P1 : les 2 prochaines semaines
 | # | Action | Volume/mois | Note |
 |---|---|---|---|
-| 6 | Allonger /rosacee en vrai guide (sections : types, déclencheurs, couperose, traitements en DCI, quand consulter) | ~55K | Le n°1 fait 5 940 mots ; c'est la plus grosse marge |
+| 6 | **En PR** : guide pilier rosacée et couperose en article séparé, /blog/rosacee-couperose/ (10 H2, ~3 200 mots, 5 FAQ, sources Ameli, SFD, SFLD, ROSCO). La landing /rosacee reste courte, dédiée à la pub. Relecture médicale à faire | ~55K | Règle : landings = conversion (pub), guides SEO = articles du blog |
 | 7 | Allonger /taches (masque de grossesse) : apparition, soleil, après l'accouchement, allaitement | ~20K | Top 10 sans site médical |
 | 8 | Article : Lentigo et taches solaires | ~5K, KD 0 | |
 | 9 | Article : Boutons sur le menton et la mâchoire | ~2,1K | Persona n°1 prod |
