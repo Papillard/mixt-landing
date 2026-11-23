@@ -51,6 +51,29 @@ Une acné hormonale n'est pas forcément le signe d'un dérèglement. La plupart
 
 Pour tout comprendre sur l'acné adulte et ses traitements, lisez notre page [acné adulte et acné hormonale](/acne/). Ici, on fait le tri dans ce que l'on peut essayer avant, ou en plus.
 
+### Ce que l'acné laisse sur la peau
+
+<div class="grid grid-cols-2 gap-x-5 gap-y-8 my-8">
+<figure class="m-0">
+<img src="/images/real/gros-plan-serie-comedons-fermes-01.webp" alt="Gros plan : comédons fermés et microkystes" loading="lazy" class="w-full rounded-[16px] object-cover" style="aspect-ratio: 4/5; margin: 0;" />
+<figcaption class="mt-3 text-[15px] leading-snug text-ink-3"><strong class="block text-ink text-[16px] mb-1">Comédons fermés et microkystes</strong>Petites bosses blanches sous la peau, sans tête visible, souvent sur le front et le menton.</figcaption>
+</figure>
+<figure class="m-0">
+<img src="/images/real/gros-plan-serie-marques-acne-01.webp" alt="Gros plan : marques rouges" loading="lazy" class="w-full rounded-[16px] object-cover" style="aspect-ratio: 4/5; margin: 0;" />
+<figcaption class="mt-3 text-[15px] leading-snug text-ink-3"><strong class="block text-ink text-[16px] mb-1">Marques rouges</strong>Taches rouges ou rosées laissées par un bouton récent. Elles pâlissent en quelques mois.</figcaption>
+</figure>
+<figure class="m-0">
+<img src="/images/real/gros-plan-serie-cicatrices-acne-01.webp" alt="Gros plan : cicatrices" loading="lazy" class="w-full rounded-[16px] object-cover" style="aspect-ratio: 4/5; margin: 0;" />
+<figcaption class="mt-3 text-[15px] leading-snug text-ink-3"><strong class="block text-ink text-[16px] mb-1">Cicatrices</strong>Petits creux ou reliefs permanents, après des boutons profonds ou percés.</figcaption>
+</figure>
+<figure class="m-0">
+<img src="/images/real/gros-plan-serie-pores-dilates-01.webp" alt="Gros plan : pores dilatés" loading="lazy" class="w-full rounded-[16px] object-cover" style="aspect-ratio: 4/5; margin: 0;" />
+<figcaption class="mt-3 text-[15px] leading-snug text-ink-3"><strong class="block text-ink text-[16px] mb-1">Pores dilatés</strong>Pores visibles et peau plus grasse, souvent sur les joues et le nez.</figcaption>
+</figure>
+</div>
+
+Le médecin regarde ces signes sur vos photos : ils orientent le traitement, et certains (marques, cicatrices) se prennent en charge en parallèle de l'acné active.
+
 ## Zinc et acné : ce que disent les études
 
 Le zinc est l'option la plus cherchée, et c'est aussi celle qui a le plus de données.
