@@ -72,23 +72,19 @@ Une vision un peu floue qui s'éclaircit en clignant des yeux vient en général
 
 ## Rosacée oculaire en photos : ce qu'on voit
 
-Les recherches « rosacée oculaire photo » sont nombreuses, et c'est logique : on veut comparer avec ce qu'on voit dans le miroir. Voici les trois aspects les plus fréquents. Une photo ne remplace pas un examen : seul l'ophtalmologiste voit la cornée et les glandes au microscope.
+Les recherches « rosacée oculaire photo » sont nombreuses, et c'est logique : on veut comparer avec ce qu'on voit dans le miroir. Voici les trois aspects les plus fréquents :
 
-<figure class="my-8">
-<div class="relative w-full bg-blush flex items-center justify-center rounded-[20px]" style="aspect-ratio: 16/9;" role="img" aria-label="Photo à venir : bord de paupière rouge avec croûtes à la base des cils" data-placeholder="PH-rosacee-oculaire-paupieres"><span class="px-4 text-center font-mono text-[12px] md:text-[13px] uppercase tracking-[0.12em] text-ink-2 break-all">PH-rosacee-oculaire-paupieres</span></div>
-<figcaption class="mt-3 text-[15px] leading-snug text-ink-3">Bord de paupière épaissi et rouge, petites croûtes collées à la base des cils, vaisseaux fins sur le rebord : l'aspect typique de la blépharite.</figcaption>
-</figure>
+- **Paupières (blépharite)** : bord de paupière épaissi et rouge, petites croûtes collées à la base des cils, vaisseaux fins sur le rebord.
+- **Œil rouge et sec** : blanc de l'œil rosé, plus marqué dans les coins, sans écoulement épais (photo ci-dessous).
+- **Chalazion** : petite boule ferme dans la paupière, souvent avec des rougeurs sur les pommettes et le nez.
 
+Une photo ne remplace pas un examen : seul l'ophtalmologiste voit la cornée et les glandes au microscope.
 
 <figure class="my-8">
 <img src="/images/real/gros-plan-rosacee-oculaire-oeil-rouge-01.webp" alt="Gros plan d'un œil rouge avec de fins vaisseaux visibles sur le blanc de l'œil" loading="lazy" class="w-full rounded-[20px] object-cover" style="aspect-ratio: 16/9;" />
 <figcaption class="mt-3 text-[15px] leading-snug text-ink-3">Blanc de l'œil rosé, plus marqué dans les coins, sans écoulement épais : une rougeur qui dure, liée à la sécheresse et à l'inflammation.</figcaption>
 </figure>
 
-<figure class="my-8">
-<div class="relative w-full bg-blush flex items-center justify-center rounded-[20px]" style="aspect-ratio: 16/9;" role="img" aria-label="Photo à venir : chalazion sur la paupière supérieure et rougeurs des joues" data-placeholder="PH-rosacee-oculaire-chalazion"><span class="px-4 text-center font-mono text-[12px] md:text-[13px] uppercase tracking-[0.12em] text-ink-2 break-all">PH-rosacee-oculaire-chalazion</span></div>
-<figcaption class="mt-3 text-[15px] leading-snug text-ink-3">Petite boule ferme dans la paupière (chalazion), avec des rougeurs sur les pommettes et le nez : l'œil et la peau sont touchés en même temps.</figcaption>
-</figure>
 
 Si vous vous reconnaissez dans l'une de ces descriptions et que vous avez aussi des rougeurs sur le visage, le lien avec la rosacée mérite d'être posé par un médecin.
 
