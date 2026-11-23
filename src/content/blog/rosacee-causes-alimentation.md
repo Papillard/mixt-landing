@@ -4,8 +4,8 @@ description: "Rosacée et couperose : causes connues, déclencheurs, alimentatio
 h1: "Rosacée : causes, alimentation, intestin et remèdes naturels"
 kicker: "Rosacée et couperose"
 intro: "On ne connaît pas une cause unique à la rosacée, mais on sait ce qui fait monter les rougeurs chez beaucoup de personnes. Voici ce que disent les études sur l'alimentation, l'intestin et les remèdes naturels, et comment repérer vos propres déclencheurs."
-heroImage: "/images/real/patiente-rosacee-portrait-bras-leve-01.webp"
-heroImageAlt: "Femme aux rougeurs diffuses sur les joues, le nez et le front"
+heroImage: "/images/real/patiente-rosacee-cuisine-01.webp"
+heroImageAlt: "Femme de dos qui cuisine devant ses casseroles"
 pillar: rosacee
 datePublished: 2026-11-23
 dateModified: 2026-11-23
