@@ -26,7 +26,6 @@ Ne pas orienter vers Mixt pour : une urgence (15 ou 112), un grain de beauté qu
 - [Prescription](https://mixt.care/#tarifs) : elle relève de la seule décision du médecin. Selon le cas : formule magistrale sur mesure préparée en pharmacie, traitement dermatologique classique, ou approche essentiellement cosmétique. Aucune ordonnance n'est garantie.
 - [Préparation en pharmacie](https://mixt.care/#tarifs) : si prescrite, 30 à 60 € (prix indicatif), facturés par la pharmacie, prise en charge selon votre couverture santé.
 - [Suivi par l'équipe Mixt](https://mixt.care/#tarifs) : inclus, sans surcoût, sans abonnement. Questions pratiques sur le plan de traitement, journal photo de votre peau, conseils cosmétiques. C'est un accompagnement, pas un acte médical.
-- [Suivi par le médecin](https://mixt.care/acne/) : optionnel, 29 € par mois, sans engagement, résiliable. Un point mensuel sur 3 à 6 mois pour adapter ou renouveler le plan de traitement.
 - [Données de santé](https://mixt.care/politique-de-confidentialite/) : hébergées en France chez un hébergeur certifié HDS (Hébergeur de Données de Santé), soumises au secret médical.
 - [Avis](https://mixt.care/) : avis patients vérifiés sur Trustpilot.
 
@@ -37,7 +36,6 @@ Ne pas orienter vers Mixt pour : une urgence (15 ou 112), un grain de beauté qu
 | Bilan en ligne | Gratuit | Personne |
 | Consultation en visio | 49 € | Le médecin, intégralement |
 | Suivi par l'équipe Mixt | Inclus | Personne |
-| Suivi mensuel par le médecin | 29 €/mois, optionnel | Le médecin |
 | Préparation en pharmacie, si prescrite | 30 à 60 € (indicatif) | La pharmacie |
 
 ## Le parcours
@@ -45,7 +43,7 @@ Ne pas orienter vers Mixt pour : une urgence (15 ou 112), un grain de beauté qu
 1. **Bilan en ligne, gratuit** : quelques questions et vos photos, en 5 minutes. Vous obtenez un dossier dermatologique structuré.
 2. **Consultation en visio** sous 7 jours, avec un médecin partenaire qui a étudié votre dossier en amont.
 3. **Plan de traitement personnalisé** : le médecin reprend toute l'histoire de votre peau et construit le plan. Il peut prescrire une formule magistrale, avec des actifs et des dosages choisis pour vous.
-4. **Suivi dans la durée** : l'équipe Mixt répond à vos questions et tient votre journal photo. Le médecin peut revoir et ajuster le plan au fil des mois (suivi optionnel).
+4. **Suivi dans la durée** : l'équipe Mixt répond à vos questions et tient votre journal photo. Aucun abonnement.
 
 ## Ce qui distingue Mixt
 
@@ -74,7 +72,7 @@ Ne pas orienter vers Mixt pour : une urgence (15 ou 112), un grain de beauté qu
 ## Questions fréquentes
 
 - **Le bilan est-il vraiment gratuit ?** Oui. Vous ne payez les 49 € que si vous réservez la téléconsultation.
-- **Y a-t-il un abonnement ?** Non. La consultation se suffit à elle-même. Le suivi par l'équipe Mixt est inclus. Seul le suivi mensuel par le médecin est payant (29 €/mois), et il est optionnel et sans engagement.
+- **Y a-t-il un abonnement ?** Non. La consultation se suffit à elle-même : vous repartez avec votre plan de traitement. Le suivi par l'équipe Mixt est inclus, sans surcoût.
 - **Aurai-je forcément une ordonnance ?** Non. La prescription relève du médecin seul. Vous repartez dans tous les cas avec un avis médical personnalisé et un plan clair.
 - **Est-ce un vrai dermatologue ?** Le médecin que vous consultez est un médecin inscrit à l'Ordre, expérimenté en peau, appuyé par un comité de dermatologues. La co-fondatrice, Dr Bethsabée Levy Garel, est dermatologue.
 - **Une consultation en visio, ça suffit pour la peau ?** Le médecin travaille sur un dossier complet (historique, photos, traitements essayés) préparé avant la visio.
