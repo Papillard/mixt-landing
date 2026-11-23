@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import MobileStickyCta from '../../components/MobileStickyCta.astro';
+import PhotoPlaceholder from '../../components/PhotoPlaceholder.astro';
+import { SITE } from '../../data/schema';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.datePublished.getTime() - a.data.datePublished.getTime(),
+);
+
+const title = 'Blog Mixt : rosacée, couperose, acné, taches';
+const description =
+  "Des articles clairs sur les problèmes de peau : rosacée, couperose, acné adulte, masque de grossesse et taches. Ce qui marche, ce qui ne suffit pas, quand consulter.";
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Blog',
+      '@id': `${SITE}/blog/#blog`,
+      url: `${SITE}/blog/`,
+      name: title,
+      description,
+      inLanguage: 'fr-FR',
+      blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.data.h1, url: `${SITE}/blog/${p.id}/` })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${SITE}/blog/#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE}/` },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog/` },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} structuredData={structuredData}>
+  <Nav ctaLabel="Démarrer ma consultation" stickyCtaMobile />
+
+  <section class="bg-base px-6 md:px-10 pt-[calc(56px+40px)] lg:pt-[calc(56px+72px)] pb-12">
+    <div class="max-w-[1200px] mx-auto">
+      <p class="font-mono text-[12px] uppercase tracking-[0.16em] text-ember-deep mb-4">Blog</p>
+      <h1 class="text-balance text-[36px] md:text-[52px] font-bold leading-[1.05] tracking-[-0.035em] text-ink max-w-[820px] m-0">
+        Comprendre sa peau avant de choisir un traitement
+      </h1>
+      <p class="mt-6 text-[17px] md:text-[19px] leading-[1.6] text-ink-2 max-w-[640px]">
+        Rosacée, couperose, acné adulte, taches : ce que font les traitements, leurs limites, et les signes qui justifient un avis médical.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-base px-6 md:px-10 pb-24 md:pb-32">
+    <div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {posts.map((p) => (
+        <a href={`/blog/${p.id}/`} class="group block no-underline">
+          {p.data.heroImage ? (
+            <img src={p.data.heroImage} alt="" class="w-full aspect-[4/3] object-cover rounded-[20px]" loading="lazy" />
+          ) : (
+            <PhotoPlaceholder name={p.data.heroPlaceholder ?? `PH-${p.id}-hero`} ratio="4/3" />
+          )}
+          <p class="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{p.data.kicker}</p>
+          <h2 class="mt-2 text-[22px] font-bold leading-[1.2] tracking-[-0.025em] text-ink group-hover:text-ember-deep transition-colors">{p.data.h1}</h2>
+          <p class="mt-2 text-[15px] leading-[1.55] text-ink-2">{p.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <Footer />
+  <MobileStickyCta />
+</BaseLayout>

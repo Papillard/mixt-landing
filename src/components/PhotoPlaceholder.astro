@@ -1,0 +1,24 @@
+---
+// Aplat gris en attendant une vraie photo. Le nom PH-… reste lisible pour la génération
+// à la chaîne (liste : docs/seo/photos-a-generer.md). Pas de dégradé, pas de voile.
+interface Props {
+  name: string;
+  /** ratio CSS, ex. "4/5", "16/9", "1/1" */
+  ratio?: string;
+  class?: string;
+  rounded?: boolean;
+}
+const { name, ratio = '4/5', class: className = '', rounded = true } = Astro.props;
+---
+
+<div
+  class={`relative w-full bg-blush flex items-center justify-center ${rounded ? 'rounded-[20px]' : ''} ${className}`}
+  style={`aspect-ratio: ${ratio};`}
+  role="img"
+  aria-label="Photo à venir"
+  data-placeholder={name}
+>
+  <span class="px-4 text-center font-mono text-[12px] md:text-[13px] uppercase tracking-[0.12em] text-ink-2 break-all">
+    {name}
+  </span>
+</div>
