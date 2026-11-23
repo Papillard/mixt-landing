@@ -50,8 +50,8 @@ export const hyperpigmentation: Concern = {
     ],
     outro:
       "Un médecin partenaire étudie vos photos, identifie le type de tache et choisit des actifs tolérés par votre phototype.",
-    image: 'PH-hyperpigmentation-voix',
-    imageAlt: 'Photo à venir',
+    image: '/images/real/gros-plan-serie-taches-solaires-01.webp',
+    imageAlt: 'Gros plan de taches solaires sur une joue',
   },
   formulaImage: '/images/real/produit-tube-main-fond-brun-01.webp',
   problem: {
