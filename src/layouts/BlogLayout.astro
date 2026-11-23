@@ -1,5 +1,6 @@
 ---
-// Article de blog SEO : hero 2 colonnes, sommaire auto des H2, corps une colonne,
+// Article de blog SEO : hero éditorial centré (kicker, H1, intro, méta, photo 3/2), sommaire
+// auto des H2, corps en colonne de lecture ~720px,
 // « Quand consulter », FAQ (même rendu que les landings), CTA final, maillage.
 // Mode d'emploi : docs/seo/sprints/blog-howto.md
 import type { MarkdownHeading } from 'astro';
@@ -36,7 +37,12 @@ const pillarHref = `/${d.pillar}/`;
 const topic = d.ctaTopic ?? pillar.topic;
 const ctaLabel = `Parler de votre ${topic} à un médecin`;
 
+// Typo française : espace insécable avant « : ? ! » pour éviter un signe seul en début de ligne.
+const nbsp = (t: string) => t.replace(/ ([:?!;])/g, '\u00a0$1');
 const toc = headings.filter((h) => h.depth === 2);
+// Temps de lecture : ~220 mots/minute sur le Markdown brut.
+const words = (entry.body ?? '').split(/\s+/).filter(Boolean).length;
+const readingTime = Math.max(1, Math.round(words / 220));
 
 const fmt = (date: Date) =>
   date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
@@ -91,88 +97,78 @@ const structuredData = {
 <BaseLayout title={d.title} description={d.description} structuredData={structuredData} ogImage={heroImageUrl}>
   <Nav ctaLabel="Démarrer ma consultation" ctaHref={CTA_HREF} stickyCtaMobile />
 
-  {/* ── HERO 2 colonnes ── */}
-  <section class="bg-base px-6 md:px-10 pt-[calc(56px+28px)] lg:pt-[calc(56px+56px)] pb-14 lg:pb-20">
-    <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
-      <div>
-        <nav aria-label="Fil d'Ariane" class="mb-6 text-[13px] text-ink-3">
-          <a href="/blog/" class="text-ink-3 no-underline hover:text-ink">Blog</a>
-          <span class="mx-1.5" aria-hidden="true">/</span>
-          <a href={pillarHref} class="text-ink-3 no-underline hover:text-ink">{pillar.label}</a>
-        </nav>
-        <p class="font-mono text-[12px] uppercase tracking-[0.16em] text-ember-deep mb-4">{d.kicker}</p>
-        <h1 class="text-balance text-[34px] md:text-[46px] lg:text-[52px] font-bold leading-[1.05] tracking-[-0.035em] text-ink mb-6">
-          {d.h1}
-        </h1>
-        <p class="text-[17px] md:text-[19px] leading-[1.6] text-ink-2 mb-8 max-w-[580px]">{d.intro}</p>
-        <Button href={CTA_HREF} variant="ember-pill">{ctaLabel} →</Button>
-        <p class="mt-4 text-[13px] text-ink-3">{CTA_NOTE}</p>
-        <p class="mt-8 text-[13px] text-ink-3">
-          Mis à jour le <time datetime={iso(d.dateModified)}>{fmt(d.dateModified)}</time> · {d.reviewedBy}
-        </p>
-      </div>
-      <div class="w-full max-w-[520px] lg:max-w-none mx-auto">
-        {d.heroImage ? (
-          <img
-            src={d.heroImage}
-            alt={d.heroImageAlt ?? ''}
-            class="w-full aspect-[4/5] object-cover rounded-[20px]"
-            fetchpriority="high"
-          />
-        ) : (
-          <PhotoPlaceholder name={d.heroPlaceholder ?? `PH-${entry.id}-hero`} ratio="4/5" />
-        )}
-      </div>
+  {/* ── HERO éditorial centré (à la Medium) : pas de bouton, pas de split photo ── */}
+  <header class="bg-white px-6 md:px-10 pt-[calc(56px+40px)] lg:pt-[calc(56px+80px)] pb-10 md:pb-14">
+    <div class="max-w-[720px] mx-auto text-center">
+      <nav aria-label="Fil d'Ariane" class="mb-8 text-[13px] text-ink-3">
+        <a href="/blog/" class="text-ink-3 no-underline hover:text-ink">Blog</a>
+        <span class="mx-1.5" aria-hidden="true">/</span>
+        <a href={pillarHref} class="text-ink-3 no-underline hover:text-ink">{pillar.label}</a>
+      </nav>
+      <p class="font-mono text-[12px] uppercase tracking-[0.16em] text-ember-deep mb-5">{d.kicker}</p>
+      <h1 class="text-balance text-[34px] md:text-[48px] lg:text-[54px] font-bold leading-[1.06] tracking-[-0.035em] text-ink mb-6">
+        {nbsp(d.h1)}
+      </h1>
+      <p class="text-pretty text-[18px] md:text-[20px] leading-[1.6] text-ink-2 max-w-[640px] mx-auto">{nbsp(d.intro)}</p>
+      <p class="mt-7 text-[13px] text-ink-3">
+        Mis à jour le <time datetime={iso(d.dateModified)}>{fmt(d.dateModified)}</time>
+        <span class="mx-1.5" aria-hidden="true">·</span>{readingTime} min de lecture
+        <span class="mx-1.5" aria-hidden="true">·</span>{d.reviewedBy}
+      </p>
     </div>
-  </section>
+    <div class="max-w-[720px] mx-auto mt-10 md:mt-12">
+      {d.heroImage ? (
+        <img
+          src={d.heroImage}
+          alt={d.heroImageAlt ?? ''}
+          class="w-full aspect-[3/2] object-cover rounded-[20px]"
+          fetchpriority="high"
+        />
+      ) : (
+        <PhotoPlaceholder name={d.heroPlaceholder ?? `PH-${entry.id}-hero`} ratio="3/2" />
+      )}
+    </div>
+  </header>
 
-  {/* ── CORPS : sommaire + prose une colonne ── */}
-  <section class="bg-white px-6 md:px-10 py-14 md:py-20">
-    <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[240px_minmax(0,720px)] gap-10 lg:gap-20 justify-center">
+  {/* ── CORPS : même colonne étroite, sommaire sobre en tête ── */}
+  <section class="bg-white px-6 md:px-10 pb-16 md:pb-24">
+    <div class="max-w-[720px] mx-auto">
       {toc.length > 0 && (
-        <aside class="lg:sticky lg:top-[88px] self-start">
-          <details class="lg:hidden rounded-[14px] border border-black/[0.08] bg-base px-5 py-4" open>
-            <summary class="cursor-pointer font-mono text-[12px] uppercase tracking-[0.16em] text-ink-2">Sommaire</summary>
-            <ol class="list-none m-0 mt-4 p-0 flex flex-col gap-2.5">
-              {toc.map((h) => (
-                <li><a href={`#${h.slug}`} class="text-[15px] leading-snug text-ink no-underline hover:text-ember-deep">{h.text}</a></li>
-              ))}
-            </ol>
-          </details>
-          <div class="hidden lg:block">
-            <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3 mb-4">Sommaire</p>
-            <ol class="list-none m-0 p-0 flex flex-col gap-3 border-l border-black/[0.08]">
-              {toc.map((h) => (
-                <li><a href={`#${h.slug}`} class="block pl-4 text-[14px] leading-snug text-ink-2 no-underline hover:text-ink">{h.text}</a></li>
-              ))}
-            </ol>
-          </div>
-        </aside>
+        <nav aria-label="Sommaire" class="mb-12 border-y border-black/[0.08] py-6">
+          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3 mb-4">Sommaire</p>
+          <ol class="list-none m-0 p-0 flex flex-col gap-2.5">
+            {toc.map((h, i) => (
+              <li class="flex gap-3 text-[15.5px] leading-snug">
+                <span class="font-mono text-[12px] text-ink-3 pt-[3px] w-5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                <a href={`#${h.slug}`} class="text-ink-2 no-underline hover:text-ink">{h.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
       )}
 
-      <div>
-        <article class="blog-prose">
-          <slot />
-        </article>
+      <article class="blog-prose">
+        <slot />
+      </article>
 
-        {d.whenToConsult.length > 0 && (
-          <aside class="mt-14 rounded-[20px] bg-deep text-white px-7 py-8 md:px-10 md:py-10" id="quand-consulter">
-            <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-white/60 mb-3">Quand consulter</p>
-            <h2 class="text-[24px] md:text-[28px] font-bold leading-[1.15] tracking-[-0.03em] mb-6">Les signes qui justifient un avis médical</h2>
-            <ul class="list-none m-0 p-0 flex flex-col gap-3.5">
-              {d.whenToConsult.map((t) => (
-                <li class="flex gap-3 text-[16px] leading-[1.55] text-white/85">
-                  <span class="mt-[9px] h-[7px] w-[7px] shrink-0 rounded-full bg-ember" aria-hidden="true"></span>
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-            <div class="mt-8">
-              <Button href={CTA_HREF} variant="white" size="md">{ctaLabel} →</Button>
-            </div>
-          </aside>
-        )}
-      </div>
+      {d.whenToConsult.length > 0 && (
+        <aside class="mt-14 rounded-[20px] bg-deep text-white px-7 py-8 md:px-10 md:py-10" id="quand-consulter">
+          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-white/60 mb-3">Quand consulter</p>
+          <h2 class="text-[24px] md:text-[28px] font-bold leading-[1.15] tracking-[-0.03em] mb-6">Les signes qui justifient un avis médical</h2>
+          <ul class="list-none m-0 p-0 flex flex-col gap-3.5">
+            {d.whenToConsult.map((t) => (
+              <li class="flex gap-3 text-[16px] leading-[1.55] text-white/85">
+                <span class="mt-[9px] h-[7px] w-[7px] shrink-0 rounded-full bg-ember" aria-hidden="true"></span>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8">
+            <Button href={CTA_HREF} variant="white" size="md">{ctaLabel} →</Button>
+          </div>
+          <p class="mt-3 text-[13px] text-white/55">{CTA_NOTE}</p>
+        </aside>
+      )}
     </div>
   </section>
 
@@ -194,9 +190,9 @@ const structuredData = {
   <section class="px-6 md:px-10 pb-24 md:pb-28 pt-4 bg-cream">
     <div class="max-w-[860px] mx-auto">
       <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3 mb-6 text-center">À lire aussi</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="flex flex-wrap justify-center gap-4">
         {[{ href: pillarHref, label: pillar.label }, ...d.related].map((r) => (
-          <a href={r.href} class="group block rounded-2xl border border-black/[0.08] bg-base px-6 py-5 no-underline transition-colors hover:border-ink/25">
+          <a href={r.href} class="group block w-full sm:w-[calc(50%-8px)] rounded-2xl border border-black/[0.08] bg-base px-6 py-5 no-underline transition-colors hover:border-ink/25">
             <div class="flex items-center justify-between gap-4">
               <span class="text-[16px] font-semibold text-ink">{r.label}</span>
               <span class="text-ember transition-transform group-hover:translate-x-[3px]" aria-hidden>→</span>
@@ -226,7 +222,7 @@ const structuredData = {
 </BaseLayout>
 
 <style is:global>
-  .blog-prose { color: var(--color-ink); font-size: 18px; line-height: 1.7; }
+  .blog-prose { color: var(--color-ink); font-size: 19px; line-height: 1.75; }
   .blog-prose > :first-child { margin-top: 0; }
   .blog-prose h2 {
     font-size: 30px; line-height: 1.15; font-weight: 700; letter-spacing: -0.03em;
@@ -250,9 +246,16 @@ const structuredData = {
   .blog-prose table { width: 100%; border-collapse: collapse; margin: 8px 0 28px; font-size: 16px; }
   .blog-prose th, .blog-prose td { text-align: left; padding: 12px 14px; border-bottom: 1px solid rgba(0,0,0,0.1); vertical-align: top; }
   .blog-prose th { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-ink-2); font-weight: 500; }
-  .blog-prose img { border-radius: 20px; margin: 28px 0; }
+  .blog-prose img { border-radius: 20px; margin: 32px 0; width: 100%; }
+  /* Placeholder photo dans le corps Markdown : <div class="ph">PH-slug-usage</div> */
+  .blog-prose .ph {
+    margin: 32px 0; aspect-ratio: 3/2; border-radius: 20px; background: var(--color-blush);
+    display: flex; align-items: center; justify-content: center; padding: 16px; text-align: center;
+    font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-ink-2);
+  }
+  .blog-prose small { display: block; margin-top: 40px; font-size: 14px; line-height: 1.6; color: var(--color-ink-3); }
   @media (max-width: 767px) {
-    .blog-prose { font-size: 17px; }
+    .blog-prose { font-size: 17.5px; }
     .blog-prose h2 { font-size: 25px; margin-top: 44px; }
     .blog-prose table { display: block; overflow-x: auto; }
   }
