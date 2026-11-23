@@ -1,0 +1,9 @@
+# Photos à générer (placeholders)
+
+Chaque placeholder gris du site porte un nom `PH-<page>-<usage>`. Ajoute tes lignes à la fin, ne réécris pas celles des autres. Règles : vraies peaux, pas de dégradé ni de voile, sujets variés (situation ET angle), adresse neutre. Voir la mémoire « bespoke image generation » (portrait preset, banque de scénarios).
+
+| Nom | Emplacement | Ratio | Photo idéale (sujet, cadrage, lumière, phototype) | Statut |
+|---|---|---|---|---|
+| PH-laser-couperose-apres-seance | /blog/laser-couperose/, section « Après la séance » | 3/2 | Gros plan joue et pommette, phototype II à III, rougeur légère et homogène de lendemain de séance (pas de plaie, pas de purpura spectaculaire). Main qui applique un écran solaire du bout des doigts. Lumière naturelle diffuse, salle de bain claire, peau réelle avec pores visibles. | à générer |
+| PH-rosacee-oculaire-paupieres | /blog/rosacee-oculaire/ (section photos) | 16/9 | Macro du bord de la paupière inférieure : bord épaissi et rouge, petites croûtes à la base des cils, fins vaisseaux sur le rebord. Phototype II, lumière du jour neutre, netteté sur les cils. Image documentaire, pas spectaculaire. Validation médecin requise (photo réelle ou banque médicale sous licence de préférence à l'IA). | à générer |
+| PH-rosacee-oculaire-chalazion | /blog/rosacee-oculaire/ (section photos) | 16/9 | Cadrage du haut du visage (front à la lèvre supérieure) : petite boule ferme sur la paupière supérieure (chalazion) et rougeurs sur pommettes et nez. Phototype II à III, 45 ans environ, lumière naturelle douce, fond clair. Validation médecin requise. | à générer |
