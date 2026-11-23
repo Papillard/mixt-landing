@@ -4,7 +4,8 @@ description: "Crème rosacée sans ordonnance ou sur prescription : ce que font 
 h1: "Crème rosacée et couperose : avec ou sans ordonnance"
 kicker: "Rosacée · Soins et traitements"
 intro: "En pharmacie, les crèmes pour peaux rouges calment, protègent et camouflent. Elles n'agissent pas sur l'inflammation qui entretient la rosacée. Voici ce que chaque type de crème peut faire, et à quel moment un médecin prend le relais."
-heroPlaceholder: "PH-creme-rosacee-couperose-hero"
+heroImage: "/images/real/produit-cremes-plateau-inox-01.webp"
+heroImageAlt: "Quatre textures de crèmes posées sur un plateau en inox"
 pillar: "rosacee"
 datePublished: 2026-11-23
 dateModified: 2026-11-23
