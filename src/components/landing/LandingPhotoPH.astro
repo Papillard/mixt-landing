@@ -1,0 +1,18 @@
+---
+// Placeholder photo local au sprint S2 (le composant partagé PhotoPlaceholder arrive avec le blog).
+// Aplat gris plein, nom PH-… affiché : la photo est à générer (cf. docs/seo/photos-a-generer.md).
+interface Props {
+  name: string;
+  class?: string;
+}
+const { name, class: className = '' } = Astro.props;
+---
+
+<div
+  class:list={['flex items-center justify-center bg-[#D9D6D3] text-[#6B6662]', className]}
+  role="img"
+  aria-label={`Photo à venir : ${name}`}
+  data-photo-placeholder={name}
+>
+  <span class="font-mono text-[11px] md:text-[12px] font-medium uppercase tracking-[0.16em] px-4 text-center">{name}</span>
+</div>
