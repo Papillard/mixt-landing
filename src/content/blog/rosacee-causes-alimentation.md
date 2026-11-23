@@ -27,9 +27,11 @@ faq:
     a: "Les gestes doux (eau tiède, soin sans parfum, protection solaire, froid sur les rougeurs) peuvent apaiser. Aucun remède naturel n'a montré qu'il faisait disparaître une rosacée. Quand les rougeurs persistent ou que des boutons apparaissent, un médecin peut proposer un traitement adapté, si c'est indiqué."
 related:
   - href: "/blog/laser-couperose/"
-    label: "Laser couperose : résultats, prix, après la séance"
-  - href: "/blog/acne-hormonale-zinc-complements/"
-    label: "Acné hormonale : zinc, compléments, nettoyant"
+    label: "Laser couperose : résultats, après la séance, prix, limites"
+  - href: "/blog/rosacee-oculaire/"
+    label: "Rosacée oculaire : symptômes, photos et que faire"
+  - href: "/blog/rosacee-papulo-pustuleuse/"
+    label: "Rosacée papulo-pustuleuse : la reconnaître et la traiter"
 ---
 
 ## Rosacée : quelles causes ?

@@ -30,9 +30,11 @@ faq:
     a: "Pendant la grossesse et l'allaitement, demandez l'avis d'un médecin avant d'appliquer tout traitement, y compris sans ordonnance. En attendant, une crème hydratante simple, sans parfum, et une protection solaire minérale sont les gestes les plus prudents."
 related:
   - href: "/blog/rosacee-disparaitre/"
-    label: "Une rosacée peut-elle disparaître ?"
+    label: "Ma rosacée a disparu : une rosacée peut-elle guérir ?"
+  - href: "/blog/rosacee-causes-alimentation/"
+    label: "Rosacée : causes, alimentation, intestin et remèdes naturels"
   - href: "/blog/laser-couperose/"
-    label: "Laser couperose : résultats, prix, après la séance"
+    label: "Laser couperose : résultats, après la séance, prix, limites"
 ---
 
 Le rayon « peaux rouges » d'une pharmacie compte des dizaines de crèmes, et en face, quelques traitements que seul un médecin peut prescrire. Les deux n'ont pas le même rôle. Les crèmes de pharmacie rendent la peau plus confortable et la protègent. Les traitements prescrits agissent sur ce qui entretient la [rosacée](/rosacee/) : l'inflammation, les boutons, la réactivité des vaisseaux. Savoir lequel des deux vous manque évite des mois d'essais.

@@ -31,8 +31,10 @@ faq:
 related:
   - href: "/blog/rosacee-papulo-pustuleuse/"
     label: "Rosacée papulo-pustuleuse : la reconnaître et la traiter"
-  - href: "/blog/"
-    label: "Tous les articles du blog"
+  - href: "/blog/creme-rosacee-couperose/"
+    label: "Crème rosacée et couperose : avec ou sans ordonnance"
+  - href: "/blog/rosacee-disparaitre/"
+    label: "Ma rosacée a disparu : une rosacée peut-elle guérir ?"
 ---
 
 ## Rosacée oculaire : de quoi parle-t-on

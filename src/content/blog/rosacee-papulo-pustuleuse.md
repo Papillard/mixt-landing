@@ -30,10 +30,12 @@ faq:
   - q: "Les boutons de rosacée finissent-ils par partir ?"
     a: "La rosacée est une maladie chronique qui évolue par poussées. Les boutons peuvent disparaître avec un traitement adapté, puis revenir. Le but d'un suivi est d'espacer les poussées et d'ajuster le traitement quand la peau change, plutôt que de recommencer à zéro à chaque fois."
 related:
-  - href: "/blog/rosacee-oculaire/"
-    label: "Rosacée oculaire : symptômes, photos, que faire"
-  - href: "/blog/"
-    label: "Tous les articles du blog"
+  - href: "/blog/creme-rosacee-couperose/"
+    label: "Crème rosacée et couperose : avec ou sans ordonnance"
+  - href: "/blog/rosacee-disparaitre/"
+    label: "Ma rosacée a disparu : une rosacée peut-elle guérir ?"
+  - href: "/blog/rosacee-causes-alimentation/"
+    label: "Rosacée : causes, alimentation, intestin et remèdes naturels"
 ---
 
 ## Rosacée papulo-pustuleuse : à quoi elle ressemble

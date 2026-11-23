@@ -30,7 +30,13 @@ faq:
     a: "Les lasers vasculaires (laser KTP 532 nm, laser à colorant pulsé) émettent une seule longueur d'onde, absorbée par le sang des vaisseaux. La lumière pulsée intense (lampe flash médicale) émet plusieurs longueurs d'onde à la fois. Les deux peuvent traiter la couperose. Le choix dépend de votre peau, de la taille des vaisseaux et de l'équipement du cabinet."
   - q: "Mixt propose-t-il des séances de laser ?"
     a: "Non. Mixt donne accès en ligne à un médecin partenaire qui s'occupe du traitement de fond de la rosacée : l'inflammation, les poussées, les boutons, les déclencheurs. Si le laser a du sens dans votre cas, le médecin peut vous le dire, et le traitement de fond peut se faire avant ou après les séances."
-related: []
+related:
+  - href: "/blog/rosacee-oculaire/"
+    label: "Rosacée oculaire : symptômes, photos et que faire"
+  - href: "/blog/rosacee-papulo-pustuleuse/"
+    label: "Rosacée papulo-pustuleuse : la reconnaître et la traiter"
+  - href: "/blog/creme-rosacee-couperose/"
+    label: "Crème rosacée et couperose : avec ou sans ordonnance"
 ---
 
 ## Ce que fait le laser sur la couperose

@@ -30,8 +30,10 @@ faq:
   - q: "Enceinte ou allaitante, que prendre contre l'acné ?"
     a: "Pendant la grossesse et l'allaitement, ne commencez aucun complément, aucune huile essentielle ni aucun actif sans en parler à votre médecin ou à votre sage-femme. Beaucoup de traitements de l'acné sont contre-indiqués à cette période, et certains compléments aussi."
 related:
-  - href: "/blog/rosacee-causes-alimentation/"
-    label: "Rosacée : causes, alimentation, intestin et remèdes naturels"
+  - href: "/blog/rosacee-papulo-pustuleuse/"
+    label: "Rosacée papulo-pustuleuse : la reconnaître et la traiter"
+  - href: "/blog/taches-peau-noire-mate/"
+    label: "Hyperpigmentation peau noire ou mate : taches et mélasma"
 ---
 
 ## Acné hormonale : à quoi la reconnaître

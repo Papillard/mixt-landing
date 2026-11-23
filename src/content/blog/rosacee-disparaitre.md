@@ -30,10 +30,12 @@ faq:
   - q: "La rosacée peut-elle revenir après un laser ?"
     a: "Le laser vasculaire traite les vaisseaux visibles, pas l'inflammation de la rosacée. Les vaisseaux traités ne reviennent généralement pas, mais de nouveaux peuvent apparaître et les rougeurs inflammatoires peuvent persister. Le laser se combine souvent avec un traitement et une routine adaptée."
 related:
-  - href: "/blog/creme-rosacee-couperose/"
-    label: "Crème rosacée et couperose : avec ou sans ordonnance"
+  - href: "/blog/rosacee-causes-alimentation/"
+    label: "Rosacée : causes, alimentation, intestin et remèdes naturels"
   - href: "/blog/laser-couperose/"
-    label: "Laser couperose : résultats, prix, après la séance"
+    label: "Laser couperose : résultats, après la séance, prix, limites"
+  - href: "/blog/rosacee-oculaire/"
+    label: "Rosacée oculaire : symptômes, photos et que faire"
 ---
 
 Vous vous réveillez un matin et les joues sont nettes. Plus de rougeurs, plus de boutons, plus cette sensation de chaleur. Quelques semaines plus tard, elles reviennent. Ce scénario est le plus courant dans la [rosacée](/rosacee/), et il s'explique. La rosacée évolue par poussées, entre des phases actives et des phases calmes. Comprendre ce rythme aide à garder des attentes réalistes, et à allonger les périodes calmes.
