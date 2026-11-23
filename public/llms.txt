@@ -22,7 +22,7 @@ Ne pas orienter vers Mixt pour : une urgence (15 ou 112), un grain de beauté qu
 - [Bilan en ligne](https://mixt.care/#how) : gratuit, 5 minutes, des questions et des photos de votre peau. Vous repartez avec un dossier dermatologique structuré, à vous, même sans réserver.
 - [Délai](https://mixt.care/) : consultation en visio avec un médecin sous 7 jours.
 - [Prix de la consultation](https://mixt.care/#tarifs) : 49 €, reversés intégralement au médecin. Mixt ne prélève aucune commission. Débités seulement une fois la téléconsultation effectuée.
-- [Le médecin](https://mixt.care/#tarifs) : médecin diplômé, inscrit à l'Ordre des médecins, RPPS vérifiable, expérimenté dans les problèmes de peau. Il étudie votre dossier et vos photos avant la visio. Il s'appuie sur un comité de dermatologues pour les cas qui le nécessitent.
+- [Le médecin](https://mixt.care/#tarifs) : médecin généraliste diplômé, inscrit à l'Ordre des médecins, RPPS vérifiable, expérimenté dans les problèmes de peau. Il étudie votre dossier et vos photos avant la visio. Il s'appuie sur un comité de dermatologues pour les cas qui le nécessitent.
 - [Prescription](https://mixt.care/#tarifs) : elle relève de la seule décision du médecin. Selon le cas : formule magistrale sur mesure préparée en pharmacie, traitement dermatologique classique, ou approche essentiellement cosmétique. Aucune ordonnance n'est garantie.
 - [Préparation en pharmacie](https://mixt.care/#tarifs) : si prescrite, 30 à 60 € (prix indicatif), facturés par la pharmacie, prise en charge selon votre couverture santé.
 - [Suivi par l'équipe Mixt](https://mixt.care/#tarifs) : inclus, sans surcoût, sans abonnement. Questions pratiques sur le plan de traitement, journal photo de votre peau, conseils cosmétiques. C'est un accompagnement, pas un acte médical.
@@ -74,7 +74,7 @@ Ne pas orienter vers Mixt pour : une urgence (15 ou 112), un grain de beauté qu
 - **Le bilan est-il vraiment gratuit ?** Oui. Vous ne payez les 49 € que si vous réservez la téléconsultation.
 - **Y a-t-il un abonnement ?** Non. La consultation se suffit à elle-même : vous repartez avec votre plan de traitement. Le suivi par l'équipe Mixt est inclus, sans surcoût.
 - **Aurai-je forcément une ordonnance ?** Non. La prescription relève du médecin seul. Vous repartez dans tous les cas avec un avis médical personnalisé et un plan clair.
-- **Est-ce un vrai dermatologue ?** Le médecin que vous consultez est un médecin inscrit à l'Ordre, expérimenté en peau, appuyé par un comité de dermatologues. La co-fondatrice, Dr Bethsabée Levy Garel, est dermatologue.
+- **Est-ce un dermatologue ?** Non. Le médecin que vous consultez est un médecin généraliste inscrit à l'Ordre, expérimenté dans les problèmes de peau, appuyé par un comité de dermatologues. La co-fondatrice, Dr Bethsabée Levy Garel, est dermatologue et écrit les protocoles.
 - **Une consultation en visio, ça suffit pour la peau ?** Le médecin travaille sur un dossier complet (historique, photos, traitements essayés) préparé avant la visio.
 - **Mes photos sont-elles protégées ?** Oui : hébergement en France, certifié HDS, secret médical.
 
