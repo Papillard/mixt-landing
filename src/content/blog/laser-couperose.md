@@ -32,6 +32,8 @@ faq:
   - q: "Mixt propose-t-il des séances de laser ?"
     a: "Non. Mixt donne accès en ligne à un médecin partenaire qui s'occupe du traitement de fond de la rosacée : l'inflammation, les poussées, les boutons, les déclencheurs. Si le laser a du sens dans votre cas, le médecin peut vous le dire, et le traitement de fond peut se faire avant ou après les séances."
 related:
+  - href: "/blog/couperose-nez-visage/"
+    label: "Couperose du nez et du visage : causes, solutions"
   - href: "/blog/rosacee-oculaire/"
     label: "Rosacée oculaire : symptômes, photos et que faire"
   - href: "/blog/rosacee-papulo-pustuleuse/"

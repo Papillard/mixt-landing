@@ -43,11 +43,11 @@ DR 0, aucun mot-clé positionné, liens existants sans valeur. Délai réaliste 
 |---|---|---|---|
 | 6 | **En PR** : guide pilier rosacée et couperose en article séparé, /blog/rosacee-couperose/ (10 H2, ~3 200 mots, 5 FAQ, sources Ameli, SFD, SFLD, ROSCO). La landing /rosacee reste courte, dédiée à la pub. Relecture médicale à faire | ~55K | Règle : landings = conversion (pub), guides SEO = articles du blog |
 | 7 | Allonger /taches (masque de grossesse) : apparition, soleil, après l'accouchement, allaitement | ~20K | Top 10 sans site médical |
-| 8 | Article : Lentigo et taches solaires | ~5K, KD 0 | |
-| 9 | Article : Boutons sur le menton et la mâchoire | ~2,1K | Persona n°1 prod |
-| 10 | Article : Couperose du nez et du visage | ~4,7K | |
-| 11 | Article : Marques après les boutons | ~800 | Pont acné / taches |
-| 12 | Article : Masque de grossesse, soleil et après l'accouchement | ~900 | Avant le pic de printemps |
+| 8 | Article : Lentigo et taches solaires | ~5K, KD 0 | en ligne (23/11) |
+| 9 | Article : Boutons sur le menton et la mâchoire | ~2,1K | en ligne (23/11) |
+| 10 | Article : Couperose du nez et du visage | ~4,7K | en ligne (23/11) |
+| 11 | Article : Marques après les boutons | ~800 | en ligne (23/11) |
+| 12 | Article : Masque de grossesse, soleil et après l'accouchement | ~900 | en ligne (23/11) |
 
 ### P2 : ensuite
 - Allonger /acne et /hyperpigmentation sur le même modèle.
