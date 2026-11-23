@@ -127,5 +127,5 @@ export const hyperpigmentation: Concern = {
     { href: '/acne/', label: 'Acné adulte', teaser: 'Traiter les boutons qui laissent des marques.' },
     { href: '/consultation-dermatologique-en-ligne/', label: 'Consultation dermatologique en ligne', teaser: 'Comment se passe la visio avec un médecin.' },
   ],
-  articles: ['taches-peau-noire-mate', 'acne-hormonale-zinc-complements'],
+  articles: ['lentigo-taches-solaires', 'marques-apres-boutons', 'taches-peau-noire-mate'],
 };

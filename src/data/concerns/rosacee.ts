@@ -100,5 +100,5 @@ export const rosacee: Concern = {
     { href: '/acne/', label: 'Acné adulte', teaser: 'Boutons, points noirs et inflammation.' },
     { href: '/taches/', label: 'Masque de grossesse et taches brunes', teaser: 'Mélasma, taches brunes et marques.' },
   ],
-  articles: ['rosacee-couperose', 'laser-couperose', 'rosacee-oculaire', 'rosacee-papulo-pustuleuse', 'creme-rosacee-couperose', 'rosacee-disparaitre', 'rosacee-causes-alimentation'],
+  articles: ['rosacee-couperose', 'couperose-nez-visage', 'laser-couperose', 'rosacee-oculaire', 'rosacee-papulo-pustuleuse', 'creme-rosacee-couperose', 'rosacee-disparaitre', 'rosacee-causes-alimentation'],
 };
