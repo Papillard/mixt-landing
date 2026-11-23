@@ -4,8 +4,8 @@ description: "Rosacée et couperose : différences, formes, symptômes du visage
 h1: "Rosacée et couperose : symptômes, causes, traitements"
 kicker: "Rosacée et couperose · Le guide"
 intro: "Rougeurs qui montent sans prévenir, petits vaisseaux sur le nez, boutons qui ressemblent à de l'acné. Ce guide fait le tour de la rosacée et de la couperose : leurs formes, ce qui déclenche les poussées, les traitements, le laser, et les signes qui doivent faire consulter."
-heroImage: "/images/real/patiente-elise-rosacee-portrait-trois-quarts-01.webp"
-heroImageAlt: "Femme aux rougeurs sur les joues et le nez, de trois quarts"
+heroImage: "/images/real/patiente-rosacee-profil-joue-01.webp"
+heroImageAlt: "Femme de profil, rougeur diffuse sur la joue et la pommette"
 pillar: rosacee
 ctaTopic: "rosacée"
 datePublished: 2026-11-23
@@ -149,6 +149,8 @@ Sur le nez, la couperose se concentre sur les ailes et autour des narines. Elle 
 ### Couperose légère : que faire
 
 Quelques vaisseaux isolés, sans rougeur ni sensations, ne posent pas de problème de santé. Une protection solaire quotidienne et des soins doux limitent leur extension, et un correcteur vert les camoufle pour la journée. S'ils vous gênent, le laser vasculaire est la seule technique qui les fait réellement disparaître (voir plus bas). Si la couperose s'accompagne de bouffées de chaleur, de brûlures ou de boutons, il s'agit probablement d'une rosacée, et c'est elle qu'il faut prendre en charge en premier.
+
+![Gros plan d'une joue avec de fins vaisseaux rouges visibles sous la peau](/images/real/gros-plan-couperose-joue-01.webp)
 
 ## Les traitements de la rosacée
 
