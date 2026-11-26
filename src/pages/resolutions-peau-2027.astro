@@ -1,0 +1,936 @@
+---
+// Campagne presse fin d'année : « Résolutions peau 2027 ».
+// Source unique des chiffres : dossier « Mixt, résolutions peau 2027 » (note pour la communication, 8 pages).
+// Conformité : aucun nom de médicament ni de marque, palmarès par catégories, aucun résultat de traitement.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import FadeInSection from '../components/motion/FadeInSection.tsx';
+import MobileStickyCta from '../components/MobileStickyCta.astro';
+import { ORG_ID, DERMATO_ID, dermatologist, breadcrumb, SITE } from '../data/schema';
+
+const CTA_HREF = 'https://app.mixt.care/rdv';
+const CTA_LABEL = 'Faire mon bilan gratuit';
+const CTA_NOTE = 'Bilan gratuit et sans engagement. Consultation à 49 €, seulement si vous la réservez.';
+
+// Dossier presse téléchargeable : le PDF source nomme des médicaments, il ne part pas en ligne tel quel.
+// Passer à true une fois public/presse/mixt-resolutions-peau-2027.pdf relu et déposé.
+const PRESS_PDF_READY = false;
+const PRESS_PDF_HREF = '/presse/mixt-resolutions-peau-2027.pdf';
+const PRESS_EMAIL = 'presse@mixt.care'; // à confirmer
+
+const PAGE_URL = `${SITE}/resolutions-peau-2027/`;
+const IMG = '/images/real/';
+
+// ── Données (dossier, pages 1 à 8) ──────────────────────────────
+
+const mosaic = [
+  'gros-plan-serie-melasma-01',
+  'gros-plan-serie-marques-acne-01',
+  'gros-plan-serie-taches-solaires-01',
+  'gros-plan-serie-comedons-fermes-01',
+  'gros-plan-serie-pores-dilates-01',
+  'gros-plan-serie-hyperpigmentation-post-inflammatoire-01',
+  'gros-plan-serie-cicatrices-acne-01',
+  'gros-plan-serie-taches-de-rousseur-01',
+];
+
+const resolutions = [
+  {
+    n: '1', id: 'diagnostic', title: 'Un vrai diagnostic',
+    text: "Savoir ce qu'on a avant de choisir quoi mettre. Une acné peut être une rosacée, une tache « de grossesse » peut venir du soleil.",
+  },
+  {
+    n: '2', id: 'traitement', title: 'Le bon traitement',
+    text: 'Deux produits bien choisis plutôt que huit qui se contredisent. Une préparation faite pour sa peau, quand le médecin la juge indiquée.',
+  },
+  {
+    n: '3', id: 'suivi', title: 'Un suivi',
+    text: 'Introduire les actifs pas à pas, tenir trois mois, ajuster avec un médecin au lieu de changer de crème tous les quinze jours.',
+  },
+];
+
+// Cinq chiffres : on dessine la fraction annoncée (7 sur 10 = 10 points dont 7 allumés).
+const five = [
+  { big: '7 sur 10', on: 7, of: 10, text: "vivent avec leur problème de peau depuis plus de deux ans. Pour l'acné, plus d'une sur trois répond « depuis toujours ».", n: '68,7 % · N = 2 113 bilans', tone: 'light' },
+  { big: '8 sur 10', on: 8, of: 10, text: "n'ont trouvé aucun traitement efficace parmi tous ceux qu'elles ont essayés.", n: '79,9 % · N = 881 personnes, 2 010 traitements notés', tone: 'deep' },
+  { big: '2 sur 3', on: 2, of: 3, text: 'ont déjà réagi à un soin ou à du maquillage : rougeurs, boutons, démangeaisons.', n: '65,4 % · N = 2 539 bilans', tone: 'cream' },
+  { big: '1 sur 3', on: 1, of: 3, text: "repart de la consultation avec un traitement pour un autre problème que celui qu'elle pensait avoir.", n: '30,2 % · N = 159 patientes avec préparation magistrale', tone: 'ember' },
+  { big: '1 sur 2', on: 1, of: 2, text: 'dit que sa peau pèse sur son quotidien ou qu\'elle est « vraiment difficile à vivre ».', n: '49,9 % · N = 1 944 bilans', tone: 'light' },
+];
+
+const reactions = [
+  { label: 'Au moins une réaction', v: 65, strong: true },
+  { label: 'Rougeurs, sensation de chaleur', v: 40 },
+  { label: 'Boutons', v: 32 },
+  { label: 'Tiraillements, démangeaisons', v: 28 },
+];
+
+const doctorsNotes = [
+  { t: 'Des routines qui s\'allongent', d: 'Double nettoyage, lotion, deux ou trois sérums, exfoliant plusieurs soirs par semaine : certains comptes rendus listent sept ou huit produits par jour, achetés au fil des tendances (marques virales, K-beauty, conseils vus sur TikTok).' },
+  { t: 'Des actifs qui se doublent sans qu\'on le sache', d: "Un sérum au rétinol par-dessus une crème rétinoïde sur ordonnance, de l'acide salicylique dans trois produits à la fois. Avant d'ajouter quoi que ce soit, les médecins demandent souvent d'enlever." },
+  { t: 'Une irritation prise pour la maladie', d: "Dans plusieurs dossiers, la peau qui pèle, chauffe ou rougit réagit aux produits eux-mêmes : la barrière cutanée est abîmée, l'acné ou la rosacée n'y sont pour rien." },
+];
+
+// Palmarès « pas efficace » regroupé par catégories (aucun nom de médicament).
+// Traitements locaux sur ordonnance : moyenne pondérée par N des 5 lignes du dossier
+// (96 × 54 + 92 × 145 + 90 × 104 + 84 × 79 + 79 × 83) / 465 = 88,3 %.
+const categories = [
+  { label: 'Crèmes et sérums sans ordonnance', v: 98, n: 'N = 600' },
+  { label: 'Compléments (zinc)', v: 94, n: 'N = 65' },
+  { label: 'Traitements locaux sur ordonnance', v: 88, n: 'moyenne pondérée · N = 465' },
+  { label: 'Pilule prescrite pour la peau', v: 83, n: 'N = 88' },
+  { label: 'Peelings', v: 83, n: 'N = 54' },
+  { label: 'Antibiotiques oraux', v: 78, n: 'N = 149' },
+  { label: "Traitement oral de l'acné sévère", v: 47, n: 'N = 65', standout: true },
+];
+
+const confusions = [
+  { img: 'gros-plan-rosacee-joue-01', alt: 'Rougeurs et petits boutons sur une joue', t: "L'acné qui est une rosacée", d: 'Des boutons sur fond de rougeurs, sans points noirs, qui chauffent. C\'est la confusion la plus courante, et les soins anti-acné classiques agressent alors une peau qui avait besoin d\'être apaisée.' },
+  { img: 'gros-plan-serie-taches-solaires-01', alt: 'Taches brunes sur une pommette', t: 'Le « masque de grossesse » qui est un lentigo solaire', d: 'Des taches attribuées aux hormones viennent en fait du soleil et se traitent autrement, souvent au cabinet (laser, froid).' },
+  { img: 'gros-plan-eczema-plaque-01', alt: 'Plaque rouge et irritée sur la peau', t: 'La rosacée qui est un eczéma de contact', d: 'Des rougeurs autour des yeux ou de la bouche causées par un produit : il suffit parfois de l\'arrêter.' },
+  { img: 'gros-plan-acne-inflammatoire-01', alt: 'Boutons rouges inflammatoires en gros plan', t: "L'acné du dos qui est une folliculite", d: 'Le même aspect, une autre prise en charge (hygiène, textiles, savon antiseptique).' },
+  { img: 'gros-plan-melasma-joue-01', alt: 'Taches brunes irrégulières sur une joue', t: "La tache qu'il faut montrer en cabinet", d: 'Sur certaines photos, la dermatologue demande un examen en présentiel pour une lésion liée au soleil. Un bon diagnostic sait aussi orienter.' },
+];
+
+// Grille des déclencheurs. null = question non posée pour cette préoccupation.
+const triggerCols = ['Cycle, grossesse, hormones', 'Stress', 'Chaleur', 'Soleil', 'Froid, vent', 'Alcool', 'Épices', 'Tabac'];
+const triggerRows = [
+  { label: 'Acné', n: 'N = 927', v: [69, null, null, null, null, null, null, null] },
+  { label: 'Rougeurs', n: 'N = 480', v: [null, 63, 63, null, 54, 38, 22, null] },
+  { label: 'Taches', n: 'N = 432', v: [33, null, null, 33, null, null, null, null] },
+  { label: 'Rides', n: 'N = 335', v: [null, 63, null, 23, null, null, null, 24] },
+];
+
+const hormonal = [
+  { t: "L'acné qui arrive à l'âge adulte", d: 'Plusieurs comptes rendus notent « pas d\'acné à l\'adolescence » : les premiers boutons sont venus après 25 ans, après un accouchement ou à l\'arrêt de la pilule.' },
+  { t: 'La pilule, avant et après', d: 'Prise pendant des années en partie pour la peau, puis arrêtée : la peau rechute. 83 % de celles qui l\'ont essayée pour leur peau ne la jugent pas efficace (N = 88).' },
+  { t: 'Les bonnes questions', d: 'Règles irrégulières, chute de cheveux, poils au menton : les médecins cherchent souvent un syndrome des ovaires polykystiques (SOPK) ou une endométriose et orientent vers un bilan.' },
+  { t: 'Le stress', d: 'Près de 2 femmes sur 3 avec des rougeurs le citent. Il apparaît aussi dans les dossiers en toile de fond : séparation, épuisement, période difficile.' },
+];
+
+const timeline = [
+  { when: 'Semaine 1', t: 'Un actif à la fois', d: 'Deux ou trois soirs par semaine au début. Dans plusieurs dossiers, un traitement a été abandonné après un démarrage trop rapide.' },
+  { when: 'Les semaines suivantes', t: 'Progressivement', d: 'Plus souvent, si la peau le supporte.' },
+  { when: 'Mois 3', t: 'Juger, puis ajuster', d: 'Les médecins réévaluent à trois mois et ajustent : on ajoute, on espace, on remplace.' },
+  { when: 'Entretien', t: "Prévoir l'après", d: "Antibiotiques, pilule, traitement oral de l'acné : plusieurs rechutes décrites surviennent à l'arrêt. Le suivi sert à préparer un traitement d'entretien." },
+];
+const everyday = [
+  { t: 'La protection solaire, tous les matins, toute l\'année', d: 'La consigne la plus répétée, surtout pour les taches : le mélasma signale une peau sensible au soleil pour la vie.' },
+  { t: 'Ne pas toucher ses boutons', d: 'Plusieurs dossiers décrivent des boutons percés ou grattés qui laissent des marques. Les médecins proposent parfois un accompagnement pour en sortir.' },
+];
+
+const weightLegend = ['Ça va, je gère', 'Gênant par moments', "J'y pense souvent", 'Affecte mon quotidien', 'Vraiment difficile'];
+const weightRows = [
+  { label: 'Ensemble', n: 'N = 1 944', v: [6, 22, 22, 32, 18] },
+  // Le dossier n'affiche pas la première part pour l'acné (trop petite) : segment laissé sans étiquette.
+  { label: 'Acné', n: 'N = 957', v: [4, 17, 22, 37, 20], hideFirst: true },
+  { label: 'Rougeurs', n: 'N = 528', v: [6, 29, 17, 32, 16] },
+  { label: 'Taches', n: 'N = 432', v: [10, 24, 29, 22, 15] },
+];
+
+const pressFigures = [
+  { big: '7 sur 10', t: 'vivent avec leur problème de peau depuis plus de deux ans.', n: '68,7 % · N = 2 113 bilans' },
+  { big: '8 sur 10', t: "n'ont trouvé efficace aucun des traitements qu'elles ont essayés.", n: '79,9 % · N = 881' },
+  { big: '98 %', t: 'de celles qui ont essayé des crèmes et sérums sans ordonnance ne les jugent pas efficaces.', n: 'N = 600' },
+  { big: '2 sur 3', t: 'ont déjà réagi à un soin ou à du maquillage.', n: '65,4 % · N = 2 539' },
+  { big: '1 sur 3', t: "des personnes venues pour de l'acné repartent avec un traitement pour autre chose (rosacée, marques, taches).", n: '37 % · N = 92 patientes' },
+  { big: 'Près de la moitié', t: 'des femmes préoccupées par leurs rides ont déjà testé au moins cinq actifs.', n: '47,5 % · N = 80' },
+  { big: '7 sur 10', t: 'femmes avec une acné font le lien avec leur cycle.', n: '69,4 % · N = 927' },
+  { big: '1 sur 3', t: 'des personnes qui ont des taches les voient apparaître après une grossesse ou un changement hormonal.', n: '33,3 % · N = 432' },
+  { big: '1 sur 2', t: 'dit que sa peau affecte son quotidien.', n: '49,9 % · N = 1 944' },
+  { big: '2 produits', t: "sur l'ordonnance, en médiane, après le diagnostic.", n: 'N = 181 ordonnances' },
+];
+
+// Donut 69 / 17 / 14 (circonférence normalisée à 100 via pathLength).
+const donut = [
+  { label: '« Pas assez efficace »', v: 69, cls: "stroke-ember", dot: "bg-ember" },
+  { label: '« Mal toléré »', v: 17, cls: "stroke-white", dot: "bg-white" },
+  { label: '« Efficace »', v: 14, cls: "stroke-ink-3", dot: "bg-ink-3" },
+];
+let acc = 0;
+const donutSegs = donut.map((s) => { const seg = { ...s, offset: -acc }; acc += s.v; return seg; });
+
+// ── SEO ─────────────────────────────────────────────────────────
+const title = 'Résolutions peau 2027 : ce que disent 2 545 bilans | Mixt';
+const description =
+  "2 545 bilans de peau et 236 patientes suivies : 8 sur 10 n'ont trouvé aucun traitement efficace, 2 sur 3 ont déjà réagi à un soin. Trois résolutions pour 2027 : un diagnostic, le bon traitement, un suivi.";
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      '@id': `${PAGE_URL}#article`,
+      headline: '2027 : moins de produits, plus de diagnostic',
+      description,
+      url: PAGE_URL,
+      image: `${SITE}/images/og-resolutions-peau-2027.jpg`,
+      datePublished: '2026-11-24',
+      inLanguage: 'fr-FR',
+      author: { '@id': ORG_ID },
+      publisher: { '@id': ORG_ID },
+      about: ['Acné', 'Rosacée', 'Taches brunes', 'Mélasma'],
+    },
+    {
+      '@type': 'Dataset',
+      '@id': `${PAGE_URL}#dataset`,
+      name: 'Résolutions peau 2027 : bilans de peau et téléconsultations Mixt',
+      description:
+        '2 545 bilans de peau remplis en ligne (16/07 au 23/11/2026) et dossiers de 236 patientes vues en téléconsultation (04/05 au 20/11/2026). Données agrégées et anonymes, aucun groupe de moins de 20 personnes publié. Échantillon non représentatif, réponses déclaratives.',
+      url: PAGE_URL,
+      creator: { '@id': ORG_ID },
+      temporalCoverage: '2026-05-04/2026-11-23',
+      spatialCoverage: 'France',
+      isAccessibleForFree: true,
+    },
+    dermatologist,
+    breadcrumb(PAGE_URL, 'Résolutions peau 2027'),
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={`${SITE}/images/og-resolutions-peau-2027.jpg`}
+  ogTitle="2027 : moins de produits, plus de diagnostic"
+  structuredData={structuredData}
+>
+  <script is:inline>document.documentElement.classList.add('rv-js');</script>
+  <Nav ctaLabel="Faire mon bilan" ctaHref={CTA_HREF} stickyCtaMobile />
+
+  <main class="pt-14 text-ink">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="bg-deep text-white">
+      <div class="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:min-h-[calc(100vh-56px)]">
+        <div class="order-2 lg:order-1 flex flex-col justify-center px-6 py-14 md:px-14 lg:px-16 lg:py-20">
+          <p class="font-mono text-eyebrow uppercase text-white/60">Étude Mixt · Résolutions peau 2027</p>
+          <h1 class="mt-6 text-[44px] leading-[0.98] tracking-[-0.045em] md:text-[72px] lg:text-[84px]">
+            <span class="block">2027 : moins de produits,</span>
+            <span class="block text-ember">plus de diagnostic</span>
+          </h1>
+          <p class="mt-8 text-[20px] font-semibold leading-snug md:text-[24px]">
+            <span data-count="2545" data-format="space">2 545</span> bilans, <span data-count="236">236</span> patientes, ce qu'ils racontent
+          </p>
+          <p class="mt-5 max-w-[520px] text-body-lg text-white/75">
+            En janvier, beaucoup de femmes se promettent de « prendre soin de leur peau » et commencent par acheter un sérum de plus. Les bilans remplis sur Mixt racontent la suite : des étagères pleines, une peau qui réagit, et le sentiment de tourner en rond sans que personne ne regarde vraiment le problème.
+          </p>
+          <nav class="mt-10 flex flex-wrap gap-2" aria-label="Les trois résolutions">
+            {resolutions.map((r) => (
+              <a href={`#${r.id}`} class="group inline-flex items-center gap-3 rounded-full border border-white/20 py-2 pl-2 pr-4 text-[14px] font-semibold text-white no-underline transition-colors hover:border-ember hover:bg-ember">
+                <span class="grid h-7 w-7 place-items-center rounded-full bg-white font-mono text-[13px] text-deep">{r.n}</span>
+                {r.title}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <div class="order-1 lg:order-2 grid grid-cols-4 grid-rows-2 gap-[3px] bg-deep lg:min-h-[640px]" aria-hidden="true">
+          {mosaic.map((m, i) => (
+            <div class="mosaic-tile relative overflow-hidden" style={`--i:${i}`}>
+              <img src={`${IMG}${m}.webp`} alt="" class="aspect-[4/5] w-full object-cover lg:absolute lg:inset-0 lg:h-full lg:aspect-auto" loading={i < 4 ? 'eager' : 'lazy'} width="1122" height="1402" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ LES 3 RÉSOLUTIONS ═══ -->
+    <section class="bg-base px-6 py-16 md:px-14 md:py-24">
+      <div class="mx-auto max-w-[1240px]">
+        <p class="font-mono text-eyebrow uppercase text-ember-deep">Notre proposition pour 2027</p>
+        <h2 class="mt-4 max-w-[760px] text-h2">Trois résolutions, dans cet ordre</h2>
+        <ol class="mt-12 grid gap-px overflow-hidden rounded-[6px] bg-ink/10 md:grid-cols-3">
+          {resolutions.map((r) => (
+            <li class="bg-base p-8 md:p-10" data-rv>
+              <a href={`#${r.id}`} class="block no-underline text-ink">
+                <span class="block font-mono text-[120px] leading-[0.8] tracking-[-0.06em] text-ember md:text-[160px]">{r.n}</span>
+                <span class="mt-8 block text-h3">{r.title}</span>
+                <span class="mt-3 block text-body text-ink-2">{r.text}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══ CINQ CHIFFRES ═══ -->
+    <section aria-labelledby="cinq-chiffres">
+      <div class="bg-ink px-6 py-6 md:px-14">
+        <h2 id="cinq-chiffres" class="mx-auto max-w-[1240px] font-mono text-eyebrow uppercase text-white/70">Cinq chiffres pour résumer</h2>
+      </div>
+      {five.map((f, i) => {
+        const bg = { light: 'bg-base text-ink', deep: 'bg-deep text-white', cream: 'bg-cream text-ink', ember: 'bg-ember text-white' }[f.tone];
+        const dotOn = f.tone === 'ember' ? 'bg-white' : 'bg-ember';
+        const dotOff = f.tone === 'deep' || f.tone === 'ember' ? 'bg-white/20' : 'bg-ink/10';
+        const sub = f.tone === 'deep' || f.tone === 'ember' ? 'text-white/70' : 'text-ink-3';
+        return (
+          <div class={`${bg} px-6 py-14 md:px-14 md:py-20`}>
+            <div class="viz mx-auto grid max-w-[1240px] items-center gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,3fr)_minmax(0,4fr)] lg:gap-14" data-rv>
+              <p class="whitespace-nowrap text-[88px] font-bold leading-[0.85] tracking-[-0.055em] md:text-[128px] xl:text-[150px]">{f.big}</p>
+              <div class="flex flex-wrap gap-2 md:gap-3" role="img" aria-label={f.big}>
+                {Array.from({ length: f.of }).map((_, d) => (
+                  <span class={`dot h-6 w-6 rounded-full md:h-9 md:w-9 ${dotOff}`} style={`--d:${d}`}>
+                    {d < f.on && <span class={`dot-on block h-full w-full rounded-full ${dotOn}`} />}
+                  </span>
+                ))}
+              </div>
+              <div>
+                <p class="text-[20px] font-semibold leading-snug md:text-[22px]">{f.text}</p>
+                <p class={`mt-3 font-mono text-caption ${sub}`}>{f.n}</p>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </section>
+
+    <!-- ═══ LE CONSTAT : SALLE DE BAIN ═══ -->
+    <section class="bg-base" aria-labelledby="constat">
+      <div class="px-6 pt-20 pb-10 md:px-14 md:pt-28">
+        <div class="mx-auto max-w-[1240px]">
+          <p class="font-mono text-eyebrow uppercase text-ember-deep">Le constat</p>
+          <h2 id="constat" class="mt-4 max-w-[900px] text-[38px] leading-[1.02] tracking-[-0.04em] md:text-[64px]">Une salle de bain qui déborde, une peau qui sature</h2>
+          <p class="mt-6 max-w-[640px] text-body-lg text-ink-2">Quand elles arrivent sur Mixt, la plupart ont déjà fait le tour du rayon. Nous avons compté les traitements essayés pour leur préoccupation principale : soins sans ordonnance, médicaments, séances en cabinet.</p>
+        </div>
+      </div>
+
+      <div class="relative">
+        <img src={`${IMG}produit-cremes-plateau-inox-01.webp`} alt="Plusieurs crèmes étalées sur un plateau en inox" class="block h-[420px] w-full object-cover md:h-[640px]" loading="lazy" width="1093" height="718" />
+        <div class="px-6 md:absolute md:inset-0 md:px-14">
+          <div class="mx-auto -mt-16 grid max-w-[1240px] gap-3 md:mt-0 md:h-full md:grid-cols-2 md:items-end md:gap-6 md:pb-14">
+            <div class="rounded-[6px] bg-white p-7 shadow-[0_20px_40px_-24px_rgba(0,0,0,0.35)] md:max-w-[440px] md:p-9" data-rv>
+              <p class="font-mono text-eyebrow uppercase text-ink-3">Rides</p>
+              <p class="mt-3 text-[64px] font-bold leading-[0.9] tracking-[-0.05em] md:text-[88px]"><span data-count="4">4</span></p>
+              <p class="mt-3 text-body-lg font-semibold">actifs ou soins déjà testés, en médiane</p>
+              <p class="mt-2 text-body-sm text-ink-2">Près de la moitié en a essayé cinq ou plus : rétinol, vitamine C, acide hyaluronique, collagène, peptides…</p>
+              <p class="mt-4 font-mono text-caption text-ink-3">47,5 % à 5 et plus · N = 80</p>
+            </div>
+            <div class="rounded-[6px] bg-deep p-7 text-white shadow-[0_20px_40px_-24px_rgba(0,0,0,0.35)] md:ml-auto md:max-w-[440px] md:p-9" data-rv>
+              <p class="font-mono text-eyebrow uppercase text-white/60">Acné</p>
+              <p class="mt-3 text-[64px] font-bold leading-[0.9] tracking-[-0.05em] md:text-[88px]">1 sur 3</p>
+              <p class="mt-3 text-body-lg font-semibold">a déjà essayé trois traitements ou plus</p>
+              <p class="mt-2 text-body-sm text-white/75">Près d'une sur cinq en est à cinq ou plus, antibiotiques et traitement oral de l'acné sévère compris.</p>
+              <p class="mt-4 font-mono text-caption text-white/60">35,8 % à 3 et plus · 17,9 % à 5 et plus · N = 698</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Réactions -->
+      <div class="px-6 py-20 md:px-14 md:py-28">
+        <div class="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-20">
+          <div>
+            <h3 class="text-[32px] font-bold leading-[1.05] tracking-[-0.035em] md:text-[44px]">À force, la peau proteste</h3>
+            <p class="mt-5 text-body text-ink-2">« Avez-vous déjà réagi à un produit de soin ou de maquillage ? » Plusieurs réponses possibles.</p>
+            <p class="mt-3 font-mono text-caption text-ink-3">N = 2 539 bilans</p>
+          </div>
+          <ul class="viz space-y-6" data-rv>
+            {reactions.map((r, i) => (
+              <li>
+                <div class="flex items-baseline justify-between gap-4">
+                  <span class={r.strong ? 'text-body-lg font-semibold' : 'text-body'}>{r.label}</span>
+                  <span class={`font-mono ${r.strong ? 'text-[32px] text-ember-deep' : 'text-[22px]'} leading-none`}><span data-count={r.v}>{r.v}</span> %</span>
+                </div>
+                <div class={`mt-2 overflow-hidden rounded-full bg-ink/[0.07] ${r.strong ? 'h-5' : 'h-3'}`}>
+                  <div class={`bar h-full rounded-full ${r.strong ? 'bg-ember' : 'bg-deep'}`} style={`--v:${r.v / 100};--d:${i}`}></div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ce que racontent les médecins -->
+      <div class="grid bg-cream lg:grid-cols-2">
+        <img src={`${IMG}produit-tube-froisse-01.webp`} alt="Un tube de crème vide, froissé" class="h-[360px] w-full object-cover md:h-[520px] lg:h-full" loading="lazy" />
+        <div class="px-6 py-16 md:px-14 md:py-20">
+          <p class="font-mono text-eyebrow uppercase text-ember-deep">Ce que racontent les médecins</p>
+          <ol class="mt-8 space-y-8">
+            {doctorsNotes.map((o, i) => (
+              <li class="grid grid-cols-[44px_1fr] gap-4" data-rv>
+                <span class="font-mono text-[28px] leading-none text-ember">0{i + 1}</span>
+                <div>
+                  <p class="text-h3">{o.t}</p>
+                  <p class="mt-2 text-body text-ink-2">{o.d}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <p class="mt-10 font-mono text-caption text-ink-3">Lecture des comptes rendus de 208 téléconsultations et des avis de la dermatologue. Observations qualitatives, non chiffrées.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ BEAUCOUP D'ESSAIS, PEU DE RÉSULTATS ═══ -->
+    <section class="bg-deep px-6 py-20 text-white md:px-14 md:py-28" aria-labelledby="essais">
+      <div class="mx-auto max-w-[1240px]">
+        <p class="font-mono text-eyebrow uppercase text-white/60">Le constat</p>
+        <h2 id="essais" class="mt-4 max-w-[900px] text-[38px] leading-[1.02] tracking-[-0.04em] md:text-[64px]">Beaucoup d'essais, peu de résultats</h2>
+        <p class="mt-6 max-w-[680px] text-body-lg text-white/75">Pour chaque traitement coché, elles indiquent s'il a été efficace, pas assez efficace ou mal toléré. Voici la part de celles qui ne l'ont pas trouvé efficace, par catégorie.</p>
+
+        <ul class="viz mt-14 space-y-5 md:space-y-4" data-rv>
+          {categories.map((c, i) => (
+            <li class="grid gap-2 md:grid-cols-[300px_minmax(0,1fr)_230px] md:items-center md:gap-6">
+              <span class={`text-body ${c.standout ? 'font-semibold text-white' : 'text-white/85'}`}>{c.label}</span>
+              <div class="h-9 overflow-hidden rounded-[3px] bg-white/[0.06] md:h-11">
+                <div class={`bar flex h-full items-center justify-end pr-3 font-mono text-[15px] md:text-[17px] ${c.standout ? 'bg-white text-deep' : 'bg-ember text-white'}`} style={`--v:${c.v / 100};--d:${i}`}>
+                  <span class="bar-label">{c.v} %</span>
+                </div>
+              </div>
+              <span class="font-mono text-caption text-white/55">{c.n}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-8 max-w-[760px] border-l-2 border-white pl-5 text-body-lg">
+          Seul le traitement de l'acné sévère se détache : plus d'une personne sur deux le juge efficace (53 %). Ces patientes cherchent pourtant encore une solution, souvent parce que l'acné est revenue des mois ou des années après la cure.
+        </p>
+        <p class="mt-4 font-mono text-caption text-white/50">Traitements notés par au moins 50 personnes. « Traitements locaux sur ordonnance » : moyenne pondérée de cinq traitements (N = 465).</p>
+
+        <div class="mt-20 grid gap-12 border-t border-white/15 pt-16 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
+          <div class="viz grid gap-10 sm:grid-cols-[220px_1fr] sm:items-center" data-rv>
+            <div class="relative mx-auto h-[220px] w-[220px]">
+              <svg viewBox="0 0 42 42" class="h-full w-full -rotate-90" role="img" aria-label="2 010 traitements notés : 69 % pas assez efficaces, 17 % mal tolérés, 14 % efficaces">
+                <circle cx="21" cy="21" r="15.9155" fill="none" class="stroke-white/10" stroke-width="6" />
+                {donutSegs.map((s, i) => (
+                  <circle cx="21" cy="21" r="15.9155" fill="none" class={`donut-seg ${s.cls}`} stroke-width="6" pathLength="100" stroke-dasharray={`${s.v} ${100 - s.v}`} stroke-dashoffset={s.offset} style={`--d:${i}`} />
+                ))}
+              </svg>
+              <div class="absolute inset-0 grid place-items-center text-center">
+                <div>
+                  <p class="text-[40px] font-bold leading-none tracking-[-0.04em]"><span data-count="2010" data-format="space">2 010</span></p>
+                  <p class="mt-1 font-mono text-[11px] text-white/60">traitements notés</p>
+                </div>
+              </div>
+            </div>
+            <ul class="space-y-4">
+              {donut.map((s) => (
+                <li class="flex items-baseline gap-3">
+                  <span class={`h-3 w-3 shrink-0 translate-y-[1px] rounded-full ${s.dot}`}></span>
+                  <span class="font-mono text-[28px] leading-none">{s.v} %</span>
+                  <span class="text-body text-white/80">{s.label}</span>
+                </li>
+              ))}
+              <li class="pt-2 font-mono text-caption text-white/50">881 personnes · bilans du 14/09 au 23/11/2026</li>
+            </ul>
+          </div>
+          <div class="grid gap-6">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:gap-6" data-rv>
+              <p class="shrink-0 whitespace-nowrap text-[72px] font-bold leading-[0.85] tracking-[-0.055em] md:text-[96px]">1 sur 4</p>
+              <div class="pb-2">
+                <p class="text-body-lg font-semibold">a mal toléré au moins un traitement : irritation, sécheresse, troubles digestifs…</p>
+                <p class="mt-2 font-mono text-caption text-white/55">25,9 % · N = 881</p>
+              </div>
+            </div>
+            <aside class="rounded-[6px] bg-white p-7 text-ink md:p-9" data-rv>
+              <p class="font-mono text-eyebrow uppercase text-ember-deep">Comment lire ces chiffres</p>
+              <p class="mt-4 text-body">Ce palmarès est sévère par construction : il décrit les personnes pour qui rien n'a suffi, puisqu'elles cherchent encore. Celles que ces traitements ont soignées ne sont pas dans l'échantillon. On ne peut donc pas en conclure que ces produits ne marchent pas.</p>
+              <p class="mt-3 text-body text-ink-2">Les comptes rendus des médecins pointent d'autres explications : un traitement gardé trois semaines au lieu de trois mois, un produit abandonné parce qu'il piquait une peau déjà fragilisée, une rechute à l'arrêt faute d'entretien, et souvent un bon traitement appliqué au mauvais problème. Chacune renvoie à l'une des trois résolutions : le diagnostic, le traitement, le suivi.</p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RÉSOLUTION 1 ═══ -->
+    <section id="diagnostic" class="scroll-mt-14 bg-base" aria-labelledby="r1">
+      <div class="grid lg:grid-cols-2">
+        <img src={`${IMG}patiente-elise-rosacee-teleconsultation-02.webp`} alt="Une patiente montre sa joue à un médecin en téléconsultation" class="h-[420px] w-full object-cover md:h-[560px] lg:h-full lg:min-h-[640px]" loading="lazy" />
+        <div class="flex flex-col justify-center bg-ember px-6 py-16 text-white md:px-14 lg:px-16">
+          <FadeInSection client:load>
+            <p class="font-mono text-eyebrow uppercase text-white/80">Résolution 1</p>
+            <p class="mt-4 font-mono text-[140px] leading-[0.8] tracking-[-0.06em] md:text-[200px]" aria-hidden="true">1</p>
+            <h2 id="r1" class="mt-6 text-[38px] leading-[1.02] tracking-[-0.04em] md:text-[56px]">Un vrai diagnostic, avant tout achat</h2>
+            <p class="mt-6 max-w-[520px] text-body-lg text-white/90">Nous avons comparé le problème que chaque patiente avait désigné dans son bilan à la préparation finalement prescrite par le médecin, après les photos et la téléconsultation.</p>
+          </FadeInSection>
+        </div>
+      </div>
+
+      <!-- Barres 63/37 et 70/30 -->
+      <div class="px-6 py-20 md:px-14 md:py-24">
+        <div class="viz mx-auto max-w-[1240px] space-y-14" data-rv>
+          {[
+            { h: "Venues pour de l'acné", n: 'N = 92 patientes', a: 63, b: 37, la: "traitées pour de l'acné", lb: 'autre : rosacée, marques, taches' },
+            { h: 'Toutes préoccupations confondues', n: 'N = 159 patientes avec préparation', a: 70, b: 30, la: "le problème qu'elles avaient désigné", lb: 'un autre problème' },
+          ].map((s, i) => (
+            <div>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="text-h3">{s.h}</h3>
+                <p class="font-mono text-caption text-ink-3">{s.n}</p>
+              </div>
+              <div class="mt-4 flex h-20 overflow-hidden rounded-[4px] md:h-28">
+                <div class="bar-flex flex flex-1 items-center bg-deep px-4 text-white md:px-6" style={`--v:1;--d:${i}`}>
+                  <span class="whitespace-nowrap text-[28px] font-bold tracking-[-0.04em] md:text-[64px]"><span data-count={s.a}>{s.a}</span> %</span>
+                </div>
+                <div class="flex shrink-0 items-center justify-end bg-ember px-4 text-white md:px-6" style={`width:${s.b}%`}>
+                  <span class="whitespace-nowrap text-[28px] font-bold tracking-[-0.04em] md:text-[64px]"><span data-count={s.b}>{s.b}</span> %</span>
+                </div>
+              </div>
+              <div class="mt-3 flex justify-between gap-6 text-body-sm">
+                <span class="text-ink-2">{s.la}</span>
+                <span class="text-right font-semibold text-ember-deep">{s.lb}</span>
+              </div>
+            </div>
+          ))}
+          <p class="max-w-[760px] text-body-sm text-ink-2"><span class="font-semibold text-ink">À lire avec nuance :</span> chez une personne venue pour de l'acné, une préparation anti-taches vise souvent les marques laissées par les boutons. Le médecin a jugé que c'était la priorité, sans que l'acné soit forcément un faux diagnostic.</p>
+        </div>
+      </div>
+
+      <!-- Les confusions -->
+      <div class="bg-ink px-6 py-20 text-white md:px-14 md:py-24">
+        <div class="mx-auto max-w-[1240px]">
+          <h3 class="max-w-[760px] text-[32px] font-bold leading-[1.05] tracking-[-0.035em] md:text-[48px]">Les confusions qui reviennent dans les comptes rendus</h3>
+          <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {confusions.map((c, i) => (
+              <article class="flex flex-col overflow-hidden rounded-[6px] bg-white text-ink" data-rv style={`--d:${i}`}>
+                <img src={`${IMG}${c.img}.webp`} alt={c.alt} class="aspect-[4/5] w-full object-cover" loading="lazy" />
+                <div class="flex flex-1 flex-col p-5">
+                  <span class="font-mono text-caption text-ember-deep">0{i + 1}</span>
+                  <h4 class="mt-2 text-[18px] font-bold leading-tight tracking-[-0.02em]">{c.t}</h4>
+                  <p class="mt-2 text-body-sm text-ink-2">{c.d}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p class="mt-8 font-mono text-caption text-white/50">Avis de la dermatologue et comptes rendus de 208 téléconsultations. Observations qualitatives.</p>
+        </div>
+      </div>
+
+      <!-- Déclencheurs -->
+      <div class="px-6 py-20 md:px-14 md:py-24">
+        <div class="mx-auto max-w-[1240px]">
+          <h3 class="text-[32px] font-bold leading-[1.05] tracking-[-0.035em] md:text-[48px]">Comprendre ce qui déclenche</h3>
+          <p class="mt-5 max-w-[720px] text-body-lg text-ink-2">Un diagnostic, c'est aussi comprendre ce qui se passe autour de la peau. Chaque préoccupation a ses propres questions dans le bilan ; la grille montre ce que chacune déclare. Un point gris signifie que la question n'est pas posée pour ce problème.</p>
+
+          <div class="viz relative -mx-6 mt-12 overflow-x-auto px-6 md:mx-0 md:px-0" data-rv>
+            <table class="w-full min-w-[760px] border-collapse">
+              <caption class="sr-only">Déclencheurs déclarés par préoccupation, en pourcentage</caption>
+              <thead>
+                <tr>
+                  <th class="w-[120px]"></th>
+                  {triggerCols.map((c) => <th scope="col" class="px-1 pb-4 align-bottom text-[13px] font-semibold leading-tight text-ink-2">{c}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                {triggerRows.map((r) => (
+                  <tr class="border-t border-ink/10">
+                    <th scope="row" class="py-5 pr-3 text-left align-middle">
+                      <span class="block text-body-lg font-bold">{r.label}</span>
+                      <span class="block font-mono text-[11px] text-ink-3">{r.n}</span>
+                    </th>
+                    {r.v.map((v, j) => (
+                      <td class="h-[120px] px-1 text-center align-middle">
+                        {v === null ? (
+                          <span class="mx-auto block h-2 w-2 rounded-full bg-ink/15"><span class="sr-only">question non posée</span></span>
+                        ) : (
+                          <div class="flex flex-col items-center gap-1.5">
+                            <span class="bubble block rounded-full bg-ember" style={`--s:${Math.sqrt(v / 69) * 76}px;--d:${j}`}></span>
+                            <span class="font-mono text-[14px] font-medium">{v} %</span>
+                          </div>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-6 max-w-[900px] font-mono text-caption leading-relaxed text-ink-3">Acné : poussées liées au cycle, « oui clairement » ou « parfois » (femmes). Rougeurs : ce qui les déclenche ou les aggrave (rougeurs au centre du visage). Taches : apparues après le soleil, ou après une grossesse ou un changement hormonal. Rides : ce qui fait partie du quotidien. Ce sont des perceptions, pas des causes démontrées. Bilans du 14/09 au 23/11/2026.</p>
+        </div>
+      </div>
+
+      <!-- Vie hormonale -->
+      <div class="grid bg-cream lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+        <div class="relative">
+          <img src={`${IMG}patiente-leonixia-taches-portrait-main-joue-01.webp`} alt="Portrait d'une femme, la main sur la joue" class="h-[460px] w-full object-cover object-top md:h-[600px] lg:h-full" loading="lazy" />
+          <div class="viz absolute bottom-0 left-0 bg-deep p-6 text-white md:p-8" data-rv>
+            <p class="text-[64px] font-bold leading-[0.85] tracking-[-0.05em] md:text-[88px]">3 sur 4</p>
+            <div class="mt-4 flex gap-2" role="img" aria-label="3 sur 4">
+              {[0, 1, 2, 3].map((d) => (
+                <span class="dot h-6 w-6 rounded-full bg-white/20" style={`--d:${d}`}>{d < 3 && <span class="dot-on block h-full w-full rounded-full bg-ember" />}</span>
+              ))}
+            </div>
+            <p class="mt-4 max-w-[300px] text-body-sm">femmes de 45 ans et plus sont en ménopause ou en périménopause au moment du bilan</p>
+            <p class="mt-2 font-mono text-[11px] text-white/60">75,7 % · N = 765 · une situation, pas une cause déclarée</p>
+          </div>
+        </div>
+        <div class="px-6 py-16 md:px-14 md:py-20">
+          <h3 class="text-[32px] font-bold leading-[1.05] tracking-[-0.035em] md:text-[44px]">La vie hormonale des femmes, au cœur des dossiers</h3>
+          <ul class="mt-10 divide-y divide-ink/10">
+            {hormonal.map((h) => (
+              <li class="py-5" data-rv>
+                <p class="flex items-center gap-3 text-[18px] font-bold"><span class="h-2.5 w-2.5 rounded-full bg-ember"></span>{h.t}</p>
+                <p class="mt-2 pl-[22px] text-body text-ink-2">{h.d}</p>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-6 font-mono text-caption text-ink-3">Questionnaire (bilans du 14/09 au 23/11/2026) et comptes rendus de téléconsultation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RÉSOLUTION 2 ═══ -->
+    <section id="traitement" class="scroll-mt-14" aria-labelledby="r2">
+      <div class="grid lg:grid-cols-2">
+        <div class="order-2 flex flex-col justify-center bg-deep px-6 py-16 text-white md:px-14 lg:order-1 lg:px-16">
+          <FadeInSection client:load>
+            <p class="font-mono text-eyebrow uppercase text-white/70">Résolution 2</p>
+            <p class="mt-4 font-mono text-[140px] leading-[0.8] tracking-[-0.06em] text-ember md:text-[200px]" aria-hidden="true">2</p>
+            <h2 id="r2" class="mt-6 text-[38px] leading-[1.02] tracking-[-0.04em] md:text-[56px]">Le bon traitement, en peu de produits</h2>
+            <p class="mt-6 max-w-[520px] text-body-lg text-white/80">Une fois le problème identifié, l'ordonnance se resserre.</p>
+          </FadeInSection>
+        </div>
+        <img src="/images/shoot-labo-flacons.webp" alt="Flacons de préparation rangés dans une pharmacie" class="order-1 h-[420px] w-full object-cover md:h-[560px] lg:order-2 lg:h-full lg:min-h-[640px]" loading="lazy" />
+      </div>
+
+      <!-- Avant / après -->
+      <div class="bg-base px-6 py-20 md:px-14 md:py-28">
+        <div class="viz mx-auto grid max-w-[1240px] items-stretch gap-6 lg:grid-cols-[minmax(0,1fr)_80px_minmax(0,1fr)]" data-rv>
+          <div class="rounded-[6px] bg-cream p-8 md:p-10">
+            <p class="font-mono text-eyebrow uppercase text-ink-3">Avant la consultation</p>
+            <div class="mt-8 flex h-[150px] items-end gap-3" aria-hidden="true">
+              {[0, 1, 2, 3].map((t) => (
+                <span class={`tube ${t >= 2 ? 'tube--ghost' : ''}`} style={`--d:${t}`}></span>
+              ))}
+            </div>
+            <p class="mt-8 text-[88px] font-bold leading-[0.85] tracking-[-0.055em] md:text-[120px]">2 à 4</p>
+            <p class="mt-4 text-body-lg">traitements déjà essayés en médiane : 2 pour l'acné, 4 pour les rides, sans compter les soins du quotidien.</p>
+            <p class="mt-3 font-mono text-caption text-ink-3">acné N = 698 · rides N = 80</p>
+          </div>
+          <div class="grid place-items-center text-[48px] text-ember lg:text-[64px]" aria-hidden="true"><span class="rotate-90 lg:rotate-0">→</span></div>
+          <div class="rounded-[6px] bg-deep p-8 text-white md:p-10">
+            <p class="font-mono text-eyebrow uppercase text-white/60">Après le diagnostic</p>
+            <div class="mt-8 flex h-[150px] items-end gap-3" aria-hidden="true">
+              {[0, 1].map((t) => <span class="tube tube--ember" style={`--d:${t + 4}`}></span>)}
+            </div>
+            <p class="mt-8 text-[88px] font-bold leading-[0.85] tracking-[-0.055em] text-ember md:text-[120px]">2</p>
+            <p class="mt-4 text-body-lg">produits sur l'ordonnance, en médiane. 7 ordonnances sur 10 en comptent deux ou moins.</p>
+            <p class="mt-3 font-mono text-caption text-white/60">70,7 % · N = 181 ordonnances</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Préparation sur photo labo -->
+      <div class="relative">
+        <img src="/images/shoot-labo-preparation.webp" alt="Préparation d'une crème au mortier, dans un laboratoire de pharmacie" class="block h-[560px] w-full object-cover md:h-[760px]" loading="lazy" />
+        <div class="px-6 md:absolute md:inset-0 md:flex md:items-center md:px-14">
+          <div class="mx-auto -mt-24 w-full max-w-[1240px] md:mt-0">
+            <div class="max-w-[560px] rounded-[6px] bg-white p-8 shadow-[0_20px_40px_-24px_rgba(0,0,0,0.35)] md:p-12" data-rv>
+              <p class="font-mono text-eyebrow uppercase text-ember-deep">Une seule crème, plusieurs actifs</p>
+              <p class="mt-5 text-[64px] font-bold leading-[0.85] tracking-[-0.055em] md:text-[96px]">3 sur 4</p>
+              <p class="mt-4 text-[20px] font-semibold leading-snug md:text-[22px]">patientes repartent avec une préparation magistrale fabriquée en pharmacie pour elles, quand le médecin l'a jugée indiquée.</p>
+              <p class="mt-3 font-mono text-caption text-ink-3">72,9 % · N = 236 patientes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flacon : 3 actifs + barrière -->
+      <div class="bg-cream px-6 py-20 md:px-14 md:py-28">
+        <div class="mx-auto grid max-w-[1240px] items-center gap-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,4fr)_minmax(0,4fr)]">
+          <div>
+            <h3 class="text-[32px] font-bold leading-[1.05] tracking-[-0.035em] md:text-[44px]">Dans un flacon, en médiane</h3>
+            <p class="mt-5 text-body-lg text-ink-2">Une préparation réunit en médiane 3 actifs traitants et des ingrédients qui réparent la barrière de la peau. Des actifs que beaucoup connaissent déjà en rayon : la différence tient au dosage, à l'association et au choix fait pour une peau précise.</p>
+            <p class="mt-4 font-mono text-caption text-ink-3">N = 181 préparations · téléconsultations de mai à novembre 2026</p>
+          </div>
+          <div class="viz flex justify-center" data-rv>
+            <div class="flask" role="img" aria-label="Un flacon : 3 actifs traitants et une base qui répare la barrière (céramides, panthénol, centella)">
+              <div class="flask-cap"></div>
+              <div class="flask-body">
+                <div class="flask-layer bg-blush text-ink" style="--d:0"><span>Barrière : céramides, panthénol, centella</span></div>
+                <div class="flask-layer bg-ember-deep text-white" style="--d:1"><span>Actif 3</span></div>
+                <div class="flask-layer bg-ember-dark text-white" style="--d:2"><span>Actif 2</span></div>
+                <div class="flask-layer bg-ember text-white" style="--d:3"><span>Actif 1</span></div>
+              </div>
+            </div>
+          </div>
+          <img src={`${IMG}pharmacien-fabien-bruno-labo-pipette-01.webp`} alt="Un pharmacien prépare une formule à la pipette" class="aspect-[4/5] w-full rounded-[6px] object-cover" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RÉSOLUTION 3 ═══ -->
+    <section id="suivi" class="scroll-mt-14" aria-labelledby="r3">
+      <div class="grid lg:grid-cols-2">
+        <img src={`${IMG}patiente-rosacee-cuisine-01.webp`} alt="Une femme cuisine chez elle" class="h-[420px] w-full object-cover md:h-[560px] lg:h-full lg:min-h-[640px]" loading="lazy" />
+        <div class="flex flex-col justify-center bg-blush px-6 py-16 md:px-14 lg:px-16">
+          <FadeInSection client:load>
+            <p class="font-mono text-eyebrow uppercase text-ink-2">Résolution 3</p>
+            <p class="mt-4 font-mono text-[140px] leading-[0.8] tracking-[-0.06em] text-deep md:text-[200px]" aria-hidden="true">3</p>
+            <h2 id="r3" class="mt-6 text-[38px] leading-[1.02] tracking-[-0.04em] md:text-[56px]">Un suivi, pour tenir dans la durée</h2>
+            <p class="mt-6 max-w-[520px] text-body-lg text-ink-2">Une bonne ordonnance ne suffit pas si on l'abandonne au bout de trois semaines. Les mêmes consignes reviennent d'un compte rendu à l'autre, et toutes demandent du temps et un accompagnement.</p>
+          </FadeInSection>
+        </div>
+      </div>
+
+      <!-- Frise -->
+      <div class="bg-base px-6 py-20 md:px-14 md:py-28">
+        <div class="mx-auto max-w-[1240px]">
+          <h3 class="text-[32px] font-bold leading-[1.05] tracking-[-0.035em] md:text-[44px]">Les consignes qui reviennent, dans l'ordre</h3>
+          <ol class="viz relative mt-14 grid gap-10 md:grid-cols-4 md:gap-6" data-rv>
+            <span class="timeline-line absolute left-[11px] top-0 h-full w-[2px] bg-ember md:left-0 md:top-[11px] md:h-[2px] md:w-full" aria-hidden="true"></span>
+            {timeline.map((s, i) => (
+              <li class="relative pl-12 md:pl-0 md:pt-12" style={`--d:${i}`}>
+                <span class="timeline-dot absolute left-0 top-0 h-6 w-6 rounded-full border-[5px] border-base bg-ember" aria-hidden="true"></span>
+                <p class="font-mono text-caption uppercase tracking-[0.12em] text-ember-deep">{s.when}</p>
+                <p class="mt-2 text-h3">{s.t}</p>
+                <p class="mt-2 text-body text-ink-2">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+          <div class="mt-14 grid gap-px overflow-hidden rounded-[6px] bg-ink/10 md:grid-cols-2">
+            {everyday.map((e) => (
+              <div class="bg-deep p-7 text-white md:p-9" data-rv>
+                <p class="font-mono text-caption uppercase tracking-[0.12em] text-white/60">Tous les jours</p>
+                <p class="mt-2 text-h3">{e.t}</p>
+                <p class="mt-2 text-body text-white/75">{e.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Poids au quotidien -->
+      <div class="bg-cream px-6 py-20 md:px-14 md:py-28">
+        <div class="mx-auto max-w-[1240px]">
+          <div class="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-end lg:gap-16" data-rv>
+            <p class="text-[104px] font-bold leading-[0.85] tracking-[-0.055em] md:text-[156px]">1 sur 2</p>
+            <div>
+              <p class="text-[20px] font-semibold leading-snug md:text-[22px]">dit que sa peau affecte son quotidien ou qu'elle est « vraiment difficile à vivre » (57 % pour l'acné). Un suivi, c'est aussi quelqu'un à qui montrer sa peau avant d'acheter le flacon suivant.</p>
+              <p class="mt-3 font-mono text-caption text-ink-3">49,9 % · N = 1 944 bilans</p>
+            </div>
+          </div>
+
+          <h3 class="mt-20 text-h3">Le poids au quotidien</h3>
+          <ul class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-body-sm text-ink-2" aria-hidden="true">
+            {weightLegend.map((l, i) => <li class="flex items-center gap-2"><span class={`h-3 w-3 rounded-[2px] w${i}`}></span>{l}</li>)}
+          </ul>
+          <div class="viz mt-8 space-y-4" data-rv>
+            {weightRows.map((r, ri) => (
+              <div class="grid gap-2 md:grid-cols-[130px_minmax(0,1fr)] md:items-center md:gap-6">
+                <p><span class="text-body font-bold">{r.label}</span> <span class="font-mono text-[11px] text-ink-3 md:block">{r.n}</span></p>
+                <div class="flex h-12 overflow-hidden rounded-[4px] md:h-14" role="img" aria-label={`${r.label} : ` + r.v.map((v, i) => (r.hideFirst && i === 0 ? null : `${weightLegend[i]} ${v} %`)).filter(Boolean).join(', ')}>
+                  {r.v.map((v, i) => (
+                    <div class={`seg w${i} flex items-center justify-center font-mono text-[13px] md:text-[15px]`} style={`width:${v}%;--d:${ri * 5 + i}`}>
+                      {!(r.hideFirst && i === 0) && <span class={v < 8 ? 'max-md:hidden' : ''}>{v} %</span>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p class="mt-6 font-mono text-caption text-ink-3">« Au quotidien, quel impact a votre problème sur vous ? » Bilans du 22/09 au 23/11/2026 (question non posée pour les rides).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CITATION ═══ -->
+    <section class="grid bg-deep text-white lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+      <img src="/images/shoot-dermatologue.webp" alt="Dr Bethsabée Levy Garel, dermatologue" class="h-[460px] w-full object-cover object-top md:h-[620px] lg:h-full" loading="lazy" />
+      <figure class="flex flex-col justify-center px-6 py-16 md:px-14 md:py-24 lg:px-20">
+        <FadeInSection client:load>
+          <span class="block font-mono text-[96px] leading-[0.6] text-ember" aria-hidden="true">«</span>
+          <blockquote class="mt-6 text-[28px] font-bold leading-[1.15] tracking-[-0.03em] md:text-[40px]">
+            Avant d'ajouter un produit, on commence souvent par en enlever. Pour 2027, je proposerais de regarder la peau d'abord, de choisir peu, et de se laisser trois mois avant de juger.
+          </blockquote>
+          <figcaption class="mt-10 flex items-center gap-4">
+            <span class="h-[2px] w-10 bg-ember"></span>
+            <span>
+              <span class="block text-body-lg font-semibold">Dr Bethsabée Levy Garel</span>
+              <span class="block font-mono text-caption text-white/60">Dermatologue, co-fondatrice de Mixt</span>
+            </span>
+          </figcaption>
+        </FadeInSection>
+      </figure>
+    </section>
+
+    <!-- ═══ ESPACE PRESSE ═══ -->
+    <section id="presse" class="scroll-mt-14 bg-base px-6 py-20 md:px-14 md:py-28" aria-labelledby="presse-h">
+      <div class="mx-auto max-w-[1240px]">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="font-mono text-eyebrow uppercase text-ember-deep">Espace presse</p>
+            <h2 id="presse-h" class="mt-4 text-[38px] leading-[1.02] tracking-[-0.04em] md:text-[56px]">10 chiffres pour titrer</h2>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            {PRESS_PDF_READY && (
+              <Button href={PRESS_PDF_HREF} variant="dark" size="md" download>Télécharger le dossier (PDF)</Button>
+            )}
+            <Button href={`mailto:${PRESS_EMAIL}?subject=R%C3%A9solutions%20peau%202027`} variant="ghost" size="md">{PRESS_EMAIL}</Button>
+          </div>
+        </div>
+
+        <ol class="mt-12 border-t-2 border-ink">
+          {pressFigures.map((p, i) => (
+            <li class="grid gap-2 border-b border-ink/10 py-6 md:grid-cols-[48px_260px_minmax(0,1fr)_260px] md:items-baseline md:gap-6">
+              <span class="font-mono text-caption text-ink-3">{String(i + 1).padStart(2, '0')}</span>
+              <span class="text-[32px] font-bold leading-none tracking-[-0.04em] md:text-[36px]">{p.big}</span>
+              <span class="text-body-lg">{p.t}</span>
+              <span class="font-mono text-caption text-ink-3 md:text-right">{p.n}</span>
+            </li>
+          ))}
+        </ol>
+
+        <div class="mt-20 grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+          <div class="min-w-0">
+            <h3 class="text-h3">Sources, méthode, limites</h3>
+            <div class="mt-6 overflow-x-auto">
+              <table class="w-full min-w-[520px] border-collapse text-left text-body-sm">
+                <thead>
+                  <tr class="border-b-2 border-ink font-mono text-[11px] uppercase tracking-[0.1em] text-ink-3">
+                    <th class="py-3 pr-4 font-medium">Source</th>
+                    <th class="py-3 pr-4 font-medium">N</th>
+                    <th class="py-3 font-medium">Période</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-ink/10 align-top">
+                    <td class="py-4 pr-4">Bilans de peau en ligne terminés (questionnaire déclaratif)</td>
+                    <td class="whitespace-nowrap py-4 pr-4 font-mono">2 545</td>
+                    <td class="py-4">16/07 au 23/11/2026, surtout depuis le 14/09</td>
+                  </tr>
+                  <tr class="border-b border-ink/10 align-top">
+                    <td class="py-4 pr-4">Patientes vues en téléconsultation par les médecins partenaires : comptes rendus, avis de la dermatologue, ordonnances</td>
+                    <td class="whitespace-nowrap py-4 pr-4 font-mono">236</td>
+                    <td class="py-4">04/05 au 20/11/2026</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-6 text-body-sm text-ink-2">Les personnes sont venues d'elles-mêmes sur Mixt (94 % de femmes), le plus souvent parce que rien n'avait marché : ce n'est pas un échantillon représentatif. Les réponses sont déclaratives. Les observations tirées des comptes rendus sont qualitatives et ne sont pas chiffrées. Les données sont agrégées et anonymes : aucun groupe de moins de 20 personnes n'est publié. Nous ne communiquons aucun résultat de traitement. Nous n'avons pas encore de données de janvier, ni sur les dépenses, ni sur les consultations dermatologiques passées.</p>
+            <p class="mt-4 text-body-sm text-ink-2">Les consultations sont assurées par des médecins généralistes partenaires, expérimentés dans la prise en charge des problèmes de peau. Les protocoles sont conçus avec une dermatologue, co-fondatrice de Mixt.</p>
+          </div>
+          <div class="self-start rounded-[6px] bg-deep p-8 text-white md:p-10">
+            <p class="font-mono text-eyebrow uppercase text-white/60">Contact presse</p>
+            <p class="mt-4 text-h3">Interviews, données détaillées, visuels</p>
+            <p class="mt-3 text-body text-white/75">L'équipe Mixt et Dr Bethsabée Levy Garel sont disponibles pour commenter ces chiffres.</p>
+            <a href={`mailto:${PRESS_EMAIL}?subject=R%C3%A9solutions%20peau%202027`} class="mt-6 inline-block font-mono text-[18px] text-white underline decoration-ember decoration-2 underline-offset-4">{PRESS_EMAIL}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="bg-deep px-6 py-24 text-center text-white md:px-14 md:py-32">
+      <h2 class="mx-auto max-w-[900px] text-[44px] leading-[0.98] tracking-[-0.045em] md:text-[80px]">Commencer 2027 par un diagnostic</h2>
+      <p class="mx-auto mt-6 max-w-[560px] text-body-lg text-white/75">Un bilan en ligne, en 5 minutes : vos questions, vos photos, ce que vous avez déjà essayé. Puis, si vous le souhaitez, une téléconsultation avec un médecin partenaire.</p>
+      <div class="mt-10 flex justify-center">
+        <Button href={CTA_HREF} variant="ember-pill" size="lg">{CTA_LABEL} →</Button>
+      </div>
+      <p class="mt-4 text-body-sm text-white/55">{CTA_NOTE}</p>
+    </section>
+  </main>
+
+  <Footer />
+  <MobileStickyCta />
+</BaseLayout>
+
+<style>
+  /* ── Révélations au scroll (classe .in posée par l'observer) ─────────── */
+  .bar { width: calc(var(--v, 1) * 100%); transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: calc(var(--d, 0) * 90ms); }
+  .bar-flex { transform-origin: left; transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: calc(var(--d, 0) * 90ms); }
+  .bar .bar-label { transition: opacity 0.4s ease; transition-delay: calc(0.6s + var(--d, 0) * 90ms); }
+  .dot-on { transform: scale(1); transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); transition-delay: calc(var(--d, 0) * 80ms + 150ms); }
+  .bubble { width: var(--s); height: var(--s); transform: scale(1); transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); transition-delay: calc(var(--d, 0) * 60ms); }
+  .donut-seg { transition: stroke-dasharray 1.2s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: calc(var(--d, 0) * 250ms); }
+  .seg { transform-origin: left; transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: calc(var(--d, 0) * 40ms); }
+  .timeline-line { transform-origin: left top; transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1); }
+  .timeline-dot { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); transition-delay: calc(var(--d, 0) * 280ms + 200ms); }
+  .tube { transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s; transition-delay: calc(var(--d, 0) * 110ms); }
+  .flask-layer { transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: calc(var(--d, 0) * 200ms + 150ms); transform-origin: bottom; }
+  [data-rv]:not(.viz) { transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: calc(var(--d, 0) * 80ms); }
+
+  :global(html.rv-js) [data-rv]:not(.viz):not(.in) { opacity: 0; transform: translateY(24px); }
+  :global(html.rv-js) .viz:not(.in) .bar { width: 0; }
+  :global(html.rv-js) .viz:not(.in) .bar-flex { transform: scaleX(0); }
+  :global(html.rv-js) .viz:not(.in) .bar .bar-label { opacity: 0; }
+  :global(html.rv-js) .viz:not(.in) .dot-on { transform: scale(0); }
+  :global(html.rv-js) .viz:not(.in) .bubble { transform: scale(0); }
+  :global(html.rv-js) .viz:not(.in) .donut-seg { stroke-dasharray: 0 100; }
+  :global(html.rv-js) .viz:not(.in) .seg { transform: scaleX(0); }
+  :global(html.rv-js) .viz:not(.in) .timeline-line { transform: scale(0, 0); }
+  :global(html.rv-js) .viz:not(.in) .timeline-dot { transform: scale(0); }
+  :global(html.rv-js) .viz:not(.in) .tube { transform: translateY(30px); opacity: 0; }
+  :global(html.rv-js) .viz:not(.in) .flask-layer { transform: scaleY(0); }
+  @media (min-width: 768px) {
+    :global(html.rv-js) .viz:not(.in) .timeline-line { transform: scaleX(0); }
+  }
+
+  /* Mosaïque hero : apparition en cascade */
+  .mosaic-tile img { animation: tile-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(var(--i) * 70ms); }
+  @keyframes tile-in { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: scale(1); } }
+
+  /* Rampe « poids au quotidien » : clair > ember > bordeaux */
+  .w0 { background: #F6D9CF; color: #15181C; }
+  .w1 { background: #F4A98F; color: #15181C; }
+  .w2 { background: #F0502A; color: #fff; }
+  .w3 { background: #B0330F; color: #fff; }
+  .w4 { background: #321922; color: #fff; }
+
+  /* Tubes pictos */
+  .tube { position: relative; display: block; width: 44px; height: 140px; border-radius: 6px 6px 3px 3px; background: #15181C; }
+  .tube::before { content: ''; position: absolute; left: 50%; top: -14px; width: 20px; height: 14px; transform: translateX(-50%); border-radius: 3px 3px 0 0; background: inherit; }
+  .tube::after { content: ''; position: absolute; left: 6px; right: 6px; top: 40%; height: 18px; background: rgba(255, 255, 255, 0.85); border-radius: 2px; }
+  .tube--ghost { background: transparent; border: 2px dashed rgba(21, 24, 28, 0.35); }
+  .tube--ghost::before { background: rgba(21, 24, 28, 0.35); }
+  .tube--ghost::after { display: none; }
+  .tube--ember { background: #F0502A; width: 52px; height: 150px; }
+  .tube { margin-top: 14px; }
+
+  /* Flacon */
+  .flask { width: 220px; }
+  .flask-cap { width: 96px; height: 40px; margin: 0 auto; background: #15181C; border-radius: 8px 8px 0 0; }
+  .flask-body { display: flex; flex-direction: column-reverse; height: 340px; padding: 10px; border: 3px solid #15181C; border-radius: 28px; background: #fff; overflow: hidden; gap: 4px; }
+  .flask-layer { display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', ui-monospace, monospace; font-size: 13px; text-align: center; padding: 0 12px; border-radius: 6px; flex: 1; }
+  .flask-layer:first-child { flex: 1.6; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bar, .bar-flex, .dot-on, .bubble, .donut-seg, .seg, .timeline-line, .timeline-dot, .tube, .flask-layer, [data-rv], .mosaic-tile img { transition: none !important; animation: none !important; }
+  }
+  @media print {
+    :global(body > nav), :global(footer), :global(.lg\:hidden.fixed) { display: none !important; }
+  }
+</style>
+
+<script>
+  // Révèle chaque bloc [data-rv] à l'entrée dans l'écran et fait monter les compteurs [data-count].
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fmt = (n: number, space: boolean) => (space ? Math.round(n).toLocaleString('fr-FR') : String(Math.round(n)));
+
+  const runCounters = (root: Element) => {
+    if (reduce) return;
+    root.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
+      if (el.dataset.done) return;
+      el.dataset.done = '1';
+      const target = Number(el.dataset.count);
+      const space = el.dataset.format === 'space';
+      const t0 = performance.now();
+      const dur = 1300;
+      const tick = (t: number) => {
+        const p = Math.min(1, (t - t0) / dur);
+        const e = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(target * e, space);
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = fmt(target, space);
+      };
+      requestAnimationFrame(tick);
+    });
+  };
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        runCounters(e.target);
+        io.unobserve(e.target);
+      });
+    },
+    { threshold: 0.2, rootMargin: '0px 0px -8% 0px' },
+  );
+  document.querySelectorAll('[data-rv]').forEach((el) => io.observe(el));
+  // Compteurs hors blocs révélés (hero)
+  document.querySelectorAll('main > section:first-child').forEach((s) => runCounters(s));
+</script>
